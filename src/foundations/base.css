@@ -1,0 +1,26 @@
+/* Base styles read variables defined by the active theme + tokens */
+html {
+  font-size: var(--type-root-size, 16px);
+}
+
+body {
+  background: var(--clr-surface-default);
+  color: var(--clr-text-default);
+
+  /* brand-specific fonts come from the chosen theme */
+  font-family: var(--type-font-default), var(--type-font-alt, system-ui), sans-serif;
+
+  font-weight: var(--type-body-weight, 400);
+  /* line-height: var(--type-body-lh, 1.6); */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--clr-link-default, var(--clr-action-default));
+  text-decoration: none;
+}
+a:hover {
+  color: var(--clr-link-hover, color-mix(in oklab, currentColor, black 12%));
+  text-decoration: underline;
+}

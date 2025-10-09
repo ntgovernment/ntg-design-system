@@ -1,0 +1,33 @@
+{
+  "name": "ntg-design-system",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:js": "vite build",
+    "build:css:theme:ntg": "postcss src/themes/theme-ntg.css -o dist/css/theme-ntg.min.css --env production",
+    "build:css:theme:central": "postcss src/themes/theme-central.css -o dist/css/theme-central.min.css --env production",
+    "build:css:components": "postcss src/components.css -o dist/css/ntg-design-system-components.min.css --env production",
+    "build:css": "npm run build:css:theme:ntg && npm run build:css:theme:central && npm run build:css:components",
+    "build": "npm run build:js && npm run build:css",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^9.5.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4",
+    "vite": "^7.1.9",
+    "vite-plugin-dts": "^4.2.3"
+  }
+}

@@ -1,0 +1,9 @@
+/* src/components.css */
+@import "./layers.css";
+
+/* Put files into their cascade layers using the import’s layer() option */
+@import "./foundations/reset.css" layer(foundations);
+@import "./foundations/base.css" layer(foundations);
+
+@import "./components/button/button.css" layer(components);
+/* add more components the same way */
