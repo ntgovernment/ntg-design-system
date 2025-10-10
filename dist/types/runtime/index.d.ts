@@ -1,4 +1,4 @@
-import { enhanceButtons } from '../components/button/button.runtime';
+import { enhanceButtons } from '../components/ui-elements/button/button.runtime';
 declare function initAll(root?: ParentNode): void;
 export declare const components: {
     button: {

@@ -1,0 +1,83 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "component-viewer",
+  "namespace": "ntg-dxp-components",
+  "displayName": "Component Viewer",
+  "description": "A placeholder component to view other components in isolation.",
+  "version": "0.0.1",
+  "mainFunction": "main",
+  "icon": {
+    "id": "tab",
+    "color": {
+      "type": "hex",
+      "value": "#FF0000"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.ts",
+      "input": {
+        "type": "object",
+        "required": [],
+        "title": "Component Viewer",
+        "properties": {
+          "componentViewerTitle": {
+            "title": "Component Viewer Title",
+            "description": "The title to display at the top of the component viewer.",
+            "type": "string"
+          },
+          "componentViewerContent": {
+            "title": "Component Viewer Content",
+            "description": "The HTML content to display inside the component viewer.",
+            "type": "string"
+          },
+          "componentViewerBackgroundColor": {
+            "title": "Component Viewer Backround Color",
+            "description": "What background color to use for the component viewer.",
+            "type": "string",
+            "enum": ["white", "lightgray", "gray", "darkgray", "black"],
+            "default": true
+          }
+        }
+      },
+      "output": {
+        "responseType": "html",
+        "staticFiles": [
+          {
+            "location": "header",
+            "file": {
+              "type": "css",
+              "filepath": "default.css"
+            }
+          },
+          {
+            "location": "footer",
+            "file": {
+              "type": "js",
+              "filepath": "default.js"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "previews/example.data.json"
+          },
+          "wrapper": {
+            "path": "previews/preview.html"
+          }
+        }
+      }
+    }
+  },
+  "staticFiles": {
+    "locationRoot": "static"
+  }
+}

@@ -5,5 +5,5 @@
 @import "./foundations/reset.css" layer(foundations);
 @import "./foundations/base.css" layer(foundations);
 
-@import "./components/button/button.css" layer(components);
+@import "./components/ui-elements/button/button.css" layer(components);
 /* add more components the same way */
