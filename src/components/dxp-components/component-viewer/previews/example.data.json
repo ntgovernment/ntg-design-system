@@ -1,1 +1,10 @@
-{}
+{
+  "componentViewerTabTitleLeft": "Design",
+  "componentViewerTabTitleRight": "Code",
+  "componentViewerStorybookPreview": "https://ntg-design-system-storybook.netlify.app/iframe.html?id=components-button--primary&args=&viewMode=story",
+  "componentViewerCodeBlock": "<button class=\"btn btn-primary\">Primary Button</button>",
+  "componentViewerFigmaUrl": "https://www.figma.com/file/xyz123/Design-System?node-id=0%3A1",
+  "componentViewerStorybookUrl": "https://github.com/ntgovernment/ntg-design-system",
+  "componentViewerGitHubUrl": "https://github.com/ntgovernment/ntg-design-system",
+  "componentViewerNewTab": "true"
+}

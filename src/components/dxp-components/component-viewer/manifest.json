@@ -16,28 +16,51 @@
   "functions": [
     {
       "name": "main",
-      "entry": "main.ts",
+      "entry": "ComponentViewer.ts",
       "input": {
         "type": "object",
         "required": [],
         "title": "Component Viewer",
         "properties": {
-          "componentViewerTitle": {
-            "title": "Component Viewer Title",
-            "description": "The title to display at the top of the component viewer.",
+          "componentViewerTabTitleLeft": {
+            "title": "Left tab title",
+            "description": "The title to display at the first tab of the component viewer.",
             "type": "string"
           },
-          "componentViewerContent": {
-            "title": "Component Viewer Content",
-            "description": "The HTML content to display inside the component viewer.",
+          "componentViewerTabTitleRight": {
+            "title": "Right tab title",
+            "description": "The title to display at the second tab of the component viewer.",
             "type": "string"
           },
-          "componentViewerBackgroundColor": {
-            "title": "Component Viewer Backround Color",
-            "description": "What background color to use for the component viewer.",
-            "type": "string",
-            "enum": ["white", "lightgray", "gray", "darkgray", "black"],
-            "default": true
+          "componentViewerStorybookPreview": {
+            "title": "Storybook Preview Iframe URL",
+            "description": "The URL of the Storybook preview iframe to display in the right tab.",
+            "type": "string"
+          },
+          "componentViewerCodeBlock": {
+            "title": "Storybook Code Block",
+            "description": "The code block to display in the right tab.",
+            "type": "string"
+          },
+          "componentViewerFigmaUrl": {
+            "title": "Figma external URL",
+            "description": "Figma project URL to open in a new tab when the Figma icon is clicked.",
+            "type": "string"
+          },
+          "componentViewerStorybookUrl": {
+            "title": "Storybook external URL",
+            "description": "Storybook project URL to open in a new tab when the Storybook icon is clicked.",
+            "type": "string"
+          },
+          "componentViewerGitHubUrl": {
+            "title": "GitHub external URL",
+            "description": "GitHub project URL to open in a new tab when the GitHub icon is clicked.",
+            "type": "string"
+          },
+          "componentViewerNewTab": {
+            "title": "Open Storybook component in a new tab",
+            "description": "Storybook preview iframe will open in a new tab when the Storybook tab is clicked.",
+            "type": "string"
           }
         }
       },
