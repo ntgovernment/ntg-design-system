@@ -11,7 +11,7 @@
     "build:css": "npm run build:css:theme:ntg && npm run build:css:theme:central && npm run build:css:components",
     "build": "npm run build:js && npm run build:css",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o ./docs"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.2.9",
