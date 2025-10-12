@@ -3,10 +3,10 @@
 // Dev-only HMR entry (loads foundations + every component CSS from /src for instant updates)
 import "../src/components.hmr.ts";
 
-// Map toolbar values → actual theme CSS files
+// Map toolbar values → actual theme CSS files (using built files)
 const THEME_MAP = {
-  ntg: new URL("../src/themes/theme-ntg.css", import.meta.url).href,
-  ntgcentral: new URL("../src/themes/theme-central.css", import.meta.url).href,
+  ntg: "./css/theme-ntg.min.css",
+  ntgcentral: "./css/theme-central.min.css",
 } as const;
 
 type BrandKey = keyof typeof THEME_MAP;
