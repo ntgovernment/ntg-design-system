@@ -11,5 +11,8 @@ const config: StorybookConfig = {
     // Copy built JS file to storybook static assets
     { from: "../dist", to: "/dist" },
   ],
+  docs: {
+    autodocs: true,
+  },
 };
 export default config;
