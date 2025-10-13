@@ -51,37 +51,86 @@ const dark = (useParam('dark') || '1') === '1';
 
     React.useEffect(() => {
       let cancelled = false;
-      // create an offscreen iframe that renders the story
-      const srcUrl = `${window.location.origin}/iframe.html?id=${encodeURIComponent(codeId)}&viewMode=story`;
-      const iframe = document.createElement('iframe');
-      iframe.className = '__code_snap_iframe';
-      iframe.src = srcUrl;
-      iframe.onload = () => {
-        // give the story a tick to hydrate/paint
-        setTimeout(() => {
-          try {
-            const doc = iframe.contentDocument || iframe.contentWindow?.document;
-            const root = doc?.getElementById('storybook-root');
-            const raw = root?.innerHTML || '';
-            const cleaned = sanitize(raw);
-            const pretty = prettyHtml(cleaned);
-            if (!cancelled) {
-              setSrc(pretty || '<!-- No markup found -->');
-              setMsg('');
-            }
-          } catch (e) {
-            if (!cancelled) setMsg(`Unable to access story iframe: ${e.message || e}`);
-          } finally {
-            // remove the iframe to avoid leaks
-            iframe.remove();
+      let attempts = 0;
+      const maxAttempts = 5;
+
+      function tryExtractCode() {
+        if (cancelled || attempts >= maxAttempts) return;
+        attempts++;
+
+        // create an offscreen iframe that renders the story
+        const baseUrl = window.location.origin + window.location.pathname.replace('/iframe.html', '').replace('/index.html', '');
+        const srcUrl = `${baseUrl}/iframe.html?id=${encodeURIComponent(codeId)}&viewMode=story`;
+        const iframe = document.createElement('iframe');
+        iframe.className = '__code_snap_iframe';
+        iframe.src = srcUrl;
+
+        const timeoutId = setTimeout(() => {
+          if (!cancelled) setMsg(`Timeout loading story (attempt ${attempts}/${maxAttempts})`);
+          iframe.remove();
+          if (attempts < maxAttempts) {
+            setTimeout(tryExtractCode, 1000); // retry after 1 second
+          } else {
+            setMsg('Unable to load story content after multiple attempts');
           }
-        }, 60); // small delay for client render
-      };
-      document.body.appendChild(iframe);
+        }, 5000); // 5 second timeout
+
+        iframe.onload = () => {
+          clearTimeout(timeoutId);
+          // give the story more time to hydrate/paint in production
+          setTimeout(() => {
+            try {
+              const doc = iframe.contentDocument || iframe.contentWindow?.document;
+              if (!doc) {
+                throw new Error('Cannot access iframe document (CORS or security restriction)');
+              }
+
+              const root = doc.getElementById('storybook-root');
+              if (!root) {
+                throw new Error('Storybook root element not found');
+              }
+
+              const raw = root.innerHTML || '';
+              if (!raw.trim()) {
+                throw new Error('Story content is empty');
+              }
+
+              const cleaned = sanitize(raw);
+              const pretty = prettyHtml(cleaned);
+              if (!cancelled) {
+                setSrc(pretty || '<!-- No markup found -->');
+                setMsg('');
+              }
+            } catch (e) {
+              if (!cancelled) {
+                console.error('Code extraction error:', e);
+                setMsg(`Error (attempt ${attempts}/${maxAttempts}): ${e.message || e}`);
+                if (attempts < maxAttempts) {
+                  setTimeout(tryExtractCode, 2000); // retry after 2 seconds
+                }
+              }
+            } finally {
+              iframe.remove();
+            }
+          }, 500); // increased delay for production
+        };
+
+        iframe.onerror = () => {
+          clearTimeout(timeoutId);
+          if (!cancelled) setMsg(`Failed to load iframe (attempt ${attempts}/${maxAttempts})`);
+          iframe.remove();
+          if (attempts < maxAttempts) {
+            setTimeout(tryExtractCode, 1000);
+          }
+        };
+
+        document.body.appendChild(iframe);
+      }
+
+      tryExtractCode();
 
       return () => {
         cancelled = true;
-        try { iframe.remove(); } catch {}
       };
     }, [codeId]);
 
