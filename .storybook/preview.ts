@@ -5,6 +5,23 @@ import "../src/components.hmr.ts";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
+// Font Awesome icon helper
+const createFontAwesomeIcon = (iconClass: string) => {
+  if (!iconClass) return null;
+  return createElement("i", { className: iconClass });
+};
+
+// Available Font Awesome icons for Storybook controls
+export const FONT_AWESOME_ICONS = {
+  none: "",
+  "square-check": "fa-regular fa-square-check",
+  save: "fas fa-save",
+  download: "fas fa-download",
+  "arrow-right": "fas fa-arrow-right",
+  plus: "fas fa-plus",
+  check: "fas fa-check",
+};
+
 // Map toolbar values → actual theme CSS files (using built files)
 const THEME_MAP = {
   ntg: "./css/theme-ntg.min.css",
@@ -44,6 +61,46 @@ export const globalTypes = {
     },
   },
 };
+
+// export const parameters = {
+//   docs: {
+//     source: {
+//       language: "html",
+//       format: true,
+//       transform: (code: string, storyContext: any) => {
+//         try {
+//           // Get the component and args from story context
+//           const Component = storyContext.component;
+//           const args = storyContext.args || {};
+
+//           // Create the component element
+//           const componentElement = createElement(Component, args);
+
+//           // Render to static HTML markup
+//           const html = renderToStaticMarkup(componentElement);
+
+//           // Format the HTML nicely
+//           const formattedHtml = html
+//             .replace(/></g, ">\n<") // Add line breaks between tags
+//             .replace(/^\s+|\s+$/g, "") // Trim whitespace
+//             .split("\n")
+//             .map((line) => line.trim())
+//             .filter((line) => line.length > 0)
+//             .join("\n");
+
+//           return formattedHtml;
+//         } catch (error) {
+//           console.warn("Failed to extract HTML from story:", error);
+
+//           // Simple fallback - just show a basic structure
+//           const componentName = storyContext.component?.name || "Component";
+//           const children = storyContext.args?.children || "";
+//           return `<${componentName.toLowerCase()}>${children}</${componentName.toLowerCase()}>`;
+//         }
+//       },
+//     },
+//   },
+// };
 
 export const parameters = {
   docs: {

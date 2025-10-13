@@ -1,0 +1,96 @@
+import React from "react";
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Embeds/Code Dynamic Snapshot" />
+
+<style>{`
+  .sbdocs, .sbdocs-content { padding: 0 !important; margin: 0 !important; background: transparent !important; }
+  h1, h2, h3, h4 { display: none !important; }
+  .code-status { font: 12px/1.4 system-ui, Arial, sans-serif; color: #666; padding: 8px 0; }
+  iframe.__code_snap_iframe { position: absolute; left: -99999px; width: 0; height: 0; border: 0; }
+`}</style>
+
+{(() => {
+function useParam(name) {
+const s = new URLSearchParams(window.location.search);
+if (s.has(name)) return s.get(name);
+const h = new URLSearchParams(window.location.hash.replace(/^#\?/, ''));
+return h.get(name);
+}
+
+function prettyHtml(html) {
+const voidTags = new Set(['area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']);
+const tokens = html.replace(/>\s+</g, '><').replace(/</g, '\n<').trim().split('\n');
+let out = '', indent = 0;
+for (const t of tokens) {
+if (/^<\/[^>]+>/.test(t)) indent = Math.max(indent - 1, 0);
+out += ' '.repeat(indent) + t + '\n';
+const open = /^<([a-z0-9-]+)(\s|>|\/>)/i.exec(t);
+const isOpen = /^<[^!/][^>]_[^/]?>/.test(t);
+const isInlineClose = /^<[^>]+>._<\/[^>]+>$/.test(t);
+if (isOpen && open && !voidTags.has(open[1].toLowerCase()) && !isInlineClose) indent += 1;
+}
+return out.trim();
+}
+
+function sanitize(html) {
+// strip storybook/react noise as you like
+return html
+.replace(/ data-[a-z-]+="[^"]_"/g, '') // data-_ attrs
+.replace(/<!--.*?-->/gs, '') // comments
+.replace(/\sclass=""/g, ''); // empty classes
+}
+
+function CodeOnly() {
+const codeId = useParam('codeId') || 'components-button--primary';
+const lang = useParam('lang') || 'html';
+const dark = (useParam('dark') || '1') === '1';
+
+    const [src, setSrc] = React.useState('');
+    const [msg, setMsg] = React.useState('Rendering…');
+
+    React.useEffect(() => {
+      let cancelled = false;
+      // create an offscreen iframe that renders the story
+      const srcUrl = `${window.location.origin}/iframe.html?id=${encodeURIComponent(codeId)}&viewMode=story`;
+      const iframe = document.createElement('iframe');
+      iframe.className = '__code_snap_iframe';
+      iframe.src = srcUrl;
+      iframe.onload = () => {
+        // give the story a tick to hydrate/paint
+        setTimeout(() => {
+          try {
+            const doc = iframe.contentDocument || iframe.contentWindow?.document;
+            const root = doc?.getElementById('storybook-root');
+            const raw = root?.innerHTML || '';
+            const cleaned = sanitize(raw);
+            const pretty = prettyHtml(cleaned);
+            if (!cancelled) {
+              setSrc(pretty || '<!-- No markup found -->');
+              setMsg('');
+            }
+          } catch (e) {
+            if (!cancelled) setMsg(`Unable to access story iframe: ${e.message || e}`);
+          } finally {
+            // remove the iframe to avoid leaks
+            iframe.remove();
+          }
+        }, 60); // small delay for client render
+      };
+      document.body.appendChild(iframe);
+
+      return () => {
+        cancelled = true;
+        try { iframe.remove(); } catch {}
+      };
+    }, [codeId]);
+
+    return <>
+      {msg ? <div className="code-status">{msg}</div> : null}
+      <Source code={src || '<!-- no code available -->'} language={lang} dark={dark} />
+    </>;
+
+}
+
+return <CodeOnly />;
+})()}

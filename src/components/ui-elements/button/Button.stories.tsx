@@ -1,6 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 
+// Font Awesome icon helper
+const createIcon = (iconClass: string) => {
+  if (!iconClass) return undefined;
+  return <i className={iconClass} />;
+};
+
+// Available Font Awesome icons
+const ICON_OPTIONS = {
+  none: "",
+  "square-check": "fa-regular fa-square-check",
+  save: "fas fa-save",
+  download: "fas fa-download",
+  "arrow-right": "fas fa-arrow-right",
+  plus: "fas fa-plus",
+  check: "fas fa-check",
+};
+
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
@@ -35,6 +52,25 @@ const meta: Meta<typeof Button> = {
     disabled: {
       control: "boolean",
       description: "Disable the button.",
+    },
+
+    iconLeft: {
+      control: { type: "select" },
+      options: Object.keys(ICON_OPTIONS),
+      description: "Icon to display on the left side of the button text.",
+      mapping: Object.fromEntries(Object.entries(ICON_OPTIONS).map(([key, value]) => [key, createIcon(value)])),
+    },
+
+    iconRight: {
+      control: { type: "select" },
+      options: Object.keys(ICON_OPTIONS),
+      description: "Icon to display on the right side of the button text.",
+      mapping: Object.fromEntries(Object.entries(ICON_OPTIONS).map(([key, value]) => [key, createIcon(value)])),
+    },
+
+    loadingIcon: {
+      table: { disable: true },
+      description: "Uses default loading spinner (not customizable in docs).",
     },
   },
   tags: ["autodocs"],
@@ -81,7 +117,12 @@ export const Large: Story = {
 export const Loading: Story = {
   args: {
     loading: true,
-    children: "...",
+    children: "Loading",
+  },
+  argTypes: {
+    iconLeft: { table: { disable: true } },
+    iconRight: { table: { disable: true } },
+    loadingIcon: { table: { disable: true } },
   },
 };
 
@@ -89,5 +130,39 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     children: "Label",
+  },
+};
+
+export const WithLeftIcon: Story = {
+  args: {
+    variant: "primary",
+    children: "Label",
+    iconLeft: createIcon(ICON_OPTIONS.save),
+  },
+};
+
+export const WithRightIcon: Story = {
+  args: {
+    variant: "primary",
+    children: "Label",
+    iconRight: createIcon(ICON_OPTIONS["arrow-right"]),
+  },
+};
+
+export const WithBothIcons: Story = {
+  args: {
+    variant: "secondary",
+    children: "Label",
+    iconLeft: createIcon(ICON_OPTIONS.download),
+    iconRight: createIcon(ICON_OPTIONS["arrow-right"]),
+  },
+};
+
+export const SmallWithIcon: Story = {
+  args: {
+    variant: "primary",
+    size: "small",
+    children: "Label",
+    iconLeft: createIcon(ICON_OPTIONS.download),
   },
 };

@@ -1,7 +1,7 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 const config: StorybookConfig = {
   framework: "@storybook/react-vite",
-  stories: ["../src/components/**/*.stories.@(ts|tsx)"],
+  stories: ["../src/components/**/*.stories.@(ts|tsx)", "../src/**/*.mdx"],
   addons: ["@storybook/addon-essentials"],
   staticDirs: [
     // Copy built CSS files to storybook static assets
