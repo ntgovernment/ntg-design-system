@@ -2,7 +2,23 @@
 /* Base styles read variables defined by the active theme + tokens */
 /* Primary button variant */
 /* Secondary button variant */
-/* Tertiary button variant *//* src/components.css */
+/* Tertiary button variant */
+/* Icon styles */
+/* .ntgds-btn__text {
+  display: inline-flex;
+  align-items: center;
+} */
+/* Loading styles */
+/* Loading spinner animation */
+@keyframes ntgds-btn-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Small button icon adjustments *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
 *:not(#\#),
 *:not(#\#)::before,
@@ -14,7 +30,8 @@ img:not(#\#), picture:not(#\#), video:not(#\#), canvas:not(#\#), svg:not(#\#) { 
 input:not(#\#), button:not(#\#), textarea:not(#\#), select:not(#\#) { font: inherit; }
 :root:not(#\#) { --csstools-color-scheme--dark:  ; color-scheme: light dark; }
 @media (prefers-color-scheme: dark) {
-:root:not(#\#) { --csstools-color-scheme--dark: initial; } }
+:root:not(#\#) { --csstools-color-scheme--dark: initial; }
+}
 :focus-visible:not(#\#) { outline: 2px solid var(--clr-focus-ring); outline-offset: 2px; }
 /* Base styles read variables defined by the active theme + tokens */
 html:not(#\#) {
@@ -176,5 +193,49 @@ a:hover:not(#\#) {
   padding: 0.5rem 1rem;
   padding: var(--sp-xs, 0.5rem) var(--sp-md, 1rem);
   font-size: var(--type-desktop-body-sm-size);
+}
+/* Icon styles */
+.ntgds-btn__icon:not(#\#):not(#\#) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ntgds-btn__icon--left:not(#\#):not(#\#) {
+  margin-right: 0.5rem;
+  margin-right: var(--sp-xs, 0.5rem);
+}
+.ntgds-btn__icon--right:not(#\#):not(#\#) {
+  margin-left: 0.5rem;
+  margin-left: var(--sp-xs, 0.5rem);
+}
+/* .ntgds-btn__text {
+  display: inline-flex;
+  align-items: center;
+} */
+/* Loading styles */
+.ntgds-btn--loading:not(#\#):not(#\#) {
+  position: relative;
+}
+.ntgds-btn__loading-spinner:not(#\#):not(#\#) {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: ntgds-btn-spin 1s linear infinite;
+}
+.ntgds-btn__loading-text:not(#\#):not(#\#) {
+  opacity: 0.7;
+}
+/* Loading spinner animation */
+/* Small button icon adjustments */
+.ntgds-btn--small:not(#\#):not(#\#) .ntgds-btn__icon {
+  font-size: 0.875em;
+}
+.ntgds-btn--small:not(#\#):not(#\#) .ntgds-btn__loading-spinner {
+  width: 0.875em;
+  height: 0.875em;
 }
 /* add more components the same way */
