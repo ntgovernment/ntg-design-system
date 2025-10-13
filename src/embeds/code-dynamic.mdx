@@ -3,12 +3,33 @@ import { Meta, Source } from "@storybook/blocks";
 
 <Meta title="Embeds/Code Dynamic Snapshot" />
 
-<style>{`
-  .sbdocs, .sbdocs-content { padding: 0 !important; margin: 0 !important; background: transparent !important; }
-  h1, h2, h3, h4 { display: none !important; }
-  .code-status { font: 12px/1.4 system-ui, Arial, sans-serif; color: #666; padding: 8px 0; }
-  iframe.__code_snap_iframe { position: absolute; left: -99999px; width: 0; height: 0; border: 0; }
-`}</style>
+{(() => {
+const bg = new URLSearchParams(window.location.search).get('bg') ||
+new URLSearchParams(window.location.hash.replace(/^#\?/, '')).get('bg') ||
+'dark';
+
+return (
+<style>{`      .sbdocs, .sbdocs-content { 
+        padding: 0 !important; 
+        margin: 0 !important; 
+        background: ${bg === 'white' || bg === 'light' ? '#ffffff' : 'transparent'} !important; 
+      }
+      body { 
+        background: ${bg === 'white' || bg === 'light' ? '#ffffff !important' : 'inherit'};
+      }
+      html { 
+        background: ${bg === 'white' || bg === 'light' ? '#ffffff !important' : 'inherit'};
+      }
+      h1, h2, h3, h4 { display: none !important; }
+      .code-status { 
+        font: 12px/1.4 system-ui, Arial, sans-serif; 
+        color: ${bg === 'white' || bg === 'light' ? '#333' : '#666'}; 
+        padding: 8px 0; 
+      }
+      iframe.__code_snap_iframe { position: absolute; left: -99999px; width: 0; height: 0; border: 0; }
+   `}</style>
+);
+})()}
 
 {(() => {
 function useParam(name) {
@@ -45,6 +66,7 @@ function CodeOnly() {
 const codeId = useParam('codeId') || 'components-button--primary';
 const lang = useParam('lang') || 'html';
 const dark = (useParam('dark') || '1') === '1';
+const bg = useParam('bg') || 'dark';
 
     const [src, setSrc] = React.useState('');
     const [msg, setMsg] = React.useState('Rendering…');
