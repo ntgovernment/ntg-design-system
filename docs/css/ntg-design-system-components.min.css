@@ -28,9 +28,9 @@ body:not(#\#), h1:not(#\#), h2:not(#\#), h3:not(#\#), h4:not(#\#), h5:not(#\#), 
 ul[role='list']:not(#\#), ol[role='list']:not(#\#) { list-style: none; }
 img:not(#\#), picture:not(#\#), video:not(#\#), canvas:not(#\#), svg:not(#\#) { display: block; max-width: 100%; }
 input:not(#\#), button:not(#\#), textarea:not(#\#), select:not(#\#) { font: inherit; }
-:root:not(#\#) { --csstools-color-scheme--dark:  ; color-scheme: light dark; }
+:root:not(#\#) { --csstools-color-scheme--light: initial; color-scheme: light dark; }
 @media (prefers-color-scheme: dark) {
-:root:not(#\#) { --csstools-color-scheme--dark: initial; }
+:root:not(#\#) { --csstools-color-scheme--light:  ; }
 }
 :focus-visible:not(#\#) { outline: 2px solid var(--clr-focus-ring); outline-offset: 2px; }
 /* Base styles read variables defined by the active theme + tokens */

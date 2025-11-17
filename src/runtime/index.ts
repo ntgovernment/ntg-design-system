@@ -1,4 +1,4 @@
-import { enhanceButtons } from "../components/ui-elements/button/button.runtime";
+import { enhanceButtons } from "../components/button/button.runtime";
 
 function initAll(root: ParentNode = document) {
   enhanceButtons(root);

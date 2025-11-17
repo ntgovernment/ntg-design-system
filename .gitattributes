@@ -18,6 +18,10 @@
 # (useful for Windows-specific files)
 *.bat text eol=crlf
 
+# Build artifacts - treat as binary to avoid line ending warnings
+docs/** -text
+docs/**/* -text
+
 # Declare files that will always have LF line endings on checkout.
 # (useful for Unix-specific files)
 *.sh text eol=lf
