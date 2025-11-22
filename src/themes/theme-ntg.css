@@ -1,188 +1,252 @@
-/* Imports primitives, sets fonts + semantic variables */
+/**
+ * NT.GOV.AU Theme
+ * ================
+ * Theme definition for NT.GOV.AU, the public-facing NT Government website.
+ * 
+ * TOKEN ARCHITECTURE:
+ * ╔══════════════════════════════════════════════════════════════════════════╗
+ * ║ Layer 1: Primitives (ntg-design-system-tokens.css)                      ║
+ * ║   └─ Raw color values, spacing, typography primitives                   ║
+ * ║                                                                           ║
+ * ║ Layer 2: Theme-Primitives (defined below in @layer theme-primitives)    ║
+ * ║   └─ Maps NT.GOV.AU-specific primitives to generic --theme-* tokens     ║
+ * ║                                                                           ║
+ * ║ Layer 3: Semantics (theme-base.css + typography-base.css)               ║
+ * ║   └─ Semantic tokens that reference --theme-* tokens                    ║
+ * ║                                                                           ║
+ * ║ Layer 4: Overrides (defined below in @layer overrides)                  ║
+ * ║   └─ Theme-specific customizations (fonts, radii, tags)                 ║
+ * ╚══════════════════════════════════════════════════════════════════════════╝
+ * 
+ * DEPENDENCIES:
+ * This theme requires the following files to function correctly:
+ * ✓ ../tokens/ntg-design-system-tokens.css (primitives)
+ * ✓ ./theme-base.css (shared semantic tokens)
+ * ✓ ./typography-base.css (shared typography)
+ * 
+ * IMPORT ORDER:
+ * 1. Primitives (provides raw token values)
+ * 2. Theme-primitives layer (maps primitives to --theme-* tokens)
+ * 3. Shared bases (reference --theme-* tokens)
+ * 4. Overrides layer (theme-specific customizations)
+ */
+
+/* Explicit layer declaration - defines cascade order */
+@layer theme-primitives, semantics, typography, overrides;
+
+/* Import primitives - MUST be first */
 @import url("../tokens/ntg-design-system-tokens.css");
 
-/* Collection name: Themes */
-/* Mode: NTG */
-:root {
-  --clr-bg-primary: var(--ntg-colour-neutrals-white);
-  --clr-bg-secondary: var(--ntg-colour-neutrals-100);
-  --clr-bg-dark: var(--ntg-colour-primary---blue-default);
-  --clr-surface-default: var(--ntg-colour-neutrals-white);
-  --clr-surface-hover: var(--ntg-colour-neutrals-100);
-  --clr-surface-selected: var(--ntg-colour-neutrals-100);
-  --clr-action-default: var(--ntg-colour-primary---blue-default);
-  --clr-action-hover: var(--ntg-colour-secondary---ochre-default);
-  --clr-action-pressed: var(--ntg-colour-secondary---ochre-600);
-  --clr-action-disabled: var(--ntg-colour-neutrals-200);
-  --clr-field-default: var(--ntg-colour-neutrals-100);
-  --clr-field-hover: var(--ntg-colour-neutrals-200);
-  --clr-field-active: var(--ntg-colour-neutrals-100);
-  --clr-field-disabled: var(--ntg-colour-neutrals-300);
-  --clr-stroke-strong: var(--ntg-colour-primary---blue-default);
-  --clr-stroke-subtle: var(--ntg-colour-neutrals-300);
-  --clr-stroke-hover: var(--ntg-colour-neutrals-400);
-  --clr-stroke-inverted: var(--ntg-colour-neutrals-white);
-  --clr-stroke-disabled: var(--ntg-colour-neutrals-300);
-  --clr-text-default: var(--ntg-colour-neutrals-900);
-  --clr-text-body: var(--ntg-colour-neutrals-900);
-  --clr-text-helper: var(--ntg-colour-neutrals-700);
-  --clr-text-inverse: var(--ntg-colour-neutrals-white);
-  --clr-text-disabled: var(--ntg-colour-neutrals-700);
-  --clr-link-default: var(--ntg-colour-primary---blue-default);
-  --clr-link-hover: var(--ntg-colour-secondary---ochre-default);
-  --clr-link-visited: #7c19aa;
-  --clr-link-inverse: var(--ntg-colour-neutrals-white);
-  --clr-link-inverse-hover: var(--ntg-colour-primary---blue-100);
-  --clr-link-inverse-visited: var(--ntg-colour-primary---orange-100);
-  --clr-icon-primary: var(--ntg-colour-primary---blue-default);
-  --clr-icon-secondary: var(--ntg-colour-secondary---ochre-default);
-  --clr-icon-inverse: var(--ntg-colour-neutrals-white);
-  --clr-icon-disabled: var(--ntg-colour-neutrals-500);
-  --clr-status-info-surface: var(--ntg-colour-status-info-blue-50);
-  --clr-status-info: var(--ntg-colour-status-info-blue-default);
-  --clr-status-success-surface: var(--ntg-colour-status-success-green-50);
-  --clr-status-success: var(--ntg-colour-status-success-green-default);
-  --clr-status-warning-surface: var(--ntg-colour-status-warning-orange-50);
-  --clr-status-warning: var(--ntg-colour-status-warning-orange-default);
-  --clr-status-danger-surface: var(--ntg-colour-status-danger-red-50);
-  --clr-status-danger: var(--ntg-colour-status-danger-red-default);
-  --clr-focus-focus: var(--ntg-colour-primary---orange-300);
-  --type-font-default: Lato;
-  --type-font-alt: Arial;
-  --radii-none: var(--global-spacing-spacing-0);
-  --radii-button: var(--global-spacing-spacing-0);
-  --radii-sm: var(--global-spacing-spacing-4);
-  --radii-md: var(--global-spacing-spacing-20);
-  --radii-lg: var(--global-spacing-spacing-full);
-  --sp-xs: var(--global-spacing-spacing-8);
-  --sp-xxs: var(--global-spacing-spacing-4);
-  --sp-sm: var(--global-spacing-spacing-12);
-  --sp-md: var(--global-spacing-spacing-16);
-  --sp-xl: var(--global-spacing-spacing-24);
-  --sp-xxl: var(--global-spacing-spacing-32);
-  --sp-xxxl: var(--global-spacing-spacing-48);
-  --border-width-sm: var(--global-spacing-spacing-half);
-  --border-width-default: var(--global-spacing-spacing-1);
-  --border-width-lg: var(--global-spacing-spacing-2);
-  --border-width-focus: var(--global-spacing-spacing-4);
-  --clr-action-secondary: var(--ntg-colour-neutrals-white);
-  --clr-link-pressed: var(--ntg-colour-secondary---ochre-600);
-  --clr-icon-visited: #7c19aa;
-  --sp-lg: var(--global-spacing-spacing-20);
-  --clr-stroke-secondary-strong: var(--ntg-colour-neutrals-600);
-  --clr-text-secondary: var(--ntg-colour-primary---orange-default);
-  --border-width-xxl: var(--global-spacing-spacing-8);
-  --clr-tag-tag-default: var(--ntg-colour-primary---blue-default);
-  --clr-tag-tag-subtle: var(--ntg-colour-neutrals-white);
-  --clr-tag-tag-3: var(--ntg-colour-new-brand-regional-colours-darwin);
-  --clr-tag-tag-4: var(--ntg-colour-new-brand-regional-colours-top-end);
-  --clr-tag-tag-5: var(--ntg-colour-new-brand-regional-colours-east-arnhem);
-  --clr-tag-tag-6: var(--ntg-colour-new-brand-regional-colours-big-rivers);
-  --clr-tag-tag-7: var(--ntg-colour-new-brand-regional-colours-barkly);
-  --clr-tag-tag-8: var(--ntg-colour-new-brand-regional-colours-central-australia);
-  --type-desktop-h1-size: var(--ntg-type-size-8);
-  --type-desktop-h1-lh: var(--ntg-type-line-height-6);
-  --type-desktop-h1-weight: var(--ntg-type-weight-2);
-  --type-desktop-h1-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h2-size: var(--ntg-type-size-7);
-  --type-desktop-h2-lh: var(--ntg-type-line-height-5);
-  --type-desktop-h2-weight: var(--ntg-type-weight-2);
-  --type-desktop-h2-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h3-size: var(--ntg-type-size-6);
-  --type-desktop-h3-weight: var(--ntg-type-weight-2);
-  --type-desktop-h3-lh: var(--ntg-type-line-height-4);
-  --type-desktop-h3-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h4-size: var(--ntg-type-size-5);
-  --type-desktop-h4-weight: var(--ntg-type-weight-2);
-  --type-desktop-h4-lh: var(--ntg-type-line-height-3);
-  --type-desktop-h4-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h5-size: var(--ntg-type-size-4);
-  --type-desktop-h5-weight: var(--ntg-type-weight-2);
-  --type-desktop-h5-lh: var(--ntg-type-line-height-2);
-  --type-desktop-h5-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h6-size: var(--ntg-type-size-3);
-  --type-desktop-h6-weight: var(--ntg-type-weight-2);
-  --type-desktop-h6-lh: var(--ntg-type-line-height-3);
-  --type-desktop-h6-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-default-size: var(--ntg-type-size-3);
-  --type-desktop-body-default-weight: var(--ntg-type-weight-1);
-  --type-desktop-body-default-lh: var(--ntg-type-line-height-3);
-  --type-desktop-body-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-default-bold-size: var(--ntg-type-size-3);
-  --type-desktop-body-default-bold-weight: var(--ntg-type-weight-2);
-  --type-desktop-body-default-bold-lh: var(--ntg-type-line-height-3);
-  --type-desktop-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-sm-size: var(--ntg-type-size-2);
-  --type-desktop-body-sm-weight: var(--ntg-type-weight-1);
-  --type-desktop-body-sm-lh: var(--ntg-type-line-height-2);
-  --type-desktop-body-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-sm-bold-size: var(--ntg-type-size-2);
-  --type-desktop-body-sm-bold-weight: var(--ntg-type-weight-2);
-  --type-desktop-body-sm-bold-lh: var(--ntg-type-line-height-2);
-  --type-desktop-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-button-default-size: var(--ntg-type-size-3);
-  --type-desktop-button-default-weight: var(--ntg-type-weight-2);
-  --type-desktop-button-default-lh: var(--ntg-type-line-height-1);
-  --type-desktop-button-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-button-sm-size: var(--ntg-type-size-2);
-  --type-desktop-button-sm-weight: var(--ntg-type-weight-2);
-  --type-desktop-button-sm-lh: var(--ntg-type-line-height-1);
-  --type-desktop-button-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-tag-size: var(--ntg-type-size-1);
-  --type-desktop-tag-weight: var(--ntg-type-weight-2);
-  --type-desktop-tag-lh: var(--ntg-type-line-height-1);
-  --type-desktop-tag-ls: var(--ntg-type-letter-spacing-1);
-  --type-mobile-h1-size: var(--ntg-type-size-7);
-  --type-mobile-h1-weight: var(--ntg-type-weight-2);
-  --type-mobile-h1-lh: var(--ntg-type-line-height-5);
-  --type-mobile-h1-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h2-size: var(--ntg-type-size-7);
-  --type-mobile-h2-weight: var(--ntg-type-weight-2);
-  --type-mobile-h2-lh: var(--ntg-type-line-height-5);
-  --type-mobile-h2-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h3-size: var(--ntg-type-size-6);
-  --type-mobile-h3-weight: var(--ntg-type-weight-2);
-  --type-mobile-h3-lh: var(--ntg-type-line-height-4);
-  --type-mobile-h3-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h4-size: var(--ntg-type-size-5);
-  --type-mobile-h5-size: var(--ntg-type-size-4);
-  --type-mobile-h5-weight: var(--ntg-type-weight-2);
-  --type-mobile-h5-lh: var(--ntg-type-line-height-2);
-  --type-mobile-h5-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h4-weight: var(--ntg-type-weight-2);
-  --type-mobile-h4-lh: var(--ntg-type-line-height-3);
-  --type-mobile-h4-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h6-size: var(--ntg-type-size-3);
-  --type-mobile-h6-weight: var(--ntg-type-weight-2);
-  --type-mobile-h6-lh: var(--ntg-type-line-height-3);
-  --type-mobile-h6-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-default-size: var(--ntg-type-size-3);
-  --type-mobile-body-default-bold-size: var(--ntg-type-size-3);
-  --type-mobile-body-sm-size: var(--ntg-type-size-2);
-  --type-mobile-body-sm-bold-size: var(--ntg-type-size-2);
-  --type-mobile-button-default-size: var(--ntg-type-size-3);
-  --type-mobile-button-default-sm-size: var(--ntg-type-size-2);
-  --type-mobile-button-default-sm-weight: var(--ntg-type-weight-2);
-  --type-mobile-button-default-sm-lh: var(--ntg-type-line-height-1);
-  --type-mobile-button-default-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-button-default-weight: var(--ntg-type-weight-2);
-  --type-mobile-button-default-lh: var(--ntg-type-line-height-1);
-  --type-mobile-button-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-sm-bold-weight: var(--ntg-type-weight-2);
-  --type-mobile-body-sm-bold-lh: var(--ntg-type-line-height-2);
-  --type-mobile-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-sm-weight: var(--ntg-type-weight-1);
-  --type-mobile-body-sm-lh: var(--ntg-type-line-height-2);
-  --type-mobile-body-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-default-bold-weight: var(--ntg-type-weight-2);
-  --type-mobile-body-default-bold-lh: var(--ntg-type-line-height-3);
-  --type-mobile-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-default-weight: var(--ntg-type-weight-1);
-  --type-mobile-body-default-lh: var(--ntg-type-line-height-3);
-  --type-mobile-body-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-tag-size: var(--ntg-type-size-1);
-  --type-mobile-tag-weight: var(--ntg-type-weight-2);
-  --type-mobile-tag-lh: var(--ntg-type-line-height-1);
-  --type-mobile-tag-ls: var(--ntg-type-letter-spacing-1);
-  --clr-icon-tertiary: var(--ntg-colour-neutrals-600);
+/* =============================================================================
+   THEME-PRIMITIVE MAPPINGS
+   Maps NT.GOV.AU-specific primitives to generic --theme-* tokens that shared
+   semantic layers can reference. This allows the same semantic structure
+   to work across multiple themes.
+   ============================================================================= */
+
+@layer theme-primitives {
+  :root {
+    /* Neutrals - Grayscale palette */
+    --theme-colour-neutrals-white: var(--ntg-colour-neutrals-white);
+    --theme-colour-neutrals-black: var(--ntg-colour-neutrals-black);
+    --theme-colour-neutrals-100: var(--ntg-colour-neutrals-100);
+    --theme-colour-neutrals-200: var(--ntg-colour-neutrals-200);
+    --theme-colour-neutrals-300: var(--ntg-colour-neutrals-300);
+    --theme-colour-neutrals-400: var(--ntg-colour-neutrals-400);
+    --theme-colour-neutrals-500: var(--ntg-colour-neutrals-500);
+    --theme-colour-neutrals-600: var(--ntg-colour-neutrals-600);
+    --theme-colour-neutrals-700: var(--ntg-colour-neutrals-700);
+    --theme-colour-neutrals-800: var(--ntg-colour-neutrals-800);
+    --theme-colour-neutrals-900: var(--ntg-colour-neutrals-900);
+
+    /* Primary Colors - Blue and Orange */
+    --theme-colour-primary-blue-100: var(--ntg-colour-primary-blue-100);
+    --theme-colour-primary-blue-200: var(--ntg-colour-primary-blue-200);
+    --theme-colour-primary-blue-300: var(--ntg-colour-primary-blue-300);
+    --theme-colour-primary-blue-400: var(--ntg-colour-primary-blue-400);
+    --theme-colour-primary-blue-default: var(--ntg-colour-primary-blue-default);
+    --theme-colour-primary-blue-600: var(--ntg-colour-primary-blue-600);
+    --theme-colour-primary-blue-700: var(--ntg-colour-primary-blue-700);
+    --theme-colour-primary-blue-800: var(--ntg-colour-primary-blue-800);
+    --theme-colour-primary-blue-900: var(--ntg-colour-primary-blue-900);
+
+    --theme-colour-primary-orange-100: var(--ntg-colour-primary-orange-100);
+    --theme-colour-primary-orange-200: var(--ntg-colour-primary-orange-200);
+    --theme-colour-primary-orange-300: var(--ntg-colour-primary-orange-300);
+    --theme-colour-primary-orange-400: var(--ntg-colour-primary-orange-400);
+    --theme-colour-primary-orange-default: var(
+      --ntg-colour-primary-orange-default
+    );
+    --theme-colour-primary-orange-600: var(--ntg-colour-primary-orange-600);
+    --theme-colour-primary-orange-700: var(--ntg-colour-primary-orange-700);
+    --theme-colour-primary-orange-800: var(--ntg-colour-primary-orange-800);
+    --theme-colour-primary-orange-900: var(--ntg-colour-primary-orange-900);
+
+    /* Secondary Colors - Ochre (primary secondary for NTG) */
+    --theme-colour-secondary-ochre-100: var(--ntg-colour-secondary-ochre-100);
+    --theme-colour-secondary-ochre-200: var(--ntg-colour-secondary-ochre-200);
+    --theme-colour-secondary-ochre-300: var(--ntg-colour-secondary-ochre-300);
+    --theme-colour-secondary-ochre-400: var(--ntg-colour-secondary-ochre-400);
+    --theme-colour-secondary-ochre-default: var(
+      --ntg-colour-secondary-ochre-default
+    );
+    --theme-colour-secondary-ochre-600: var(--ntg-colour-secondary-ochre-600);
+    --theme-colour-secondary-ochre-700: var(--ntg-colour-secondary-ochre-700);
+    --theme-colour-secondary-ochre-800: var(--ntg-colour-secondary-ochre-800);
+    --theme-colour-secondary-ochre-900: var(--ntg-colour-secondary-ochre-900);
+
+    /* Status Colors - Info (Blue) */
+    --theme-status-info-blue-50: var(--ntg-colour-status-info-blue-50);
+    --theme-status-info-blue-100: var(--ntg-colour-status-info-blue-100);
+    --theme-status-info-blue-200: var(--ntg-colour-status-info-blue-200);
+    --theme-status-info-blue-300: var(--ntg-colour-status-info-blue-300);
+    --theme-status-info-blue-400: var(--ntg-colour-status-info-blue-400);
+    --theme-status-info-blue-default: var(
+      --ntg-colour-status-info-blue-default
+    );
+    --theme-status-info-blue-600: var(--ntg-colour-status-info-blue-600);
+    --theme-status-info-blue-700: var(--ntg-colour-status-info-blue-700);
+    --theme-status-info-blue-800: var(--ntg-colour-status-info-blue-800);
+    --theme-status-info-blue-900: var(--ntg-colour-status-info-blue-900);
+
+    /* Status Colors - Success (Green) */
+    --theme-status-success-green-50: var(--ntg-colour-status-success-green-50);
+    --theme-status-success-green-100: var(
+      --ntg-colour-status-success-green-100
+    );
+    --theme-status-success-green-200: var(
+      --ntg-colour-status-success-green-200
+    );
+    --theme-status-success-green-300: var(
+      --ntg-colour-status-success-green-300
+    );
+    --theme-status-success-green-400: var(
+      --ntg-colour-status-success-green-400
+    );
+    --theme-status-success-green-default: var(
+      --ntg-colour-status-success-green-default
+    );
+    --theme-status-success-green-600: var(
+      --ntg-colour-status-success-green-600
+    );
+    --theme-status-success-green-700: var(
+      --ntg-colour-status-success-green-700
+    );
+    --theme-status-success-green-800: var(
+      --ntg-colour-status-success-green-800
+    );
+    --theme-status-success-green-900: var(
+      --ntg-colour-status-success-green-900
+    );
+
+    /* Status Colors - Warning (Orange) */
+    --theme-status-warning-orange-50: var(
+      --ntg-colour-status-warning-orange-50
+    );
+    --theme-status-warning-orange-100: var(
+      --ntg-colour-status-warning-orange-100
+    );
+    --theme-status-warning-orange-200: var(
+      --ntg-colour-status-warning-orange-200
+    );
+    --theme-status-warning-orange-300: var(
+      --ntg-colour-status-warning-orange-300
+    );
+    --theme-status-warning-orange-400: var(
+      --ntg-colour-status-warning-orange-400
+    );
+    --theme-status-warning-orange-default: var(
+      --ntg-colour-status-warning-orange-default
+    );
+    --theme-status-warning-orange-600: var(
+      --ntg-colour-status-warning-orange-600
+    );
+    --theme-status-warning-orange-700: var(
+      --ntg-colour-status-warning-orange-700
+    );
+    --theme-status-warning-orange-800: var(
+      --ntg-colour-status-warning-orange-800
+    );
+    --theme-status-warning-orange-900: var(
+      --ntg-colour-status-warning-orange-900
+    );
+
+    /* Status Colors - Danger (Red) */
+    --theme-status-danger-red-50: var(--ntg-colour-status-danger-red-50);
+    --theme-status-danger-red-100: var(--ntg-colour-status-danger-red-100);
+    --theme-status-danger-red-200: var(--ntg-colour-status-danger-red-200);
+    --theme-status-danger-red-300: var(--ntg-colour-status-danger-red-300);
+    --theme-status-danger-red-400: var(--ntg-colour-status-danger-red-400);
+    --theme-status-danger-red-default: var(
+      --ntg-colour-status-danger-red-default
+    );
+    --theme-status-danger-red-600: var(--ntg-colour-status-danger-red-600);
+    --theme-status-danger-red-700: var(--ntg-colour-status-danger-red-700);
+    --theme-status-danger-red-800: var(--ntg-colour-status-danger-red-800);
+    --theme-status-danger-red-900: var(--ntg-colour-status-danger-red-900);
+
+    /* Component-specific mappings */
+    --theme-surface-hover: var(--ntg-colour-neutrals-100);
+    --theme-surface-selected: var(--ntg-colour-neutrals-100);
+    --theme-action-hover: var(--ntg-colour-secondary-ochre-default);
+    --theme-action-pressed: var(--ntg-colour-secondary-ochre-600);
+    --theme-field-default: var(--ntg-colour-neutrals-100);
+    --theme-field-active: var(--ntg-colour-neutrals-100);
+    --theme-stroke-secondary-strong: var(--ntg-colour-neutrals-600);
+    --theme-stroke-subtle: var(--ntg-colour-neutrals-300);
+    --theme-stroke-hover: var(--ntg-colour-neutrals-400);
+    --theme-text-default: var(--ntg-colour-neutrals-900);
+    --theme-text-body: var(--ntg-colour-neutrals-900);
+    --theme-text-secondary: var(--ntg-colour-primary-orange-default);
+    --theme-text-helper: var(--ntg-colour-neutrals-700);
+    --theme-text-disabled: var(--ntg-colour-neutrals-700);
+    --theme-link-hover: var(--ntg-colour-secondary-ochre-default);
+    --theme-link-pressed: var(--ntg-colour-secondary-ochre-600);
+    --theme-link-visited: #7c19aa;
+    --theme-link-inverse-hover: var(--ntg-colour-primary-blue-100);
+    --theme-link-inverse-visited: var(--ntg-colour-primary-orange-100);
+    --theme-icon-secondary: var(--ntg-colour-secondary-ochre-default);
+    --theme-icon-tertiary: var(--ntg-colour-neutrals-600);
+    --theme-icon-visited: #7c19aa;
+    --theme-icon-disabled: var(--ntg-colour-neutrals-500);
+    --theme-focus-focus: var(--ntg-colour-primary-orange-300);
+  }
+}
+
+/* Import shared semantic base - references --theme-* tokens defined above */
+@import url("./theme-base.css") layer(semantics);
+
+/* Import shared typography base */
+@import url("./typography-base.css") layer(typography);
+
+/* =============================================================================
+   NT.GOV.AU-SPECIFIC OVERRIDES
+   Theme-specific customizations that differ from other themes
+   ============================================================================= */
+
+@layer overrides {
+  :root {
+    /* Fonts */
+    --type-font-default: Lato;
+    --type-font-alt: Arial;
+
+    /* Radii - NT.GOV.AU uses sharp corners for buttons */
+    --radii-none: var(--global-spacing-spacing-0);
+    --radii-button: var(--global-spacing-spacing-0);
+    --radii-sm: var(--global-spacing-spacing-4);
+    --radii-md: var(--global-spacing-spacing-20);
+    --radii-lg: var(--global-spacing-spacing-full);
+
+    /* Tag Colors - NT.GOV.AU uses regional brand colors */
+    --clr-tag-tag-default: var(--ntg-colour-primary-blue-default);
+    --clr-tag-tag-subtle: var(--ntg-colour-neutrals-white);
+    --clr-tag-tag-3: var(--ntg-colour-new-brand-regional-colours-darwin);
+    --clr-tag-tag-4: var(--ntg-colour-new-brand-regional-colours-top-end);
+    --clr-tag-tag-5: var(--ntg-colour-new-brand-regional-colours-east-arnhem);
+    --clr-tag-tag-6: var(--ntg-colour-new-brand-regional-colours-big-rivers);
+    --clr-tag-tag-7: var(--ntg-colour-new-brand-regional-colours-barkly);
+    --clr-tag-tag-8: var(
+      --ntg-colour-new-brand-regional-colours-central-australia
+    );
+  }
 }

@@ -1,0 +1,419 @@
+/**
+ * Theme Template
+ * ==============
+ * Template for creating new themes in the NTG Design System.
+ * Copy this file and follow the instructions to create your custom theme.
+ * 
+ * TOKEN ARCHITECTURE:
+ * ╔══════════════════════════════════════════════════════════════════════════╗
+ * ║ Layer 1: Primitives (ntg-design-system-tokens.css)                      ║
+ * ║   └─ Raw color values, spacing, typography primitives                   ║
+ * ║   └─ Example: --ntg-colour-primary-blue-default, --global-spacing-8     ║
+ * ║                                                                           ║
+ * ║ Layer 2: Theme-Primitives (defined below in @layer theme-primitives)    ║
+ * ║   └─ Maps YOUR-THEME-specific primitives to generic --theme-* tokens    ║
+ * ║   └─ Example: --theme-colour-primary-blue-default maps to your color    ║
+ * ║                                                                           ║
+ * ║ Layer 3: Semantics (theme-base.css + typography-base.css)               ║
+ * ║   └─ Semantic tokens that reference --theme-* tokens                    ║
+ * ║   └─ Example: --clr-action-default references --theme-colour-*          ║
+ * ║                                                                           ║
+ * ║ Layer 4: Overrides (defined below in @layer overrides)                  ║
+ * ║   └─ Theme-specific customizations (fonts, radii, tags)                 ║
+ * ║   └─ Example: --type-font-default, --radii-button, --clr-tag-*          ║
+ * ╚══════════════════════════════════════════════════════════════════════════╝
+ * 
+ * HOW THIS ARCHITECTURE WORKS:
+ * 
+ * 1. Primitives provide raw token values with theme-specific prefixes
+ *    (e.g., --ntg-colour-*, --ntg-central-colour-*)
+ * 
+ * 2. Theme-primitives layer maps these to generic --theme-* tokens
+ *    This allows the same semantic layer to work across all themes
+ * 
+ * 3. Semantic layers (theme-base.css, typography-base.css) reference
+ *    the --theme-* tokens to define application-level semantics
+ *    (e.g., --clr-action-default, --clr-bg-primary)
+ * 
+ * 4. Overrides layer provides theme-specific customizations that
+ *    don't fit the shared semantic structure
+ * 
+ * DEPENDENCIES CHECKLIST:
+ * Before creating a new theme, ensure you have:
+ * ✓ Primitives file with your theme colors (e.g., --YOUR-THEME-colour-*)
+ * ✓ theme-base.css (shared semantic tokens - DO NOT MODIFY)
+ * ✓ typography-base.css (shared typography - DO NOT MODIFY)
+ * ✓ Understanding of your theme's color palette and semantic mappings
+ * 
+ * IMPORT ORDER (CRITICAL):
+ * The order of imports and layer definitions matters for CSS cascade:
+ * 1. Layer declaration (establishes cascade priority)
+ * 2. Primitives import (provides raw values)
+ * 3. Theme-primitives layer (maps to --theme-* tokens)
+ * 4. Shared base imports with layer() (uses --theme-* tokens)
+ * 5. Overrides layer (theme-specific customizations)
+ */
+
+/* =============================================================================
+   STEP 1: EXPLICIT LAYER DECLARATION
+   This defines the cascade order. Earlier layers have lower priority.
+   DO NOT modify the order - it's critical for the architecture to work.
+   ============================================================================= */
+
+@layer theme-primitives, semantics, typography, overrides;
+
+/* =============================================================================
+   STEP 2: IMPORT PRIMITIVES
+   This MUST be first to provide raw token values.
+   Replace with your primitives file path if different.
+   ============================================================================= */
+
+@import url("../tokens/ntg-design-system-tokens.css");
+
+/* =============================================================================
+   STEP 3: THEME-PRIMITIVE MAPPINGS
+   
+   INSTRUCTIONS:
+   Replace --YOUR-THEME-PREFIX with your theme's prefix.
+   Examples:
+   - NT.GOV.AU theme: --ntg-colour-*
+   - NTG Central theme: --ntg-central-colour-*
+   - Your theme: --your-org-colour-*
+   
+   PURPOSE OF THIS LAYER:
+   Maps your theme-specific primitive tokens to generic --theme-* tokens
+   that the shared semantic bases (theme-base.css, typography-base.css) use.
+   
+   WHY IS THIS NEEDED?
+   The semantic bases reference --theme-* tokens so they can work across
+   multiple themes without duplication. This layer provides the bridge
+   between your unique color primitives and the shared semantic structure.
+   
+   REQUIRED MAPPINGS:
+   You MUST provide mappings for all tokens listed below. If your theme
+   doesn't have a specific shade, map multiple --theme-* tokens to the
+   closest available primitive.
+   ============================================================================= */
+
+@layer theme-primitives {
+  :root {
+    /* =========================================================================
+       NEUTRALS - Grayscale Palette
+       Map your grayscale colors to these tokens.
+       ========================================================================= */
+    
+    --theme-colour-neutrals-white: var(--YOUR-THEME-PREFIX-colour-neutrals-white);
+    --theme-colour-neutrals-black: var(--YOUR-THEME-PREFIX-colour-neutrals-black);
+    --theme-colour-neutrals-100: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
+    --theme-colour-neutrals-200: var(--YOUR-THEME-PREFIX-colour-neutrals-200);
+    --theme-colour-neutrals-300: var(--YOUR-THEME-PREFIX-colour-neutrals-300);
+    --theme-colour-neutrals-400: var(--YOUR-THEME-PREFIX-colour-neutrals-400);
+    --theme-colour-neutrals-500: var(--YOUR-THEME-PREFIX-colour-neutrals-500);
+    --theme-colour-neutrals-600: var(--YOUR-THEME-PREFIX-colour-neutrals-600);
+    --theme-colour-neutrals-700: var(--YOUR-THEME-PREFIX-colour-neutrals-700);
+    --theme-colour-neutrals-800: var(--YOUR-THEME-PREFIX-colour-neutrals-800);
+    --theme-colour-neutrals-900: var(--YOUR-THEME-PREFIX-colour-neutrals-900);
+
+    /* =========================================================================
+       PRIMARY COLORS - Blue
+       Map your primary blue color scale to these tokens.
+       If you don't have all shades, map multiple tokens to same primitive.
+       ========================================================================= */
+    
+    --theme-colour-primary-blue-100: var(--YOUR-THEME-PREFIX-colour-primary-blue-100);
+    --theme-colour-primary-blue-200: var(--YOUR-THEME-PREFIX-colour-primary-blue-200);
+    --theme-colour-primary-blue-300: var(--YOUR-THEME-PREFIX-colour-primary-blue-300);
+    --theme-colour-primary-blue-400: var(--YOUR-THEME-PREFIX-colour-primary-blue-400);
+    --theme-colour-primary-blue-default: var(--YOUR-THEME-PREFIX-colour-primary-blue-default);
+    --theme-colour-primary-blue-600: var(--YOUR-THEME-PREFIX-colour-primary-blue-600);
+    --theme-colour-primary-blue-700: var(--YOUR-THEME-PREFIX-colour-primary-blue-700);
+    --theme-colour-primary-blue-800: var(--YOUR-THEME-PREFIX-colour-primary-blue-800);
+    --theme-colour-primary-blue-900: var(--YOUR-THEME-PREFIX-colour-primary-blue-900);
+
+    /* =========================================================================
+       PRIMARY COLORS - Orange
+       Map your primary orange/accent color scale to these tokens.
+       ========================================================================= */
+    
+    --theme-colour-primary-orange-100: var(--YOUR-THEME-PREFIX-colour-primary-orange-100);
+    --theme-colour-primary-orange-200: var(--YOUR-THEME-PREFIX-colour-primary-orange-200);
+    --theme-colour-primary-orange-300: var(--YOUR-THEME-PREFIX-colour-primary-orange-300);
+    --theme-colour-primary-orange-400: var(--YOUR-THEME-PREFIX-colour-primary-orange-400);
+    --theme-colour-primary-orange-default: var(--YOUR-THEME-PREFIX-colour-primary-orange-default);
+    --theme-colour-primary-orange-600: var(--YOUR-THEME-PREFIX-colour-primary-orange-600);
+    --theme-colour-primary-orange-700: var(--YOUR-THEME-PREFIX-colour-primary-orange-700);
+    --theme-colour-primary-orange-800: var(--YOUR-THEME-PREFIX-colour-primary-orange-800);
+    --theme-colour-primary-orange-900: var(--YOUR-THEME-PREFIX-colour-primary-orange-900);
+
+    /* =========================================================================
+       SECONDARY COLORS - Ochre (or your secondary accent)
+       Map your secondary accent color to these tokens.
+       Note: "ochre" is the semantic name - map to your actual secondary color.
+       ========================================================================= */
+    
+    --theme-colour-secondary-ochre-100: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-100);
+    --theme-colour-secondary-ochre-200: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-200);
+    --theme-colour-secondary-ochre-300: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-300);
+    --theme-colour-secondary-ochre-400: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-400);
+    --theme-colour-secondary-ochre-default: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
+    --theme-colour-secondary-ochre-600: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600);
+    --theme-colour-secondary-ochre-700: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-700);
+    --theme-colour-secondary-ochre-800: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-800);
+    --theme-colour-secondary-ochre-900: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-900);
+
+    /* =========================================================================
+       STATUS COLORS - Info (Blue)
+       Map your info/informational status color to these tokens.
+       ========================================================================= */
+    
+    --theme-status-info-blue-50: var(--YOUR-THEME-PREFIX-colour-status-info-blue-50);
+    --theme-status-info-blue-100: var(--YOUR-THEME-PREFIX-colour-status-info-blue-100);
+    --theme-status-info-blue-200: var(--YOUR-THEME-PREFIX-colour-status-info-blue-200);
+    --theme-status-info-blue-300: var(--YOUR-THEME-PREFIX-colour-status-info-blue-300);
+    --theme-status-info-blue-400: var(--YOUR-THEME-PREFIX-colour-status-info-blue-400);
+    --theme-status-info-blue-default: var(--YOUR-THEME-PREFIX-colour-status-info-blue-default);
+    --theme-status-info-blue-600: var(--YOUR-THEME-PREFIX-colour-status-info-blue-600);
+    --theme-status-info-blue-700: var(--YOUR-THEME-PREFIX-colour-status-info-blue-700);
+    --theme-status-info-blue-800: var(--YOUR-THEME-PREFIX-colour-status-info-blue-800);
+    --theme-status-info-blue-900: var(--YOUR-THEME-PREFIX-colour-status-info-blue-900);
+
+    /* =========================================================================
+       STATUS COLORS - Success (Green)
+       Map your success status color to these tokens.
+       ========================================================================= */
+    
+    --theme-status-success-green-50: var(--YOUR-THEME-PREFIX-colour-status-success-green-50);
+    --theme-status-success-green-100: var(--YOUR-THEME-PREFIX-colour-status-success-green-100);
+    --theme-status-success-green-200: var(--YOUR-THEME-PREFIX-colour-status-success-green-200);
+    --theme-status-success-green-300: var(--YOUR-THEME-PREFIX-colour-status-success-green-300);
+    --theme-status-success-green-400: var(--YOUR-THEME-PREFIX-colour-status-success-green-400);
+    --theme-status-success-green-default: var(--YOUR-THEME-PREFIX-colour-status-success-green-default);
+    --theme-status-success-green-600: var(--YOUR-THEME-PREFIX-colour-status-success-green-600);
+    --theme-status-success-green-700: var(--YOUR-THEME-PREFIX-colour-status-success-green-700);
+    --theme-status-success-green-800: var(--YOUR-THEME-PREFIX-colour-status-success-green-800);
+    --theme-status-success-green-900: var(--YOUR-THEME-PREFIX-colour-status-success-green-900);
+
+    /* =========================================================================
+       STATUS COLORS - Warning (Orange)
+       Map your warning status color to these tokens.
+       ========================================================================= */
+    
+    --theme-status-warning-orange-50: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-50);
+    --theme-status-warning-orange-100: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-100);
+    --theme-status-warning-orange-200: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-200);
+    --theme-status-warning-orange-300: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-300);
+    --theme-status-warning-orange-400: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-400);
+    --theme-status-warning-orange-default: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-default);
+    --theme-status-warning-orange-600: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-600);
+    --theme-status-warning-orange-700: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-700);
+    --theme-status-warning-orange-800: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-800);
+    --theme-status-warning-orange-900: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-900);
+
+    /* =========================================================================
+       STATUS COLORS - Danger (Red)
+       Map your danger/error status color to these tokens.
+       ========================================================================= */
+    
+    --theme-status-danger-red-50: var(--YOUR-THEME-PREFIX-colour-status-danger-red-50);
+    --theme-status-danger-red-100: var(--YOUR-THEME-PREFIX-colour-status-danger-red-100);
+    --theme-status-danger-red-200: var(--YOUR-THEME-PREFIX-colour-status-danger-red-200);
+    --theme-status-danger-red-300: var(--YOUR-THEME-PREFIX-colour-status-danger-red-300);
+    --theme-status-danger-red-400: var(--YOUR-THEME-PREFIX-colour-status-danger-red-400);
+    --theme-status-danger-red-default: var(--YOUR-THEME-PREFIX-colour-status-danger-red-default);
+    --theme-status-danger-red-600: var(--YOUR-THEME-PREFIX-colour-status-danger-red-600);
+    --theme-status-danger-red-700: var(--YOUR-THEME-PREFIX-colour-status-danger-red-700);
+    --theme-status-danger-red-800: var(--YOUR-THEME-PREFIX-colour-status-danger-red-800);
+    --theme-status-danger-red-900: var(--YOUR-THEME-PREFIX-colour-status-danger-red-900);
+
+    /* =========================================================================
+       COMPONENT-SPECIFIC MAPPINGS
+       
+       These tokens provide semantic meanings for specific UI components.
+       They're used by theme-base.css to define application-level semantics.
+       
+       HOW TO FILL THESE IN:
+       1. Look at your design system's color usage patterns
+       2. Map each semantic meaning to the appropriate primitive
+       3. Consider interaction states (hover, pressed, disabled)
+       
+       EXAMPLES:
+       - surface-hover: Often a light gray for card hover states
+       - action-hover: The hover state of primary buttons
+       - text-secondary: Secondary/helper text color (often an accent)
+       ========================================================================= */
+    
+    /* Surface colors */
+    --theme-surface-hover: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
+    --theme-surface-selected: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
+
+    /* Action/Button colors */
+    --theme-action-hover: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
+    --theme-action-pressed: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600);
+
+    /* Form field colors */
+    --theme-field-default: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
+    --theme-field-active: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
+
+    /* Stroke/Border colors */
+    --theme-stroke-secondary-strong: var(--YOUR-THEME-PREFIX-colour-neutrals-600);
+    --theme-stroke-subtle: var(--YOUR-THEME-PREFIX-colour-neutrals-300);
+    --theme-stroke-hover: var(--YOUR-THEME-PREFIX-colour-neutrals-400);
+
+    /* Text colors */
+    --theme-text-default: var(--YOUR-THEME-PREFIX-colour-neutrals-900);
+    --theme-text-body: var(--YOUR-THEME-PREFIX-colour-neutrals-900);
+    --theme-text-secondary: var(--YOUR-THEME-PREFIX-colour-primary-orange-default);
+    --theme-text-helper: var(--YOUR-THEME-PREFIX-colour-neutrals-700);
+    --theme-text-disabled: var(--YOUR-THEME-PREFIX-colour-neutrals-700);
+
+    /* Link colors */
+    --theme-link-hover: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
+    --theme-link-pressed: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600);
+    --theme-link-visited: #7c19aa; /* Or your custom visited link color */
+    --theme-link-inverse-hover: var(--YOUR-THEME-PREFIX-colour-primary-blue-100);
+    --theme-link-inverse-visited: var(--YOUR-THEME-PREFIX-colour-primary-orange-100);
+
+    /* Icon colors */
+    --theme-icon-secondary: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
+    --theme-icon-tertiary: var(--YOUR-THEME-PREFIX-colour-neutrals-600);
+    --theme-icon-visited: #7c19aa; /* Match link-visited usually */
+    --theme-icon-disabled: var(--YOUR-THEME-PREFIX-colour-neutrals-500);
+
+    /* Focus state */
+    --theme-focus-focus: var(--YOUR-THEME-PREFIX-colour-primary-orange-300);
+  }
+}
+
+/* =============================================================================
+   STEP 4: IMPORT SHARED SEMANTIC BASE
+   
+   This imports theme-base.css which contains ~60 shared semantic tokens.
+   The layer() function ensures these tokens go into the semantics layer.
+   
+   DO NOT MODIFY this import unless you understand the architecture deeply.
+   The shared base references the --theme-* tokens you defined above.
+   ============================================================================= */
+
+@import url("./theme-base.css") layer(semantics);
+
+/* =============================================================================
+   STEP 5: IMPORT SHARED TYPOGRAPHY BASE
+   
+   This imports typography-base.css which contains 96 shared typography tokens.
+   The layer() function ensures these tokens go into the typography layer.
+   
+   DO NOT MODIFY this import.
+   ============================================================================= */
+
+@import url("./typography-base.css") layer(typography);
+
+/* =============================================================================
+   STEP 6: THEME-SPECIFIC OVERRIDES
+   
+   This layer is for customizations that don't fit the shared semantic structure.
+   
+   WHAT SHOULD GO HERE:
+   ✓ Font family choices (--type-font-*)
+   ✓ Border radius customizations (--radii-*)
+   ✓ Tag/badge color variations (--clr-tag-*)
+   ✓ Any theme-specific tokens not covered by shared bases
+   
+   WHAT SHOULD NOT GO HERE:
+   ✗ Core semantic colors (those belong in theme-base.css via --theme-* mappings)
+   ✗ Typography scales (those are in typography-base.css)
+   ✗ Spacing values (those are in theme-base.css)
+   
+   EXAMPLES FROM EXISTING THEMES:
+   
+   NT.GOV.AU Theme:
+   - Uses Lato font
+   - Sharp corners on buttons (radii-button: 0)
+   - Regional tag colors for NT government areas
+   
+   NTG Central Theme:
+   - Uses Roboto font
+   - Fully rounded buttons (radii-button: full)
+   - Different tag colors using green/orange palette
+   
+   ============================================================================= */
+
+@layer overrides {
+  :root {
+    /* =========================================================================
+       FONTS
+       Specify your theme's primary and fallback fonts.
+       ========================================================================= */
+    
+    --type-font-default: YOUR-PRIMARY-FONT;
+    --type-font-alt: Arial;
+
+    /* =========================================================================
+       BORDER RADII
+       Customize corner rounding for your theme.
+       
+       Common patterns:
+       - Sharp corners: Use spacing-0 for buttons
+       - Rounded corners: Use spacing-full for buttons
+       - Custom radii: Define specific pixel values
+       ========================================================================= */
+    
+    --radii-none: var(--global-spacing-spacing-0);
+    --radii-button: var(--global-spacing-spacing-0); /* Choose: spacing-0 for sharp, spacing-full for rounded */
+    --radii-sm: var(--global-spacing-spacing-4);
+    --radii-md: var(--global-spacing-spacing-20); /* Or customize to 16px, etc. */
+    --radii-lg: var(--global-spacing-spacing-full);
+
+    /* =========================================================================
+       TAG COLORS
+       Define colors for tags/badges in your theme.
+       
+       Typically you need:
+       - tag-default: Primary tag color
+       - tag-subtle: Subtle/light tag variant
+       - tag-3 through tag-8: Additional tag color options
+       
+       These can be brand colors, category colors, or any semantic grouping
+       specific to your application.
+       ========================================================================= */
+    
+    --clr-tag-tag-default: var(--YOUR-THEME-PREFIX-colour-primary-blue-default);
+    --clr-tag-tag-subtle: var(--YOUR-THEME-PREFIX-colour-neutrals-white);
+    --clr-tag-tag-3: var(--YOUR-THEME-PREFIX-colour-YOUR-TAG-COLOR-1);
+    --clr-tag-tag-4: var(--YOUR-THEME-PREFIX-colour-YOUR-TAG-COLOR-2);
+    --clr-tag-tag-5: var(--YOUR-THEME-PREFIX-colour-YOUR-TAG-COLOR-3);
+    --clr-tag-tag-6: var(--YOUR-THEME-PREFIX-colour-YOUR-TAG-COLOR-4);
+    --clr-tag-tag-7: var(--YOUR-THEME-PREFIX-colour-YOUR-TAG-COLOR-5);
+    --clr-tag-tag-8: var(--YOUR-THEME-PREFIX-colour-YOUR-TAG-COLOR-6);
+
+    /* =========================================================================
+       ADDITIONAL OVERRIDES
+       Add any other theme-specific customizations here.
+       ========================================================================= */
+  }
+}
+
+/* =============================================================================
+   TESTING YOUR THEME
+   
+   After creating your theme, test it by:
+   1. Importing it in your application instead of theme-ntg.css or theme-central.css
+   2. Verifying all components render with correct colors
+   3. Testing interaction states (hover, focus, disabled, etc.)
+   4. Checking typography scales at different breakpoints
+   5. Validating tag colors display correctly
+   
+   TROUBLESHOOTING:
+   
+   Problem: Colors not appearing
+   Solution: Verify your theme-primitive mappings reference existing primitives
+   
+   Problem: Some components have wrong colors
+   Solution: Check component-specific mappings in theme-primitives layer
+   
+   Problem: Typography not working
+   Solution: Ensure typography-base.css import is after theme-primitives
+   
+   Problem: Overrides not applying
+   Solution: Remember @layer order - overrides has highest priority
+   
+   ============================================================================= */
