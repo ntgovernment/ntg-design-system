@@ -1,5 +1,8 @@
 // .storybook/preview.ts
 
+// Pre-load default theme to ensure tokens are available before component CSS loads
+import "../src/themes/theme-ntg.css";
+
 // Dev-only HMR entry (loads foundations + every component CSS from /src for instant updates)
 import "../src/components.hmr.ts";
 import React, { createElement } from "react";
@@ -62,47 +65,44 @@ export const globalTypes = {
   },
 };
 
-// export const parameters = {
-//   docs: {
-//     source: {
-//       language: "html",
-//       format: true,
-//       transform: (code: string, storyContext: any) => {
-//         try {
-//           // Get the component and args from story context
-//           const Component = storyContext.component;
-//           const args = storyContext.args || {};
-
-//           // Create the component element
-//           const componentElement = createElement(Component, args);
-
-//           // Render to static HTML markup
-//           const html = renderToStaticMarkup(componentElement);
-
-//           // Format the HTML nicely
-//           const formattedHtml = html
-//             .replace(/></g, ">\n<") // Add line breaks between tags
-//             .replace(/^\s+|\s+$/g, "") // Trim whitespace
-//             .split("\n")
-//             .map((line) => line.trim())
-//             .filter((line) => line.length > 0)
-//             .join("\n");
-
-//           return formattedHtml;
-//         } catch (error) {
-//           console.warn("Failed to extract HTML from story:", error);
-
-//           // Simple fallback - just show a basic structure
-//           const componentName = storyContext.component?.name || "Component";
-//           const children = storyContext.args?.children || "";
-//           return `<${componentName.toLowerCase()}>${children}</${componentName.toLowerCase()}>`;
-//         }
-//       },
-//     },
-//   },
-// };
-
 export const parameters = {
+  docs: {
+    source: {
+      language: "html",
+      format: true,
+      transform: (code: string, storyContext: any) => {
+        try {
+          // Get the component and args from story context
+          const Component = storyContext.component;
+          const args = storyContext.args || {};
+
+          // Create the component element
+          const componentElement = createElement(Component, args);
+
+          // Render to static HTML markup
+          const html = renderToStaticMarkup(componentElement);
+
+          // Format the HTML nicely
+          const formattedHtml = html
+            .replace(/></g, ">\n<") // Add line breaks between tags
+            .replace(/^\s+|\s+$/g, "") // Trim whitespace
+            .split("\n")
+            .map((line) => line.trim())
+            .filter((line) => line.length > 0)
+            .join("\n");
+
+          return formattedHtml;
+        } catch (error) {
+          console.warn("Failed to extract HTML from story:", error);
+
+          // Simple fallback - just show a basic structure
+          const componentName = storyContext.component?.name || "Component";
+          const children = storyContext.args?.children || "";
+          return `<${componentName.toLowerCase()}>${children}</${componentName.toLowerCase()}>`;
+        }
+      },
+    },
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -121,8 +121,13 @@ export const decorators = [
 
 // Optional: live-refresh the injected <link> when a theme CSS file changes in dev
 if (import.meta && (import.meta as any).hot) {
-  (import.meta as any).hot.accept(["../src/themes/theme-ntg.css", "../src/themes/theme-central.css"], () => {
-    const link = document.getElementById("ds-theme-link") as HTMLLinkElement | null;
-    if (link) link.href = link.href.split("?")[0] + "?t=" + Date.now();
-  });
+  (import.meta as any).hot.accept(
+    ["../src/themes/theme-ntg.css", "../src/themes/theme-central.css"],
+    () => {
+      const link = document.getElementById(
+        "ds-theme-link"
+      ) as HTMLLinkElement | null;
+      if (link) link.href = link.href.split("?")[0] + "?t=" + Date.now();
+    }
+  );
 }

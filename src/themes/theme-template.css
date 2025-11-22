@@ -101,9 +101,13 @@
        NEUTRALS - Grayscale Palette
        Map your grayscale colors to these tokens.
        ========================================================================= */
-    
-    --theme-colour-neutrals-white: var(--YOUR-THEME-PREFIX-colour-neutrals-white);
-    --theme-colour-neutrals-black: var(--YOUR-THEME-PREFIX-colour-neutrals-black);
+
+    --theme-colour-neutrals-white: var(
+      --YOUR-THEME-PREFIX-colour-neutrals-white
+    );
+    --theme-colour-neutrals-black: var(
+      --YOUR-THEME-PREFIX-colour-neutrals-black
+    );
     --theme-colour-neutrals-100: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
     --theme-colour-neutrals-200: var(--YOUR-THEME-PREFIX-colour-neutrals-200);
     --theme-colour-neutrals-300: var(--YOUR-THEME-PREFIX-colour-neutrals-300);
@@ -119,111 +123,245 @@
        Map your primary blue color scale to these tokens.
        If you don't have all shades, map multiple tokens to same primitive.
        ========================================================================= */
-    
-    --theme-colour-primary-blue-100: var(--YOUR-THEME-PREFIX-colour-primary-blue-100);
-    --theme-colour-primary-blue-200: var(--YOUR-THEME-PREFIX-colour-primary-blue-200);
-    --theme-colour-primary-blue-300: var(--YOUR-THEME-PREFIX-colour-primary-blue-300);
-    --theme-colour-primary-blue-400: var(--YOUR-THEME-PREFIX-colour-primary-blue-400);
-    --theme-colour-primary-blue-default: var(--YOUR-THEME-PREFIX-colour-primary-blue-default);
-    --theme-colour-primary-blue-600: var(--YOUR-THEME-PREFIX-colour-primary-blue-600);
-    --theme-colour-primary-blue-700: var(--YOUR-THEME-PREFIX-colour-primary-blue-700);
-    --theme-colour-primary-blue-800: var(--YOUR-THEME-PREFIX-colour-primary-blue-800);
-    --theme-colour-primary-blue-900: var(--YOUR-THEME-PREFIX-colour-primary-blue-900);
+
+    --theme-colour-primary-blue-100: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-100
+    );
+    --theme-colour-primary-blue-200: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-200
+    );
+    --theme-colour-primary-blue-300: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-300
+    );
+    --theme-colour-primary-blue-400: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-400
+    );
+    --theme-colour-primary-blue-default: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-default
+    );
+    --theme-colour-primary-blue-600: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-600
+    );
+    --theme-colour-primary-blue-700: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-700
+    );
+    --theme-colour-primary-blue-800: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-800
+    );
+    --theme-colour-primary-blue-900: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-900
+    );
 
     /* =========================================================================
        PRIMARY COLORS - Orange
        Map your primary orange/accent color scale to these tokens.
        ========================================================================= */
-    
-    --theme-colour-primary-orange-100: var(--YOUR-THEME-PREFIX-colour-primary-orange-100);
-    --theme-colour-primary-orange-200: var(--YOUR-THEME-PREFIX-colour-primary-orange-200);
-    --theme-colour-primary-orange-300: var(--YOUR-THEME-PREFIX-colour-primary-orange-300);
-    --theme-colour-primary-orange-400: var(--YOUR-THEME-PREFIX-colour-primary-orange-400);
-    --theme-colour-primary-orange-default: var(--YOUR-THEME-PREFIX-colour-primary-orange-default);
-    --theme-colour-primary-orange-600: var(--YOUR-THEME-PREFIX-colour-primary-orange-600);
-    --theme-colour-primary-orange-700: var(--YOUR-THEME-PREFIX-colour-primary-orange-700);
-    --theme-colour-primary-orange-800: var(--YOUR-THEME-PREFIX-colour-primary-orange-800);
-    --theme-colour-primary-orange-900: var(--YOUR-THEME-PREFIX-colour-primary-orange-900);
+
+    --theme-colour-primary-orange-100: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-100
+    );
+    --theme-colour-primary-orange-200: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-200
+    );
+    --theme-colour-primary-orange-300: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-300
+    );
+    --theme-colour-primary-orange-400: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-400
+    );
+    --theme-colour-primary-orange-default: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-default
+    );
+    --theme-colour-primary-orange-600: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-600
+    );
+    --theme-colour-primary-orange-700: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-700
+    );
+    --theme-colour-primary-orange-800: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-800
+    );
+    --theme-colour-primary-orange-900: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-900
+    );
 
     /* =========================================================================
        SECONDARY COLORS - Ochre (or your secondary accent)
        Map your secondary accent color to these tokens.
        Note: "ochre" is the semantic name - map to your actual secondary color.
        ========================================================================= */
-    
-    --theme-colour-secondary-ochre-100: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-100);
-    --theme-colour-secondary-ochre-200: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-200);
-    --theme-colour-secondary-ochre-300: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-300);
-    --theme-colour-secondary-ochre-400: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-400);
-    --theme-colour-secondary-ochre-default: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
-    --theme-colour-secondary-ochre-600: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600);
-    --theme-colour-secondary-ochre-700: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-700);
-    --theme-colour-secondary-ochre-800: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-800);
-    --theme-colour-secondary-ochre-900: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-900);
+
+    --theme-colour-secondary-ochre-100: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-100
+    );
+    --theme-colour-secondary-ochre-200: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-200
+    );
+    --theme-colour-secondary-ochre-300: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-300
+    );
+    --theme-colour-secondary-ochre-400: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-400
+    );
+    --theme-colour-secondary-ochre-default: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default
+    );
+    --theme-colour-secondary-ochre-600: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600
+    );
+    --theme-colour-secondary-ochre-700: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-700
+    );
+    --theme-colour-secondary-ochre-800: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-800
+    );
+    --theme-colour-secondary-ochre-900: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-900
+    );
 
     /* =========================================================================
        STATUS COLORS - Info (Blue)
        Map your info/informational status color to these tokens.
        ========================================================================= */
-    
-    --theme-status-info-blue-50: var(--YOUR-THEME-PREFIX-colour-status-info-blue-50);
-    --theme-status-info-blue-100: var(--YOUR-THEME-PREFIX-colour-status-info-blue-100);
-    --theme-status-info-blue-200: var(--YOUR-THEME-PREFIX-colour-status-info-blue-200);
-    --theme-status-info-blue-300: var(--YOUR-THEME-PREFIX-colour-status-info-blue-300);
-    --theme-status-info-blue-400: var(--YOUR-THEME-PREFIX-colour-status-info-blue-400);
-    --theme-status-info-blue-default: var(--YOUR-THEME-PREFIX-colour-status-info-blue-default);
-    --theme-status-info-blue-600: var(--YOUR-THEME-PREFIX-colour-status-info-blue-600);
-    --theme-status-info-blue-700: var(--YOUR-THEME-PREFIX-colour-status-info-blue-700);
-    --theme-status-info-blue-800: var(--YOUR-THEME-PREFIX-colour-status-info-blue-800);
-    --theme-status-info-blue-900: var(--YOUR-THEME-PREFIX-colour-status-info-blue-900);
+
+    --theme-status-info-blue-50: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-50
+    );
+    --theme-status-info-blue-100: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-100
+    );
+    --theme-status-info-blue-200: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-200
+    );
+    --theme-status-info-blue-300: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-300
+    );
+    --theme-status-info-blue-400: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-400
+    );
+    --theme-status-info-blue-default: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-default
+    );
+    --theme-status-info-blue-600: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-600
+    );
+    --theme-status-info-blue-700: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-700
+    );
+    --theme-status-info-blue-800: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-800
+    );
+    --theme-status-info-blue-900: var(
+      --YOUR-THEME-PREFIX-colour-status-info-blue-900
+    );
 
     /* =========================================================================
        STATUS COLORS - Success (Green)
        Map your success status color to these tokens.
        ========================================================================= */
-    
-    --theme-status-success-green-50: var(--YOUR-THEME-PREFIX-colour-status-success-green-50);
-    --theme-status-success-green-100: var(--YOUR-THEME-PREFIX-colour-status-success-green-100);
-    --theme-status-success-green-200: var(--YOUR-THEME-PREFIX-colour-status-success-green-200);
-    --theme-status-success-green-300: var(--YOUR-THEME-PREFIX-colour-status-success-green-300);
-    --theme-status-success-green-400: var(--YOUR-THEME-PREFIX-colour-status-success-green-400);
-    --theme-status-success-green-default: var(--YOUR-THEME-PREFIX-colour-status-success-green-default);
-    --theme-status-success-green-600: var(--YOUR-THEME-PREFIX-colour-status-success-green-600);
-    --theme-status-success-green-700: var(--YOUR-THEME-PREFIX-colour-status-success-green-700);
-    --theme-status-success-green-800: var(--YOUR-THEME-PREFIX-colour-status-success-green-800);
-    --theme-status-success-green-900: var(--YOUR-THEME-PREFIX-colour-status-success-green-900);
+
+    --theme-status-success-green-50: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-50
+    );
+    --theme-status-success-green-100: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-100
+    );
+    --theme-status-success-green-200: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-200
+    );
+    --theme-status-success-green-300: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-300
+    );
+    --theme-status-success-green-400: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-400
+    );
+    --theme-status-success-green-default: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-default
+    );
+    --theme-status-success-green-600: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-600
+    );
+    --theme-status-success-green-700: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-700
+    );
+    --theme-status-success-green-800: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-800
+    );
+    --theme-status-success-green-900: var(
+      --YOUR-THEME-PREFIX-colour-status-success-green-900
+    );
 
     /* =========================================================================
        STATUS COLORS - Warning (Orange)
        Map your warning status color to these tokens.
        ========================================================================= */
-    
-    --theme-status-warning-orange-50: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-50);
-    --theme-status-warning-orange-100: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-100);
-    --theme-status-warning-orange-200: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-200);
-    --theme-status-warning-orange-300: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-300);
-    --theme-status-warning-orange-400: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-400);
-    --theme-status-warning-orange-default: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-default);
-    --theme-status-warning-orange-600: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-600);
-    --theme-status-warning-orange-700: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-700);
-    --theme-status-warning-orange-800: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-800);
-    --theme-status-warning-orange-900: var(--YOUR-THEME-PREFIX-colour-status-warning-orange-900);
+
+    --theme-status-warning-orange-50: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-50
+    );
+    --theme-status-warning-orange-100: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-100
+    );
+    --theme-status-warning-orange-200: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-200
+    );
+    --theme-status-warning-orange-300: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-300
+    );
+    --theme-status-warning-orange-400: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-400
+    );
+    --theme-status-warning-orange-default: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-default
+    );
+    --theme-status-warning-orange-600: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-600
+    );
+    --theme-status-warning-orange-700: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-700
+    );
+    --theme-status-warning-orange-800: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-800
+    );
+    --theme-status-warning-orange-900: var(
+      --YOUR-THEME-PREFIX-colour-status-warning-orange-900
+    );
 
     /* =========================================================================
        STATUS COLORS - Danger (Red)
        Map your danger/error status color to these tokens.
        ========================================================================= */
-    
-    --theme-status-danger-red-50: var(--YOUR-THEME-PREFIX-colour-status-danger-red-50);
-    --theme-status-danger-red-100: var(--YOUR-THEME-PREFIX-colour-status-danger-red-100);
-    --theme-status-danger-red-200: var(--YOUR-THEME-PREFIX-colour-status-danger-red-200);
-    --theme-status-danger-red-300: var(--YOUR-THEME-PREFIX-colour-status-danger-red-300);
-    --theme-status-danger-red-400: var(--YOUR-THEME-PREFIX-colour-status-danger-red-400);
-    --theme-status-danger-red-default: var(--YOUR-THEME-PREFIX-colour-status-danger-red-default);
-    --theme-status-danger-red-600: var(--YOUR-THEME-PREFIX-colour-status-danger-red-600);
-    --theme-status-danger-red-700: var(--YOUR-THEME-PREFIX-colour-status-danger-red-700);
-    --theme-status-danger-red-800: var(--YOUR-THEME-PREFIX-colour-status-danger-red-800);
-    --theme-status-danger-red-900: var(--YOUR-THEME-PREFIX-colour-status-danger-red-900);
+
+    --theme-status-danger-red-50: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-50
+    );
+    --theme-status-danger-red-100: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-100
+    );
+    --theme-status-danger-red-200: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-200
+    );
+    --theme-status-danger-red-300: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-300
+    );
+    --theme-status-danger-red-400: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-400
+    );
+    --theme-status-danger-red-default: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-default
+    );
+    --theme-status-danger-red-600: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-600
+    );
+    --theme-status-danger-red-700: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-700
+    );
+    --theme-status-danger-red-800: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-800
+    );
+    --theme-status-danger-red-900: var(
+      --YOUR-THEME-PREFIX-colour-status-danger-red-900
+    );
 
     /* =========================================================================
        COMPONENT-SPECIFIC MAPPINGS
@@ -241,40 +379,58 @@
        - action-hover: The hover state of primary buttons
        - text-secondary: Secondary/helper text color (often an accent)
        ========================================================================= */
-    
+
     /* Surface colors */
     --theme-surface-hover: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
     --theme-surface-selected: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
 
     /* Action/Button colors */
-    --theme-action-hover: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
-    --theme-action-pressed: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600);
+    --theme-action-hover: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default
+    );
+    --theme-action-pressed: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600
+    );
 
     /* Form field colors */
     --theme-field-default: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
     --theme-field-active: var(--YOUR-THEME-PREFIX-colour-neutrals-100);
 
     /* Stroke/Border colors */
-    --theme-stroke-secondary-strong: var(--YOUR-THEME-PREFIX-colour-neutrals-600);
+    --theme-stroke-secondary-strong: var(
+      --YOUR-THEME-PREFIX-colour-neutrals-600
+    );
     --theme-stroke-subtle: var(--YOUR-THEME-PREFIX-colour-neutrals-300);
     --theme-stroke-hover: var(--YOUR-THEME-PREFIX-colour-neutrals-400);
 
     /* Text colors */
     --theme-text-default: var(--YOUR-THEME-PREFIX-colour-neutrals-900);
     --theme-text-body: var(--YOUR-THEME-PREFIX-colour-neutrals-900);
-    --theme-text-secondary: var(--YOUR-THEME-PREFIX-colour-primary-orange-default);
+    --theme-text-secondary: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-default
+    );
     --theme-text-helper: var(--YOUR-THEME-PREFIX-colour-neutrals-700);
     --theme-text-disabled: var(--YOUR-THEME-PREFIX-colour-neutrals-700);
 
     /* Link colors */
-    --theme-link-hover: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
-    --theme-link-pressed: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600);
+    --theme-link-hover: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default
+    );
+    --theme-link-pressed: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-600
+    );
     --theme-link-visited: #7c19aa; /* Or your custom visited link color */
-    --theme-link-inverse-hover: var(--YOUR-THEME-PREFIX-colour-primary-blue-100);
-    --theme-link-inverse-visited: var(--YOUR-THEME-PREFIX-colour-primary-orange-100);
+    --theme-link-inverse-hover: var(
+      --YOUR-THEME-PREFIX-colour-primary-blue-100
+    );
+    --theme-link-inverse-visited: var(
+      --YOUR-THEME-PREFIX-colour-primary-orange-100
+    );
 
     /* Icon colors */
-    --theme-icon-secondary: var(--YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default);
+    --theme-icon-secondary: var(
+      --YOUR-THEME-PREFIX-colour-secondary-YOUR-COLOR-default
+    );
     --theme-icon-tertiary: var(--YOUR-THEME-PREFIX-colour-neutrals-600);
     --theme-icon-visited: #7c19aa; /* Match link-visited usually */
     --theme-icon-disabled: var(--YOUR-THEME-PREFIX-colour-neutrals-500);
@@ -343,7 +499,7 @@
        FONTS
        Specify your theme's primary and fallback fonts.
        ========================================================================= */
-    
+
     --type-font-default: YOUR-PRIMARY-FONT;
     --type-font-alt: Arial;
 
@@ -356,11 +512,15 @@
        - Rounded corners: Use spacing-full for buttons
        - Custom radii: Define specific pixel values
        ========================================================================= */
-    
+
     --radii-none: var(--global-spacing-spacing-0);
-    --radii-button: var(--global-spacing-spacing-0); /* Choose: spacing-0 for sharp, spacing-full for rounded */
+    --radii-button: var(
+      --global-spacing-spacing-0
+    ); /* Choose: spacing-0 for sharp, spacing-full for rounded */
     --radii-sm: var(--global-spacing-spacing-4);
-    --radii-md: var(--global-spacing-spacing-20); /* Or customize to 16px, etc. */
+    --radii-md: var(
+      --global-spacing-spacing-20
+    ); /* Or customize to 16px, etc. */
     --radii-lg: var(--global-spacing-spacing-full);
 
     /* =========================================================================
@@ -375,7 +535,7 @@
        These can be brand colors, category colors, or any semantic grouping
        specific to your application.
        ========================================================================= */
-    
+
     --clr-tag-tag-default: var(--YOUR-THEME-PREFIX-colour-primary-blue-default);
     --clr-tag-tag-subtle: var(--YOUR-THEME-PREFIX-colour-neutrals-white);
     --clr-tag-tag-3: var(--YOUR-THEME-PREFIX-colour-YOUR-TAG-COLOR-1);

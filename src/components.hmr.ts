@@ -1,4 +1,7 @@
 // src/components.hmr.ts
+// Import layer order declaration FIRST to establish cascade
+import "./layers.css";
+
 // Foundations from *source* (HMR-friendly)
 import "./foundations/reset.css";
 import "./foundations/base.css";

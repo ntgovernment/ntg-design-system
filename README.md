@@ -26,13 +26,24 @@ ntg-design-system/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   │   ├── button/         # Button component
+│   │   │   ├── button.css
+│   │   │   ├── Button.tsx
+│   │   │   ├── Button.stories.tsx
+│   │   │   └── BUTTON.md  # Component documentation
 │   │   ├── callout/        # Callout component with DXP integration
 │   │   └── component-viewer/ # Component viewer for CMS
-│   ├── themes/             # Brand theme files
-│   │   ├── theme-ntg.css
-│   │   └── theme-central.css
-│   ├── tokens/             # Design tokens (colors, spacing, typography)
+│   ├── themes/             # Brand theme files (CSS @layer architecture)
+│   │   ├── layers.css      # Unified @layer declaration
+│   │   ├── theme-base.css  # Shared semantic tokens (~60 tokens)
+│   │   ├── typography-base.css # Shared typography (96 tokens)
+│   │   ├── theme-ntg.css   # NT.GOV.AU theme
+│   │   ├── theme-central.css # NTG Central theme
+│   │   └── theme-template.css # Template for creating new themes
+│   ├── tokens/             # Primitive design tokens (colors, spacing, typography)
+│   │   └── ntg-design-system-tokens.css
 │   ├── foundations/        # Base styles and resets
+│   │   ├── reset.css
+│   │   └── base.css
 │   └── runtime/            # Component initialization
 ├── dist/                   # Production build output
 │   ├── css/               # Compiled stylesheets

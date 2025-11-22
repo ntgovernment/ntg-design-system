@@ -20,25 +20,25 @@
 }
 /* Small button icon adjustments *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
-*:not(#\#),
-*:not(#\#)::before,
-*:not(#\#)::after { box-sizing: border-box; }
-html:not(#\#), body:not(#\#) { height: 100%; }
-body:not(#\#), h1:not(#\#), h2:not(#\#), h3:not(#\#), h4:not(#\#), h5:not(#\#), h6:not(#\#), p:not(#\#), figure:not(#\#), blockquote:not(#\#), dl:not(#\#), dd:not(#\#) { margin: 0; }
-ul[role='list']:not(#\#), ol[role='list']:not(#\#) { list-style: none; }
-img:not(#\#), picture:not(#\#), video:not(#\#), canvas:not(#\#), svg:not(#\#) { display: block; max-width: 100%; }
-input:not(#\#), button:not(#\#), textarea:not(#\#), select:not(#\#) { font: inherit; }
-:root:not(#\#) { --csstools-color-scheme--light: initial; color-scheme: light dark; }
+*:not(#\#):not(#\#):not(#\#):not(#\#),
+*:not(#\#):not(#\#):not(#\#):not(#\#)::before,
+*:not(#\#):not(#\#):not(#\#):not(#\#)::after { box-sizing: border-box; }
+html:not(#\#):not(#\#):not(#\#):not(#\#), body:not(#\#):not(#\#):not(#\#):not(#\#) { height: 100%; }
+body:not(#\#):not(#\#):not(#\#):not(#\#), h1:not(#\#):not(#\#):not(#\#):not(#\#), h2:not(#\#):not(#\#):not(#\#):not(#\#), h3:not(#\#):not(#\#):not(#\#):not(#\#), h4:not(#\#):not(#\#):not(#\#):not(#\#), h5:not(#\#):not(#\#):not(#\#):not(#\#), h6:not(#\#):not(#\#):not(#\#):not(#\#), p:not(#\#):not(#\#):not(#\#):not(#\#), figure:not(#\#):not(#\#):not(#\#):not(#\#), blockquote:not(#\#):not(#\#):not(#\#):not(#\#), dl:not(#\#):not(#\#):not(#\#):not(#\#), dd:not(#\#):not(#\#):not(#\#):not(#\#) { margin: 0; }
+ul[role='list']:not(#\#):not(#\#):not(#\#):not(#\#), ol[role='list']:not(#\#):not(#\#):not(#\#):not(#\#) { list-style: none; }
+img:not(#\#):not(#\#):not(#\#):not(#\#), picture:not(#\#):not(#\#):not(#\#):not(#\#), video:not(#\#):not(#\#):not(#\#):not(#\#), canvas:not(#\#):not(#\#):not(#\#):not(#\#), svg:not(#\#):not(#\#):not(#\#):not(#\#) { display: block; max-width: 100%; }
+input:not(#\#):not(#\#):not(#\#):not(#\#), button:not(#\#):not(#\#):not(#\#):not(#\#), textarea:not(#\#):not(#\#):not(#\#):not(#\#), select:not(#\#):not(#\#):not(#\#):not(#\#) { font: inherit; }
+:root:not(#\#):not(#\#):not(#\#):not(#\#) { --csstools-color-scheme--light: initial; color-scheme: light dark; }
 @media (prefers-color-scheme: dark) {
-:root:not(#\#) { --csstools-color-scheme--light:  ; }
+:root:not(#\#):not(#\#):not(#\#):not(#\#) { --csstools-color-scheme--light:  ; }
 }
-:focus-visible:not(#\#) { outline: 2px solid var(--clr-focus-ring); outline-offset: 2px; }
+:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#) { outline: 2px solid var(--clr-focus-ring); outline-offset: 2px; }
 /* Base styles read variables defined by the active theme + tokens */
-html:not(#\#) {
+html:not(#\#):not(#\#):not(#\#):not(#\#) {
   font-size: 16px;
   font-size: var(--type-root-size, 16px);
 }
-body:not(#\#) {
+body:not(#\#):not(#\#):not(#\#):not(#\#) {
   background: var(--clr-surface-default);
   color: var(--clr-text-default);
 
@@ -53,22 +53,22 @@ body:not(#\#) {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-a:not(#\#) {
+a:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: var(--clr-link-default, var(--clr-action-default));
   -webkit-text-decoration: none;
   text-decoration: none;
 }
-a:hover:not(#\#) {
+a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: color-mix(in oklab, currentColor, black 12%);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 @supports (color: color-mix(in lch, red, blue)) {
-a:hover:not(#\#) {
+a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: var(--clr-link-hover, color-mix(in oklab, currentColor, black 12%));
 }
 }
-.ntgds-btn:not(#\#):not(#\#) {
+.ntgds-btn:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   display: inline-flex;
   padding: 1rem 1.5rem;
   padding: var(--sp-md, 1rem) var(--sp-xl, 1.5rem);
@@ -92,10 +92,10 @@ a:hover:not(#\#) {
   cursor: pointer;
   position: relative;
 }
-.ntgds-btn[disabled]:not(#\#):not(#\#),
-.ntgds-btn--disabled:not(#\#):not(#\#),
-.ntgds-btn[disabled]:hover:not(#\#):not(#\#),
-.ntgds-btn--disabled:hover:not(#\#):not(#\#) {
+.ntgds-btn[disabled]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--disabled:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn[disabled]:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--disabled:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   opacity: 0.6;
   cursor: not-allowed;
   border: 1px solid inherit;
@@ -106,29 +106,29 @@ a:hover:not(#\#) {
   color: var(--clr-text-disabled, inherit);
 }
 /* Primary button variant */
-.ntgds-btn--primary:not(#\#):not(#\#) {
+.ntgds-btn--primary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-default, inherit);
   color: inherit;
   color: var(--clr-link-inverse, inherit);
 }
-.ntgds-btn--primary:hover:not(#\#):not(#\#) {
+.ntgds-btn--primary:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-hover, inherit);
 }
-.ntgds-btn:focus:not(#\#):not(#\#) {
+.ntgds-btn:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-default, inherit);
   box-shadow: 0 0 0 4px inherit;
   box-shadow: 0 0 0 4px var(--clr-focus-focus, inherit);
 }
-.ntgds-btn--primary:active:not(#\#):not(#\#) {
+.ntgds-btn--primary:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-pressed, inherit);
   box-shadow: none;
 }
 /* Secondary button variant */
-.ntgds-btn--secondary:not(#\#):not(#\#) {
+.ntgds-btn--secondary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-secondary, inherit);
   color: inherit;
@@ -136,7 +136,7 @@ a:hover:not(#\#) {
   border: 1px solid inherit;
   border: var(--border-width-default, 1px) solid var(--clr-stroke-strong, inherit);
 }
-.ntgds-btn--secondary:hover:not(#\#):not(#\#) {
+.ntgds-btn--secondary:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-hover, inherit);
   color: inherit;
@@ -144,7 +144,7 @@ a:hover:not(#\#) {
   border-color: inherit;
   border-color: var(---clr-action-hover, inherit);
 }
-.ntgds-btn--secondary:focus:not(#\#):not(#\#) {
+.ntgds-btn--secondary:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   outline-color: var(--clr-focus-focus);
   background: inherit;
   background: var(--clr-action-secondary, inherit);
@@ -153,7 +153,7 @@ a:hover:not(#\#) {
   color: inherit;
   color: var(--clr-link-default, inherit);
 }
-.ntgds-btn--secondary:active:not(#\#):not(#\#) {
+.ntgds-btn--secondary:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-pressed, inherit);
   box-shadow: none;
@@ -161,7 +161,7 @@ a:hover:not(#\#) {
   color: var(--clr-link-inverse, inherit);
 }
 /* Tertiary button variant */
-.ntgds-btn--tertiary:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: transparent;
   color: var(--clr-link-default);
   padding: inherit;
@@ -169,11 +169,11 @@ a:hover:not(#\#) {
   gap: inherit;
   gap: var(--sp-xs, inherit);
 }
-.ntgds-btn--tertiary:hover:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   color: inherit;
   color: var(--clr-link-hover, inherit);
 }
-.ntgds-btn--tertiary:focus:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   outline-color: var(--clr-focus-focus);
   box-shadow: 0 0 0 4px inherit;
   box-shadow: 0 0 0 4px var(--clr-focus-focus, inherit);
@@ -181,31 +181,31 @@ a:hover:not(#\#) {
   color: inherit;
   color: var(--clr-link-default, inherit);
 }
-.ntgds-btn--tertiary:active:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   color: inherit;
   color: var(--clr-link-pressed, inherit);
   box-shadow: none;
   background: transparent;
 }
-.ntgds-btn--primary.ntgds-btn--small:not(#\#):not(#\#),
-.ntgds-btn--secondary.ntgds-btn--small:not(#\#):not(#\#),
-.ntgds-btn--tertiary.ntgds-btn--small:not(#\#):not(#\#) {
+.ntgds-btn--primary.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--secondary.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--tertiary.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   padding: 0.5rem 1rem;
   padding: var(--sp-xs, 0.5rem) var(--sp-md, 1rem);
   font-size: var(--type-desktop-body-sm-size);
 }
 /* Icon styles */
-.ntgds-btn__icon:not(#\#):not(#\#) {
+.ntgds-btn__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.ntgds-btn__icon--left:not(#\#):not(#\#) {
+.ntgds-btn__icon--left:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   margin-right: 0.5rem;
   margin-right: var(--sp-xs, 0.5rem);
 }
-.ntgds-btn__icon--right:not(#\#):not(#\#) {
+.ntgds-btn__icon--right:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   margin-left: 0.5rem;
   margin-left: var(--sp-xs, 0.5rem);
 }
@@ -214,10 +214,10 @@ a:hover:not(#\#) {
   align-items: center;
 } */
 /* Loading styles */
-.ntgds-btn--loading:not(#\#):not(#\#) {
+.ntgds-btn--loading:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   position: relative;
 }
-.ntgds-btn__loading-spinner:not(#\#):not(#\#) {
+.ntgds-btn__loading-spinner:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -226,15 +226,15 @@ a:hover:not(#\#) {
   border-radius: 50%;
   animation: ntgds-btn-spin 1s linear infinite;
 }
-.ntgds-btn__loading-text:not(#\#):not(#\#) {
+.ntgds-btn__loading-text:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   opacity: 0.7;
 }
 /* Loading spinner animation */
 /* Small button icon adjustments */
-.ntgds-btn--small:not(#\#):not(#\#) .ntgds-btn__icon {
+.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-btn__icon {
   font-size: 0.875em;
 }
-.ntgds-btn--small:not(#\#):not(#\#) .ntgds-btn__loading-spinner {
+.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-btn__loading-spinner {
   width: 0.875em;
   height: 0.875em;
 }

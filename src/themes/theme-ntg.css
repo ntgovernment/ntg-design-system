@@ -31,11 +31,17 @@
  * 4. Overrides layer (theme-specific customizations)
  */
 
-/* Explicit layer declaration - defines cascade order */
-@layer theme-primitives, semantics, typography, overrides;
+/* Import layer order declaration */
+@import url("../layers.css");
 
 /* Import primitives - MUST be first */
 @import url("../tokens/ntg-design-system-tokens.css");
+
+/* Import shared semantic base - references --theme-* tokens */
+@import url("./theme-base.css") layer(semantics);
+
+/* Import shared typography base */
+@import url("./typography-base.css") layer(typography);
 
 /* =============================================================================
    THEME-PRIMITIVE MAPPINGS
@@ -60,136 +66,136 @@
     --theme-colour-neutrals-900: var(--ntg-colour-neutrals-900);
 
     /* Primary Colors - Blue and Orange */
-    --theme-colour-primary-blue-100: var(--ntg-colour-primary-blue-100);
-    --theme-colour-primary-blue-200: var(--ntg-colour-primary-blue-200);
-    --theme-colour-primary-blue-300: var(--ntg-colour-primary-blue-300);
-    --theme-colour-primary-blue-400: var(--ntg-colour-primary-blue-400);
-    --theme-colour-primary-blue-default: var(--ntg-colour-primary-blue-default);
-    --theme-colour-primary-blue-600: var(--ntg-colour-primary-blue-600);
-    --theme-colour-primary-blue-700: var(--ntg-colour-primary-blue-700);
-    --theme-colour-primary-blue-800: var(--ntg-colour-primary-blue-800);
-    --theme-colour-primary-blue-900: var(--ntg-colour-primary-blue-900);
+    --theme-colour-primary-blue-100: var(--ntg-colour-primary--blue-100);
+    --theme-colour-primary-blue-200: var(--ntg-colour-primary--blue-200);
+    --theme-colour-primary-blue-300: var(--ntg-colour-primary--blue-300);
+    --theme-colour-primary-blue-400: var(--ntg-colour-primary--blue-400);
+    --theme-colour-primary-blue-default: var(--ntg-colour-primary--blue-default);
+    --theme-colour-primary-blue-600: var(--ntg-colour-primary--blue-600);
+    --theme-colour-primary-blue-700: var(--ntg-colour-primary--blue-700);
+    --theme-colour-primary-blue-800: var(--ntg-colour-primary--blue-800);
+    --theme-colour-primary-blue-900: var(--ntg-colour-primary--blue-900);
 
-    --theme-colour-primary-orange-100: var(--ntg-colour-primary-orange-100);
-    --theme-colour-primary-orange-200: var(--ntg-colour-primary-orange-200);
-    --theme-colour-primary-orange-300: var(--ntg-colour-primary-orange-300);
-    --theme-colour-primary-orange-400: var(--ntg-colour-primary-orange-400);
+    --theme-colour-primary-orange-100: var(--ntg-colour-primary--orange-100);
+    --theme-colour-primary-orange-200: var(--ntg-colour-primary--orange-200);
+    --theme-colour-primary-orange-300: var(--ntg-colour-primary--orange-300);
+    --theme-colour-primary-orange-400: var(--ntg-colour-primary--orange-400);
     --theme-colour-primary-orange-default: var(
-      --ntg-colour-primary-orange-default
+      --ntg-colour-primary--orange-default
     );
-    --theme-colour-primary-orange-600: var(--ntg-colour-primary-orange-600);
-    --theme-colour-primary-orange-700: var(--ntg-colour-primary-orange-700);
-    --theme-colour-primary-orange-800: var(--ntg-colour-primary-orange-800);
-    --theme-colour-primary-orange-900: var(--ntg-colour-primary-orange-900);
+    --theme-colour-primary-orange-600: var(--ntg-colour-primary--orange-600);
+    --theme-colour-primary-orange-700: var(--ntg-colour-primary--orange-700);
+    --theme-colour-primary-orange-800: var(--ntg-colour-primary--orange-800);
+    --theme-colour-primary-orange-900: var(--ntg-colour-primary--orange-900);
 
     /* Secondary Colors - Ochre (primary secondary for NTG) */
-    --theme-colour-secondary-ochre-100: var(--ntg-colour-secondary-ochre-100);
-    --theme-colour-secondary-ochre-200: var(--ntg-colour-secondary-ochre-200);
-    --theme-colour-secondary-ochre-300: var(--ntg-colour-secondary-ochre-300);
-    --theme-colour-secondary-ochre-400: var(--ntg-colour-secondary-ochre-400);
+    --theme-colour-secondary-ochre-100: var(--ntg-colour-secondary--ochre-100);
+    --theme-colour-secondary-ochre-200: var(--ntg-colour-secondary--ochre-200);
+    --theme-colour-secondary-ochre-300: var(--ntg-colour-secondary--ochre-300);
+    --theme-colour-secondary-ochre-400: var(--ntg-colour-secondary--ochre-400);
     --theme-colour-secondary-ochre-default: var(
-      --ntg-colour-secondary-ochre-default
+      --ntg-colour-secondary--ochre-default
     );
-    --theme-colour-secondary-ochre-600: var(--ntg-colour-secondary-ochre-600);
-    --theme-colour-secondary-ochre-700: var(--ntg-colour-secondary-ochre-700);
-    --theme-colour-secondary-ochre-800: var(--ntg-colour-secondary-ochre-800);
-    --theme-colour-secondary-ochre-900: var(--ntg-colour-secondary-ochre-900);
+    --theme-colour-secondary-ochre-600: var(--ntg-colour-secondary--ochre-600);
+    --theme-colour-secondary-ochre-700: var(--ntg-colour-secondary--ochre-700);
+    --theme-colour-secondary-ochre-800: var(--ntg-colour-secondary--ochre-800);
+    --theme-colour-secondary-ochre-900: var(--ntg-colour-secondary--ochre-900);
 
     /* Status Colors - Info (Blue) */
-    --theme-status-info-blue-50: var(--ntg-colour-status-info-blue-50);
-    --theme-status-info-blue-100: var(--ntg-colour-status-info-blue-100);
-    --theme-status-info-blue-200: var(--ntg-colour-status-info-blue-200);
-    --theme-status-info-blue-300: var(--ntg-colour-status-info-blue-300);
-    --theme-status-info-blue-400: var(--ntg-colour-status-info-blue-400);
+    --theme-status-info-blue-50: var(--ntg-colour-status--info-blue-50);
+    --theme-status-info-blue-100: var(--ntg-colour-status--info-blue-100);
+    --theme-status-info-blue-200: var(--ntg-colour-status--info-blue-200);
+    --theme-status-info-blue-300: var(--ntg-colour-status--info-blue-300);
+    --theme-status-info-blue-400: var(--ntg-colour-status--info-blue-400);
     --theme-status-info-blue-default: var(
-      --ntg-colour-status-info-blue-default
+      --ntg-colour-status--info-blue-default
     );
-    --theme-status-info-blue-600: var(--ntg-colour-status-info-blue-600);
-    --theme-status-info-blue-700: var(--ntg-colour-status-info-blue-700);
-    --theme-status-info-blue-800: var(--ntg-colour-status-info-blue-800);
-    --theme-status-info-blue-900: var(--ntg-colour-status-info-blue-900);
+    --theme-status-info-blue-600: var(--ntg-colour-status--info-blue-600);
+    --theme-status-info-blue-700: var(--ntg-colour-status--info-blue-700);
+    --theme-status-info-blue-800: var(--ntg-colour-status--info-blue-800);
+    --theme-status-info-blue-900: var(--ntg-colour-status--info-blue-900);
 
     /* Status Colors - Success (Green) */
-    --theme-status-success-green-50: var(--ntg-colour-status-success-green-50);
+    --theme-status-success-green-50: var(--ntg-colour-status--success-green-50);
     --theme-status-success-green-100: var(
-      --ntg-colour-status-success-green-100
+      --ntg-colour-status--success-green-100
     );
     --theme-status-success-green-200: var(
-      --ntg-colour-status-success-green-200
+      --ntg-colour-status--success-green-200
     );
     --theme-status-success-green-300: var(
-      --ntg-colour-status-success-green-300
+      --ntg-colour-status--success-green-300
     );
     --theme-status-success-green-400: var(
-      --ntg-colour-status-success-green-400
+      --ntg-colour-status--success-green-400
     );
     --theme-status-success-green-default: var(
-      --ntg-colour-status-success-green-default
+      --ntg-colour-status--success-green-default
     );
     --theme-status-success-green-600: var(
-      --ntg-colour-status-success-green-600
+      --ntg-colour-status--success-green-600
     );
     --theme-status-success-green-700: var(
-      --ntg-colour-status-success-green-700
+      --ntg-colour-status--success-green-700
     );
     --theme-status-success-green-800: var(
-      --ntg-colour-status-success-green-800
+      --ntg-colour-status--success-green-800
     );
     --theme-status-success-green-900: var(
-      --ntg-colour-status-success-green-900
+      --ntg-colour-status--success-green-900
     );
 
     /* Status Colors - Warning (Orange) */
     --theme-status-warning-orange-50: var(
-      --ntg-colour-status-warning-orange-50
+      --ntg-colour-status--warning-orange-50
     );
     --theme-status-warning-orange-100: var(
-      --ntg-colour-status-warning-orange-100
+      --ntg-colour-status--warning-orange-100
     );
     --theme-status-warning-orange-200: var(
-      --ntg-colour-status-warning-orange-200
+      --ntg-colour-status--warning-orange-200
     );
     --theme-status-warning-orange-300: var(
-      --ntg-colour-status-warning-orange-300
+      --ntg-colour-status--warning-orange-300
     );
     --theme-status-warning-orange-400: var(
-      --ntg-colour-status-warning-orange-400
+      --ntg-colour-status--warning-orange-400
     );
     --theme-status-warning-orange-default: var(
-      --ntg-colour-status-warning-orange-default
+      --ntg-colour-status--warning-orange-default
     );
     --theme-status-warning-orange-600: var(
-      --ntg-colour-status-warning-orange-600
+      --ntg-colour-status--warning-orange-600
     );
     --theme-status-warning-orange-700: var(
-      --ntg-colour-status-warning-orange-700
+      --ntg-colour-status--warning-orange-700
     );
     --theme-status-warning-orange-800: var(
-      --ntg-colour-status-warning-orange-800
+      --ntg-colour-status--warning-orange-800
     );
     --theme-status-warning-orange-900: var(
-      --ntg-colour-status-warning-orange-900
+      --ntg-colour-status--warning-orange-900
     );
 
     /* Status Colors - Danger (Red) */
-    --theme-status-danger-red-50: var(--ntg-colour-status-danger-red-50);
-    --theme-status-danger-red-100: var(--ntg-colour-status-danger-red-100);
-    --theme-status-danger-red-200: var(--ntg-colour-status-danger-red-200);
-    --theme-status-danger-red-300: var(--ntg-colour-status-danger-red-300);
-    --theme-status-danger-red-400: var(--ntg-colour-status-danger-red-400);
+    --theme-status-danger-red-50: var(--ntg-colour-status--danger-red-50);
+    --theme-status-danger-red-100: var(--ntg-colour-status--danger-red-100);
+    --theme-status-danger-red-200: var(--ntg-colour-status--danger-red-200);
+    --theme-status-danger-red-300: var(--ntg-colour-status--danger-red-300);
+    --theme-status-danger-red-400: var(--ntg-colour-status--danger-red-400);
     --theme-status-danger-red-default: var(
-      --ntg-colour-status-danger-red-default
+      --ntg-colour-status--danger-red-default
     );
-    --theme-status-danger-red-600: var(--ntg-colour-status-danger-red-600);
-    --theme-status-danger-red-700: var(--ntg-colour-status-danger-red-700);
-    --theme-status-danger-red-800: var(--ntg-colour-status-danger-red-800);
-    --theme-status-danger-red-900: var(--ntg-colour-status-danger-red-900);
+    --theme-status-danger-red-600: var(--ntg-colour-status--danger-red-600);
+    --theme-status-danger-red-700: var(--ntg-colour-status--danger-red-700);
+    --theme-status-danger-red-800: var(--ntg-colour-status--danger-red-800);
+    --theme-status-danger-red-900: var(--ntg-colour-status--danger-red-900);
 
     /* Component-specific mappings */
     --theme-surface-hover: var(--ntg-colour-neutrals-100);
     --theme-surface-selected: var(--ntg-colour-neutrals-100);
-    --theme-action-hover: var(--ntg-colour-secondary-ochre-default);
-    --theme-action-pressed: var(--ntg-colour-secondary-ochre-600);
+    --theme-action-hover: var(--ntg-colour-secondary--ochre-default);
+    --theme-action-pressed: var(--ntg-colour-secondary--ochre-600);
     --theme-field-default: var(--ntg-colour-neutrals-100);
     --theme-field-active: var(--ntg-colour-neutrals-100);
     --theme-stroke-secondary-strong: var(--ntg-colour-neutrals-600);
@@ -197,27 +203,21 @@
     --theme-stroke-hover: var(--ntg-colour-neutrals-400);
     --theme-text-default: var(--ntg-colour-neutrals-900);
     --theme-text-body: var(--ntg-colour-neutrals-900);
-    --theme-text-secondary: var(--ntg-colour-primary-orange-default);
+    --theme-text-secondary: var(--ntg-colour-primary--orange-default);
     --theme-text-helper: var(--ntg-colour-neutrals-700);
     --theme-text-disabled: var(--ntg-colour-neutrals-700);
-    --theme-link-hover: var(--ntg-colour-secondary-ochre-default);
-    --theme-link-pressed: var(--ntg-colour-secondary-ochre-600);
+    --theme-link-hover: var(--ntg-colour-secondary--ochre-default);
+    --theme-link-pressed: var(--ntg-colour-secondary--ochre-600);
     --theme-link-visited: #7c19aa;
-    --theme-link-inverse-hover: var(--ntg-colour-primary-blue-100);
-    --theme-link-inverse-visited: var(--ntg-colour-primary-orange-100);
-    --theme-icon-secondary: var(--ntg-colour-secondary-ochre-default);
+    --theme-link-inverse-hover: var(--ntg-colour-primary--blue-100);
+    --theme-link-inverse-visited: var(--ntg-colour-primary--orange-100);
+    --theme-icon-secondary: var(--ntg-colour-secondary--ochre-default);
     --theme-icon-tertiary: var(--ntg-colour-neutrals-600);
     --theme-icon-visited: #7c19aa;
     --theme-icon-disabled: var(--ntg-colour-neutrals-500);
-    --theme-focus-focus: var(--ntg-colour-primary-orange-300);
+    --theme-focus-focus: var(--ntg-colour-primary--orange-300);
   }
 }
-
-/* Import shared semantic base - references --theme-* tokens defined above */
-@import url("./theme-base.css") layer(semantics);
-
-/* Import shared typography base */
-@import url("./typography-base.css") layer(typography);
 
 /* =============================================================================
    NT.GOV.AU-SPECIFIC OVERRIDES
@@ -238,7 +238,7 @@
     --radii-lg: var(--global-spacing-spacing-full);
 
     /* Tag Colors - NT.GOV.AU uses regional brand colors */
-    --clr-tag-tag-default: var(--ntg-colour-primary-blue-default);
+    --clr-tag-tag-default: var(--ntg-colour-primary--blue-default);
     --clr-tag-tag-subtle: var(--ntg-colour-neutrals-white);
     --clr-tag-tag-3: var(--ntg-colour-new-brand-regional-colours-darwin);
     --clr-tag-tag-4: var(--ntg-colour-new-brand-regional-colours-top-end);
