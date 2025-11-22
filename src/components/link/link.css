@@ -1,0 +1,59 @@
+/* Link Component Styles */
+
+@layer components {
+  .ntgds-link {
+    color: var(--clr-link-default);
+    font-family: var(--type-font-default);
+    font-size: var(--type-desktop-body-default-size);
+    font-weight: var(--type-desktop-body-default-weight);
+    line-height: var(--type-desktop-body-default-lh);
+    text-decoration: underline;
+    cursor: pointer;
+    word-wrap: break-word;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
+    border-bottom: 4px solid transparent;
+    display: inline;
+  }
+
+  .ntgds-link:hover {
+    color: var(--clr-link-hover);
+    text-decoration: none;
+  }
+
+  .ntgds-link:visited {
+    color: var(--clr-link-visited);
+    text-decoration: none;
+  }
+
+  .ntgds-link:focus {
+    outline: none;
+    background: var(--clr-focus-focus);
+    border-bottom-color: var(--clr-stroke-strong);
+    color: var(--clr-link-default);
+    text-decoration: none;
+  }
+
+  .ntgds-link:focus:not(:focus-visible) {
+    outline: none;
+    background: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .ntgds-link:focus-visible {
+    outline: none;
+    background: var(--clr-focus-focus);
+    border-bottom-color: var(--clr-stroke-strong);
+    color: var(--clr-link-default);
+    text-decoration: none;
+  }
+
+  .ntgds-link[disabled],
+  .ntgds-link--disabled {
+    color: var(--clr-text-disabled);
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    border-bottom-color: transparent;
+  }
+}

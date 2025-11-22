@@ -2,6 +2,8 @@
 
 A versatile button component that supports multiple variants, sizes, states, and icon integration. The button adapts to different themes automatically through the design system's token architecture.
 
+**Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=13-1970&t=ea1GVGvBRPEpKpIT-1)
+
 ## Features
 
 - **Three Variants**: Primary, Secondary, and Tertiary styles
@@ -47,19 +49,13 @@ import { Button } from '@ntg-design-system/components';
 
 ```html
 <!-- Primary Button (Default) -->
-<button class="ntgds-btn ntgds-btn--primary">
-  Click me
-</button>
+<button class="ntgds-btn ntgds-btn--primary">Click me</button>
 
 <!-- Secondary Button -->
-<button class="ntgds-btn ntgds-btn--secondary">
-  Cancel
-</button>
+<button class="ntgds-btn ntgds-btn--secondary">Cancel</button>
 
 <!-- Tertiary Button -->
-<button class="ntgds-btn ntgds-btn--tertiary">
-  Learn more
-</button>
+<button class="ntgds-btn ntgds-btn--tertiary">Learn more</button>
 
 <!-- Small Button -->
 <button class="ntgds-btn ntgds-btn--primary ntgds-btn--small">
@@ -85,43 +81,41 @@ import { Button } from '@ntg-design-system/components';
 </button>
 
 <!-- Disabled Button -->
-<button class="ntgds-btn ntgds-btn--primary" disabled>
-  Unavailable
-</button>
+<button class="ntgds-btn ntgds-btn--primary" disabled>Unavailable</button>
 ```
 
 ## Props / Attributes
 
 ### React Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | Visual style variant |
-| `size` | `'default' \| 'small'` | `'default'` | Button size |
-| `iconLeft` | `string` | - | Font Awesome class for left icon (e.g., `'fa-solid fa-save'`) |
-| `iconRight` | `string` | - | Font Awesome class for right icon (e.g., `'fa-solid fa-arrow-right'`) |
-| `loading` | `boolean` | `false` | Shows loading spinner and disables interaction |
-| `disabled` | `boolean` | `false` | Disables button interaction |
-| `children` | `ReactNode` | - | Button text or content |
-| `onClick` | `(event: MouseEvent) => void` | - | Click event handler |
-| `type` | `'button' \| 'submit' \| 'reset'` | `'button'` | HTML button type attribute |
+| Prop        | Type                                     | Default     | Description                                                           |
+| ----------- | ---------------------------------------- | ----------- | --------------------------------------------------------------------- |
+| `variant`   | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | Visual style variant                                                  |
+| `size`      | `'default' \| 'small'`                   | `'default'` | Button size                                                           |
+| `iconLeft`  | `string`                                 | -           | Font Awesome class for left icon (e.g., `'fa-solid fa-save'`)         |
+| `iconRight` | `string`                                 | -           | Font Awesome class for right icon (e.g., `'fa-solid fa-arrow-right'`) |
+| `loading`   | `boolean`                                | `false`     | Shows loading spinner and disables interaction                        |
+| `disabled`  | `boolean`                                | `false`     | Disables button interaction                                           |
+| `children`  | `ReactNode`                              | -           | Button text or content                                                |
+| `onClick`   | `(event: MouseEvent) => void`            | -           | Click event handler                                                   |
+| `type`      | `'button' \| 'submit' \| 'reset'`        | `'button'`  | HTML button type attribute                                            |
 
 ### HTML Classes
 
-| Class | Description |
-|-------|-------------|
-| `ntgds-btn` | Base button class (required) |
-| `ntgds-btn--primary` | Primary variant styling |
-| `ntgds-btn--secondary` | Secondary variant styling |
-| `ntgds-btn--tertiary` | Tertiary variant styling |
-| `ntgds-btn--small` | Small size modifier |
-| `ntgds-btn--loading` | Loading state styling |
-| `ntgds-btn--disabled` | Disabled state styling (also use `disabled` attribute) |
-| `ntgds-btn__icon` | Icon wrapper |
-| `ntgds-btn__icon--left` | Left icon positioning |
-| `ntgds-btn__icon--right` | Right icon positioning |
-| `ntgds-btn__loading-spinner` | Loading spinner element |
-| `ntgds-btn__loading-text` | Loading text wrapper |
+| Class                        | Description                                            |
+| ---------------------------- | ------------------------------------------------------ |
+| `ntgds-btn`                  | Base button class (required)                           |
+| `ntgds-btn--primary`         | Primary variant styling                                |
+| `ntgds-btn--secondary`       | Secondary variant styling                              |
+| `ntgds-btn--tertiary`        | Tertiary variant styling                               |
+| `ntgds-btn--small`           | Small size modifier                                    |
+| `ntgds-btn--loading`         | Loading state styling                                  |
+| `ntgds-btn--disabled`        | Disabled state styling (also use `disabled` attribute) |
+| `ntgds-btn__icon`            | Icon wrapper                                           |
+| `ntgds-btn__icon--left`      | Left icon positioning                                  |
+| `ntgds-btn__icon--right`     | Right icon positioning                                 |
+| `ntgds-btn__loading-spinner` | Loading spinner element                                |
+| `ntgds-btn__loading-text`    | Loading text wrapper                                   |
 
 ## Variants
 
@@ -130,18 +124,21 @@ import { Button } from '@ntg-design-system/components';
 The default, high-emphasis button for primary actions.
 
 **Characteristics:**
+
 - Filled background with primary brand color
 - White text for contrast
 - Highest visual weight
 - Use sparingly (1-2 per screen section)
 
 **Use cases:**
+
 - Form submissions
 - Primary call-to-action
 - Confirmations
 - Main navigation actions
 
 **Theme differences:**
+
 - **NT.GOV.AU**: Navy blue background (`#1f1f5f`), ochre hover (`#c33826`)
 - **NTG Central**: Blue background (`#005EB8`), darker blue hover
 
@@ -150,18 +147,21 @@ The default, high-emphasis button for primary actions.
 Medium-emphasis button for secondary actions.
 
 **Characteristics:**
+
 - Outlined style with transparent background
 - Brand color border and text
 - Less visual weight than primary
 - Can have multiple per screen
 
 **Use cases:**
+
 - Cancel actions
 - Alternative options
 - Back navigation
 - Tertiary actions that need more emphasis than text links
 
 **Theme differences:**
+
 - **NT.GOV.AU**: Navy border with ochre hover
 - **NTG Central**: Blue border with darker hover
 
@@ -170,18 +170,21 @@ Medium-emphasis button for secondary actions.
 Low-emphasis button styled as a text link.
 
 **Characteristics:**
+
 - No background or border
 - Styled as an inline link
 - Lowest visual weight
 - Unlimited per screen
 
 **Use cases:**
+
 - "Learn more" links
 - Auxiliary actions
 - Dense interfaces
 - Navigation within content
 
 **Theme differences:**
+
 - Both themes: Primary brand color with underline on hover
 
 ## Sizes
@@ -191,6 +194,7 @@ Low-emphasis button styled as a text link.
 Standard button size for most use cases.
 
 **Specifications:**
+
 - Padding: `16px 24px` (`var(--sp-md) var(--sp-xl)`)
 - Font size: `16px` (`var(--type-desktop-body-default-size)`)
 - Font weight: `700` (Bold)
@@ -201,12 +205,14 @@ Standard button size for most use cases.
 Compact button for space-constrained interfaces.
 
 **Specifications:**
+
 - Padding: `8px 16px` (`var(--sp-xs) var(--sp-md)`)
 - Font size: `14px` (`var(--type-desktop-body-sm-size)`)
 - Font weight: `700` (Bold)
 - Icon size: `0.875em` (14px)
 
 **Use cases:**
+
 - Table actions
 - Dense data views
 - Inline editing controls
@@ -219,6 +225,7 @@ Compact button for space-constrained interfaces.
 Standard interactive state.
 
 **Visual indicators:**
+
 - Full opacity
 - Standard colors per variant
 - Normal cursor
@@ -228,6 +235,7 @@ Standard interactive state.
 Triggered when cursor is over the button.
 
 **Visual changes:**
+
 - **Primary**: Background changes to hover color (`--clr-action-hover`)
 - **Secondary**: Background fills with hover color, border color changes
 - **Tertiary**: Text color changes to hover color
@@ -238,6 +246,7 @@ Triggered when cursor is over the button.
 Triggered by keyboard navigation (Tab key).
 
 **Visual indicators:**
+
 - Focus ring: `4px` offset outline in focus color (`--clr-focus-focus`)
 - **NT.GOV.AU**: Orange focus ring (`#ec8c58`)
 - **NTG Central**: Green focus ring (`#91C46C`)
@@ -248,6 +257,7 @@ Triggered by keyboard navigation (Tab key).
 Triggered when button is clicked.
 
 **Visual changes:**
+
 - **Primary**: Background darkens to pressed color (`--clr-action-pressed`)
 - **Secondary**: Background fills with pressed color
 - **Tertiary**: Text color changes to pressed color
@@ -258,6 +268,7 @@ Triggered when button is clicked.
 Button cannot be interacted with.
 
 **Visual indicators:**
+
 - Opacity: `0.6`
 - Cursor: not-allowed
 - Background: Disabled color (`--clr-action-disabled`)
@@ -266,6 +277,7 @@ Button cannot be interacted with.
 - All interactions prevented
 
 **Implementation:**
+
 ```html
 <button class="ntgds-btn ntgds-btn--primary" disabled>Disabled</button>
 ```
@@ -275,12 +287,14 @@ Button cannot be interacted with.
 Button is processing an action.
 
 **Visual indicators:**
+
 - Disabled interaction (but styled differently)
 - Animated spinner on left side
 - Text opacity reduced to `0.7`
 - Cursor: default (not clickable)
 
 **Implementation:**
+
 ```tsx
 <Button loading={true}>Processing...</Button>
 ```
@@ -297,22 +311,28 @@ Ensure Font Awesome is loaded in your application:
 
 ```html
 <!-- Font Awesome 6 (Free) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 ```
 
 ### Icon Position
 
 **Left Icon:**
+
 ```tsx
 <Button iconLeft="fa-solid fa-save">Save</Button>
 ```
 
 **Right Icon:**
+
 ```tsx
 <Button iconRight="fa-solid fa-arrow-right">Next</Button>
 ```
 
 **Both Icons:**
+
 ```tsx
 <Button iconLeft="fa-solid fa-download" iconRight="fa-solid fa-external-link">
   Download
@@ -327,19 +347,19 @@ Ensure Font Awesome is loaded in your application:
 
 ### Common Icon Patterns
 
-| Action | Icon Class | Example |
-|--------|-----------|---------|
-| Save | `fa-solid fa-save` | Save changes |
-| Delete | `fa-solid fa-trash` | Delete item |
-| Download | `fa-solid fa-download` | Download file |
-| Upload | `fa-solid fa-upload` | Upload file |
-| Search | `fa-solid fa-search` | Search |
-| Add | `fa-solid fa-plus` | Add new |
-| Edit | `fa-solid fa-pencil` | Edit |
-| Check | `fa-solid fa-check` | Confirm |
-| Close | `fa-solid fa-times` | Cancel |
-| Arrow Right | `fa-solid fa-arrow-right` | Next/Continue |
-| Arrow Left | `fa-solid fa-arrow-left` | Back/Previous |
+| Action        | Icon Class                  | Example       |
+| ------------- | --------------------------- | ------------- |
+| Save          | `fa-solid fa-save`          | Save changes  |
+| Delete        | `fa-solid fa-trash`         | Delete item   |
+| Download      | `fa-solid fa-download`      | Download file |
+| Upload        | `fa-solid fa-upload`        | Upload file   |
+| Search        | `fa-solid fa-search`        | Search        |
+| Add           | `fa-solid fa-plus`          | Add new       |
+| Edit          | `fa-solid fa-pencil`        | Edit          |
+| Check         | `fa-solid fa-check`         | Confirm       |
+| Close         | `fa-solid fa-times`         | Cancel        |
+| Arrow Right   | `fa-solid fa-arrow-right`   | Next/Continue |
+| Arrow Left    | `fa-solid fa-arrow-left`    | Back/Previous |
 | External Link | `fa-solid fa-external-link` | Open external |
 
 ## Theming
@@ -348,21 +368,21 @@ The Button component automatically adapts to the active theme through CSS custom
 
 ### CSS Custom Properties Used
 
-| Property | Purpose | NT.GOV.AU | NTG Central |
-|----------|---------|-----------|-------------|
-| `--clr-action-default` | Primary button background | Navy (`#1f1f5f`) | Blue (`#005EB8`) |
-| `--clr-action-hover` | Hover state background | Ochre (`#c33826`) | Dark Blue |
-| `--clr-action-pressed` | Active/pressed state | Dark Ochre (`#a22f20`) | Darker Blue |
-| `--clr-action-secondary` | Secondary button background | White | White |
-| `--clr-action-disabled` | Disabled state background | Light Grey | Light Grey |
-| `--clr-link-default` | Text/border color | Navy | Blue |
-| `--clr-link-inverse` | Primary button text | White | White |
-| `--clr-stroke-strong` | Secondary border | Navy | Blue |
-| `--clr-focus-focus` | Focus ring color | Orange | Green |
-| `--radii-button` | Border radius | `0` (sharp) | `100px` (rounded) |
-| `--sp-md` | Vertical padding | `16px` | `16px` |
-| `--sp-xl` | Horizontal padding | `24px` | `24px` |
-| `--sp-xs` | Small padding | `8px` | `8px` |
+| Property                 | Purpose                     | NT.GOV.AU              | NTG Central       |
+| ------------------------ | --------------------------- | ---------------------- | ----------------- |
+| `--clr-action-default`   | Primary button background   | Navy (`#1f1f5f`)       | Blue (`#005EB8`)  |
+| `--clr-action-hover`     | Hover state background      | Ochre (`#c33826`)      | Dark Blue         |
+| `--clr-action-pressed`   | Active/pressed state        | Dark Ochre (`#a22f20`) | Darker Blue       |
+| `--clr-action-secondary` | Secondary button background | White                  | White             |
+| `--clr-action-disabled`  | Disabled state background   | Light Grey             | Light Grey        |
+| `--clr-link-default`     | Text/border color           | Navy                   | Blue              |
+| `--clr-link-inverse`     | Primary button text         | White                  | White             |
+| `--clr-stroke-strong`    | Secondary border            | Navy                   | Blue              |
+| `--clr-focus-focus`      | Focus ring color            | Orange                 | Green             |
+| `--radii-button`         | Border radius               | `0` (sharp)            | `100px` (rounded) |
+| `--sp-md`                | Vertical padding            | `16px`                 | `16px`            |
+| `--sp-xl`                | Horizontal padding          | `24px`                 | `24px`            |
+| `--sp-xs`                | Small padding               | `8px`                  | `8px`             |
 
 ### Theme Switching
 
@@ -370,13 +390,14 @@ Buttons automatically update when the theme changes in Storybook or your applica
 
 ```typescript
 // Themes are controlled via data-brand attribute on <html>
-document.documentElement.setAttribute('data-brand', 'ntg'); // NT.GOV.AU
-document.documentElement.setAttribute('data-brand', 'ntgcentral'); // NTG Central
+document.documentElement.setAttribute("data-brand", "ntg"); // NT.GOV.AU
+document.documentElement.setAttribute("data-brand", "ntgcentral"); // NTG Central
 ```
 
 ### Key Visual Differences
 
 **NT.GOV.AU Theme:**
+
 - Font: Lato
 - Button corners: Sharp (0px border radius)
 - Primary color: Navy blue
@@ -384,6 +405,7 @@ document.documentElement.setAttribute('data-brand', 'ntgcentral'); // NTG Centra
 - Focus ring: Orange
 
 **NTG Central Theme:**
+
 - Font: Roboto
 - Button corners: Fully rounded (100px border radius)
 - Primary color: Corporate blue
@@ -404,11 +426,13 @@ document.documentElement.setAttribute('data-brand', 'ntgcentral'); // NTG Centra
 The button component is fully accessible to screen readers:
 
 **Disabled state:**
+
 ```html
 <button disabled aria-disabled="true">Unavailable</button>
 ```
 
 **Loading state:**
+
 ```html
 <button disabled aria-busy="true" aria-live="polite">
   <span aria-hidden="true" class="ntgds-btn__loading-spinner"></span>
@@ -417,6 +441,7 @@ The button component is fully accessible to screen readers:
 ```
 
 **Icon-only buttons (use aria-label):**
+
 ```html
 <button class="ntgds-btn ntgds-btn--primary" aria-label="Close dialog">
   <i class="fa-solid fa-times" aria-hidden="true"></i>
@@ -458,7 +483,7 @@ Loading spinner respects user preferences:
 ### Form Actions
 
 ```tsx
-<div style={{ display: 'flex', gap: '16px' }}>
+<div style={{ display: "flex", gap: "16px" }}>
   <Button variant="primary" type="submit">
     Submit Application
   </Button>
@@ -474,7 +499,7 @@ Loading spinner respects user preferences:
 ### Data Table Actions
 
 ```tsx
-<div style={{ display: 'flex', gap: '8px' }}>
+<div style={{ display: "flex", gap: "8px" }}>
   <Button size="small" iconLeft="fa-solid fa-pencil">
     Edit
   </Button>
@@ -487,7 +512,7 @@ Loading spinner respects user preferences:
 ### Navigation
 
 ```tsx
-<div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between' }}>
+<div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
   <Button variant="secondary" iconLeft="fa-solid fa-arrow-left">
     Previous
   </Button>
@@ -513,12 +538,8 @@ function SubmitForm() {
   };
 
   return (
-    <Button 
-      variant="primary" 
-      loading={isSubmitting}
-      onClick={handleSubmit}
-    >
-      {isSubmitting ? 'Submitting...' : 'Submit'}
+    <Button variant="primary" loading={isSubmitting} onClick={handleSubmit}>
+      {isSubmitting ? "Submitting..." : "Submit"}
     </Button>
   );
 }
@@ -527,7 +548,7 @@ function SubmitForm() {
 ### Icon Variety
 
 ```tsx
-<div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+<div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
   <Button iconLeft="fa-solid fa-save">Save Changes</Button>
   <Button iconLeft="fa-solid fa-download">Download Report</Button>
   <Button iconLeft="fa-solid fa-plus">Add Item</Button>
@@ -571,6 +592,7 @@ The Button component supports all modern browsers:
 - Opera 76+
 
 **Fallbacks:**
+
 - CSS custom properties: Fallback values provided
 - CSS Grid/Flexbox: Widely supported
 - Font Awesome: Graceful degradation if not loaded
@@ -601,6 +623,7 @@ The button uses the design system's layered CSS architecture:
 ```
 
 **Token chain:**
+
 1. **Primitive**: `--ntg-colour-primary--blue-default: #1f1f5f`
 2. **Theme-Primitive**: `--theme-colour-primary-blue-default: var(--ntg-colour-primary--blue-default)`
 3. **Semantic**: `--clr-action-default: var(--theme-colour-primary-blue-default)`
