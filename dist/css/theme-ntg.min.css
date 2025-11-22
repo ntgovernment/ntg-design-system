@@ -644,7 +644,9 @@
     --theme-colour-primary-blue-200: var(--ntg-colour-primary--blue-200);
     --theme-colour-primary-blue-300: var(--ntg-colour-primary--blue-300);
     --theme-colour-primary-blue-400: var(--ntg-colour-primary--blue-400);
-    --theme-colour-primary-blue-default: var(--ntg-colour-primary--blue-default);
+    --theme-colour-primary-blue-default: var(
+      --ntg-colour-primary--blue-default
+    );
     --theme-colour-primary-blue-600: var(--ntg-colour-primary--blue-600);
     --theme-colour-primary-blue-700: var(--ntg-colour-primary--blue-700);
     --theme-colour-primary-blue-800: var(--ntg-colour-primary--blue-800);
@@ -818,4 +820,15 @@
     --clr-tag-tag-8: var(
       --ntg-colour-new-brand-regional-colours-central-australia
     );
+
+    /* Pill border radius - NT.GOV.AU uses sharp corners */
+    --clr-pill-border-radius: var(--radii-none);
+
+    /* Icon color - NT.GOV.AU uses dark color */
+    --clr-icon-default: #1f1f5f;
+
+    /* Pill hover state overrides */
+    --clr-link-default: #1f1f5f;
+    --clr-surface-primary-hover: #eae9e8;
+    --clr-stroke-subtle: #d4d4d2;
   }

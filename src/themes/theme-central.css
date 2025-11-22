@@ -75,7 +75,9 @@
     --theme-colour-primary-blue-300: var(
       --ntg-central-colour-primary--blue-light
     );
-    --theme-colour-primary-blue-400: var(--ntg-central-colour-primary--blue-mid);
+    --theme-colour-primary-blue-400: var(
+      --ntg-central-colour-primary--blue-mid
+    );
     --theme-colour-primary-blue-default: var(
       --ntg-central-colour-primary--blue-default
     );
@@ -151,8 +153,12 @@
 
     /* Status Colors - Info (Blue) */
     --theme-status-info-blue-50: var(--ntg-central-colour-status--info-blue-50);
-    --theme-status-info-blue-100: var(--ntg-central-colour-status--info-blue-50);
-    --theme-status-info-blue-200: var(--ntg-central-colour-status--info-blue-50);
+    --theme-status-info-blue-100: var(
+      --ntg-central-colour-status--info-blue-50
+    );
+    --theme-status-info-blue-200: var(
+      --ntg-central-colour-status--info-blue-50
+    );
     --theme-status-info-blue-300: var(
       --ntg-central-colour-status--info-blue-default
     );
@@ -328,5 +334,16 @@
     --clr-tag-tag-6: var(--ntg-colour-secondary-teal-default);
     --clr-tag-tag-7: var(--ntg-colour-secondary-rubine-red-default);
     --clr-tag-tag-8: var(--ntg-colour-secondary-ochre-default);
+
+    /* Pill border radius - NTG Central uses rounded corners */
+    --clr-pill-border-radius: 100px;
+
+    /* Icon color - NTG Central uses green */
+    --clr-icon-default: #208820;
+
+    /* Pill hover state overrides */
+    --clr-link-default: #102040;
+    --clr-surface-primary-hover: #ecf0f0;
+    --clr-stroke-subtle: #d0e0e0;
   }
 }
