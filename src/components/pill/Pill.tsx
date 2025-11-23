@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "../icon/Icon";
 
 export interface PillProps {
   // No variant prop; only default styling
@@ -30,7 +31,7 @@ export const Pill: React.FC<PillProps> = ({
         onClick={handleClose}
         disabled={disabled}
       >
-        <i className="fa-solid fa-times" aria-hidden="true"></i>
+        <Icon name="xmark" size="sm" />
       </button>
     </div>
   );

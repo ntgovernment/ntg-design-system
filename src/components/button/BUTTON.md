@@ -1,14 +1,14 @@
 # Button Component
 
-A versatile button component that supports multiple variants, sizes, states, and icon integration. The button adapts to different themes automatically through the design system's token architecture.
+A versatile button component supporting multiple variants, two sizes, loading/disabled states, and flexible icon integration via the shared `Icon` component. The button adapts to different themes automatically through the design system's token architecture.
 
 **Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=13-1970&t=ea1GVGvBRPEpKpIT-1)
 
 ## Features
 
 - **Three Variants**: Primary, Secondary, and Tertiary styles
-- **Two Sizes**: Default and Small
-- **Icon Support**: Left and right icon placement with Font Awesome integration
+- **Two Sizes**: Large (default) and Small
+- **Icon Support**: Left/right icons using shared `Icon` component (string icon name, existing `<Icon />`, or arbitrary node) plus `iconColor` variants
 - **Loading State**: Built-in loading spinner with disabled interaction
 - **Accessible**: WCAG 2.1 AA compliant with proper focus states and ARIA attributes
 - **Theme-Aware**: Automatically adapts to NT.GOV.AU and NTG Central themes
@@ -32,17 +32,23 @@ import { Button } from '@ntg-design-system/components';
 // Small button
 <Button size="small">Small action</Button>
 
-// With left icon
-<Button iconLeft="fa-solid fa-save">Save</Button>
+// With left icon (string icon name → Font Awesome 6)
+<Button iconLeft="floppy-disk" iconColor="inverse">Save</Button>
 
 // With right icon
-<Button iconRight="fa-solid fa-arrow-right">Next</Button>
+<Button iconRight="arrow-right" iconColor="inverse">Next</Button>
 
 // Loading state
-<Button loading={true}>Processing...</Button>
+<Button loading>Processing...</Button>
 
 // Disabled state
-<Button disabled={true}>Unavailable</Button>
+<Button disabled>Unavailable</Button>
+
+// Custom node icon (will be wrapped in <Icon>)
+<Button iconLeft={<span style={{ fontWeight: 'bold' }}>A</span>}>Custom</Button>
+
+// Passing an existing <Icon />
+<Button iconLeft={<Icon name="circle-info" color="primary" />}>Info</Button>
 ```
 
 ### HTML Implementation
@@ -64,14 +70,24 @@ import { Button } from '@ntg-design-system/components';
 
 <!-- Button with Left Icon -->
 <button class="ntgds-btn ntgds-btn--primary">
-  <i class="ntgds-btn__icon ntgds-btn__icon--left fa-solid fa-save"></i>
+  <span class="ntgds-btn__icon ntgds-btn__icon--left">
+    <i
+      class="ntgds-icon ntgds-icon--md ntgds-icon--color-inverse fa-solid fa-floppy-disk"
+      aria-hidden="true"
+    ></i>
+  </span>
   Save
 </button>
 
 <!-- Button with Right Icon -->
 <button class="ntgds-btn ntgds-btn--primary">
   Next
-  <i class="ntgds-btn__icon ntgds-btn__icon--right fa-solid fa-arrow-right"></i>
+  <span class="ntgds-btn__icon ntgds-btn__icon--right">
+    <i
+      class="ntgds-icon ntgds-icon--md ntgds-icon--color-inverse fa-solid fa-arrow-right"
+      aria-hidden="true"
+    ></i>
+  </span>
 </button>
 
 <!-- Loading Button -->
@@ -88,17 +104,19 @@ import { Button } from '@ntg-design-system/components';
 
 ### React Props
 
-| Prop        | Type                                     | Default     | Description                                                           |
-| ----------- | ---------------------------------------- | ----------- | --------------------------------------------------------------------- |
-| `variant`   | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | Visual style variant                                                  |
-| `size`      | `'default' \| 'small'`                   | `'default'` | Button size                                                           |
-| `iconLeft`  | `string`                                 | -           | Font Awesome class for left icon (e.g., `'fa-solid fa-save'`)         |
-| `iconRight` | `string`                                 | -           | Font Awesome class for right icon (e.g., `'fa-solid fa-arrow-right'`) |
-| `loading`   | `boolean`                                | `false`     | Shows loading spinner and disables interaction                        |
-| `disabled`  | `boolean`                                | `false`     | Disables button interaction                                           |
-| `children`  | `ReactNode`                              | -           | Button text or content                                                |
-| `onClick`   | `(event: MouseEvent) => void`            | -           | Click event handler                                                   |
-| `type`      | `'button' \| 'submit' \| 'reset'`        | `'button'`  | HTML button type attribute                                            |
+| Prop          | Type                                                               | Default     | Description                                                                                        |
+| ------------- | ------------------------------------------------------------------ | ----------- | -------------------------------------------------------------------------------------------------- |
+| `variant`     | `'primary' \| 'secondary' \| 'tertiary'`                           | `'primary'` | Visual style variant                                                                               |
+| `size`        | `'large' \| 'small'`                                               | `'large'`   | Size variant. `large` uses base styles; `small` adds compact modifier.                             |
+| `iconLeft`    | `React.ReactNode`                                                  | -           | Left icon: string name (e.g. `'floppy-disk'`), `<Icon />`, or arbitrary node (wrapped for sizing). |
+| `iconRight`   | `React.ReactNode`                                                  | -           | Right icon (same rules as `iconLeft`).                                                             |
+| `iconColor`   | `'default' \| 'primary' \| 'secondary' \| 'tertiary' \| 'inverse'` | `'default'` | Color variant applied to any rendered icon via token-based classes.                                |
+| `loading`     | `boolean`                                                          | `false`     | Shows loading spinner and disables interaction                                                     |
+| `loadingIcon` | `React.ReactNode`                                                  | -           | Optional custom loading indicator; default spinner used when omitted.                              |
+| `disabled`    | `boolean`                                                          | `false`     | Disables button interaction                                                                        |
+| `children`    | `React.ReactNode`                                                  | -           | Button text or content                                                                             |
+| `onClick`     | `(event: React.MouseEvent<HTMLButtonElement>) => void`             | -           | Click event handler                                                                                |
+| `type`        | `'button' \| 'submit' \| 'reset'`                                  | `'button'`  | Native button type attribute                                                                       |
 
 ### HTML Classes
 
@@ -296,71 +314,64 @@ Button is processing an action.
 **Implementation:**
 
 ```tsx
-<Button loading={true}>Processing...</Button>
+<Button loading>Processing...</Button>
 ```
 
 **Accessibility:** Spinner uses CSS animation, automatically respects `prefers-reduced-motion` media query.
 
 ## Icon Integration
 
-Buttons support icons from Font Awesome (or custom icon fonts) on the left or right side.
+Buttons render icons through the shared `Icon` component. Passing a string to `iconLeft`/`iconRight` is interpreted as a Font Awesome icon name (no style prefix). The component applies `fa-solid fa-{name}` plus sizing & color token classes automatically.
 
 ### Font Awesome Setup
 
-Ensure Font Awesome is loaded in your application:
+Load Font Awesome 6 once globally:
 
 ```html
-<!-- Font Awesome 6 (Free) -->
 <link
   rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
 />
 ```
 
-### Icon Position
-
-**Left Icon:**
+### Supplying Icons
 
 ```tsx
-<Button iconLeft="fa-solid fa-save">Save</Button>
+<Button iconLeft="floppy-disk" iconColor="inverse">Save</Button>
+<Button iconRight="arrow-right" iconColor="inverse">Next</Button>
+<Button iconLeft="download" iconRight="arrow-right">Download</Button>
+<Button iconLeft={<Icon name="circle-info" color="primary" />}>Info</Button>
+<Button iconLeft={<span>?</span>}>Help</Button>
 ```
 
-**Right Icon:**
+### Spacing & Sizing
 
-```tsx
-<Button iconRight="fa-solid fa-arrow-right">Next</Button>
-```
+- Left icon wrapper adds `margin-right: var(--sp-xs)`
+- Right icon wrapper adds `margin-left: var(--sp-xs)`
+- Small buttons force icon size `sm`; large uses `md`
+- `iconColor` maps to semantic icon color tokens
 
-**Both Icons:**
+### Common Icon Names (FA v6)
 
-```tsx
-<Button iconLeft="fa-solid fa-download" iconRight="fa-solid fa-external-link">
-  Download
-</Button>
-```
-
-### Icon Spacing
-
-- Left icons: `8px` margin-right (`var(--sp-xs)`)
-- Right icons: `8px` margin-left (`var(--sp-xs)`)
-- Automatic size adjustment for small buttons (`0.875em`)
-
-### Common Icon Patterns
-
-| Action        | Icon Class                  | Example       |
-| ------------- | --------------------------- | ------------- |
-| Save          | `fa-solid fa-save`          | Save changes  |
-| Delete        | `fa-solid fa-trash`         | Delete item   |
-| Download      | `fa-solid fa-download`      | Download file |
-| Upload        | `fa-solid fa-upload`        | Upload file   |
-| Search        | `fa-solid fa-search`        | Search        |
-| Add           | `fa-solid fa-plus`          | Add new       |
-| Edit          | `fa-solid fa-pencil`        | Edit          |
-| Check         | `fa-solid fa-check`         | Confirm       |
-| Close         | `fa-solid fa-times`         | Cancel        |
-| Arrow Right   | `fa-solid fa-arrow-right`   | Next/Continue |
-| Arrow Left    | `fa-solid fa-arrow-left`    | Back/Previous |
-| External Link | `fa-solid fa-external-link` | Open external |
+| Action        | Icon Name              | Notes / Replaces         |
+| ------------- | ---------------------- | ------------------------ |
+| Save          | `floppy-disk`          | Replaces legacy `save`   |
+| Delete        | `trash`                |                          |
+| Download      | `download`             |                          |
+| Upload        | `upload`               |                          |
+| Add           | `plus`                 |                          |
+| Edit          | `pencil`               |                          |
+| Confirm       | `check`                |                          |
+| Close         | `xmark`                | Replaces `times`         |
+| Warning       | `triangle-exclamation` |                          |
+| Info          | `circle-info`          |                          |
+| Success       | `circle-check`         |                          |
+| Error         | `circle-xmark`         |                          |
+| Continue      | `arrow-right`          |                          |
+| Back          | `arrow-left`           |                          |
+| External Link | `up-right-from-square` | Replaces `external-link` |
 
 ## Theming
 
@@ -444,7 +455,12 @@ The button component is fully accessible to screen readers:
 
 ```html
 <button class="ntgds-btn ntgds-btn--primary" aria-label="Close dialog">
-  <i class="fa-solid fa-times" aria-hidden="true"></i>
+  <span class="ntgds-btn__icon ntgds-btn__icon--left">
+    <i
+      class="ntgds-icon ntgds-icon--md fa-solid fa-xmark"
+      aria-hidden="true"
+    ></i>
+  </span>
 </button>
 ```
 
@@ -500,10 +516,10 @@ Loading spinner respects user preferences:
 
 ```tsx
 <div style={{ display: "flex", gap: "8px" }}>
-  <Button size="small" iconLeft="fa-solid fa-pencil">
+  <Button size="small" iconLeft="pencil">
     Edit
   </Button>
-  <Button size="small" variant="secondary" iconLeft="fa-solid fa-trash">
+  <Button size="small" variant="secondary" iconLeft="trash">
     Delete
   </Button>
 </div>
@@ -513,10 +529,10 @@ Loading spinner respects user preferences:
 
 ```tsx
 <div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
-  <Button variant="secondary" iconLeft="fa-solid fa-arrow-left">
+  <Button variant="secondary" iconLeft="arrow-left">
     Previous
   </Button>
-  <Button variant="primary" iconRight="fa-solid fa-arrow-right">
+  <Button variant="primary" iconRight="arrow-right" iconColor="inverse">
     Next
   </Button>
 </div>
@@ -549,11 +565,13 @@ function SubmitForm() {
 
 ```tsx
 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-  <Button iconLeft="fa-solid fa-save">Save Changes</Button>
-  <Button iconLeft="fa-solid fa-download">Download Report</Button>
-  <Button iconLeft="fa-solid fa-plus">Add Item</Button>
-  <Button iconRight="fa-solid fa-external-link">Open External</Button>
-  <Button variant="tertiary" iconRight="fa-solid fa-arrow-right">
+  <Button iconLeft="floppy-disk" iconColor="inverse">
+    Save Changes
+  </Button>
+  <Button iconLeft="download">Download Report</Button>
+  <Button iconLeft="plus">Add Item</Button>
+  <Button iconRight="up-right-from-square">Open External</Button>
+  <Button variant="tertiary" iconRight="arrow-right">
     Learn More
   </Button>
 </div>

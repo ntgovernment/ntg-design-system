@@ -43,27 +43,3 @@ export const Default: Story = {
     children: "Pill label",
   },
 };
-
-export const Hover: Story = {
-  args: {
-    children: "Hover over me",
-  },
-  parameters: {
-    docs: {
-      description:
-        "Hover state changes background to var(--clr-surface-primary-hover, #EAE9E8).",
-    },
-  },
-};
-
-export const Focus: Story = {
-  args: {
-    children: "Focus state",
-  },
-  parameters: {
-    docs: {
-      description:
-        "Focus state shows 4px outline with var(--clr-focus-focus, #EC8C58).",
-    },
-  },
-};

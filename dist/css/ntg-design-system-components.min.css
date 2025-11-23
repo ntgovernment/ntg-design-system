@@ -19,7 +19,14 @@
   }
 }
 /* Small button icon adjustments */
-/* Link Component Styles *//* src/components.css */
+/* Link Component Styles */
+/* Image Component - Theme-agnostic image with optional caption */
+/* Notification Component - Theme-agnostic notification with icon and variants */
+/* Base notification styles - all variants have outline and border */
+/* Icon Component - Font Awesome wrapper & token-based color */
+/* Size variants */
+/* Color variants map to semantic tokens */
+/* Fallback when using span without FA glyph (can be overridden by children) *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
 *:not(#\#):not(#\#):not(#\#):not(#\#),
 *:not(#\#):not(#\#):not(#\#):not(#\#)::before,
@@ -293,4 +300,205 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
     border-bottom-color: transparent;
   }
 /* Link Component Styles */
+/* Image Component - Theme-agnostic image with optional caption */
+.ntgds-image:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  /* Container dimensions set via style prop */
+}
+.ntgds-image__figure:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+}
+.ntgds-image__img:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; /* Ensures image fills container without distortion */
+}
+.ntgds-image__caption:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  align-self: stretch;
+  max-width: 100%;
+  color: var(--clr-text-helper);
+  font-size: 14px;
+  font-family: var(--type-font-default);
+  font-weight: 400;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+/* Notification Component - Theme-agnostic notification with icon and variants */
+/* Base notification styles - all variants have outline and border */
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  height: 100%;
+  background: var(--clr-surface-primary);
+  justify-content: flex-start;
+  align-items: center;
+  display: inline-flex;
+}
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #107cc0;
+  outline: 1px solid var(--clr-status-info, #107cc0);
+  outline-offset: -1px;
+}
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #107810;
+  outline: 1px solid var(--clr-status-success, #107810);
+  outline-offset: -1px;
+}
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #d6410a;
+  outline: 1px solid var(--clr-status-warning, #d6410a);
+  outline-offset: -1px;
+}
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #a60f37;
+  outline: 1px solid var(--clr-status-danger, #a60f37);
+  outline-offset: -1px;
+}
+.ntgds-notification__border:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 8px;
+  align-self: stretch;
+}
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #107cc0;
+  background: var(--clr-status-info, #107cc0);
+}
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #107810;
+  background: var(--clr-status-success, #107810);
+}
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #d6410a;
+  background: var(--clr-status-warning, #d6410a);
+}
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #a60f37;
+  background: var(--clr-status-danger, #a60f37);
+}
+.ntgds-notification__content:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  flex: 1 1 0;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  display: inline-flex;
+}
+.ntgds-notification__header:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  align-self: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  display: inline-flex;
+}
+.ntgds-notification__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ntgds-notification__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-icon {
+  font-size: 26px;
+}
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #107cc0;
+  color: var(--clr-status-info, #107cc0);
+}
+.ntgds-notification__text:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  display: inline-flex;
+}
+.ntgds-notification__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: var(--clr-text-default);
+  font-size: var(--type-desktop-h5-size);
+  font-family: var(--type-font-default);
+  font-weight: var(--type-desktop-h5-weight);
+  line-height: var(--type-desktop-h5-lh);
+  letter-spacing: var(--type-desktop-h5-ls);
+  word-wrap: break-word;
+}
+.ntgds-notification__message:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  align-self: stretch;
+  color: var(--clr-text-body);
+  font-size: var(--type-desktop-body-default-size);
+  font-family: var(--type-font-default);
+  font-weight: var(--type-desktop-body-default-weight);
+  line-height: var(--type-desktop-body-default-lh);
+  letter-spacing: var(--type-desktop-body-default-ls);
+  word-wrap: break-word;
+}
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #107810;
+  color: var(--clr-status-success, #107810);
+}
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #d6410a;
+  color: var(--clr-status-warning, #d6410a);
+}
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #a60f37;
+  color: var(--clr-status-danger, #a60f37);
+}
+/* Icon Component - Font Awesome wrapper & token-based color */
+.ntgds-icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+  /* Default inherits font-size unless size class overrides */
+}
+/* Size variants */
+.ntgds-icon--sm:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  font-size: 0.875em;
+}
+.ntgds-icon--md:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  font-size: 1em;
+}
+.ntgds-icon--lg:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  font-size: 1.25em;
+}
+/* Color variants map to semantic tokens */
+.ntgds-icon--color-default:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-default, currentColor);
+}
+.ntgds-icon--color-primary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-primary, currentColor);
+}
+.ntgds-icon--color-secondary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-secondary, currentColor);
+}
+.ntgds-icon--color-tertiary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-tertiary, currentColor);
+}
+.ntgds-icon--color-inverse:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-inverse, currentColor);
+}
+/* Fallback when using span without FA glyph (can be overridden by children) */
+.ntgds-icon:not(.fa-solid):not(.fa-regular):not(.fa-brands):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 1em;
+  height: 1em;
+}
+.ntgds-icon:not(.fa-solid):not(.fa-regular):not(.fa-brands):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  background: currentColor;
+  border-radius: 2px;
+}
 /* add more components the same way */

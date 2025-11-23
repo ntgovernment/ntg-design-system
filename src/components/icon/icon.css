@@ -1,0 +1,49 @@
+/* Icon Component - Font Awesome wrapper & token-based color */
+
+.ntgds-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+  /* Default inherits font-size unless size class overrides */
+}
+
+/* Size variants */
+.ntgds-icon--sm {
+  font-size: 0.875em;
+}
+.ntgds-icon--md {
+  font-size: 1em;
+}
+.ntgds-icon--lg {
+  font-size: 1.25em;
+}
+
+/* Color variants map to semantic tokens */
+.ntgds-icon--color-default {
+  color: var(--clr-icon-default, currentColor);
+}
+.ntgds-icon--color-primary {
+  color: var(--clr-icon-primary, currentColor);
+}
+.ntgds-icon--color-secondary {
+  color: var(--clr-icon-secondary, currentColor);
+}
+.ntgds-icon--color-tertiary {
+  color: var(--clr-icon-tertiary, currentColor);
+}
+.ntgds-icon--color-inverse {
+  color: var(--clr-icon-inverse, currentColor);
+}
+
+/* Fallback when using span without FA glyph (can be overridden by children) */
+.ntgds-icon:not(.fa-solid):not(.fa-regular):not(.fa-brands) {
+  width: 1em;
+  height: 1em;
+}
+
+.ntgds-icon:not(.fa-solid):not(.fa-regular):not(.fa-brands) {
+  background: currentColor;
+  border-radius: 2px;
+}

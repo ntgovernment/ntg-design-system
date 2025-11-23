@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 
-// Font Awesome icon helper
-const createIcon = (iconClass: string) => {
-  if (!iconClass) return undefined;
-  return <i className={iconClass} />;
-};
-
-// Available Font Awesome icons
-const ICON_OPTIONS = {
-  none: "",
-  "square-check": "fa-regular fa-square-check",
-  save: "fas fa-save",
-  download: "fas fa-download",
-  "arrow-right": "fas fa-arrow-right",
-  plus: "fas fa-plus",
-  check: "fas fa-check",
-};
+// Valid Font Awesome (v6) icon names used with shared <Icon /> component
+// These are passed as plain strings; Button will render <Icon name={value} />
+// Legacy names like 'save' have been updated to 'floppy-disk'.
+const ICON_OPTIONS = [
+  "none",
+  "floppy-disk",
+  "download",
+  "arrow-right",
+  "plus",
+  "check",
+  "square-check",
+  "circle-info",
+  "circle-check",
+  "triangle-exclamation",
+  "circle-xmark",
+];
 
 const meta = {
   title: "Components/Button",
@@ -46,15 +46,34 @@ const meta = {
     },
     iconLeft: {
       control: { type: "select" },
-      options: Object.keys(ICON_OPTIONS),
-      description: "Icon to display on the left side of the button text.",
-      mapping: Object.fromEntries(Object.entries(ICON_OPTIONS).map(([key, value]) => [key, createIcon(value)])),
+      options: ICON_OPTIONS,
+      description:
+        "Icon name (Font Awesome) for the left side. Leave 'none' for no icon.",
+      mapping: ICON_OPTIONS.reduce<Record<string, string | undefined>>(
+        (acc, name) => {
+          acc[name] = name === "none" ? undefined : name;
+          return acc;
+        },
+        {}
+      ),
     },
     iconRight: {
       control: { type: "select" },
-      options: Object.keys(ICON_OPTIONS),
-      description: "Icon to display on the right side of the button text.",
-      mapping: Object.fromEntries(Object.entries(ICON_OPTIONS).map(([key, value]) => [key, createIcon(value)])),
+      options: ICON_OPTIONS,
+      description:
+        "Icon name (Font Awesome) for the right side. Leave 'none' for no icon.",
+      mapping: ICON_OPTIONS.reduce<Record<string, string | undefined>>(
+        (acc, name) => {
+          acc[name] = name === "none" ? undefined : name;
+          return acc;
+        },
+        {}
+      ),
+    },
+    iconColor: {
+      control: { type: "select" },
+      options: ["default", "primary", "secondary", "tertiary", "inverse"],
+      description: "Color variant applied to any rendered icon.",
     },
     loadingIcon: {
       table: { disable: true },
@@ -124,7 +143,8 @@ export const WithLeftIcon: Story = {
   args: {
     variant: "primary",
     children: "Label",
-    iconLeft: createIcon(ICON_OPTIONS.save),
+    iconLeft: "floppy-disk",
+    iconColor: "inverse",
   },
 };
 
@@ -132,7 +152,8 @@ export const WithRightIcon: Story = {
   args: {
     variant: "primary",
     children: "Label",
-    iconRight: createIcon(ICON_OPTIONS["arrow-right"]),
+    iconRight: "arrow-right",
+    iconColor: "inverse",
   },
 };
 
@@ -140,8 +161,9 @@ export const WithBothIcons: Story = {
   args: {
     variant: "secondary",
     children: "Label",
-    iconLeft: createIcon(ICON_OPTIONS.download),
-    iconRight: createIcon(ICON_OPTIONS["arrow-right"]),
+    iconLeft: "download",
+    iconRight: "arrow-right",
+    iconColor: "default",
   },
 };
 
@@ -150,6 +172,7 @@ export const SmallWithIcon: Story = {
     variant: "primary",
     size: "small",
     children: "Label",
-    iconLeft: createIcon(ICON_OPTIONS.download),
+    iconLeft: "download",
+    iconColor: "inverse",
   },
 };

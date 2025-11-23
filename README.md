@@ -14,10 +14,39 @@ The NTG Design System is a comprehensive library of reusable UI components, desi
 - **Responsive Design** - Mobile-first components that work across all devices
 - **CMS Integration** - Seamless integration with Squiz DXP content management platform
 - **Living Documentation** - Interactive component library with real-time examples
+- **Unified Icon System** - Shared `Icon` component with Font Awesome integration and token-based color variants
 
 ## Documentation
 
 Comprehensive documentation and interactive examples are available through the [Component Library](https://ntgovernment.github.io/ntg-design-system), where you can browse and interact with all available components.
+
+## Icon System Overview
+
+The design system provides a single `Icon` React component that standardises Font Awesome usage:
+
+- Pass a plain name (e.g. `"floppy-disk"`, `"arrow-right"`) instead of full FA class strings.
+- Components like `Button`, `Notification`, and `Pill` internally render `<Icon />` for consistent sizing and theming.
+- Color variants (`default`, `primary`, `secondary`, `tertiary`, `inverse`) map to semantic tokens; Notification icons use variant-driven CSS rather than a prop.
+- Include Font Awesome 6 globally (CDN or bundled) for glyphs to display; without it, fallback square placeholders appear only when a name is not provided.
+
+CDN example:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+```
+
+Sample Button with icons:
+
+```tsx
+<Button iconLeft="download" iconRight="arrow-right" iconColor="inverse">
+  Export Data
+</Button>
+```
 
 ## Project Structure
 

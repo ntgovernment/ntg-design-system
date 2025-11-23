@@ -32,7 +32,7 @@ import { Image } from '@ntg-design-system/components';
 
 ### HTML Implementation
 
-```html
+````html
 <div class="ntgds-image" style="width: 650px; height: 488px;">
   <figure class="ntgds-image__figure">
     <img
@@ -59,19 +59,21 @@ import { Image } from '@ntg-design-system/components';
     </figcaption>
   </figure>
 </div>
-## Component Structure
-
-The Image component renders the following semantic HTML structure:
-
-```html
+## Component Structure The Image component renders the following semantic HTML
+structure: ```html
 <div class="ntgds-image" style="width: [width]; height: [height];">
   <figure class="ntgds-image__figure">
-    <img class="ntgds-image__img" src="[src]" alt="[alt]" style="width: 100%; height: 100%;" />
+    <img
+      class="ntgds-image__img"
+      src="[src]"
+      alt="[alt]"
+      style="width: 100%; height: 100%;"
+    />
     <!-- Optional -->
     <figcaption class="ntgds-image__caption">[caption]</figcaption>
   </figure>
 </div>
-```
+````
 
 This ensures proper semantic markup for images and captions, improving accessibility and SEO.
 
@@ -84,18 +86,18 @@ This ensures proper semantic markup for images and captions, improving accessibi
 | `src`       | `string`           | -       | Image source URL (required)           |
 | `alt`       | `string`           | -       | Alt text for accessibility (required) |
 | `caption`   | `string`           | -       | Optional caption text                 |
-| `width`     | `number \| string` | -       | Container width (affects image size) |
-| `height`    | `number \| string` | -       | Container height (affects image size)|
+| `width`     | `number \| string` | -       | Container width (affects image size)  |
+| `height`    | `number \| string` | -       | Container height (affects image size) |
 | `className` | `string`           | -       | Additional CSS classes                |
 
 ### HTML Classes
 
-| Class                  | Description                          |
-| ---------------------- | ------------------------------------ |
-| `ntgds-image`          | Base image container class (required)|
-| `ntgds-image__figure`  | Figure element wrapper               |
-| `ntgds-image__img`     | Image element styling                |
-| `ntgds-image__caption` | Figcaption element for caption text  |
+| Class                  | Description                           |
+| ---------------------- | ------------------------------------- |
+| `ntgds-image`          | Base image container class (required) |
+| `ntgds-image__figure`  | Figure element wrapper                |
+| `ntgds-image__img`     | Image element styling                 |
+| `ntgds-image__caption` | Figcaption element for caption text   |
 
 ## Theme Tokens
 

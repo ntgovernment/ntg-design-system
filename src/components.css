@@ -7,4 +7,7 @@
 
 @import "./components/button/button.css" layer(components);
 @import "./components/link/link.css" layer(components);
+@import "./components/image/image.css" layer(components);
+@import "./components/notification/notification.css" layer(components);
+@import "./components/icon/icon.css" layer(components);
 /* add more components the same way */

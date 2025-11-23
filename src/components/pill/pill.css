@@ -39,7 +39,7 @@
   display: inline-block;
 }
 
-.ntgds-pill__close i {
+.ntgds-pill__close .ntgds-icon {
   position: absolute;
   left: 1px;
   top: 1px;
@@ -50,15 +50,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.ntgds-pill__close span {
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  width: 10px;
-  height: 10px;
-  background: var(--clr-icon-default);
 }
 
 .ntgds-pill__close:focus-visible {
