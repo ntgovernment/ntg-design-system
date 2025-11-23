@@ -104,6 +104,10 @@ The `Icon` component standardises icon rendering across other components:
 - **Notification**: Internal variant → icon mapping (`info` → `circle-info`, `success` → `circle-check`, etc.) using default color styling.
 - **Pill**: Close button always renders `<Icon name="xmark" size="sm" />`; color derives from contextual token.
 
+## Scrollbar Tokens (note)
+
+The design system provides semantic scrollbar tokens in `theme-base.css` (for example `--scrollbar-track-bg`, `--scrollbar-thumb-bg`, `--scrollbar-width`). These are intended for use by a scrollbar stylesheet or per-component scrollable panels (e.g. `.ntgds-scrollable`). The `Icon` component itself does not style scrollbars but consumers should use these tokens when implementing scrollable UIs that need visual parity with the system.
+
 ### Example: Button
 
 ```tsx

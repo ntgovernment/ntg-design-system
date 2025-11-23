@@ -26,7 +26,31 @@
 /* Icon Component - Font Awesome wrapper & token-based color */
 /* Size variants */
 /* Color variants map to semantic tokens */
-/* Fallback when using span without FA glyph (can be overridden by children) *//* src/components.css */
+/* Fallback when using span without FA glyph (can be overridden by children) */
+/* Scrollbar Component Styles
+   - Utility class: .ntgds-scrollable
+   - Accessible variant: .ntgds-scrollable--accessible
+   - Compact variant: .ntgds-scrollable--compact (visual 4px, small hitbox)
+
+   Implementation notes:
+   - Uses theme tokens defined in src/themes/theme-base.css
+   - WebKit pseudo-elements for Chrome/Safari/Edge
+   - Firefox uses scrollbar-width / scrollbar-color
+   - Forced-colors media query ensures high contrast compatibility
+*/
+/* Base utility - apply this to any scrollable panel you control (textarea, lists, dropdown panels) */
+/* Hover state - aligns with Figma: track darkens on hover */
+/* WebKit browsers */
+/* Optional decorative end caps (approximate Figma small rectangles) - WebKit only */
+/* We cannot create pseudo-elements on the scrollbar track via CSS alone across browsers reliably.
+   If pixel-perfect endcaps are required, implement them as absolutely positioned elements inside
+   the scroll container (declarative in component markup) or via custom JS. Omitted here for
+   the tokens-only + visual implementation to avoid fragile behavior.
+*/
+/* Accessible variant: larger interactive gutter while keeping visual 4px track using background-clip */
+/* Compact variant: explicit visual 4px gutter (same as base) */
+/* Forced colors / High Contrast (Windows) */
+/* RTL: browsers place scrollbars on the correct side; no special rules required here. *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
 *:not(#\#):not(#\#):not(#\#):not(#\#),
 *:not(#\#):not(#\#):not(#\#):not(#\#)::before,
@@ -501,4 +525,132 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   background: currentColor;
   border-radius: 2px;
 }
+/* Scrollbar Component Styles
+   - Utility class: .ntgds-scrollable
+   - Accessible variant: .ntgds-scrollable--accessible
+   - Compact variant: .ntgds-scrollable--compact (visual 4px, small hitbox)
+
+   Implementation notes:
+   - Uses theme tokens defined in src/themes/theme-base.css
+   - WebKit pseudo-elements for Chrome/Safari/Edge
+   - Firefox uses scrollbar-width / scrollbar-color
+   - Forced-colors media query ensures high contrast compatibility
+*/
+:root:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  /* provide safe defaults in case theme tokens are missing */
+  --ntgds-scrollbar-width: var(--scrollbar-width, 4px);
+  --ntgds-scrollbar-track-bg: var(--scrollbar-track-bg, #949391);
+  --ntgds-scrollbar-track-hover-bg: var(--scrollbar-track-hover-bg, #3b3b3a);
+  --ntgds-scrollbar-thumb-bg: var(--scrollbar-thumb-bg, #949391);
+  --ntgds-scrollbar-thumb-hover-bg: var(--scrollbar-thumb-hover-bg, #3b3b3a);
+  --ntgds-scrollbar-radius: var(--scrollbar-radius, 999px);
+  --ntgds-scrollbar-gutter-hitbox: var(--scrollbar-gutter-hitbox, 12px);
+}
+/* Base utility - apply this to any scrollable panel you control (textarea, lists, dropdown panels) */
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  overflow: auto;
+  /* Firefox: thin scrollbar and base colours */
+  scrollbar-width: thin;
+  scrollbar-color: #949391
+    #949391;
+  scrollbar-color: var(--ntgds-scrollbar-thumb-bg)
+    var(--ntgds-scrollbar-track-bg);
+}
+/* Hover state - aligns with Figma: track darkens on hover */
+.ntgds-scrollable:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  scrollbar-color: #3b3b3a
+    #3b3b3a;
+  scrollbar-color: var(--ntgds-scrollbar-thumb-hover-bg)
+    var(--ntgds-scrollbar-track-hover-bg);
+}
+/* WebKit browsers */
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar {
+  width: 4px;
+  width: var(--ntgds-scrollbar-width);
+  height: 4px;
+  height: var(--ntgds-scrollbar-width);
+}
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+  background: #949391;
+  background: var(--ntgds-scrollbar-track-bg);
+}
+.ntgds-scrollable:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+  background: #3b3b3a;
+  background: var(--ntgds-scrollbar-track-hover-bg);
+}
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #949391;
+  background: var(--ntgds-scrollbar-thumb-bg);
+  border-radius: 0;
+  /* Give the thumb a slight inset so it reads as a narrow visual bar on top of the track */
+  border: 0px solid transparent;
+}
+.ntgds-scrollable:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #3b3b3a;
+  background: var(--ntgds-scrollbar-thumb-hover-bg);
+}
+/* Optional decorative end caps (approximate Figma small rectangles) - WebKit only */
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track:vertical {
+  position: relative;
+}
+/* We cannot create pseudo-elements on the scrollbar track via CSS alone across browsers reliably.
+   If pixel-perfect endcaps are required, implement them as absolutely positioned elements inside
+   the scroll container (declarative in component markup) or via custom JS. Omitted here for
+   the tokens-only + visual implementation to avoid fragile behavior.
+*/
+/* Accessible variant: larger interactive gutter while keeping visual 4px track using background-clip */
+.ntgds-scrollable--accessible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar {
+  width: 12px;
+  width: var(--ntgds-scrollbar-gutter-hitbox);
+}
+.ntgds-scrollable--accessible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ntgds-scrollable--accessible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #949391;
+  background: var(--ntgds-scrollbar-thumb-bg);
+  border-radius: 0;
+  /* center a 4px visual indicator inside the larger gutter */
+  box-shadow: 0 0 0
+    calc(
+      (12px - 4px) / 2
+    )
+    transparent inset;
+  box-shadow: 0 0 0
+    calc(
+      (var(--ntgds-scrollbar-gutter-hitbox) - var(--ntgds-scrollbar-width)) / 2
+    )
+    transparent inset;
+  background-clip: content-box;
+  border: calc(
+      (12px - 4px) / 2
+    )
+    solid transparent;
+  border: calc(
+      (var(--ntgds-scrollbar-gutter-hitbox) - var(--ntgds-scrollbar-width)) / 2
+    )
+    solid transparent;
+}
+.ntgds-scrollable--accessible:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #3b3b3a;
+  background: var(--ntgds-scrollbar-thumb-hover-bg);
+}
+/* Compact variant: explicit visual 4px gutter (same as base) */
+.ntgds-scrollable--compact:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar {
+  width: 4px;
+  width: var(--ntgds-scrollbar-width);
+}
+/* Forced colors / High Contrast (Windows) */
+@media (forced-colors: active) {
+  .ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    scrollbar-color: ButtonText Canvas;
+  }
+  .ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+    background: Canvas;
+  }
+  .ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+    background: ButtonText;
+  }
+}
+/* RTL: browsers place scrollbars on the correct side; no special rules required here. */
 /* add more components the same way */

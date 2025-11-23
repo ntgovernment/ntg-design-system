@@ -48,6 +48,60 @@ Sample Button with icons:
 </Button>
 ```
 
+## Scrollbar Component & Design System Integration
+
+**Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=2630-34&m=dev)
+
+The NTG Design System provides a comprehensive, theme-aware scrollbar solution for scrollable panels, textareas, dropdowns, and lists. Scrollbars are styled using semantic tokens and a utility class, ensuring visual consistency and accessibility across supported browsers.
+
+### Usage
+
+- Apply `.ntgds-scrollable` to any scrollable element (e.g. `<textarea>`, `<div>`, `<ul>`).
+- For larger hit area, add `.ntgds-scrollable--accessible`.
+- Example:
+  ```html
+  <textarea class="ntgds-scrollable" rows="8"></textarea>
+  <div class="ntgds-scrollable" style="max-height:240px">
+    <ul>
+      ...
+    </ul>
+  </div>
+  <div class="ntgds-scrollable ntgds-scrollable--accessible">...</div>
+  ```
+
+### Tokens
+
+Tokens are defined in `src/themes/theme-base.css` and are theme-aware:
+
+- `--scrollbar-width`: visual thumb/track width (`4px`)
+- `--scrollbar-track-bg`: track background (`#949391` fallback)
+- `--scrollbar-track-hover-bg`: track hover (`#3B3B3A` fallback)
+- `--scrollbar-thumb-bg`: thumb color (`#949391` fallback)
+- `--scrollbar-thumb-hover-bg`: thumb hover (`#3B3B3A` fallback)
+- `--scrollbar-endcap-bg`: optional endcap color (`#949391` fallback)
+- `--scrollbar-gutter-hitbox`: accessible hitbox width (`12px`)
+- `--scrollbar-radius`: thumb border radius (`0` for square corners)
+
+### Accessibility
+
+- Always associate scrollable form fields (e.g. `<textarea>`) with a `<label>` using `htmlFor` and `id`.
+- Accessible variant (`--accessible`) increases the interactive area for users with motor impairments.
+- High Contrast mode is supported via `forced-colors` media query.
+
+### Limitations
+
+- Native `<select>` dropdowns cannot be styled; use custom panels for full control.
+- Mobile/iOS and overlay scrollbars may ignore styling.
+- Decorative endcaps (per Figma) are not implemented via CSS pseudo-elements; use absolute elements if pixel-perfect fidelity is required.
+
+### Storybook Examples
+
+See `Scrollbars.stories.tsx` for live demos of textarea, long list, and dropdown panel scrollbars.
+
+### Changelog
+
+- v1.0.0: Initial implementation with semantic tokens, utility classes, accessible variant, and Storybook demos.
+
 ## Project Structure
 
 ```

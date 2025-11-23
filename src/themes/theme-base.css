@@ -110,6 +110,26 @@
     --clr-icon-disabled: var(--theme-icon-disabled);
 
     /* ======================
+       Scrollbar Tokens
+       ======================
+       Tokens for styling native scrollbars where supported. These are
+       intentionally lightweight — the implementation uses a utility
+       class (e.g. `.ntgds-scrollable`) to apply visual styles.
+
+       NOTE: This file defines semantic tokens only. The visual rules
+       that consume these tokens live in a separate scrollbar stylesheet
+       (not added in this tokens-only scope).
+    */
+    --scrollbar-width: 4px;
+    --scrollbar-track-bg: var(--clr-stroke-strong, #949391);
+    --scrollbar-track-hover-bg: var(--clr-stroke-hover, #3b3b3a);
+    --scrollbar-thumb-bg: var(--clr-stroke-subtle, #949391);
+    --scrollbar-thumb-hover-bg: var(--clr-stroke-hover, #3b3b3a);
+    --scrollbar-endcap-bg: var(--clr-icon-disabled, #949391);
+    --scrollbar-gutter-hitbox: 12px;
+    --scrollbar-radius: 0;
+
+    /* ======================
        Status Colors
        ====================== */
     /* Info */
