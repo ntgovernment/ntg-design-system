@@ -61,7 +61,9 @@
 /* Accordion panel */
 /* Accordion content padding */
 /* Reduced motion support */
-/* High contrast mode support *//* src/components.css */
+/* High contrast mode support */
+/* NTG Design System Table Styles */
+/* Responsive/mobile styles *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
 *:not(#\#):not(#\#):not(#\#):not(#\#),
 *:not(#\#):not(#\#):not(#\#):not(#\#)::before,
@@ -732,7 +734,8 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: var(--clr-icon-default, #3b3b3a);
   transition: transform 0.2s ease;
 }
-.ntgds-accordion-item__trigger[aria-expanded="true"]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-accordion-item__icon {
+.ntgds-accordion-item__trigger[aria-expanded="true"]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)
+  .ntgds-accordion-item__icon {
   transform: rotate(180deg);
 }
 /* Accordion panel */
@@ -765,3 +768,119 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   }
 }
 /* add more components the same way */
+/* NTG Design System Table Styles */
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+}
+.ntgds-table-title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  text-align: left;
+  color: #3b3b3a;
+  color: var(--clr-text-default, #3b3b3a);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 4px;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table-subtitle:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  text-align: left;
+  color: #777674;
+  color: var(--clr-text-helper, #777674);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 16px;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th {
+  text-transform: uppercase;
+  color: #1f1f5f;
+  color: var(--clr-link-default, #1f1f5f);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 16px;
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+  border-bottom: 1px solid #949391;
+  border-bottom: 1px solid var(--clr-stroke-strong-03, #949391);
+  padding: 16px 8px;
+  text-align: left;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td {
+  color: #3b3b3a;
+  color: var(--clr-text-body, #3b3b3a);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+  border-bottom: 1px solid #d4d4d2;
+  border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  padding: 16px 8px;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tbody tr:nth-child(odd) td {
+  background: #f6f6f6;
+  background: var(--clr-surface-secondary, #f6f6f6);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tbody tr:nth-child(even) td {
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+}
+/* Responsive/mobile styles */
+@media (max-width: 600px) {
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) thead,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tbody,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tr {
+    display: block;
+    width: 100%;
+  }
+  .ntgds-table-title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+  }
+  .ntgds-table-subtitle:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+  }
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td {
+    padding: 12px 8px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th {
+    font-weight: 700;
+    background: #fff;
+    background: var(--clr-surface-primary, #fff);
+    border-bottom: 1px solid #d4d4d2;
+    border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  }
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td {
+    font-weight: 400;
+    background: #fff;
+    background: var(--clr-surface-primary, #fff);
+    border-bottom: 1px solid #d4d4d2;
+    border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  }
+}

@@ -13,3 +13,4 @@
 @import "./components/scrollbar/scrollbar.css" layer(components);
 @import "./components/accordion/accordion.css" layer(components);
 /* add more components the same way */
+@import "./components/table/table.css" layer(components);
