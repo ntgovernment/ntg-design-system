@@ -102,6 +102,234 @@ See `Scrollbars.stories.tsx` for live demos of textarea, long list, and dropdown
 
 - v1.0.0: Initial implementation with semantic tokens, utility classes, accessible variant, and Storybook demos.
 
+## Accordion Component
+
+**Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=2064-805&m=dev)
+
+The Accordion component provides collapsible content sections with accessible keyboard navigation and customizable expansion behavior. It's ideal for FAQs, grouped content, settings panels, and any interface requiring progressive disclosure.
+
+### Features
+
+- **Single or Multiple Expansion** - Control whether one or multiple items can be open simultaneously
+- **Toggle All Control** - Optional "Open all" / "Close all" button for batch operations
+- **Default Open State** - Configure which items are expanded on initial render
+- **Accessible** - Full ARIA support with proper roles, states, and keyboard navigation
+- **Smooth Animations** - Chevron rotation and focus transitions with reduced-motion support
+- **Token-Based Styling** - Consistent with design system color, spacing, and typography tokens
+
+### Basic Usage
+
+```tsx
+import { Accordion, AccordionItem } from "@ntg/design-system";
+
+<Accordion>
+  <AccordionItem title="What is the NTG Design System?">
+    <p>
+      The NTG Design System is a comprehensive collection of reusable
+      components...
+    </p>
+  </AccordionItem>
+  <AccordionItem title="How do I get started?">
+    <p>
+      To get started, install the design system package using npm or yarn...
+    </p>
+  </AccordionItem>
+  <AccordionItem title="Is it accessible?">
+    <p>Yes! All components follow WCAG 2.1 AA guidelines...</p>
+  </AccordionItem>
+</Accordion>;
+```
+
+### Props
+
+#### Accordion Props
+
+| Prop                 | Type                     | Default      | Description                                                                                               |
+| -------------------- | ------------------------ | ------------ | --------------------------------------------------------------------------------------------------------- |
+| `mode`               | `'single' \| 'multiple'` | `'multiple'` | Controls expansion behavior. `'single'` allows only one item open at a time, `'multiple'` allows several. |
+| `defaultOpenIndices` | `number[]`               | `[]`         | Array of item indices (0-based) that should be expanded on mount.                                         |
+| `showToggleAll`      | `boolean`                | `false`      | Shows "Open all" / "Close all" button. Label changes dynamically based on state.                          |
+| `className`          | `string`                 | `''`         | Additional CSS class for the accordion container.                                                         |
+| `children`           | `ReactNode`              | required     | One or more `<AccordionItem>` components.                                                                 |
+
+#### AccordionItem Props
+
+| Prop        | Type        | Default  | Description                                              |
+| ----------- | ----------- | -------- | -------------------------------------------------------- |
+| `title`     | `string`    | required | The heading text displayed in the trigger button.        |
+| `children`  | `ReactNode` | required | The collapsible content shown when the item is expanded. |
+| `className` | `string`    | `''`     | Additional CSS class for the accordion item.             |
+
+### Advanced Examples
+
+#### Single Expansion Mode
+
+Only one item can be open at a time. Opening a new item automatically closes the previous one.
+
+```tsx
+<Accordion mode="single">
+  <AccordionItem title="First Item">
+    <p>When mode is "single", only one item can be open at a time.</p>
+  </AccordionItem>
+  <AccordionItem title="Second Item">
+    <p>Opening this will automatically close the first item.</p>
+  </AccordionItem>
+  <AccordionItem title="Third Item">
+    <p>And this is the third item's content.</p>
+  </AccordionItem>
+</Accordion>
+```
+
+#### With Toggle All Button
+
+Display a tertiary button that opens or closes all items with a single click. The button label automatically changes between "Open all" and "Close all" based on the current state.
+
+```tsx
+<Accordion showToggleAll mode="multiple">
+  <AccordionItem title="Design Principles">
+    <p>
+      Our design principles emphasize clarity, consistency, and accessibility.
+    </p>
+  </AccordionItem>
+  <AccordionItem title="Component Library">
+    <p>The component library includes buttons, forms, navigation, and more.</p>
+  </AccordionItem>
+  <AccordionItem title="Design Tokens">
+    <p>
+      Design tokens define the visual characteristics of your design system.
+    </p>
+  </AccordionItem>
+  <AccordionItem title="Documentation">
+    <p>Comprehensive documentation is available for each component.</p>
+  </AccordionItem>
+</Accordion>
+```
+
+#### Default Open Items
+
+Specify which items should be expanded when the component first renders.
+
+```tsx
+<Accordion defaultOpenIndices={[0, 2]}>
+  <AccordionItem title="Installation">
+    <p>Install using: npm install @ntg/design-system</p>
+  </AccordionItem>
+  <AccordionItem title="Configuration">
+    <p>Import the CSS and components in your entry point.</p>
+  </AccordionItem>
+  <AccordionItem title="Usage">
+    <p>Start using: import {`{ Button }`} from '@ntg/design-system'</p>
+  </AccordionItem>
+</Accordion>
+```
+
+#### Rich Content
+
+Accordion items can contain any valid React content, including headings, lists, tables, and other components.
+
+```tsx
+<Accordion showToggleAll>
+  <AccordionItem title="Product Features">
+    <h4>Key Features:</h4>
+    <ul>
+      <li>Responsive design out of the box</li>
+      <li>Themeable with design tokens</li>
+      <li>TypeScript support included</li>
+      <li>Comprehensive documentation</li>
+    </ul>
+  </AccordionItem>
+  <AccordionItem title="Technical Specifications">
+    <div>
+      <p>
+        <strong>Framework:</strong> React 19+
+      </p>
+      <p>
+        <strong>Styling:</strong> CSS Custom Properties
+      </p>
+      <p>
+        <strong>Build:</strong> Vite + PostCSS
+      </p>
+    </div>
+  </AccordionItem>
+</Accordion>
+```
+
+### Styling and Tokens
+
+The Accordion component uses semantic design tokens for consistent theming:
+
+| Token                     | Purpose                                 | Fallback Value |
+| ------------------------- | --------------------------------------- | -------------- |
+| `--clr-stroke-subtle`     | Border color                            | `#e6e5e3`      |
+| `--clr-surface-secondary` | Hover/focus background                  | `#f5f4f2`      |
+| `--clr-text-primary`      | Title and content text                  | `#3b3b3a`      |
+| `--clr-icon-default`      | Chevron icon color                      | `#3b3b3a`      |
+| `--clr-focus-focus`       | Focus outline color                     | `#107cc0`      |
+| `--spacing-md`            | Spacing between toggle button and items | `16px`         |
+| `--font-size-base`        | Text size                               | `1rem`         |
+
+### Accessibility
+
+The Accordion component is fully accessible and follows WCAG 2.1 AA guidelines:
+
+- **ARIA Attributes** - Uses `aria-expanded`, `aria-controls`, and `role="region"` for proper screen reader support
+- **Keyboard Navigation** - Full keyboard support (Tab, Enter, Space)
+- **Focus Management** - Visible focus indicators with proper outline styles
+- **Semantic HTML** - Uses native `<button>` elements for triggers
+- **Reduced Motion** - Respects `prefers-reduced-motion` to disable animations
+- **High Contrast Mode** - Supports `forced-colors` for Windows High Contrast
+
+#### Keyboard Controls
+
+| Key                | Action                                                          |
+| ------------------ | --------------------------------------------------------------- |
+| `Tab`              | Move focus between accordion triggers and the toggle all button |
+| `Enter` or `Space` | Toggle the focused accordion item                               |
+| `Shift + Tab`      | Move focus backwards                                            |
+
+### Browser Support
+
+The Accordion component works in all modern browsers:
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+### Implementation Details
+
+The Accordion uses React Context to manage state across compound components:
+
+- **Context Provider** - Tracks which items are open using a `Set<string>` for efficient lookups
+- **Single Mode** - Clears all open items before adding the newly selected one
+- **Multiple Mode** - Toggles items in/out of the open set independently
+- **Toggle All Logic** - Compares open items count to total items to determine button label
+
+The chevron icon rotates 180° when an item is expanded, with smooth CSS transitions (disabled for users with `prefers-reduced-motion`).
+
+### Storybook Examples
+
+See `Accordion.stories.tsx` for interactive demos including:
+
+- **Basic** - Simple three-item accordion with multiple expansion
+- **SingleMode** - One item open at a time
+- **WithToggleAll** - "Open all" / "Close all" button demonstration
+- **DefaultOpen** - Items pre-expanded on mount
+- **RichContent** - Complex nested content (lists, tables, formatted text)
+
+### Best Practices
+
+1. **Use Descriptive Titles** - Keep trigger button text clear and concise (3-10 words)
+2. **Group Related Content** - Accordion works best for related, scannable sections
+3. **Avoid Nesting** - Don't nest accordions inside accordion items (creates confusion)
+4. **Consider Defaults** - Open important items by default to guide user attention
+5. **Content Length** - Keep individual items focused; if content is very long, consider alternative layouts
+6. **Mobile Experience** - Accordions work well on mobile; test touch targets meet 44x44px minimum
+
+### Changelog
+
+- v1.0.0: Initial implementation with single/multiple modes, toggle all functionality, ARIA support, and Storybook stories.
+
 ## Project Structure
 
 ```

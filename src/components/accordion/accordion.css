@@ -1,0 +1,104 @@
+/* Accordion container */
+.ntgds-accordion {
+  width: 100%;
+}
+
+/* Accordion header with toggle all button */
+.ntgds-accordion__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-md, 16px);
+}
+
+/* Accordion items container */
+.ntgds-accordion__items {
+  border-top: 1px solid var(--clr-stroke-subtle, #e6e5e3);
+}
+
+/* Individual accordion item */
+.ntgds-accordion-item {
+  border-bottom: 1px solid var(--clr-stroke-subtle, #e6e5e3);
+}
+
+/* Accordion trigger button */
+.ntgds-accordion-item__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-size-base, 1rem);
+  font-weight: 600;
+  color: var(--clr-text-primary, #3b3b3a);
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.ntgds-accordion-item__trigger:hover {
+  background-color: var(--clr-surface-secondary, #f5f4f2);
+}
+
+.ntgds-accordion-item__trigger:focus-visible {
+  outline: 2px solid var(--clr-focus-focus, #107cc0);
+  outline-offset: -2px;
+  background-color: var(--clr-surface-secondary, #f5f4f2);
+}
+
+/* Accordion title text */
+.ntgds-accordion-item__title {
+  flex: 1;
+  padding-right: 16px;
+}
+
+/* Accordion chevron icon */
+.ntgds-accordion-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--clr-icon-default, #3b3b3a);
+  transition: transform 0.2s ease;
+}
+
+.ntgds-accordion-item__trigger[aria-expanded="true"]
+  .ntgds-accordion-item__icon {
+  transform: rotate(180deg);
+}
+
+/* Accordion panel */
+.ntgds-accordion-item__panel {
+  overflow: hidden;
+}
+
+.ntgds-accordion-item__panel[hidden] {
+  display: none;
+}
+
+/* Accordion content padding */
+.ntgds-accordion-item__content {
+  padding: 0 24px 24px 24px;
+  color: var(--clr-text-primary, #3b3b3a);
+  font-size: var(--font-size-base, 1rem);
+  line-height: 1.5;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .ntgds-accordion-item__trigger,
+  .ntgds-accordion-item__icon {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .ntgds-accordion-item__trigger:focus-visible {
+    outline: 2px solid ButtonText;
+  }
+}

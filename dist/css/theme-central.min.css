@@ -439,7 +439,7 @@
     --scrollbar-thumb-hover-bg: var(--clr-stroke-hover, #3b3b3a);
     --scrollbar-endcap-bg: var(--clr-icon-disabled, #949391);
     --scrollbar-gutter-hitbox: 12px;
-   --scrollbar-radius: 0;
+    --scrollbar-radius: 0;
 
     /* ======================
        Status Colors
