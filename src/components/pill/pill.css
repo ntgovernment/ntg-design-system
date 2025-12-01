@@ -1,0 +1,70 @@
+/* Pill Component - Refactored to match default markup; theme-agnostic via tokens */
+.ntgds-pill {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--clr-surface-primary);
+  outline: 1px solid var(--clr-stroke-subtle);
+  outline-offset: -1px;
+  overflow: hidden;
+  font-family: var(--type-font-default);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--clr-link-default);
+  border-radius: var(--clr-pill-border-radius);
+}
+
+.ntgds-pill:hover:not(.ntgds-pill--disabled) {
+  background: var(--clr-surface-primary-hover);
+}
+
+.ntgds-pill__label {
+  text-align: center;
+  word-wrap: break-word;
+  color: var(--clr-link-default);
+}
+
+.ntgds-pill__close {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.ntgds-pill__close .ntgds-icon {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 10px;
+  height: 10px;
+  font-size: 10px;
+  color: var(--clr-icon-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ntgds-pill__close:focus-visible {
+  outline: none;
+}
+
+.ntgds-pill--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ntgds-pill--disabled .ntgds-pill__close {
+  cursor: default;
+}
+
+.ntgds-pill:focus-within:not(.ntgds-pill--disabled) {
+  outline: 4px solid var(--clr-focus-focus);
+}

@@ -18,27 +18,72 @@
     transform: rotate(360deg);
   }
 }
-/* Small button icon adjustments *//* src/components.css */
+/* Small button icon adjustments */
+/* Link Component Styles */
+/* Image Component - Theme-agnostic image with optional caption */
+/* Notification Component - Theme-agnostic notification with icon and variants */
+/* Base notification styles - all variants have outline and border */
+/* Icon Component - Font Awesome wrapper & token-based color */
+/* Size variants */
+/* Color variants map to semantic tokens */
+/* Fallback when using span without FA glyph (can be overridden by children) */
+/* Scrollbar Component Styles
+   - Utility class: .ntgds-scrollable
+   - Accessible variant: .ntgds-scrollable--accessible
+   - Compact variant: .ntgds-scrollable--compact (visual 4px, small hitbox)
+
+   Implementation notes:
+   - Uses theme tokens defined in src/themes/theme-base.css
+   - WebKit pseudo-elements for Chrome/Safari/Edge
+   - Firefox uses scrollbar-width / scrollbar-color
+   - Forced-colors media query ensures high contrast compatibility
+*/
+/* Base utility - apply this to any scrollable panel you control (textarea, lists, dropdown panels) */
+/* Hover state - aligns with Figma: track darkens on hover */
+/* WebKit browsers */
+/* Optional decorative end caps (approximate Figma small rectangles) - WebKit only */
+/* We cannot create pseudo-elements on the scrollbar track via CSS alone across browsers reliably.
+   If pixel-perfect endcaps are required, implement them as absolutely positioned elements inside
+   the scroll container (declarative in component markup) or via custom JS. Omitted here for
+   the tokens-only + visual implementation to avoid fragile behavior.
+*/
+/* Accessible variant: larger interactive gutter while keeping visual 4px track using background-clip */
+/* Compact variant: explicit visual 4px gutter (same as base) */
+/* Forced colors / High Contrast (Windows) */
+/* RTL: browsers place scrollbars on the correct side; no special rules required here. */
+/* Accordion container */
+/* Accordion header with toggle all button */
+/* Accordion items container */
+/* Individual accordion item */
+/* Accordion trigger button */
+/* Accordion title text */
+/* Accordion chevron icon */
+/* Accordion panel */
+/* Accordion content padding */
+/* Reduced motion support */
+/* High contrast mode support */
+/* NTG Design System Table Styles */
+/* Responsive/mobile styles *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
-*:not(#\#),
-*:not(#\#)::before,
-*:not(#\#)::after { box-sizing: border-box; }
-html:not(#\#), body:not(#\#) { height: 100%; }
-body:not(#\#), h1:not(#\#), h2:not(#\#), h3:not(#\#), h4:not(#\#), h5:not(#\#), h6:not(#\#), p:not(#\#), figure:not(#\#), blockquote:not(#\#), dl:not(#\#), dd:not(#\#) { margin: 0; }
-ul[role='list']:not(#\#), ol[role='list']:not(#\#) { list-style: none; }
-img:not(#\#), picture:not(#\#), video:not(#\#), canvas:not(#\#), svg:not(#\#) { display: block; max-width: 100%; }
-input:not(#\#), button:not(#\#), textarea:not(#\#), select:not(#\#) { font: inherit; }
-:root:not(#\#) { --csstools-color-scheme--light: initial; color-scheme: light dark; }
+*:not(#\#):not(#\#):not(#\#):not(#\#),
+*:not(#\#):not(#\#):not(#\#):not(#\#)::before,
+*:not(#\#):not(#\#):not(#\#):not(#\#)::after { box-sizing: border-box; }
+html:not(#\#):not(#\#):not(#\#):not(#\#), body:not(#\#):not(#\#):not(#\#):not(#\#) { height: 100%; }
+body:not(#\#):not(#\#):not(#\#):not(#\#), h1:not(#\#):not(#\#):not(#\#):not(#\#), h2:not(#\#):not(#\#):not(#\#):not(#\#), h3:not(#\#):not(#\#):not(#\#):not(#\#), h4:not(#\#):not(#\#):not(#\#):not(#\#), h5:not(#\#):not(#\#):not(#\#):not(#\#), h6:not(#\#):not(#\#):not(#\#):not(#\#), p:not(#\#):not(#\#):not(#\#):not(#\#), figure:not(#\#):not(#\#):not(#\#):not(#\#), blockquote:not(#\#):not(#\#):not(#\#):not(#\#), dl:not(#\#):not(#\#):not(#\#):not(#\#), dd:not(#\#):not(#\#):not(#\#):not(#\#) { margin: 0; }
+ul[role='list']:not(#\#):not(#\#):not(#\#):not(#\#), ol[role='list']:not(#\#):not(#\#):not(#\#):not(#\#) { list-style: none; }
+img:not(#\#):not(#\#):not(#\#):not(#\#), picture:not(#\#):not(#\#):not(#\#):not(#\#), video:not(#\#):not(#\#):not(#\#):not(#\#), canvas:not(#\#):not(#\#):not(#\#):not(#\#), svg:not(#\#):not(#\#):not(#\#):not(#\#) { display: block; max-width: 100%; }
+input:not(#\#):not(#\#):not(#\#):not(#\#), button:not(#\#):not(#\#):not(#\#):not(#\#), textarea:not(#\#):not(#\#):not(#\#):not(#\#), select:not(#\#):not(#\#):not(#\#):not(#\#) { font: inherit; }
+:root:not(#\#):not(#\#):not(#\#):not(#\#) { --csstools-color-scheme--light: initial; color-scheme: light dark; }
 @media (prefers-color-scheme: dark) {
-:root:not(#\#) { --csstools-color-scheme--light:  ; }
+:root:not(#\#):not(#\#):not(#\#):not(#\#) { --csstools-color-scheme--light:  ; }
 }
-:focus-visible:not(#\#) { outline: 2px solid var(--clr-focus-ring); outline-offset: 2px; }
+:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#) { outline: 2px solid var(--clr-focus-ring); outline-offset: 2px; }
 /* Base styles read variables defined by the active theme + tokens */
-html:not(#\#) {
+html:not(#\#):not(#\#):not(#\#):not(#\#) {
   font-size: 16px;
   font-size: var(--type-root-size, 16px);
 }
-body:not(#\#) {
+body:not(#\#):not(#\#):not(#\#):not(#\#) {
   background: var(--clr-surface-default);
   color: var(--clr-text-default);
 
@@ -53,22 +98,22 @@ body:not(#\#) {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-a:not(#\#) {
+a:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: var(--clr-link-default, var(--clr-action-default));
   -webkit-text-decoration: none;
   text-decoration: none;
 }
-a:hover:not(#\#) {
+a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: color-mix(in oklab, currentColor, black 12%);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 @supports (color: color-mix(in lch, red, blue)) {
-a:hover:not(#\#) {
+a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: var(--clr-link-hover, color-mix(in oklab, currentColor, black 12%));
 }
 }
-.ntgds-btn:not(#\#):not(#\#) {
+.ntgds-btn:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   display: inline-flex;
   padding: 1rem 1.5rem;
   padding: var(--sp-md, 1rem) var(--sp-xl, 1.5rem);
@@ -92,10 +137,10 @@ a:hover:not(#\#) {
   cursor: pointer;
   position: relative;
 }
-.ntgds-btn[disabled]:not(#\#):not(#\#),
-.ntgds-btn--disabled:not(#\#):not(#\#),
-.ntgds-btn[disabled]:hover:not(#\#):not(#\#),
-.ntgds-btn--disabled:hover:not(#\#):not(#\#) {
+.ntgds-btn[disabled]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--disabled:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn[disabled]:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--disabled:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   opacity: 0.6;
   cursor: not-allowed;
   border: 1px solid inherit;
@@ -106,29 +151,29 @@ a:hover:not(#\#) {
   color: var(--clr-text-disabled, inherit);
 }
 /* Primary button variant */
-.ntgds-btn--primary:not(#\#):not(#\#) {
+.ntgds-btn--primary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-default, inherit);
   color: inherit;
   color: var(--clr-link-inverse, inherit);
 }
-.ntgds-btn--primary:hover:not(#\#):not(#\#) {
+.ntgds-btn--primary:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-hover, inherit);
 }
-.ntgds-btn:focus:not(#\#):not(#\#) {
+.ntgds-btn:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-default, inherit);
   box-shadow: 0 0 0 4px inherit;
   box-shadow: 0 0 0 4px var(--clr-focus-focus, inherit);
 }
-.ntgds-btn--primary:active:not(#\#):not(#\#) {
+.ntgds-btn--primary:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-pressed, inherit);
   box-shadow: none;
 }
 /* Secondary button variant */
-.ntgds-btn--secondary:not(#\#):not(#\#) {
+.ntgds-btn--secondary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-secondary, inherit);
   color: inherit;
@@ -136,7 +181,7 @@ a:hover:not(#\#) {
   border: 1px solid inherit;
   border: var(--border-width-default, 1px) solid var(--clr-stroke-strong, inherit);
 }
-.ntgds-btn--secondary:hover:not(#\#):not(#\#) {
+.ntgds-btn--secondary:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-hover, inherit);
   color: inherit;
@@ -144,7 +189,7 @@ a:hover:not(#\#) {
   border-color: inherit;
   border-color: var(---clr-action-hover, inherit);
 }
-.ntgds-btn--secondary:focus:not(#\#):not(#\#) {
+.ntgds-btn--secondary:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   outline-color: var(--clr-focus-focus);
   background: inherit;
   background: var(--clr-action-secondary, inherit);
@@ -153,7 +198,7 @@ a:hover:not(#\#) {
   color: inherit;
   color: var(--clr-link-default, inherit);
 }
-.ntgds-btn--secondary:active:not(#\#):not(#\#) {
+.ntgds-btn--secondary:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: inherit;
   background: var(--clr-action-pressed, inherit);
   box-shadow: none;
@@ -161,7 +206,7 @@ a:hover:not(#\#) {
   color: var(--clr-link-inverse, inherit);
 }
 /* Tertiary button variant */
-.ntgds-btn--tertiary:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   background: transparent;
   color: var(--clr-link-default);
   padding: inherit;
@@ -169,11 +214,11 @@ a:hover:not(#\#) {
   gap: inherit;
   gap: var(--sp-xs, inherit);
 }
-.ntgds-btn--tertiary:hover:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   color: inherit;
   color: var(--clr-link-hover, inherit);
 }
-.ntgds-btn--tertiary:focus:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   outline-color: var(--clr-focus-focus);
   box-shadow: 0 0 0 4px inherit;
   box-shadow: 0 0 0 4px var(--clr-focus-focus, inherit);
@@ -181,31 +226,31 @@ a:hover:not(#\#) {
   color: inherit;
   color: var(--clr-link-default, inherit);
 }
-.ntgds-btn--tertiary:active:not(#\#):not(#\#) {
+.ntgds-btn--tertiary:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   color: inherit;
   color: var(--clr-link-pressed, inherit);
   box-shadow: none;
   background: transparent;
 }
-.ntgds-btn--primary.ntgds-btn--small:not(#\#):not(#\#),
-.ntgds-btn--secondary.ntgds-btn--small:not(#\#):not(#\#),
-.ntgds-btn--tertiary.ntgds-btn--small:not(#\#):not(#\#) {
+.ntgds-btn--primary.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--secondary.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-btn--tertiary.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   padding: 0.5rem 1rem;
   padding: var(--sp-xs, 0.5rem) var(--sp-md, 1rem);
   font-size: var(--type-desktop-body-sm-size);
 }
 /* Icon styles */
-.ntgds-btn__icon:not(#\#):not(#\#) {
+.ntgds-btn__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.ntgds-btn__icon--left:not(#\#):not(#\#) {
+.ntgds-btn__icon--left:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   margin-right: 0.5rem;
   margin-right: var(--sp-xs, 0.5rem);
 }
-.ntgds-btn__icon--right:not(#\#):not(#\#) {
+.ntgds-btn__icon--right:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   margin-left: 0.5rem;
   margin-left: var(--sp-xs, 0.5rem);
 }
@@ -214,10 +259,10 @@ a:hover:not(#\#) {
   align-items: center;
 } */
 /* Loading styles */
-.ntgds-btn--loading:not(#\#):not(#\#) {
+.ntgds-btn--loading:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   position: relative;
 }
-.ntgds-btn__loading-spinner:not(#\#):not(#\#) {
+.ntgds-btn__loading-spinner:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -226,16 +271,616 @@ a:hover:not(#\#) {
   border-radius: 50%;
   animation: ntgds-btn-spin 1s linear infinite;
 }
-.ntgds-btn__loading-text:not(#\#):not(#\#) {
+.ntgds-btn__loading-text:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   opacity: 0.7;
 }
 /* Loading spinner animation */
 /* Small button icon adjustments */
-.ntgds-btn--small:not(#\#):not(#\#) .ntgds-btn__icon {
+.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-btn__icon {
   font-size: 0.875em;
 }
-.ntgds-btn--small:not(#\#):not(#\#) .ntgds-btn__loading-spinner {
+.ntgds-btn--small:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-btn__loading-spinner {
   width: 0.875em;
   height: 0.875em;
 }
+.ntgds-link:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: var(--clr-link-default);
+    font-family: var(--type-font-default);
+    font-size: var(--type-desktop-body-default-size);
+    font-weight: var(--type-desktop-body-default-weight);
+    line-height: var(--type-desktop-body-default-lh);
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+    cursor: pointer;
+    word-wrap: break-word;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border-bottom: 4px solid transparent;
+    display: inline;
+  }
+.ntgds-link:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: var(--clr-link-hover);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+.ntgds-link:visited:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: var(--clr-link-visited);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+.ntgds-link:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    outline: none;
+    background: var(--clr-focus-focus);
+    border-bottom-color: var(--clr-stroke-strong);
+    color: var(--clr-link-default);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+.ntgds-link:focus:not(:focus-visible):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    outline: none;
+    background: transparent;
+    border-bottom-color: transparent;
+  }
+.ntgds-link:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    outline: none;
+    background: var(--clr-focus-focus);
+    border-bottom-color: var(--clr-stroke-strong);
+    color: var(--clr-link-default);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+.ntgds-link[disabled]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+  .ntgds-link--disabled:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: var(--clr-text-disabled);
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    border-bottom-color: transparent;
+  }
+/* Link Component Styles */
+/* Image Component - Theme-agnostic image with optional caption */
+.ntgds-image:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  /* Container dimensions set via style prop */
+}
+.ntgds-image__figure:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+}
+.ntgds-image__img:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; /* Ensures image fills container without distortion */
+}
+.ntgds-image__caption:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  align-self: stretch;
+  max-width: 100%;
+  color: var(--clr-text-helper);
+  font-size: 14px;
+  font-family: var(--type-font-default);
+  font-weight: 400;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+/* Notification Component - Theme-agnostic notification with icon and variants */
+/* Base notification styles - all variants have outline and border */
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  height: 100%;
+  background: var(--clr-surface-primary);
+  justify-content: flex-start;
+  align-items: center;
+  display: inline-flex;
+}
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #107cc0;
+  outline: 1px solid var(--clr-status-info, #107cc0);
+  outline-offset: -1px;
+}
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #107810;
+  outline: 1px solid var(--clr-status-success, #107810);
+  outline-offset: -1px;
+}
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #d6410a;
+  outline: 1px solid var(--clr-status-warning, #d6410a);
+  outline-offset: -1px;
+}
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 1px solid #a60f37;
+  outline: 1px solid var(--clr-status-danger, #a60f37);
+  outline-offset: -1px;
+}
+.ntgds-notification__border:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 8px;
+  align-self: stretch;
+}
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #107cc0;
+  background: var(--clr-status-info, #107cc0);
+}
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #107810;
+  background: var(--clr-status-success, #107810);
+}
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #d6410a;
+  background: var(--clr-status-warning, #d6410a);
+}
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__border {
+  background: #a60f37;
+  background: var(--clr-status-danger, #a60f37);
+}
+.ntgds-notification__content:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  flex: 1 1 0;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  display: inline-flex;
+}
+.ntgds-notification__header:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  align-self: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  display: inline-flex;
+}
+.ntgds-notification__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ntgds-notification__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-icon {
+  font-size: 26px;
+}
+.ntgds-notification--info:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #107cc0;
+  color: var(--clr-status-info, #107cc0);
+}
+.ntgds-notification__text:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  display: inline-flex;
+}
+.ntgds-notification__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: var(--clr-text-default);
+  font-size: var(--type-desktop-h5-size);
+  font-family: var(--type-font-default);
+  font-weight: var(--type-desktop-h5-weight);
+  line-height: var(--type-desktop-h5-lh);
+  letter-spacing: var(--type-desktop-h5-ls);
+  word-wrap: break-word;
+}
+.ntgds-notification__message:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  align-self: stretch;
+  color: var(--clr-text-body);
+  font-size: var(--type-desktop-body-default-size);
+  font-family: var(--type-font-default);
+  font-weight: var(--type-desktop-body-default-weight);
+  line-height: var(--type-desktop-body-default-lh);
+  letter-spacing: var(--type-desktop-body-default-ls);
+  word-wrap: break-word;
+}
+.ntgds-notification--success:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #107810;
+  color: var(--clr-status-success, #107810);
+}
+.ntgds-notification--warning:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #d6410a;
+  color: var(--clr-status-warning, #d6410a);
+}
+.ntgds-notification--danger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-notification__icon .ntgds-icon {
+  color: #a60f37;
+  color: var(--clr-status-danger, #a60f37);
+}
+/* Icon Component - Font Awesome wrapper & token-based color */
+.ntgds-icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+  /* Default inherits font-size unless size class overrides */
+}
+/* Size variants */
+.ntgds-icon--sm:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  font-size: 0.875em;
+}
+.ntgds-icon--md:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  font-size: 1em;
+}
+.ntgds-icon--lg:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  font-size: 1.25em;
+}
+/* Color variants map to semantic tokens */
+.ntgds-icon--color-default:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-default, currentColor);
+}
+.ntgds-icon--color-primary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-primary, currentColor);
+}
+.ntgds-icon--color-secondary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-secondary, currentColor);
+}
+.ntgds-icon--color-tertiary:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-tertiary, currentColor);
+}
+.ntgds-icon--color-inverse:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  color: currentColor;
+  color: var(--clr-icon-inverse, currentColor);
+}
+/* Fallback when using span without FA glyph (can be overridden by children) */
+.ntgds-icon:not(.fa-solid):not(.fa-regular):not(.fa-brands):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 1em;
+  height: 1em;
+}
+.ntgds-icon:not(.fa-solid):not(.fa-regular):not(.fa-brands):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  background: currentColor;
+  border-radius: 2px;
+}
+/* Scrollbar Component Styles
+   - Utility class: .ntgds-scrollable
+   - Accessible variant: .ntgds-scrollable--accessible
+   - Compact variant: .ntgds-scrollable--compact (visual 4px, small hitbox)
+
+   Implementation notes:
+   - Uses theme tokens defined in src/themes/theme-base.css
+   - WebKit pseudo-elements for Chrome/Safari/Edge
+   - Firefox uses scrollbar-width / scrollbar-color
+   - Forced-colors media query ensures high contrast compatibility
+*/
+:root:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  /* provide safe defaults in case theme tokens are missing */
+  --ntgds-scrollbar-width: var(--scrollbar-width, 4px);
+  --ntgds-scrollbar-track-bg: var(--scrollbar-track-bg, #949391);
+  --ntgds-scrollbar-track-hover-bg: var(--scrollbar-track-hover-bg, #3b3b3a);
+  --ntgds-scrollbar-thumb-bg: var(--scrollbar-thumb-bg, #949391);
+  --ntgds-scrollbar-thumb-hover-bg: var(--scrollbar-thumb-hover-bg, #3b3b3a);
+  --ntgds-scrollbar-radius: var(--scrollbar-radius, 999px);
+  --ntgds-scrollbar-gutter-hitbox: var(--scrollbar-gutter-hitbox, 12px);
+}
+/* Base utility - apply this to any scrollable panel you control (textarea, lists, dropdown panels) */
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  overflow: auto;
+  /* Firefox: thin scrollbar and base colours */
+  scrollbar-width: thin;
+  scrollbar-color: #949391
+    #949391;
+  scrollbar-color: var(--ntgds-scrollbar-thumb-bg)
+    var(--ntgds-scrollbar-track-bg);
+}
+/* Hover state - aligns with Figma: track darkens on hover */
+.ntgds-scrollable:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  scrollbar-color: #3b3b3a
+    #3b3b3a;
+  scrollbar-color: var(--ntgds-scrollbar-thumb-hover-bg)
+    var(--ntgds-scrollbar-track-hover-bg);
+}
+/* WebKit browsers */
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar {
+  width: 4px;
+  width: var(--ntgds-scrollbar-width);
+  height: 4px;
+  height: var(--ntgds-scrollbar-width);
+}
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+  background: #949391;
+  background: var(--ntgds-scrollbar-track-bg);
+}
+.ntgds-scrollable:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+  background: #3b3b3a;
+  background: var(--ntgds-scrollbar-track-hover-bg);
+}
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #949391;
+  background: var(--ntgds-scrollbar-thumb-bg);
+  border-radius: 0;
+  /* Give the thumb a slight inset so it reads as a narrow visual bar on top of the track */
+  border: 0px solid transparent;
+}
+.ntgds-scrollable:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #3b3b3a;
+  background: var(--ntgds-scrollbar-thumb-hover-bg);
+}
+/* Optional decorative end caps (approximate Figma small rectangles) - WebKit only */
+.ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track:vertical {
+  position: relative;
+}
+/* We cannot create pseudo-elements on the scrollbar track via CSS alone across browsers reliably.
+   If pixel-perfect endcaps are required, implement them as absolutely positioned elements inside
+   the scroll container (declarative in component markup) or via custom JS. Omitted here for
+   the tokens-only + visual implementation to avoid fragile behavior.
+*/
+/* Accessible variant: larger interactive gutter while keeping visual 4px track using background-clip */
+.ntgds-scrollable--accessible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar {
+  width: 12px;
+  width: var(--ntgds-scrollbar-gutter-hitbox);
+}
+.ntgds-scrollable--accessible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ntgds-scrollable--accessible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #949391;
+  background: var(--ntgds-scrollbar-thumb-bg);
+  border-radius: 0;
+  /* center a 4px visual indicator inside the larger gutter */
+  box-shadow: 0 0 0
+    calc(
+      (12px - 4px) / 2
+    )
+    transparent inset;
+  box-shadow: 0 0 0
+    calc(
+      (var(--ntgds-scrollbar-gutter-hitbox) - var(--ntgds-scrollbar-width)) / 2
+    )
+    transparent inset;
+  background-clip: content-box;
+  border: calc(
+      (12px - 4px) / 2
+    )
+    solid transparent;
+  border: calc(
+      (var(--ntgds-scrollbar-gutter-hitbox) - var(--ntgds-scrollbar-width)) / 2
+    )
+    solid transparent;
+}
+.ntgds-scrollable--accessible:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+  background: #3b3b3a;
+  background: var(--ntgds-scrollbar-thumb-hover-bg);
+}
+/* Compact variant: explicit visual 4px gutter (same as base) */
+.ntgds-scrollable--compact:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar {
+  width: 4px;
+  width: var(--ntgds-scrollbar-width);
+}
+/* Forced colors / High Contrast (Windows) */
+@media (forced-colors: active) {
+  .ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    scrollbar-color: ButtonText Canvas;
+  }
+  .ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-track {
+    background: Canvas;
+  }
+  .ntgds-scrollable:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)::-webkit-scrollbar-thumb {
+    background: ButtonText;
+  }
+}
+/* RTL: browsers place scrollbars on the correct side; no special rules required here. */
+/* Accordion container */
+.ntgds-accordion:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+}
+/* Accordion header with toggle all button */
+.ntgds-accordion__header:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  margin-bottom: var(--spacing-md, 16px);
+}
+/* Accordion items container */
+.ntgds-accordion__items:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  border-top: 1px solid #e6e5e3;
+  border-top: 1px solid var(--clr-stroke-subtle, #e6e5e3);
+}
+/* Individual accordion item */
+.ntgds-accordion-item:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  border-bottom: 1px solid #e6e5e3;
+  border-bottom: 1px solid var(--clr-stroke-subtle, #e6e5e3);
+}
+/* Accordion trigger button */
+.ntgds-accordion-item__trigger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-size: var(--font-size-base, 1rem);
+  font-weight: 600;
+  color: #3b3b3a;
+  color: var(--clr-text-primary, #3b3b3a);
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+.ntgds-accordion-item__trigger:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  background-color: #f5f4f2;
+  background-color: var(--clr-surface-secondary, #f5f4f2);
+}
+.ntgds-accordion-item__trigger:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  outline: 2px solid #107cc0;
+  outline: 2px solid var(--clr-focus-focus, #107cc0);
+  outline-offset: -2px;
+  background-color: #f5f4f2;
+  background-color: var(--clr-surface-secondary, #f5f4f2);
+}
+/* Accordion title text */
+.ntgds-accordion-item__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  flex: 1;
+  padding-right: 16px;
+}
+/* Accordion chevron icon */
+.ntgds-accordion-item__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #3b3b3a;
+  color: var(--clr-icon-default, #3b3b3a);
+  transition: transform 0.2s ease;
+}
+.ntgds-accordion-item__trigger[aria-expanded="true"]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#)
+  .ntgds-accordion-item__icon {
+  transform: rotate(180deg);
+}
+/* Accordion panel */
+.ntgds-accordion-item__panel:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  overflow: hidden;
+}
+.ntgds-accordion-item__panel[hidden]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  display: none;
+}
+/* Accordion content padding */
+.ntgds-accordion-item__content:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  padding: 0 24px 24px 24px;
+  color: #3b3b3a;
+  color: var(--clr-text-primary, #3b3b3a);
+  font-size: 1rem;
+  font-size: var(--font-size-base, 1rem);
+  line-height: 1.5;
+}
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .ntgds-accordion-item__trigger:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+  .ntgds-accordion-item__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    transition: none;
+  }
+}
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .ntgds-accordion-item__trigger:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    outline: 2px solid ButtonText;
+  }
+}
 /* add more components the same way */
+/* NTG Design System Table Styles */
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+}
+.ntgds-table-title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  text-align: left;
+  color: #3b3b3a;
+  color: var(--clr-text-default, #3b3b3a);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 4px;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table-subtitle:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  text-align: left;
+  color: #777674;
+  color: var(--clr-text-helper, #777674);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 16px;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th {
+  text-transform: uppercase;
+  color: #1f1f5f;
+  color: var(--clr-link-default, #1f1f5f);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 16px;
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+  border-bottom: 1px solid #949391;
+  border-bottom: 1px solid var(--clr-stroke-strong-03, #949391);
+  padding: 16px 8px;
+  text-align: left;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td {
+  color: #3b3b3a;
+  color: var(--clr-text-body, #3b3b3a);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+  border-bottom: 1px solid #d4d4d2;
+  border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  padding: 16px 8px;
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tbody tr:nth-child(odd) td {
+  background: #f6f6f6;
+  background: var(--clr-surface-secondary, #f6f6f6);
+}
+.ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tbody tr:nth-child(even) td {
+  background: #fff;
+  background: var(--clr-surface-primary, #fff);
+}
+/* Responsive/mobile styles */
+@media (max-width: 600px) {
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) thead,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tbody,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) tr {
+    display: block;
+    width: 100%;
+  }
+  .ntgds-table-title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+  }
+  .ntgds-table-subtitle:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+  }
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th,
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td {
+    padding: 12px 8px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) th {
+    font-weight: 700;
+    background: #fff;
+    background: var(--clr-surface-primary, #fff);
+    border-bottom: 1px solid #d4d4d2;
+    border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  }
+  .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) td {
+    font-weight: 400;
+    background: #fff;
+    background: var(--clr-surface-primary, #fff);
+    border-bottom: 1px solid #d4d4d2;
+    border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  }
+}

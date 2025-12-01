@@ -1,0 +1,76 @@
+@layer components {
+  .ntgds-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 4px 8px;
+    border-radius: 0;
+    background: var(--clr-tag-tag-default, #1f1f5f);
+    color: var(--clr-text-inverse, #fff);
+    font-family: var(--type-font-default, Lato, Arial, sans-serif);
+    font-size: var(--type-desktop-tag-size, 12px);
+    font-weight: var(--type-desktop-tag-weight, 700);
+    text-transform: uppercase;
+    line-height: 16px;
+    letter-spacing: 2px;
+    word-wrap: break-word;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .ntgds-tag--subtle {
+    background: var(--clr-tag-tag-subtle, #fff);
+    color: var(--clr-tag-tag-default, #1f1f5f);
+    border: 1px solid var(--clr-tag-tag-default, #1f1f5f);
+  }
+
+  .ntgds-tag--darwin {
+    /* Prefer a semantic tag token; fallback to the regional token and then the hex value */
+    background: var(
+      --clr-tag-tag-3,
+      var(--ntg-colour-new-brand-regional-colours-darwin, #76ba43)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+  .ntgds-tag--top-end {
+    background: var(
+      --clr-tag-tag-4,
+      var(--ntg-colour-new-brand-regional-colours-top-end, #009dc1)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+  .ntgds-tag--east-arnhem {
+    background: var(
+      --clr-tag-tag-5,
+      var(--ntg-colour-new-brand-regional-colours-east-arnhem, #d1dd26)
+    );
+    color: var(--clr-text-body, #3b3b3a);
+  }
+  .ntgds-tag--big-rivers {
+    background: var(
+      --clr-tag-tag-6,
+      var(--ntg-colour-new-brand-regional-colours-big-rivers, #fcb414)
+    );
+    color: var(--clr-text-body, #3b3b3a);
+  }
+  .ntgds-tag--barkly {
+    background: var(
+      --clr-tag-tag-7,
+      var(--ntg-colour-new-brand-regional-colours-barkly, #f05a24)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+  .ntgds-tag--central-australia {
+    background: var(
+      --clr-tag-tag-8,
+      var(--ntg-colour-new-brand-regional-colours-central-australia, #ed164e)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+  .ntgds-tag--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

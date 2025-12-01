@@ -1,0 +1,161 @@
+/**
+ * Typography Base
+ * =================
+ * Shared typography tokens for all themes.
+ * This layer is imported by individual theme files and defines the typography system
+ * independently from theme-specific colors, spacing, and radii.
+ * 
+ * All typography tokens reference primitive type tokens from ntg-design-system-tokens.css
+ * 
+ * DO NOT import this file directly. It should be imported by theme files only.
+ */
+
+@layer typography {
+  :root {
+    /* ======================
+       Desktop Typography
+       ====================== */
+
+    /* Desktop - Headings */
+    --type-desktop-h1-size: var(--ntg-type-size-8);
+    --type-desktop-h1-lh: var(--ntg-type-line-height-6);
+    --type-desktop-h1-weight: var(--ntg-type-weight-2);
+    --type-desktop-h1-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h2-size: var(--ntg-type-size-7);
+    --type-desktop-h2-lh: var(--ntg-type-line-height-5);
+    --type-desktop-h2-weight: var(--ntg-type-weight-2);
+    --type-desktop-h2-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h3-size: var(--ntg-type-size-6);
+    --type-desktop-h3-weight: var(--ntg-type-weight-2);
+    --type-desktop-h3-lh: var(--ntg-type-line-height-4);
+    --type-desktop-h3-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h4-size: var(--ntg-type-size-5);
+    --type-desktop-h4-weight: var(--ntg-type-weight-2);
+    --type-desktop-h4-lh: var(--ntg-type-line-height-3);
+    --type-desktop-h4-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h5-size: var(--ntg-type-size-4);
+    --type-desktop-h5-weight: var(--ntg-type-weight-2);
+    --type-desktop-h5-lh: var(--ntg-type-line-height-2);
+    --type-desktop-h5-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h6-size: var(--ntg-type-size-3);
+    --type-desktop-h6-weight: var(--ntg-type-weight-2);
+    --type-desktop-h6-lh: var(--ntg-type-line-height-3);
+    --type-desktop-h6-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Desktop - Body Text */
+    --type-desktop-body-default-size: var(--ntg-type-size-3);
+    --type-desktop-body-default-weight: var(--ntg-type-weight-1);
+    --type-desktop-body-default-lh: var(--ntg-type-line-height-3);
+    --type-desktop-body-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-body-default-bold-size: var(--ntg-type-size-3);
+    --type-desktop-body-default-bold-weight: var(--ntg-type-weight-2);
+    --type-desktop-body-default-bold-lh: var(--ntg-type-line-height-3);
+    --type-desktop-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-body-sm-size: var(--ntg-type-size-2);
+    --type-desktop-body-sm-weight: var(--ntg-type-weight-1);
+    --type-desktop-body-sm-lh: var(--ntg-type-line-height-2);
+    --type-desktop-body-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-body-sm-bold-size: var(--ntg-type-size-2);
+    --type-desktop-body-sm-bold-weight: var(--ntg-type-weight-2);
+    --type-desktop-body-sm-bold-lh: var(--ntg-type-line-height-2);
+    --type-desktop-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Desktop - Buttons */
+    --type-desktop-button-default-size: var(--ntg-type-size-3);
+    --type-desktop-button-default-weight: var(--ntg-type-weight-2);
+    --type-desktop-button-default-lh: var(--ntg-type-line-height-1);
+    --type-desktop-button-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-button-sm-size: var(--ntg-type-size-2);
+    --type-desktop-button-sm-weight: var(--ntg-type-weight-2);
+    --type-desktop-button-sm-lh: var(--ntg-type-line-height-1);
+    --type-desktop-button-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Desktop - Tags */
+    --type-desktop-tag-size: var(--ntg-type-size-1);
+    --type-desktop-tag-weight: var(--ntg-type-weight-2);
+    --type-desktop-tag-lh: var(--ntg-type-line-height-1);
+    --type-desktop-tag-ls: var(--ntg-type-letter-spacing-1);
+
+    /* ======================
+       Mobile Typography
+       ====================== */
+
+    /* Mobile - Headings */
+    --type-mobile-h1-size: var(--ntg-type-size-7);
+    --type-mobile-h1-weight: var(--ntg-type-weight-2);
+    --type-mobile-h1-lh: var(--ntg-type-line-height-5);
+    --type-mobile-h1-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h2-size: var(--ntg-type-size-7);
+    --type-mobile-h2-weight: var(--ntg-type-weight-2);
+    --type-mobile-h2-lh: var(--ntg-type-line-height-5);
+    --type-mobile-h2-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h3-size: var(--ntg-type-size-6);
+    --type-mobile-h3-weight: var(--ntg-type-weight-2);
+    --type-mobile-h3-lh: var(--ntg-type-line-height-4);
+    --type-mobile-h3-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h4-size: var(--ntg-type-size-5);
+    --type-mobile-h4-weight: var(--ntg-type-weight-2);
+    --type-mobile-h4-lh: var(--ntg-type-line-height-3);
+    --type-mobile-h4-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h5-size: var(--ntg-type-size-4);
+    --type-mobile-h5-weight: var(--ntg-type-weight-2);
+    --type-mobile-h5-lh: var(--ntg-type-line-height-2);
+    --type-mobile-h5-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h6-size: var(--ntg-type-size-3);
+    --type-mobile-h6-weight: var(--ntg-type-weight-2);
+    --type-mobile-h6-lh: var(--ntg-type-line-height-3);
+    --type-mobile-h6-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Mobile - Body Text */
+    --type-mobile-body-default-size: var(--ntg-type-size-3);
+    --type-mobile-body-default-weight: var(--ntg-type-weight-1);
+    --type-mobile-body-default-lh: var(--ntg-type-line-height-3);
+    --type-mobile-body-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-body-default-bold-size: var(--ntg-type-size-3);
+    --type-mobile-body-default-bold-weight: var(--ntg-type-weight-2);
+    --type-mobile-body-default-bold-lh: var(--ntg-type-line-height-3);
+    --type-mobile-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-body-sm-size: var(--ntg-type-size-2);
+    --type-mobile-body-sm-weight: var(--ntg-type-weight-1);
+    --type-mobile-body-sm-lh: var(--ntg-type-line-height-2);
+    --type-mobile-body-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-body-sm-bold-size: var(--ntg-type-size-2);
+    --type-mobile-body-sm-bold-weight: var(--ntg-type-weight-2);
+    --type-mobile-body-sm-bold-lh: var(--ntg-type-line-height-2);
+    --type-mobile-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Mobile - Buttons */
+    --type-mobile-button-default-size: var(--ntg-type-size-3);
+    --type-mobile-button-default-weight: var(--ntg-type-weight-2);
+    --type-mobile-button-default-lh: var(--ntg-type-line-height-1);
+    --type-mobile-button-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-button-default-sm-size: var(--ntg-type-size-2);
+    --type-mobile-button-default-sm-weight: var(--ntg-type-weight-2);
+    --type-mobile-button-default-sm-lh: var(--ntg-type-line-height-1);
+    --type-mobile-button-default-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Mobile - Tags */
+    --type-mobile-tag-size: var(--ntg-type-size-1);
+    --type-mobile-tag-weight: var(--ntg-type-weight-2);
+    --type-mobile-tag-lh: var(--ntg-type-line-height-1);
+    --type-mobile-tag-ls: var(--ntg-type-letter-spacing-1);
+  }
+}

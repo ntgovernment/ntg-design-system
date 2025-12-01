@@ -2,7 +2,7 @@ import type { StorybookConfig } from "@storybook/react-vite";
 const config: StorybookConfig = {
   framework: "@storybook/react-vite",
   stories: ["../src/components/**/*.stories.@(ts|tsx)", "../src/**/*.mdx"],
-  addons: ["@storybook/addon-docs"],
+  addons: ["@storybook/addon-docs", "@storybook/addon-a11y"],
   docs: {
     autodocs: "tag",
     defaultName: "Docs",

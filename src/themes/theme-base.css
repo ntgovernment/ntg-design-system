@@ -1,0 +1,156 @@
+/**
+ * Theme Base - Shared Semantic Tokens
+ * =====================================
+ * This file contains semantic tokens that are shared across all themes.
+ * These tokens reference theme-primitive tokens (--theme-*) which are defined
+ * in individual theme files before this base is imported.
+ * 
+ * IMPORTANT: This file expects theme-primitive tokens to be defined:
+ * - --theme-colour-neutrals-* (white, black, 100-900)
+ * - --theme-colour-primary-* (blue variants, secondary colors)
+ * - --theme-status-* (info, success, warning, danger surfaces and defaults)
+ * 
+ * DO NOT import this file directly. It should be imported by theme files only,
+ * after theme-primitive mappings are defined.
+ */
+
+@layer semantics {
+  :root {
+    /* ======================
+       Spacing Tokens
+       ====================== */
+    --sp-xxs: var(--global-spacing-spacing-4);
+    --sp-xs: var(--global-spacing-spacing-8);
+    --sp-sm: var(--global-spacing-spacing-12);
+    --sp-md: var(--global-spacing-spacing-16);
+    --sp-lg: var(--global-spacing-spacing-20);
+    --sp-xl: var(--global-spacing-spacing-24);
+    --sp-xxl: var(--global-spacing-spacing-32);
+    --sp-xxxl: var(--global-spacing-spacing-48);
+
+    /* ======================
+       Border Width Tokens
+       ====================== */
+    --border-width-sm: var(--global-spacing-spacing-half);
+    --border-width-default: var(--global-spacing-spacing-1);
+    --border-width-lg: var(--global-spacing-spacing-2);
+    --border-width-focus: var(--global-spacing-spacing-4);
+    --border-width-xxl: var(--global-spacing-spacing-8);
+
+    /* ======================
+       Background Colors
+       ====================== */
+    --clr-bg-primary: var(--theme-colour-neutrals-white);
+    --clr-bg-secondary: var(--theme-colour-neutrals-100);
+    --clr-bg-dark: var(--theme-colour-primary-blue-default);
+
+    /* ======================
+       Surface Colors
+       ====================== */
+    --clr-surface-default: var(--theme-colour-neutrals-white);
+    --clr-surface-hover: var(--theme-surface-hover);
+    --clr-surface-selected: var(--theme-surface-selected);
+
+    /* ======================
+       Action Colors
+       ====================== */
+    --clr-action-default: var(--theme-colour-primary-blue-default);
+    --clr-action-secondary: var(--theme-colour-neutrals-white);
+    --clr-action-hover: var(--theme-action-hover);
+    --clr-action-pressed: var(--theme-action-pressed);
+    --clr-action-disabled: var(--theme-colour-neutrals-200);
+
+    /* ======================
+       Field Colors
+       ====================== */
+    --clr-field-default: var(--theme-field-default);
+    --clr-field-hover: var(--theme-colour-neutrals-200);
+    --clr-field-active: var(--theme-field-active);
+    --clr-field-disabled: var(--theme-colour-neutrals-300);
+
+    /* ======================
+       Stroke Colors
+       ====================== */
+    --clr-stroke-strong: var(--theme-colour-primary-blue-default);
+    --clr-stroke-secondary-strong: var(--theme-stroke-secondary-strong);
+    --clr-stroke-subtle: var(--theme-stroke-subtle);
+    --clr-stroke-hover: var(--theme-stroke-hover);
+    --clr-stroke-inverted: var(--theme-colour-neutrals-white);
+    --clr-stroke-disabled: var(--theme-colour-neutrals-300);
+
+    /* ======================
+       Text Colors
+       ====================== */
+    --clr-text-default: var(--theme-text-default);
+    --clr-text-body: var(--theme-text-body);
+    --clr-text-secondary: var(--theme-text-secondary);
+    --clr-text-helper: var(--theme-text-helper);
+    --clr-text-inverse: var(--theme-colour-neutrals-white);
+    --clr-text-disabled: var(--theme-text-disabled);
+
+    /* ======================
+       Link Colors
+       ====================== */
+    --clr-link-default: var(--theme-colour-primary-blue-default);
+    --clr-link-hover: var(--theme-link-hover);
+    --clr-link-pressed: var(--theme-link-pressed);
+    --clr-link-visited: var(--theme-link-visited);
+    --clr-link-inverse: var(--theme-colour-neutrals-white);
+    --clr-link-inverse-hover: var(--theme-link-inverse-hover);
+    --clr-link-inverse-visited: var(--theme-link-inverse-visited);
+
+    /* ======================
+       Icon Colors
+       ====================== */
+    --clr-icon-primary: var(--theme-colour-primary-blue-default);
+    --clr-icon-secondary: var(--theme-icon-secondary);
+    --clr-icon-tertiary: var(--theme-icon-tertiary);
+    --clr-icon-inverse: var(--theme-colour-neutrals-white);
+    --clr-icon-visited: var(--theme-icon-visited);
+    --clr-icon-disabled: var(--theme-icon-disabled);
+
+    /* ======================
+       Scrollbar Tokens
+       ======================
+       Tokens for styling native scrollbars where supported. These are
+       intentionally lightweight — the implementation uses a utility
+       class (e.g. `.ntgds-scrollable`) to apply visual styles.
+
+       NOTE: This file defines semantic tokens only. The visual rules
+       that consume these tokens live in a separate scrollbar stylesheet
+       (not added in this tokens-only scope).
+    */
+    --scrollbar-width: 4px;
+    --scrollbar-track-bg: var(--clr-stroke-strong, #949391);
+    --scrollbar-track-hover-bg: var(--clr-stroke-hover, #3b3b3a);
+    --scrollbar-thumb-bg: var(--clr-stroke-subtle, #949391);
+    --scrollbar-thumb-hover-bg: var(--clr-stroke-hover, #3b3b3a);
+    --scrollbar-endcap-bg: var(--clr-icon-disabled, #949391);
+    --scrollbar-gutter-hitbox: 12px;
+    --scrollbar-radius: 0;
+
+    /* ======================
+       Status Colors
+       ====================== */
+    /* Info */
+    --clr-status-info-surface: var(--theme-status-info-blue-50);
+    --clr-status-info: var(--theme-status-info-blue-default);
+
+    /* Success */
+    --clr-status-success-surface: var(--theme-status-success-green-50);
+    --clr-status-success: var(--theme-status-success-green-default);
+
+    /* Warning */
+    --clr-status-warning-surface: var(--theme-status-warning-orange-50);
+    --clr-status-warning: var(--theme-status-warning-orange-default);
+
+    /* Danger */
+    --clr-status-danger-surface: var(--theme-status-danger-red-50);
+    --clr-status-danger: var(--theme-status-danger-red-default);
+
+    /* ======================
+       Focus State
+       ====================== */
+    --clr-focus-focus: var(--theme-focus-focus);
+  }
+}

@@ -1,5 +1,12 @@
 import { enhanceButtons } from "../components/button/button.runtime";
 
+// React components
+export { Accordion, AccordionItem } from "../components/accordion/Accordion";
+export { Button } from "../components/button/Button";
+export { Icon } from "../components/icon/Icon";
+export { Notification } from "../components/notification/Notification";
+export { Pill } from "../components/pill/Pill";
+
 function initAll(root: ParentNode = document) {
   enhanceButtons(root);
 }

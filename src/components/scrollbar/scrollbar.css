@@ -1,0 +1,122 @@
+/* Scrollbar Component Styles
+   - Utility class: .ntgds-scrollable
+   - Accessible variant: .ntgds-scrollable--accessible
+   - Compact variant: .ntgds-scrollable--compact (visual 4px, small hitbox)
+
+   Implementation notes:
+   - Uses theme tokens defined in src/themes/theme-base.css
+   - WebKit pseudo-elements for Chrome/Safari/Edge
+   - Firefox uses scrollbar-width / scrollbar-color
+   - Forced-colors media query ensures high contrast compatibility
+*/
+
+:root {
+  /* provide safe defaults in case theme tokens are missing */
+  --ntgds-scrollbar-width: var(--scrollbar-width, 4px);
+  --ntgds-scrollbar-track-bg: var(--scrollbar-track-bg, #949391);
+  --ntgds-scrollbar-track-hover-bg: var(--scrollbar-track-hover-bg, #3b3b3a);
+  --ntgds-scrollbar-thumb-bg: var(--scrollbar-thumb-bg, #949391);
+  --ntgds-scrollbar-thumb-hover-bg: var(--scrollbar-thumb-hover-bg, #3b3b3a);
+  --ntgds-scrollbar-radius: var(--scrollbar-radius, 999px);
+  --ntgds-scrollbar-gutter-hitbox: var(--scrollbar-gutter-hitbox, 12px);
+}
+
+/* Base utility - apply this to any scrollable panel you control (textarea, lists, dropdown panels) */
+.ntgds-scrollable {
+  overflow: auto;
+  /* Firefox: thin scrollbar and base colours */
+  scrollbar-width: thin;
+  scrollbar-color: var(--ntgds-scrollbar-thumb-bg)
+    var(--ntgds-scrollbar-track-bg);
+}
+
+/* Hover state - aligns with Figma: track darkens on hover */
+.ntgds-scrollable:hover {
+  scrollbar-color: var(--ntgds-scrollbar-thumb-hover-bg)
+    var(--ntgds-scrollbar-track-hover-bg);
+}
+
+/* WebKit browsers */
+.ntgds-scrollable::-webkit-scrollbar {
+  width: var(--ntgds-scrollbar-width);
+  height: var(--ntgds-scrollbar-width);
+}
+
+.ntgds-scrollable::-webkit-scrollbar-track {
+  background: var(--ntgds-scrollbar-track-bg);
+}
+
+.ntgds-scrollable:hover::-webkit-scrollbar-track {
+  background: var(--ntgds-scrollbar-track-hover-bg);
+}
+
+.ntgds-scrollable::-webkit-scrollbar-thumb {
+  background: var(--ntgds-scrollbar-thumb-bg);
+  border-radius: 0;
+  /* Give the thumb a slight inset so it reads as a narrow visual bar on top of the track */
+  border: 0px solid transparent;
+}
+
+.ntgds-scrollable:hover::-webkit-scrollbar-thumb {
+  background: var(--ntgds-scrollbar-thumb-hover-bg);
+}
+
+/* Optional decorative end caps (approximate Figma small rectangles) - WebKit only */
+.ntgds-scrollable::-webkit-scrollbar-track:vertical {
+  position: relative;
+}
+
+/* We cannot create pseudo-elements on the scrollbar track via CSS alone across browsers reliably.
+   If pixel-perfect endcaps are required, implement them as absolutely positioned elements inside
+   the scroll container (declarative in component markup) or via custom JS. Omitted here for
+   the tokens-only + visual implementation to avoid fragile behavior.
+*/
+
+/* Accessible variant: larger interactive gutter while keeping visual 4px track using background-clip */
+.ntgds-scrollable--accessible::-webkit-scrollbar {
+  width: var(--ntgds-scrollbar-gutter-hitbox);
+}
+
+.ntgds-scrollable--accessible::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ntgds-scrollable--accessible::-webkit-scrollbar-thumb {
+  background: var(--ntgds-scrollbar-thumb-bg);
+  border-radius: 0;
+  /* center a 4px visual indicator inside the larger gutter */
+  box-shadow: 0 0 0
+    calc(
+      (var(--ntgds-scrollbar-gutter-hitbox) - var(--ntgds-scrollbar-width)) / 2
+    )
+    transparent inset;
+  background-clip: content-box;
+  border: calc(
+      (var(--ntgds-scrollbar-gutter-hitbox) - var(--ntgds-scrollbar-width)) / 2
+    )
+    solid transparent;
+}
+
+.ntgds-scrollable--accessible:hover::-webkit-scrollbar-thumb {
+  background: var(--ntgds-scrollbar-thumb-hover-bg);
+}
+
+/* Compact variant: explicit visual 4px gutter (same as base) */
+.ntgds-scrollable--compact::-webkit-scrollbar {
+  width: var(--ntgds-scrollbar-width);
+}
+
+/* Forced colors / High Contrast (Windows) */
+@media (forced-colors: active) {
+  .ntgds-scrollable {
+    scrollbar-color: ButtonText Canvas;
+  }
+  .ntgds-scrollable::-webkit-scrollbar-track {
+    background: Canvas;
+  }
+  .ntgds-scrollable::-webkit-scrollbar-thumb {
+    background: ButtonText;
+  }
+}
+
+/* RTL: browsers place scrollbars on the correct side; no special rules required here. */

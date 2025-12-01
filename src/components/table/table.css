@@ -1,0 +1,104 @@
+/* NTG Design System Table Styles */
+
+.ntgds-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+  background: var(--clr-surface-primary, #fff);
+}
+
+.ntgds-table-title {
+  text-align: left;
+  color: var(--clr-text-default, #3b3b3a);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 4px;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+
+.ntgds-table-subtitle {
+  text-align: left;
+  color: var(--clr-text-helper, #777674);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 16px;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+
+.ntgds-table th {
+  text-transform: uppercase;
+  color: var(--clr-link-default, #1f1f5f);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 16px;
+  background: var(--clr-surface-primary, #fff);
+  border-bottom: 1px solid var(--clr-stroke-strong-03, #949391);
+  padding: 16px 8px;
+  text-align: left;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+
+.ntgds-table td {
+  color: var(--clr-text-body, #3b3b3a);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  background: var(--clr-surface-primary, #fff);
+  border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  padding: 16px 8px;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+}
+
+.ntgds-table tbody tr:nth-child(odd) td {
+  background: var(--clr-surface-secondary, #f6f6f6);
+}
+
+.ntgds-table tbody tr:nth-child(even) td {
+  background: var(--clr-surface-primary, #fff);
+}
+
+/* Responsive/mobile styles */
+@media (max-width: 600px) {
+  .ntgds-table,
+  .ntgds-table thead,
+  .ntgds-table tbody,
+  .ntgds-table th,
+  .ntgds-table td,
+  .ntgds-table tr {
+    display: block;
+    width: 100%;
+  }
+  .ntgds-table-title {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+  }
+  .ntgds-table-subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+  }
+  .ntgds-table th,
+  .ntgds-table td {
+    padding: 12px 8px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ntgds-table th {
+    font-weight: 700;
+    background: var(--clr-surface-primary, #fff);
+    border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  }
+  .ntgds-table td {
+    font-weight: 400;
+    background: var(--clr-surface-primary, #fff);
+    border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+  }
+}
