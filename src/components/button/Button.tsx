@@ -12,6 +12,8 @@ export interface ButtonProps
   variant?: "primary" | "secondary" | "tertiary";
   /** Size of the button */
   size?: "large" | "small";
+  /** Remove left padding (tertiary only) */
+  padLeft?: boolean;
   /** Whether the button is disabled */
   disabled?: boolean;
   /** Show loading state */
@@ -36,6 +38,7 @@ export const Button = ({
   size = "large",
   loading = false,
   disabled = false,
+  padLeft = true,
   children,
   className,
   iconLeft,
@@ -52,6 +55,7 @@ export const Button = ({
     size === "small" && `${baseClass}--small`,
     loading && `${baseClass}--loading`,
     (iconLeft || iconRight) && `${baseClass}--with-icon`,
+    variant === "tertiary" && padLeft === false && `${baseClass}--no-left-pad`,
     className,
   ]
     .filter(Boolean)

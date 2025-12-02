@@ -75,6 +75,10 @@ const meta = {
       options: ["default", "primary", "secondary", "tertiary", "inverse"],
       description: "Color variant applied to any rendered icon.",
     },
+    padLeft: {
+      control: "boolean",
+      description: "Remove left padding (tertiary only)",
+    },
     loadingIcon: {
       table: { disable: true },
       description: "Uses default loading spinner (not customizable in docs).",
@@ -103,6 +107,15 @@ export const Tertiary: Story = {
   args: {
     variant: "tertiary",
     children: "Label",
+  },
+};
+
+export const TertiaryNoLeftPad: Story = {
+  args: {
+    variant: "tertiary",
+    children: "Find out more",
+    iconRight: "arrow-right",
+    padLeft: false,
   },
 };
 

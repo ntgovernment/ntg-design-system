@@ -105,6 +105,18 @@
   font-size: var(--type-desktop-body-sm-size);
 }
 
+/* Modifier: remove left padding for tertiary variant only */
+.ntgds-btn--tertiary.ntgds-btn--no-left-pad {
+  padding-left: 0;
+  /* preserve right/top/bottom padding for adequate hit area */
+  justify-content: flex-start;
+}
+
+/* Ensure minimum touch target even when left padding is removed */
+.ntgds-btn--tertiary {
+  min-height: 44px;
+}
+
 /* Icon styles */
 .ntgds-btn__icon {
   display: inline-flex;

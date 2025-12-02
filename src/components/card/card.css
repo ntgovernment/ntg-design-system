@@ -1,0 +1,261 @@
+/* Card Component Styles */
+
+@layer components {
+  /* Base card styles */
+  .ntgds-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--clr-surface-default, #fff);
+    border: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    width: 100%;
+  }
+
+  /* Responsive width constraints for grid layouts */
+  /* Mobile: 12 columns (100% width) - default above */
+  
+  /* Medium breakpoint: 6 columns (50% width) */
+  @media (min-width: 768px) {
+    .ntgds-card {
+      max-width: 50%;
+    }
+  }
+
+  /* Large breakpoint: 4 columns (33.33% width) */
+  @media (min-width: 992px) {
+    .ntgds-card {
+      max-width: 33.33%;
+    }
+  }
+
+  /* Image container */
+  .ntgds-card__image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ensure the Image component wrapper stretches to fill */
+  .ntgds-card__image > .ntgds-image {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  /* Responsive image height: larger on desktop */
+  @media (min-width: 768px) {
+    .ntgds-card__image {
+      height: 200px;
+    }
+  }
+
+  /* Ensure child images fill container with object-fit */
+  .ntgds-card__image img,
+  .ntgds-card__image .ntgds-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Content container */
+  .ntgds-card__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header section (Tag + date) */
+  .ntgds-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 4px;
+    gap: var(--sp-sm, 12px);
+  }
+
+  /* Date utility class */
+  .ntgds-card__date {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--clr-text-body, #3b3b3a);
+    font-family: var(--type-font-default, Lato, Arial, sans-serif);
+    font-weight: 400;
+  }
+
+  /* Body section (title + description) */
+  .ntgds-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 24px 4px;
+  }
+
+  /* Title container with icon */
+  .ntgds-card__title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Icon wrapper */
+  .ntgds-card__icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Vertical title container for minicard variant */
+  .ntgds-card__title-container--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  /* Title */
+  .ntgds-card__title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: var(--clr-text-default, #1f1f5f);
+    font-family: var(--type-font-default, Lato, Arial, sans-serif);
+    word-wrap: break-word;
+  }
+
+  /* Description */
+  .ntgds-card__description {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--clr-text-body, #3b3b3a);
+    font-family: var(--type-font-default, Lato, Arial, sans-serif);
+    word-wrap: break-word;
+  }
+
+  /* Footer section (Button) */
+  .ntgds-card__footer {
+    padding: 8px 24px 24px;
+  }
+
+  /* Minicard variant */
+  .ntgds-card--minicard {
+    padding: 24px;
+    gap: 10px;
+  }
+
+  .ntgds-card--minicard .ntgds-card__content {
+    padding: 0;
+  }
+
+  .ntgds-card--minicard .ntgds-card__body {
+    padding: 0;
+  }
+
+  /* Static card variant */
+  .ntgds-card--static .ntgds-card__body {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ntgds-card__icon--large {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ntgds-card__title-and-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .ntgds-card--static .ntgds-card__title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .ntgds-card--static .ntgds-card__description {
+    font-size: 16px;
+  }
+
+  /* Clickable card hover state when wrapped in Link */
+  .ntgds-card-link {
+    text-decoration: none !important;
+    display: inline-block;
+    width: 100%;
+  }
+
+  /* Ensure no underline on any nested elements when card is clickable */
+  .ntgds-card-link * {
+    text-decoration: none !important;
+  }
+
+  .ntgds-card-link:hover .ntgds-card {
+    box-shadow: var(--ntgds-elevation-card-hover, 0px 6px 12px rgba(0, 0, 0, 0.1));
+  }
+
+  /* Clickable card: change title color on hover using link hover token */
+  .ntgds-card-link:hover .ntgds-card__title {
+    color: var(--clr-link-hover, #c33826);
+  }
+
+  .ntgds-card-link:focus {
+    outline: none;
+  }
+
+  .ntgds-card-link:focus .ntgds-card {
+    box-shadow: 0 0 0 4px #ec8c58;
+  }
+
+  /* Focus state for non-clickable cards */
+  .ntgds-card:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #ec8c58;
+  }
+
+  /* Disable pointer events on footer buttons when card is clickable */
+  .ntgds-card-link .ntgds-card__footer button {
+    pointer-events: none;
+  }
+
+  /* Disabled state */
+  .ntgds-card--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  /* Non-clickable card container hover elevation */
+  .ntgds-card:hover {
+    box-shadow: var(--ntgds-elevation-card-hover, 0px 6px 12px rgba(0, 0, 0, 0.1));
+  }
+
+  /* Non-clickable card: sync tertiary footer button label on container hover */
+  .ntgds-card:hover .ntgds-card__footer .ntgds-btn--tertiary {
+    color: var(--clr-link-hover, #c33826);
+  }
+
+  /* High contrast mode support */
+  @media (forced-colors: active) {
+    .ntgds-card {
+      border: 1px solid CanvasText;
+    }
+
+    .ntgds-card-link:hover .ntgds-card {
+      border: 2px solid LinkText;
+      box-shadow: none;
+    }
+
+    .ntgds-card:hover {
+      box-shadow: none;
+    }
+  }
+}
