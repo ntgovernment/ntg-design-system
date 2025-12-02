@@ -68,6 +68,37 @@
     );
     color: var(--clr-text-inverse, #fff);
   }
+
+  /* Accessible variants with improved WCAG contrast */
+  .ntgds-tag--darwin-ac {
+    background: var(
+      --clr-tag-tag-3-ac,
+      var(--ntg-colour-new-brand-regional-colours-darwin-ac, #398600)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+  .ntgds-tag--top-end-ac {
+    background: var(
+      --clr-tag-tag-4-ac,
+      var(--ntg-colour-new-brand-regional-colours-top-end-ac, #00819e)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+  .ntgds-tag--barkly-ac {
+    background: var(
+      --clr-tag-tag-7-ac,
+      var(--ntg-colour-new-brand-regional-colours-barkly-ac, #d2430f)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+  .ntgds-tag--central-australia-ac {
+    background: var(
+      --clr-tag-tag-8-ac,
+      var(--ntg-colour-new-brand-regional-colours-central-australia-ac, #e8114b)
+    );
+    color: var(--clr-text-inverse, #fff);
+  }
+
   .ntgds-tag--disabled {
     opacity: 0.6;
     cursor: not-allowed;

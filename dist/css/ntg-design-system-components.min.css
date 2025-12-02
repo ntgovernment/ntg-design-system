@@ -1,5 +1,23 @@
 
 /* Base styles read variables defined by the active theme + tokens */
+/* Base card styles */
+/* Responsive width constraints for grid layouts */
+/* Mobile: 12 columns (100% width) - default above */
+/* Medium breakpoint: 6 columns (50% width) */
+/* Large breakpoint: 4 columns (33.33% width) */
+/* Image container */
+/* Responsive image height: larger on desktop */
+/* Ensure child images fill container with object-fit */
+/* Content container */
+/* Header section (Tag + date) */
+/* Date utility class */
+/* Body section (title + description) */
+/* Title */
+/* Description */
+/* Footer section (Button) */
+/* Clickable card hover state when wrapped in Link */
+/* Disabled state */
+/* High contrast mode support */
 /* Primary button variant */
 /* Secondary button variant */
 /* Tertiary button variant */
@@ -19,6 +37,10 @@
   }
 }
 /* Small button icon adjustments */
+/* Callout Component - Informational callout with left border and optional icon */
+/* Support for rich content in body */
+/* High contrast mode support */
+/* Card Component Styles */
 /* Link Component Styles */
 /* Image Component - Theme-agnostic image with optional caption */
 /* Notification Component - Theme-agnostic notification with icon and variants */
@@ -283,6 +305,252 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   width: 0.875em;
   height: 0.875em;
 }
+/* Callout Component - Informational callout with left border and optional icon */
+.ntgds-callout:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  background: #fff;
+  background: var(--clr-surface-default, #fff);
+  border-left: 8px solid #1f1f5f;
+  border-left: 8px solid var(--clr-stroke-strong, #1f1f5f);
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.ntgds-callout__border:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 0;
+  /* Border is handled by parent border-left */
+}
+.ntgds-callout__content:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  flex: 1 1 0;
+  padding: 24px;
+  padding: var(--sp-xl, 24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  gap: var(--sp-sm, 10px);
+}
+.ntgds-callout__header:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.ntgds-callout__text:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  gap: var(--sp-xs, 8px);
+}
+.ntgds-callout__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  margin: 0;
+  color: #3b3b3a;
+  color: var(--clr-text-default, #3b3b3a);
+  font-size: 24px;
+  font-size: var(--type-desktop-h5-size, 24px);
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+  font-weight: 700;
+  line-height: 28px;
+  line-height: var(--type-desktop-h5-lh, 28px);
+  letter-spacing: 0;
+  letter-spacing: var(--type-desktop-h5-ls, 0);
+  word-wrap: break-word;
+}
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+  width: 100%;
+  color: #3b3b3a;
+  color: var(--clr-text-body, #3b3b3a);
+  font-size: 16px;
+  font-size: var(--type-desktop-body-default-size, 16px);
+  font-family: Lato, Arial, sans-serif;
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+  font-weight: 400;
+  font-weight: var(--type-desktop-body-default-weight, 400);
+  line-height: 24px;
+  line-height: var(--type-desktop-body-default-lh, 24px);
+  letter-spacing: 0;
+  letter-spacing: var(--type-desktop-body-default-ls, 0);
+  word-wrap: break-word;
+}
+/* Support for rich content in body */
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) p {
+  margin: 0 0 8px 0;
+  margin: 0 0 var(--sp-xs, 8px) 0;
+}
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) p:last-child {
+  margin-bottom: 0;
+}
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) ul,
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) ol {
+  margin: 0 0 8px 0;
+  margin: 0 0 var(--sp-xs, 8px) 0;
+  padding-left: 20px;
+  padding-left: var(--sp-lg, 20px);
+}
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) ul:last-child,
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) ol:last-child {
+  margin-bottom: 0;
+}
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) li {
+  margin-bottom: 4px;
+  margin-bottom: var(--sp-xxs, 4px);
+}
+.ntgds-callout__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) li:last-child {
+  margin-bottom: 0;
+}
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .ntgds-callout:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    border: 2px solid;
+  }
+}
+/* Base card styles */
+.ntgds-card:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    background: var(--clr-surface-default, #fff);
+    border: 1px solid #d4d4d2;
+    border: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+    overflow: hidden;
+    transition: border-color 0.2s ease-in-out;
+    width: 100%;
+  }
+/* Responsive width constraints for grid layouts */
+/* Mobile: 12 columns (100% width) - default above */
+/* Medium breakpoint: 6 columns (50% width) */
+@media (min-width: 768px) {
+    .ntgds-card:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      max-width: 50%;
+    }
+  }
+/* Large breakpoint: 4 columns (33.33% width) */
+@media (min-width: 992px) {
+    .ntgds-card:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      max-width: 33.33%;
+    }
+  }
+/* Image container */
+.ntgds-card__image:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+/* Responsive image height: larger on desktop */
+@media (min-width: 768px) {
+    .ntgds-card__image:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      height: 200px;
+    }
+  }
+/* Ensure child images fill container with object-fit */
+.ntgds-card__image:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) img,
+  .ntgds-card__image:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-image img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+/* Content container */
+.ntgds-card__content:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: flex;
+    flex-direction: column;
+  }
+/* Header section (Tag + date) */
+.ntgds-card__header:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 4px;
+    gap: 12px;
+    gap: var(--sp-sm, 12px);
+  }
+/* Date utility class */
+.ntgds-card__date:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    font-size: 14px;
+    line-height: 20px;
+    color: #3b3b3a;
+    color: var(--clr-text-body, #3b3b3a);
+    font-family: Lato, Arial, sans-serif;
+    font-family: var(--type-font-default, Lato, Arial, sans-serif);
+    font-weight: 400;
+  }
+/* Body section (title + description) */
+.ntgds-card__body:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 24px 4px;
+  }
+/* Title */
+.ntgds-card__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #1f1f5f;
+    color: var(--clr-text-default, #1f1f5f);
+    font-family: Lato, Arial, sans-serif;
+    font-family: var(--type-font-default, Lato, Arial, sans-serif);
+    word-wrap: break-word;
+  }
+/* Description */
+.ntgds-card__description:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #3b3b3a;
+    color: var(--clr-text-body, #3b3b3a);
+    font-family: Lato, Arial, sans-serif;
+    font-family: var(--type-font-default, Lato, Arial, sans-serif);
+    word-wrap: break-word;
+  }
+/* Footer section (Button) */
+.ntgds-card__footer:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    padding: 8px 24px 24px;
+  }
+/* Clickable card hover state when wrapped in Link */
+.ntgds-card-link:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+  }
+.ntgds-card-link:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-card {
+    border-color: #003f87;
+    border-color: var(--clr-action-default, #003f87);
+  }
+.ntgds-card-link:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    outline: 2px solid #107cc0;
+    outline: 2px solid var(--clr-focus-focus, #107cc0);
+    outline-offset: 2px;
+  }
+/* Disabled state */
+.ntgds-card--disabled:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+/* High contrast mode support */
+@media (forced-colors: active) {
+    .ntgds-card:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      border: 1px solid CanvasText;
+    }
+
+    .ntgds-card-link:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-card {
+      border: 2px solid LinkText;
+    }
+  }
+/* Card Component Styles */
 .ntgds-link:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
     color: var(--clr-link-default);
     font-family: var(--type-font-default);

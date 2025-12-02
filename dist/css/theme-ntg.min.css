@@ -300,13 +300,19 @@
   --ntg-colour-new-brand-regional-colours-big-rivers: #fcb414;
   --ntg-colour-new-brand-regional-colours-barkly: #f05a24;
   --ntg-colour-new-brand-regional-colours-central-australia: #ed164e;
+  --ntg-colour-new-brand-regional-colours-darwin-ac: #398600;
+  --ntg-colour-new-brand-regional-colours-top-end-ac: #00819e;
+  --ntg-colour-new-brand-regional-colours-barkly-ac: #d2430f;
+  --ntg-colour-new-brand-regional-colours-central-australia-ac: #e8114b;
   --ntg-colour-new-brand-primary-territory: #f4551a;
   --ntg-colour-new-brand-primary-charcoal: #343741;
+  --ntg-colour-new-brand-primary-territory-ac: #d6410a;
   --ntg-colour-new-brand-secondary-sand: #d9ded4;
   --ntg-colour-new-brand-secondary-monsoon: #003251;
   --ntg-colour-new-brand-secondary-coastline: #2e979c;
   --ntg-colour-new-brand-secondary-savannah: #566c30;
   --ntg-colour-new-brand-secondary-ranges: #552855;
+  --ntg-colour-new-brand-secondary-coastline-ac: #288186;
   --ntg-type-size-1: 12px;
   --ntg-type-size-2: 14px;
   --ntg-type-size-3: 16px;
@@ -839,6 +845,18 @@
     --clr-tag-tag-7: var(--ntg-colour-new-brand-regional-colours-barkly);
     --clr-tag-tag-8: var(
       --ntg-colour-new-brand-regional-colours-central-australia
+    );
+
+    /* Tag Colors - Accessible variants for improved WCAG contrast */
+    --clr-tag-tag-3-ac: var(
+      --ntg-colour-new-brand-regional-colours-darwin-ac
+    );
+    --clr-tag-tag-4-ac: var(
+      --ntg-colour-new-brand-regional-colours-top-end-ac
+    );
+    --clr-tag-tag-7-ac: var(--ntg-colour-new-brand-regional-colours-barkly-ac);
+    --clr-tag-tag-8-ac: var(
+      --ntg-colour-new-brand-regional-colours-central-australia-ac
     );
 
     /* Pill border radius - NT.GOV.AU uses sharp corners */

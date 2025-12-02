@@ -6,6 +6,8 @@
 @import "./foundations/base.css" layer(foundations);
 
 @import "./components/button/button.css" layer(components);
+@import "./components/callout/callout.css" layer(components);
+@import "./components/card/card.css" layer(components);
 @import "./components/link/link.css" layer(components);
 @import "./components/image/image.css" layer(components);
 @import "./components/notification/notification.css" layer(components);

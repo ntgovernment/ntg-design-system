@@ -108,6 +108,7 @@ import { Button } from '@ntg-design-system/components';
 | ------------- | ------------------------------------------------------------------ | ----------- | -------------------------------------------------------------------------------------------------- |
 | `variant`     | `'primary' \| 'secondary' \| 'tertiary'`                           | `'primary'` | Visual style variant                                                                               |
 | `size`        | `'large' \| 'small'`                                               | `'large'`   | Size variant. `large` uses base styles; `small` adds compact modifier.                             |
+| `padLeft`     | `boolean`                                                          | `true`      | Controls left padding on tertiary buttons. Set to `false` to align with surrounding text.          |
 | `iconLeft`    | `React.ReactNode`                                                  | -           | Left icon: string name (e.g. `'floppy-disk'`), `<Icon />`, or arbitrary node (wrapped for sizing). |
 | `iconRight`   | `React.ReactNode`                                                  | -           | Right icon (same rules as `iconLeft`).                                                             |
 | `iconColor`   | `'default' \| 'primary' \| 'secondary' \| 'tertiary' \| 'inverse'` | `'default'` | Color variant applied to any rendered icon via token-based classes.                                |
@@ -193,6 +194,7 @@ Low-emphasis button styled as a text link.
 - Styled as an inline link
 - Lowest visual weight
 - Unlimited per screen
+- Optional left padding control via `padLeft` prop
 
 **Use cases:**
 
@@ -200,10 +202,34 @@ Low-emphasis button styled as a text link.
 - Auxiliary actions
 - Dense interfaces
 - Navigation within content
+- Card footers (use `padLeft={false}` for alignment)
 
 **Theme differences:**
 
 - Both themes: Primary brand color with underline on hover
+
+**Left Padding Control:**
+
+The `padLeft` prop controls left padding on tertiary buttons:
+
+```tsx
+// Default: With left padding (standard button alignment)
+<Button variant="tertiary">Learn more</Button>
+
+// No left padding: Aligns with surrounding text
+<Button variant="tertiary" padLeft={false}>Learn more</Button>
+```
+
+**When to use padLeft={false}:**
+- Card footers (aligns with card content)
+- Inline with text or lists
+- Navigation menus
+- Dense layouts requiring tight spacing
+
+**Styling Details:**
+- `padLeft={true}` (default): Standard padding
+- `padLeft={false}`: `padding-left: 0` and `justify-content: flex-start`
+- Only affects tertiary variant (ignored on primary/secondary)
 
 ## Sizes
 
