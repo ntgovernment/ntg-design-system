@@ -2,10 +2,13 @@ import type { StorybookConfig } from "@storybook/react-vite";
 const config: StorybookConfig = {
   framework: "@storybook/react-vite",
   stories: ["../src/components/**/*.stories.@(ts|tsx)", "../src/**/*.mdx"],
-  addons: ["@storybook/addon-docs", "@storybook/addon-a11y"],
+  addons: [
+    "@storybook/addon-docs",
+    "@storybook/addon-a11y",
+    "@storybook/addon-vitest"
+  ],
   docs: {
-    autodocs: "tag",
-    defaultName: "Docs",
+    defaultName: "Docs"
   },
   typescript: {
     reactDocgen: "react-docgen-typescript",

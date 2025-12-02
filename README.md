@@ -540,6 +540,58 @@ This architecture allows:
 - Clear separation of concerns
 - Predictable cascade with `@layer`
 
+### Accessible Color Variants
+
+The design system includes **accessible color variants** with an `-ac` suffix to ensure WCAG AA/AAA compliance for improved color contrast. These variants are specifically designed for text/background combinations where standard brand colors may not meet accessibility standards.
+
+**Available Accessible Variants:**
+
+| Token | Hex Value | Purpose |
+|-------|-----------|---------|
+| `--ntg-colour-new-brand-regional-colours-darwin-ac` | `#398600` | Accessible Darwin region color |
+| `--ntg-colour-new-brand-regional-colours-top-end-ac` | `#00819e` | Accessible Top End region color |
+| `--ntg-colour-new-brand-regional-colours-barkly-ac` | `#d2430f` | Accessible Barkly region color |
+| `--ntg-colour-new-brand-regional-colours-central-australia-ac` | `#e8114b` | Accessible Central Australia region color |
+| `--ntg-colour-new-brand-primary-territory-ac` | `#d6410a` | Accessible Territory primary color |
+| `--ntg-colour-new-brand-secondary-coastline-ac` | `#288186` | Accessible Coastline secondary color |
+
+**When to Use Accessible Variants:**
+
+✅ **Use `-ac` variants when:**
+- Applying color to text with light backgrounds
+- Creating colored backgrounds with white/light text
+- Meeting WCAG AA (4.5:1 contrast) or AAA (7:1 contrast) requirements
+- Building components where accessibility is critical (e.g., tags, badges, notifications)
+
+❌ **Use standard variants when:**
+- Color is decorative only (not conveying information)
+- Sufficient contrast is already guaranteed by semantic tokens
+- Component design has been tested for accessibility with standard colors
+
+**Example Usage in Theme Mappings:**
+
+```css
+/* In theme files (e.g., theme-ntg.css) */
+@layer theme-primitives {
+  /* Map accessible variants to theme tokens */
+  --theme-colour-regional-darwin: var(--ntg-colour-new-brand-regional-colours-darwin-ac);
+  --theme-colour-regional-top-end: var(--ntg-colour-new-brand-regional-colours-top-end-ac);
+}
+
+@layer semantics {
+  /* Use in semantic tokens for components */
+  --clr-tag-regional-darwin: var(--theme-colour-regional-darwin);
+}
+```
+
+**Components Using Accessible Variants:**
+
+The following components are configured to use accessible color variants by default:
+- **Tag component**: Regional color variants (tag-3, tag-4, tag-7, tag-8)
+- **Future components**: As the design system expands, more components may adopt accessible variants
+
+For detailed WCAG contrast requirements and testing, see [WCAG 2.1 Success Criterion 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+
 ### Build Output
 
 The build process generates:
