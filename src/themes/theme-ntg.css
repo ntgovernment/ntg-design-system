@@ -251,6 +251,18 @@
       --ntg-colour-new-brand-regional-colours-central-australia
     );
 
+    /* Tag Colors - Accessible variants for improved WCAG contrast */
+    --clr-tag-tag-3-ac: var(
+      --ntg-colour-new-brand-regional-colours-darwin-ac
+    );
+    --clr-tag-tag-4-ac: var(
+      --ntg-colour-new-brand-regional-colours-top-end-ac
+    );
+    --clr-tag-tag-7-ac: var(--ntg-colour-new-brand-regional-colours-barkly-ac);
+    --clr-tag-tag-8-ac: var(
+      --ntg-colour-new-brand-regional-colours-central-australia-ac
+    );
+
     /* Pill border radius - NT.GOV.AU uses sharp corners */
     --clr-pill-border-radius: var(--radii-none);
 

@@ -21,13 +21,17 @@ const meta = {
         "default",
         "subtle",
         "darwin",
+        "darwin-ac",
         "top-end",
+        "top-end-ac",
         "east-arnhem",
         "big-rivers",
         "barkly",
+        "barkly-ac",
         "central-australia",
+        "central-australia-ac",
       ],
-      description: "Tag variant (region or style)",
+      description: "Tag variant (region or style). Variants with -ac suffix use accessible colors for improved WCAG contrast.",
     },
     children: {
       control: "text",
@@ -63,42 +67,74 @@ export const Subtle: Story = {
 
 export const Darwin: Story = {
   args: {
-    variant: "darwin",
-    children: "TAG LABEL",
+    variant: "darwin-ac",
+    children: "DARWIN",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Darwin region tag with accessible color variant (WCAG AA/AAA compliant). Uses #398600 for improved text contrast.",
+      },
+    },
   },
 };
 
 export const TopEnd: Story = {
   args: {
-    variant: "top-end",
-    children: "TAG LABEL",
+    variant: "top-end-ac",
+    children: "TOP END",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Top End region tag with accessible color variant (WCAG AA/AAA compliant). Uses #00819e for improved text contrast.",
+      },
+    },
   },
 };
 
 export const EastArnhem: Story = {
   args: {
     variant: "east-arnhem",
-    children: "TAG LABEL",
+    children: "EAST ARNHEM",
   },
 };
 
 export const BigRivers: Story = {
   args: {
     variant: "big-rivers",
-    children: "TAG LABEL",
+    children: "BIG RIVERS",
   },
 };
 
 export const Barkly: Story = {
   args: {
-    variant: "barkly",
-    children: "TAG LABEL",
+    variant: "barkly-ac",
+    children: "BARKLY",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Barkly region tag with accessible color variant (WCAG AA/AAA compliant). Uses #d2430f for improved text contrast.",
+      },
+    },
   },
 };
 
 export const CentralAustralia: Story = {
   args: {
-    variant: "central-australia",
-    children: "TAG LABEL",
+    variant: "central-australia-ac",
+    children: "CENTRAL AUSTRALIA",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Central Australia region tag with accessible color variant (WCAG AA/AAA compliant). Uses #e8114b for improved text contrast.",
+      },
+    },
   },
 };

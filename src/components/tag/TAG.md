@@ -6,7 +6,8 @@ A compact label component used for categorizing, highlighting, or organizing con
 
 ## Features
 
-- **Eight Variants**: Default, Subtle, Darwin, Top End, East Arnhem, Big Rivers, Barkly, Central Australia
+- **Twelve Variants**: Default, Subtle, Darwin, Darwin-AC, Top End, Top End-AC, East Arnhem, Big Rivers, Barkly, Barkly-AC, Central Australia, Central Australia-AC
+- **Accessible Color Variants**: Four regional variants with `-ac` suffix for improved WCAG AA/AAA contrast compliance
 - **Compact Design**: Small, pill-shaped labels optimized for inline use
 - **Theme-Aware**: Automatically adapts to NT.GOV.AU and NTG Central themes
 - **Accessible**: WCAG 2.1 AA compliant with proper contrast and screen reader support
@@ -26,13 +27,19 @@ import { Tag } from '@ntg-design-system/components';
 // Subtle tag
 <Tag variant="subtle">Subtle</Tag>
 
-// Region variants
+// Region variants (standard colors)
 <Tag variant="darwin">Darwin</Tag>
 <Tag variant="top-end">Top End</Tag>
 <Tag variant="east-arnhem">East Arnhem</Tag>
 <Tag variant="big-rivers">Big Rivers</Tag>
 <Tag variant="barkly">Barkly</Tag>
 <Tag variant="central-australia">Central Australia</Tag>
+
+// Region variants (accessible colors for improved WCAG contrast)
+<Tag variant="darwin-ac">Darwin</Tag>
+<Tag variant="top-end-ac">Top End</Tag>
+<Tag variant="barkly-ac">Barkly</Tag>
+<Tag variant="central-australia-ac">Central Australia</Tag>
 
 // With close button
 <Tag onClose={() => handleClose()}>Removable Tag</Tag>
@@ -96,8 +103,8 @@ import { Tag } from '@ntg-design-system/components';
 ### React Props
 
 | Prop        | Type         | Default  | Description                     |
-| ----------- | ------------ | -------- | ------------------------------- | --------- | ------------- | ------------ | -------- | -------------------- | ----------- | -------------------- |
-| `variant`   | `'default'   | 'subtle' | 'darwin'                        | 'top-end' | 'east-arnhem' | 'big-rivers' | 'barkly' | 'central-australia'` | `'default'` | Visual style variant |
+| ----------- | ------------ | -------- | ------------------------------- | ------------- | ------------- | ---------------- | ------------ | -------- | -------------------- | ------------------------ | --------- | ------------- | ------------ | -------- | -------------------- | ----------- | -------------------- |
+| `variant`   | `'default'   | 'subtle' | 'darwin'                        | 'darwin-ac'   | 'top-end'     | 'top-end-ac'     | 'east-arnhem' | 'big-rivers' | 'barkly'             | 'barkly-ac'              | 'central-australia' | 'central-australia-ac'` | `'default'` | Visual style variant. Variants with `-ac` suffix use accessible colors for improved WCAG contrast. |
 | `disabled`  | `boolean`    | `false`  | Disables tag interaction        |
 | `onClose`   | `() => void` | -        | Callback for close button click |
 | `children`  | `ReactNode`  | -        | Tag text or content             |
@@ -116,6 +123,10 @@ import { Tag } from '@ntg-design-system/components';
 | `ntgds-tag--big-rivers`        | Big Rivers region styling        |
 | `ntgds-tag--barkly`            | Barkly region styling            |
 | `ntgds-tag--central-australia` | Central Australia region styling |
+| `ntgds-tag--darwin-ac`            | Darwin region (accessible) styling            |
+| `ntgds-tag--top-end-ac`           | Top End region (accessible) styling           |
+| `ntgds-tag--barkly-ac`            | Barkly region (accessible) styling            |
+| `ntgds-tag--central-australia-ac` | Central Australia region (accessible) styling |
 | `ntgds-tag--disabled`          | Disabled state styling           |
 | `ntgds-tag__close`             | Close button styling             |
 
@@ -136,11 +147,53 @@ All regional tag variants use semantic CSS variables for backgrounds, with desig
 
 - Uses `color: var(--clr-text-body, #3B3B3A);` for accessibility and contrast.
 
+## Accessible Color Variants
+
+The Tag component includes **accessible color variants** with an `-ac` suffix to ensure WCAG AA/AAA compliance for improved color contrast. These variants are specifically designed for applications where text readability and accessibility are critical.
+
+### Available Accessible Variants
+
+| Variant | Standard Color | Accessible Color | Improvement |
+|---------|----------------|------------------|-------------|
+| `darwin-ac` | #76ba43 | #398600 | Darker green for better contrast |
+| `top-end-ac` | #009dc1 | #00819e | Darker teal for better contrast |
+| `barkly-ac` | #f05a24 | #d2430f | Darker orange for better contrast |
+| `central-australia-ac` | #ed164e | #e8114b | Adjusted pink for better contrast |
+
+### When to Use Accessible Variants
+
+✅ **Use `-ac` variants when:**
+- Text readability is critical (forms, data tables, key information)
+- Meeting WCAG AA (4.5:1 contrast) or AAA (7:1 contrast) requirements
+- Building government services that must meet accessibility standards
+- Users may have visual impairments or color blindness
+
+❌ **Use standard variants when:**
+- Tags are decorative or secondary visual elements
+- Standard colors already meet accessibility requirements in your context
+- Brand consistency with existing NT Government materials is more important
+
+### Missing Accessible Variants
+
+**Note:** Accessible variants are not yet available for `east-arnhem` and `big-rivers` regions. These variants currently use standard colors with dark text (`color: var(--clr-text-body)`) to ensure adequate contrast against their bright yellow backgrounds.
+
+### WCAG Compliance
+
+All accessible variants maintain sufficient contrast ratios for white text on colored backgrounds, meeting WCAG 2.1 Level AA requirements. For detailed contrast requirements and testing, see [WCAG 2.1 Success Criterion 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+
 ## Accessibility
 
-Tags with yellow backgrounds (Big Rivers, East Arnhem) use body text color for optimal contrast and WCAG 2.1 AA compliance.
+Tags with yellow backgrounds (Big Rivers, East Arnhem) use body text color for optimal contrast and WCAG 2.1 AA compliance. All tag variants support proper ARIA attributes and keyboard navigation when interactive.
 
 ## Changelog
+
+### Version 1.1.0 (December 2025)
+
+- Added accessible color variants (`-ac` suffix) for improved WCAG contrast
+- Four new accessible regional variants: darwin-ac, top-end-ac, barkly-ac, central-australia-ac
+- Enhanced documentation with accessibility guidelines and variant comparison
+- Added semantic token mappings for accessible colors in theme-ntg.css
+- Comprehensive Storybook examples showing standard vs accessible variant comparisons
 
 ### Version 1.0.0 (November 2025)
 

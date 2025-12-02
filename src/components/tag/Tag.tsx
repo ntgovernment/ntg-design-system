@@ -7,11 +7,15 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
     | "default"
     | "subtle"
     | "darwin"
+    | "darwin-ac"
     | "top-end"
+    | "top-end-ac"
     | "east-arnhem"
     | "big-rivers"
     | "barkly"
-    | "central-australia";
+    | "barkly-ac"
+    | "central-australia"
+    | "central-australia-ac";
   /** Whether the tag is disabled */
   disabled?: boolean;
   /** Tag content */
