@@ -304,6 +304,24 @@ Use tertiary Button variant with arrow-right icon (recommended pattern):
 - Variant: `tertiary` (recommended for card footers)
 - Icon: `arrow-right` positioned right
 - Text: Action-oriented (e.g., "Read more", "Learn more", "View details")
+- **padLeft prop**: Set to `false` for tertiary buttons to align with card text/tags
+
+```tsx
+<Card
+  title="Card with Footer"
+  footer={
+    <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
+      Read more
+    </Button>
+  }
+/>
+```
+
+**Why padLeft={false}?**
+- Removes left padding from tertiary buttons
+- Aligns button text with card body text and tags
+- Creates cleaner visual hierarchy in card footers
+- Recommended pattern for all card footer buttons
 
 ### Image as ReactNode
 
@@ -345,9 +363,11 @@ When `href` is provided, Card wraps content in Link component:
 
 **Clickable Card Behavior:**
 - Entire card becomes interactive via Link wrapper
-- Hover shows border-color change to `--clr-action-default`
-- Focus shows outline with `--clr-focus-focus`
-- Footer is excluded when `href` is provided (avoids nested links)
+- Hover applies title color change to `#c33826` and box-shadow elevation (`0px 6px 12px rgba(0, 0, 0, 0.1)`)
+- Hover also changes footer button label color to match title for visual consistency
+- Focus shows orange box-shadow ring (`0 0 0 4px #ec8c58`) without border change to prevent layout shift
+- Footer buttons remain visible but have `pointer-events: none` to prevent nested interactions
+- No text decoration (underlines) on clickable cards
 - Keyboard accessible (Tab to focus, Enter to navigate)
 
 ## Responsive Design
@@ -469,36 +489,46 @@ Always provide descriptive `alt` text for images:
 
 ### Keyboard Navigation
 
-- **Tab**: Focus on clickable cards (when `href` is provided)
-- **Enter**: Activate focused clickable card
-- **Focus Indicator**: 2px outline with `--clr-focus-focus` color
+All cards support keyboard navigation for improved accessibility:
 
-### Avoid Nested Interactivity
+- **Tab**: Focus on any card (clickable or non-clickable)
+- **Enter**: Activate focused clickable card (when `href` is provided)
+- **Focus Indicator**: Orange box-shadow ring (4px, #ec8c58) without border change to prevent layout shift
 
-The Card component enforces mutual exclusivity between `href` and `footer`:
+**Implementation Details:**
+- Non-clickable cards: `tabIndex={0}` enables keyboard focus
+- Clickable cards: Link wrapper is naturally focusable
+- Focus ring uses `box-shadow` instead of `border` to prevent 1px layout shift
+- Focus color: `#ec8c58` (orange) for high contrast visibility
+
+### Card Interactivity Behavior
+
+**Important Change:** As of the latest version, `href` and `footer` can coexist. When both are provided:
 
 ```tsx
-// ✅ Good: Clickable card (no footer)
-<Card href="/article" title="Article Title" />
-
-// ✅ Good: Card with button footer (no href)
-<Card
-  title="Article Title"
-  footer={<Button variant="tertiary">Read more</Button>}
-/>
-
-// ❌ Bad: Both href and footer (footer is automatically excluded)
+// ✅ Now Supported: Clickable card with visible footer
 <Card
   href="/article"
   title="Article Title"
-  footer={<Button>Click</Button>}
+  footer={
+    <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
+      Read more
+    </Button>
+  }
 />
 ```
 
-**Rationale:** Nested interactive elements (link wrapping button) create accessibility issues:
-- Screen readers announce confusing structure
-- Keyboard navigation becomes unpredictable
-- Focus management breaks down
+**Behavior:**
+- Entire card is clickable via Link wrapper
+- Footer buttons remain visible but have `pointer-events: none` to prevent nested interactions
+- Hover state applies to both title color and footer button appearance
+- This allows visual consistency while maintaining accessibility
+
+**Accessibility Considerations:**
+- Footer buttons are disabled via CSS (`pointer-events: none`) when card is clickable
+- Screen readers navigate the card as a single interactive element
+- Keyboard users activate the entire card with Enter key
+- No nested interactive elements for assistive technology
 
 ### Accessible Color Variants
 
