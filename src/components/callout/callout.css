@@ -1,0 +1,99 @@
+/* Callout Component - Informational callout with left border and optional icon */
+
+.ntgds-callout {
+  width: 100%;
+  background: var(--clr-surface-default, #fff);
+  border-left: 8px solid var(--clr-stroke-strong, #1f1f5f);
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.ntgds-callout__border {
+  width: 0;
+  /* Border is handled by parent border-left */
+}
+
+.ntgds-callout__content {
+  flex: 1 1 0;
+  padding: var(--sp-xl, 24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--sp-sm, 10px);
+}
+
+.ntgds-callout__header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ntgds-callout__text {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--sp-xs, 8px);
+}
+
+.ntgds-callout__title {
+  width: 100%;
+  margin: 0;
+  color: var(--clr-text-default, #3b3b3a);
+  font-size: var(--type-desktop-h5-size, 24px);
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+  font-weight: 700;
+  line-height: var(--type-desktop-h5-lh, 28px);
+  letter-spacing: var(--type-desktop-h5-ls, 0);
+  word-wrap: break-word;
+}
+
+.ntgds-callout__body {
+  width: 100%;
+  color: var(--clr-text-body, #3b3b3a);
+  font-size: var(--type-desktop-body-default-size, 16px);
+  font-family: var(--type-font-default, Lato, Arial, sans-serif);
+  font-weight: var(--type-desktop-body-default-weight, 400);
+  line-height: var(--type-desktop-body-default-lh, 24px);
+  letter-spacing: var(--type-desktop-body-default-ls, 0);
+  word-wrap: break-word;
+}
+
+/* Support for rich content in body */
+.ntgds-callout__body p {
+  margin: 0 0 var(--sp-xs, 8px) 0;
+}
+
+.ntgds-callout__body p:last-child {
+  margin-bottom: 0;
+}
+
+.ntgds-callout__body ul,
+.ntgds-callout__body ol {
+  margin: 0 0 var(--sp-xs, 8px) 0;
+  padding-left: var(--sp-lg, 20px);
+}
+
+.ntgds-callout__body ul:last-child,
+.ntgds-callout__body ol:last-child {
+  margin-bottom: 0;
+}
+
+.ntgds-callout__body li {
+  margin-bottom: var(--sp-xxs, 4px);
+}
+
+.ntgds-callout__body li:last-child {
+  margin-bottom: 0;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .ntgds-callout {
+    border: 2px solid;
+  }
+}

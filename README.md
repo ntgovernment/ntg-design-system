@@ -33,7 +33,7 @@ The design system uses Font Awesome 6 for icons. Include it globally in your HTM
 />
 ```
 
-**Note:** Without Font Awesome, icons in `Button`, `Icon`, `Notification`, and `Pill` components will not display.
+**Note:** Without Font Awesome, icons in `Button`, `Icon`, `Notification`, and `Pill` components will not display. `Callout` does not use icons and does not require Font Awesome.
 
 ### Basic Usage
 
@@ -112,6 +112,8 @@ The design system provides a single `Icon` React component that standardises Fon
 - Components like `Button`, `Notification`, and `Pill` internally render `<Icon />` for consistent sizing and theming.
 - Color variants (`default`, `primary`, `secondary`, `tertiary`, `inverse`) map to semantic tokens; Notification icons use variant-driven CSS rather than a prop.
 - Include Font Awesome 6 globally (CDN or bundled) for glyphs to display; without it, fallback square placeholders appear only when a name is not provided.
+
+**Note:** Not all components use icons. `Callout` is a text-only informational component that does not support icons.
 
 CDN example:
 
