@@ -1,0 +1,86 @@
+@layer components {
+  .ntgds-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs, 8px);
+  }
+
+  .ntgds-checkbox-group__label-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs, 8px);
+  }
+
+  .ntgds-checkbox-group__label {
+    color: var(--clr-text-default, #3b3b3a);
+    font-weight: 700;
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-default-size, 16px);
+    line-height: var(--type-desktop-body-default-lh, 24px);
+  }
+
+  .ntgds-checkbox-group__required {
+    color: var(--clr-status-danger, #a60f37);
+    font-size: var(--type-desktop-body-sm-size, 14px);
+    line-height: var(--type-desktop-body-sm-lh, 20px);
+    font-weight: 400;
+    margin-left: var(--sp-xxs, 4px);
+  }
+
+  .ntgds-checkbox-group__helper {
+    color: var(--clr-text-helper, #777674);
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-sm-size, 14px);
+    line-height: var(--type-desktop-body-sm-lh, 20px);
+  }
+
+  .ntgds-checkbox-group__options {
+    display: flex;
+    gap: var(--sp-xs, 8px);
+  }
+
+  .ntgds-checkbox-group--vertical .ntgds-checkbox-group__options {
+    flex-direction: column;
+  }
+
+  .ntgds-checkbox-group--horizontal .ntgds-checkbox-group__options {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .ntgds-checkbox-group__message {
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-sm-size, 14px);
+    line-height: var(--type-desktop-body-sm-lh, 20px);
+    display: flex;
+    align-items: center;
+  }
+
+  .ntgds-checkbox-group__message--error {
+    color: var(--clr-status-danger, #c33826);
+  }
+
+  .ntgds-checkbox-group__message--success {
+    color: var(--clr-status-success, #107810);
+  }
+
+  .ntgds-checkbox-group__message-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--sp-xs, 8px);
+    flex-shrink: 0;
+  }
+
+  .ntgds-checkbox-group__message--success .ntgds-checkbox-group__message-icon .ntgds-icon {
+    color: var(--clr-status-success, #107810);
+  }
+
+  .ntgds-checkbox-group__message--error .ntgds-checkbox-group__message-icon .ntgds-icon {
+    color: var(--clr-status-danger, #c33826);
+  }
+
+  .ntgds-checkbox-group--disabled {
+    opacity: 0.6;
+  }
+}

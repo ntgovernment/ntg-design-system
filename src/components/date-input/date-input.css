@@ -1,0 +1,144 @@
+@layer components {
+  .ntgds-date-input {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs, 8px);
+  }
+
+  .ntgds-date-input__label-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs, 8px);
+  }
+
+  .ntgds-date-input__label {
+    color: var(--clr-text-default, #3b3b3a);
+    font-weight: 700;
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-default-size, 16px);
+    line-height: var(--type-desktop-body-default-lh, 24px);
+  }
+
+  .ntgds-date-input__required {
+    color: var(--clr-status-danger, #a60f37);
+    font-size: var(--type-desktop-body-sm-size, 14px);
+    line-height: var(--type-desktop-body-sm-lh, 20px);
+    font-weight: 400;
+    margin-left: var(--sp-xxs, 4px);
+  }
+
+  .ntgds-date-input__helper {
+    color: var(--clr-text-helper, #777674);
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-sm-size, 14px);
+    line-height: var(--type-desktop-body-sm-lh, 20px);
+  }
+
+  .ntgds-date-input__fields {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--sp-xs, 8px);
+  }
+
+  .ntgds-date-input__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs, 8px);
+  }
+
+  .ntgds-date-input__field--day {
+    width: 63px;
+  }
+
+  .ntgds-date-input__field--month {
+    width: 63px;
+  }
+
+  .ntgds-date-input__field--year {
+    width: 78px;
+  }
+
+  .ntgds-date-input__field-label {
+    color: var(--clr-text-default, #3b3b3a);
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-default-size, 16px);
+    line-height: var(--type-desktop-body-default-lh, 24px);
+  }
+
+  .ntgds-date-input__control {
+    width: 100%;
+    min-height: 48px;
+    background: var(--clr-surface-default, #fff);
+    border: 1px solid var(--clr-stroke-subtle, #d4d4d2);
+    padding: 0 var(--sp-md, 16px);
+    color: var(--clr-text-default, #3b3b3a);
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-default-size, 16px);
+    line-height: var(--type-desktop-body-default-lh, 24px);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+  }
+
+  .ntgds-date-input__control::placeholder {
+    color: var(--clr-text-helper, #777674);
+    opacity: 1;
+  }
+
+  .ntgds-date-input__control:hover {
+    border-color: var(--clr-stroke-strong, #3b3b3a);
+  }
+
+  .ntgds-date-input__control:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--clr-focus-focus, #ec8c58);
+  }
+
+  .ntgds-date-input__message {
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-sm-size, 14px);
+    line-height: var(--type-desktop-body-sm-lh, 20px);
+    display: flex;
+    align-items: center;
+  }
+
+  .ntgds-date-input__message--error {
+    color: var(--clr-status-danger, #c33826);
+  }
+
+  .ntgds-date-input__message--success {
+    color: var(--clr-status-success, #107810);
+  }
+
+  .ntgds-date-input__message-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--sp-xs, 8px);
+    flex-shrink: 0;
+  }
+
+  .ntgds-date-input__message--success .ntgds-date-input__message-icon .ntgds-icon {
+    color: var(--clr-status-success, #107810);
+  }
+
+  .ntgds-date-input__message--error .ntgds-date-input__message-icon .ntgds-icon {
+    color: var(--clr-status-danger, #c33826);
+  }
+
+  .ntgds-date-input--error .ntgds-date-input__control {
+    border-color: var(--clr-status-danger, #c33826);
+  }
+
+  .ntgds-date-input--success .ntgds-date-input__control {
+    border-color: var(--clr-status-success, #107810);
+  }
+
+  .ntgds-date-input--disabled {
+    opacity: 0.6;
+  }
+
+  .ntgds-date-input--disabled .ntgds-date-input__control {
+    cursor: not-allowed;
+  }
+}
