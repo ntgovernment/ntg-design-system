@@ -1,12 +1,12 @@
 @layer components {
-  .ntgds-text-input {
+  .ntgds-textarea {
     display: flex;
     flex-direction: column;
     gap: var(--sp-xs, 8px);
-    max-width: var(--ntgds-text-input-maxw, 480px);
+    max-width: var(--ntgds-textarea-maxw, 480px);
   }
 
-  .ntgds-text-input__label {
+  .ntgds-textarea__label {
     color: var(--clr-text-default, #3b3b3a);
     font-weight: 700;
     font-family: var(--type-font-default, inherit);
@@ -14,49 +14,58 @@
     line-height: var(--type-desktop-body-default-lh, 24px);
   }
 
-  .ntgds-text-input__required {
+  .ntgds-textarea__required {
     color: var(--clr-status-danger, #a60f37);
     font-size: var(--type-desktop-body-sm-size, 14px);
     line-height: var(--type-desktop-body-sm-lh, 20px);
-    font-weight: 400; /* ensure normal weight, not bold */
+    font-weight: 400;
     margin-left: var(--sp-xxs, 4px);
   }
 
-  .ntgds-text-input__control {
+  .ntgds-textarea__control {
     width: 100%;
-    min-height: 48px;
+    min-height: 120px;
     background: var(--clr-surface-default, #fff);
     border: 1px solid var(--clr-stroke-subtle, #d4d4d2);
-    padding: 0 var(--sp-md, 16px);
+    padding: var(--sp-xs, 8px) var(--sp-md, 16px);
     color: var(--clr-text-default, #3b3b3a);
     font-family: var(--type-font-default, inherit);
     font-size: var(--type-desktop-body-default-size, 16px);
     line-height: var(--type-desktop-body-default-lh, 24px);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    resize: vertical;
   }
 
-  .ntgds-text-input__control::placeholder {
+  .ntgds-textarea__control::placeholder {
     color: var(--clr-text-helper, #777674);
-    opacity: 1; /* ensure consistent placeholder visibility */
+    opacity: 1;
   }
 
-  .ntgds-text-input__control:hover {
+  .ntgds-textarea__control:hover {
     border-color: var(--clr-stroke-strong, #3b3b3a);
   }
 
-  .ntgds-text-input__control:focus {
+  .ntgds-textarea__control:focus {
     outline: none;
     box-shadow: 0 0 0 4px var(--clr-focus-focus, #ec8c58);
   }
 
-  .ntgds-text-input__helper {
+  .ntgds-textarea__helper {
     color: var(--clr-text-helper, #777674);
     font-family: var(--type-font-default, inherit);
     font-size: var(--type-desktop-body-sm-size, 14px);
     line-height: var(--type-desktop-body-sm-lh, 20px);
   }
 
-  .ntgds-text-input__message {
+  .ntgds-textarea__char-count {
+    color: var(--clr-text-helper, #777674);
+    font-family: var(--type-font-default, inherit);
+    font-size: var(--type-desktop-body-sm-size, 14px);
+    line-height: var(--type-desktop-body-sm-lh, 20px);
+    text-align: left;
+  }
+
+  .ntgds-textarea__message {
     font-family: var(--type-font-default, inherit);
     font-size: var(--type-desktop-body-sm-size, 14px);
     line-height: var(--type-desktop-body-sm-lh, 20px);
@@ -64,15 +73,15 @@
     align-items: center;
   }
 
-  .ntgds-text-input__message--error {
+  .ntgds-textarea__message--error {
     color: var(--clr-status-danger, #c33826);
   }
 
-  .ntgds-text-input__message--success {
+  .ntgds-textarea__message--success {
     color: var(--clr-status-success, #107810);
   }
 
-  .ntgds-text-input__message-icon {
+  .ntgds-textarea__message-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -80,23 +89,27 @@
     flex-shrink: 0;
   }
 
-  .ntgds-text-input__message--success .ntgds-text-input__message-icon .ntgds-icon {
+  .ntgds-textarea__message--success .ntgds-textarea__message-icon .ntgds-icon {
     color: var(--clr-status-success, #107810);
   }
 
-  .ntgds-text-input__message--error .ntgds-text-input__message-icon .ntgds-icon {
+  .ntgds-textarea__message--error .ntgds-textarea__message-icon .ntgds-icon {
     color: var(--clr-status-danger, #c33826);
   }
 
-  .ntgds-text-input--error .ntgds-text-input__control {
+  .ntgds-textarea--error .ntgds-textarea__control {
     border-color: var(--clr-status-danger, #c33826);
   }
 
-  .ntgds-text-input--success .ntgds-text-input__control {
+  .ntgds-textarea--success .ntgds-textarea__control {
     border-color: var(--clr-status-success, #107810);
   }
 
-  .ntgds-text-input--disabled {
+  .ntgds-textarea--disabled {
     opacity: 0.6;
+  }
+
+  .ntgds-textarea--disabled .ntgds-textarea__control {
+    cursor: not-allowed;
   }
 }
