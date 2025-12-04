@@ -1,7 +1,67 @@
-/* Imports primitives, sets fonts + semantic variables */
+
+
+/**
+ * Theme Base - Shared Semantic Tokens
+ * =====================================
+ * This file contains semantic tokens that are shared across all themes.
+ * These tokens reference theme-primitive tokens (--theme-*) which are defined
+ * in individual theme files before this base is imported.
+ * 
+ * IMPORTANT: This file expects theme-primitive tokens to be defined:
+ * - --theme-colour-neutrals-* (white, black, 100-900)
+ * - --theme-colour-primary-* (blue variants, secondary colors)
+ * - --theme-status-* (info, success, warning, danger surfaces and defaults)
+ * 
+ * DO NOT import this file directly. It should be imported by theme files only,
+ * after theme-primitive mappings are defined.
+ */
+/**
+ * Typography Base
+ * =================
+ * Shared typography tokens for all themes.
+ * This layer is imported by individual theme files and defines the typography system
+ * independently from theme-specific colors, spacing, and radii.
+ * 
+ * All typography tokens reference primitive type tokens from ntg-design-system-tokens.css
+ * 
+ * DO NOT import this file directly. It should be imported by theme files only.
+ *//**
+ * NTG Central Theme
+ * ==================
+ * Theme definition for NTG Central, the whole of government intranet.
+ * 
+ * TOKEN ARCHITECTURE:
+ * ╔══════════════════════════════════════════════════════════════════════════╗
+ * ║ Layer 1: Primitives (ntg-design-system-tokens.css)                      ║
+ * ║   └─ Raw color values, spacing, typography primitives                   ║
+ * ║                                                                           ║
+ * ║ Layer 2: Theme-Primitives (defined below in @layer theme-primitives)    ║
+ * ║   └─ Maps Central-specific primitives to generic --theme-* tokens       ║
+ * ║                                                                           ║
+ * ║ Layer 3: Semantics (theme-base.css + typography-base.css)               ║
+ * ║   └─ Semantic tokens that reference --theme-* tokens                    ║
+ * ║                                                                           ║
+ * ║ Layer 4: Overrides (defined below in @layer overrides)                  ║
+ * ║   └─ Theme-specific customizations (fonts, radii, tags)                 ║
+ * ╚══════════════════════════════════════════════════════════════════════════╝
+ * 
+ * DEPENDENCIES:
+ * This theme requires the following files to function correctly:
+ * ✓ ../tokens/ntg-design-system-tokens.css (primitives)
+ * ✓ ./theme-base.css (shared semantic tokens)
+ * ✓ ./typography-base.css (shared typography)
+ * 
+ * IMPORT ORDER:
+ * 1. Primitives (provides raw token values)
+ * 2. Theme-primitives layer (maps primitives to --theme-* tokens)
+ * 3. Shared bases (reference --theme-* tokens)
+ * 4. Overrides layer (theme-specific customizations)
+ */
+/* Import layer order declaration */
+/* Import primitives - MUST be first */
 /* Collection name: Primitives */
 /* Mode: Value */
-:root {
+:root:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   --global-spacing-spacing-0: 0px;
   --global-spacing-spacing-4: 4px;
   --global-spacing-spacing-8: 8px;
@@ -27,78 +87,78 @@
   --global-spacing-spacing-60: 60px;
   --global-spacing-spacing-68: 68px;
   --global-spacing-spacing-72: 72px;
-  --ntg-colour-primary---blue-100: #b4b4ca;
-  --ntg-colour-primary---blue-200: #8f8faf;
-  --ntg-colour-primary---blue-300: #6a6a94;
-  --ntg-colour-primary---blue-400: #44447a;
-  --ntg-colour-primary---blue-default: #1f1f5f;
-  --ntg-colour-primary---blue-600: #1a1a4f;
-  --ntg-colour-primary---blue-700: #15153f;
-  --ntg-colour-primary---blue-800: #0f0f2f;
-  --ntg-colour-primary---blue-900: #0a0a20;
-  --ntg-colour-primary---orange-100: #f6c5ac;
-  --ntg-colour-primary---orange-200: #f1a882;
-  --ntg-colour-primary---orange-300: #ec8c58;
-  --ntg-colour-primary---orange-400: #e86f2f;
-  --ntg-colour-primary---orange-default: #e35205;
-  --ntg-colour-primary---orange-600: #bd4404;
-  --ntg-colour-primary---orange-700: #973703;
-  --ntg-colour-primary---orange-800: #712902;
-  --ntg-colour-primary---orange-900: #4c1b02;
-  --ntg-colour-secondary---ochre-100: #cda5a0;
-  --ntg-colour-secondary---ochre-200: #e19b92;
-  --ntg-colour-secondary---ochre-300: #d77a6e;
-  --ntg-colour-secondary---ochre-400: #cd594a;
-  --ntg-colour-secondary---ochre-default: #c33826;
-  --ntg-colour-secondary---ochre-600: #a22f20;
-  --ntg-colour-secondary---ochre-700: #822519;
-  --ntg-colour-secondary---ochre-800: #611c13;
-  --ntg-colour-secondary---ochre-900: #41130d;
-  --ntg-colour-secondary---coral-100: #ebc5cb;
-  --ntg-colour-secondary---coral-200: #e0a7b0;
-  --ntg-colour-secondary---coral-300: #d68a96;
-  --ntg-colour-secondary---coral-400: #cc6d7c;
-  --ntg-colour-secondary---coral-default: #c25062;
-  --ntg-colour-secondary---coral-600: #a24352;
-  --ntg-colour-secondary---coral-700: #813541;
-  --ntg-colour-secondary---coral-800: #612831;
-  --ntg-colour-secondary---coral-900: #411b21;
-  --ntg-colour-secondary---sky-blue-100: #b0d3ea;
-  --ntg-colour-secondary---sky-blue-200: #88bddf;
-  --ntg-colour-secondary---sky-blue-300: #61a8d5;
-  --ntg-colour-secondary---sky-blue-400: #3992ca;
-  --ntg-colour-secondary---sky-blue-default: #127cc0;
-  --ntg-colour-secondary---sky-blue-600: #0f67a0;
-  --ntg-colour-secondary---sky-blue-700: #0c5380;
-  --ntg-colour-secondary---sky-blue-800: #093e60;
-  --ntg-colour-secondary---sky-blue-900: #062940;
-  --ntg-colour-secondary---teal-100: #aad4da;
-  --ntg-colour-secondary---teal-200: #80bec8;
-  --ntg-colour-secondary---teal-300: #55a9b6;
-  --ntg-colour-secondary---teal-400: #2a93a3;
-  --ntg-colour-secondary---teal-default: #007e91;
-  --ntg-colour-secondary---teal-600: #006979;
-  --ntg-colour-secondary---teal-700: #005461;
-  --ntg-colour-secondary---teal-800: #003f48;
-  --ntg-colour-secondary---teal-900: #002a30;
-  --ntg-colour-secondary---rubine-red-100: #ddaac1;
-  --ntg-colour-secondary---rubine-red-200: #cb80a1;
-  --ntg-colour-secondary---rubine-red-300: #ba5582;
-  --ntg-colour-secondary---rubine-red-400: #a92a63;
-  --ntg-colour-secondary---rubine-red-default: #980044;
-  --ntg-colour-secondary---rubine-red-600: #7f0039;
-  --ntg-colour-secondary---rubine-red-700: #65002d;
-  --ntg-colour-secondary---rubine-red-800: #4c0022;
-  --ntg-colour-secondary---rubine-red-900: #330017;
-  --ntg-colour-secondary---bottle-green-100: #aacdd1;
-  --ntg-colour-secondary---bottle-green-200: #80b4ba;
-  --ntg-colour-secondary---bottle-green-300: #559ba3;
-  --ntg-colour-secondary---bottle-green-400: #2a828c;
-  --ntg-colour-secondary---bottle-green-default: #006975;
-  --ntg-colour-secondary---bottle-green-600: #005761;
-  --ntg-colour-secondary---bottle-green-700: #00464e;
-  --ntg-colour-secondary---bottle-green-800: #00343a;
-  --ntg-colour-secondary---bottle-green-900: #002327;
+  --ntg-colour-primary--blue-100: #b4b4ca;
+  --ntg-colour-primary--blue-200: #8f8faf;
+  --ntg-colour-primary--blue-300: #6a6a94;
+  --ntg-colour-primary--blue-400: #44447a;
+  --ntg-colour-primary--blue-default: #1f1f5f;
+  --ntg-colour-primary--blue-600: #1a1a4f;
+  --ntg-colour-primary--blue-700: #15153f;
+  --ntg-colour-primary--blue-800: #0f0f2f;
+  --ntg-colour-primary--blue-900: #0a0a20;
+  --ntg-colour-primary--orange-100: #f6c5ac;
+  --ntg-colour-primary--orange-200: #f1a882;
+  --ntg-colour-primary--orange-300: #ec8c58;
+  --ntg-colour-primary--orange-400: #e86f2f;
+  --ntg-colour-primary--orange-default: #e35205;
+  --ntg-colour-primary--orange-600: #bd4404;
+  --ntg-colour-primary--orange-700: #973703;
+  --ntg-colour-primary--orange-800: #712902;
+  --ntg-colour-primary--orange-900: #4c1b02;
+  --ntg-colour-secondary--ochre-100: #cda5a0;
+  --ntg-colour-secondary--ochre-200: #e19b92;
+  --ntg-colour-secondary--ochre-300: #d77a6e;
+  --ntg-colour-secondary--ochre-400: #cd594a;
+  --ntg-colour-secondary--ochre-default: #c33826;
+  --ntg-colour-secondary--ochre-600: #a22f20;
+  --ntg-colour-secondary--ochre-700: #822519;
+  --ntg-colour-secondary--ochre-800: #611c13;
+  --ntg-colour-secondary--ochre-900: #41130d;
+  --ntg-colour-secondary--coral-100: #ebc5cb;
+  --ntg-colour-secondary--coral-200: #e0a7b0;
+  --ntg-colour-secondary--coral-300: #d68a96;
+  --ntg-colour-secondary--coral-400: #cc6d7c;
+  --ntg-colour-secondary--coral-default: #c25062;
+  --ntg-colour-secondary--coral-600: #a24352;
+  --ntg-colour-secondary--coral-700: #813541;
+  --ntg-colour-secondary--coral-800: #612831;
+  --ntg-colour-secondary--coral-900: #411b21;
+  --ntg-colour-secondary--sky-blue-100: #b0d3ea;
+  --ntg-colour-secondary--sky-blue-200: #88bddf;
+  --ntg-colour-secondary--sky-blue-300: #61a8d5;
+  --ntg-colour-secondary--sky-blue-400: #3992ca;
+  --ntg-colour-secondary--sky-blue-default: #127cc0;
+  --ntg-colour-secondary--sky-blue-600: #0f67a0;
+  --ntg-colour-secondary--sky-blue-700: #0c5380;
+  --ntg-colour-secondary--sky-blue-800: #093e60;
+  --ntg-colour-secondary--sky-blue-900: #062940;
+  --ntg-colour-secondary--teal-100: #aad4da;
+  --ntg-colour-secondary--teal-200: #80bec8;
+  --ntg-colour-secondary--teal-300: #55a9b6;
+  --ntg-colour-secondary--teal-400: #2a93a3;
+  --ntg-colour-secondary--teal-default: #007e91;
+  --ntg-colour-secondary--teal-600: #006979;
+  --ntg-colour-secondary--teal-700: #005461;
+  --ntg-colour-secondary--teal-800: #003f48;
+  --ntg-colour-secondary--teal-900: #002a30;
+  --ntg-colour-secondary--rubine-red-100: #ddaac1;
+  --ntg-colour-secondary--rubine-red-200: #cb80a1;
+  --ntg-colour-secondary--rubine-red-300: #ba5582;
+  --ntg-colour-secondary--rubine-red-400: #a92a63;
+  --ntg-colour-secondary--rubine-red-default: #980044;
+  --ntg-colour-secondary--rubine-red-600: #7f0039;
+  --ntg-colour-secondary--rubine-red-700: #65002d;
+  --ntg-colour-secondary--rubine-red-800: #4c0022;
+  --ntg-colour-secondary--rubine-red-900: #330017;
+  --ntg-colour-secondary--bottle-green-100: #aacdd1;
+  --ntg-colour-secondary--bottle-green-200: #80b4ba;
+  --ntg-colour-secondary--bottle-green-300: #559ba3;
+  --ntg-colour-secondary--bottle-green-400: #2a828c;
+  --ntg-colour-secondary--bottle-green-default: #006975;
+  --ntg-colour-secondary--bottle-green-600: #005761;
+  --ntg-colour-secondary--bottle-green-700: #00464e;
+  --ntg-colour-secondary--bottle-green-800: #00343a;
+  --ntg-colour-secondary--bottle-green-900: #002327;
   --ntg-colour-neutrals-100: #f6f6f6;
   --ntg-colour-neutrals-200: #eae9e8;
   --ntg-colour-neutrals-300: #d4d4d2;
@@ -150,33 +210,33 @@
   --ntg-colour-status-danger-red-700: #6f0a25;
   --ntg-colour-status-danger-red-800: #53081c;
   --ntg-colour-status-danger-red-900: #370512;
-  --ntg-central-colour-primary---blue-100: #afb5bf;
-  --ntg-central-colour-primary---blue-200: #878f9f;
-  --ntg-central-colour-primary---blue-light: #606a80;
-  --ntg-central-colour-primary---blue-mid: #384560;
-  --ntg-central-colour-primary---blue-default: #102040;
-  --ntg-central-colour-primary---blue-600: #0d1b35;
-  --ntg-central-colour-primary---blue-700: #0b152b;
-  --ntg-central-colour-primary---blue-800: #081020;
-  --ntg-central-colour-primary---blue-900: #050b15;
-  --ntg-central-colour-secondary---green-pale: #d2e7d2;
-  --ntg-central-colour-secondary---green-200: #8fc38f;
-  --ntg-central-colour-secondary---green-300: #6ab06a;
-  --ntg-central-colour-secondary---green-light: #20a030;
-  --ntg-central-colour-secondary---green-default: #208820;
-  --ntg-central-colour-secondary---green-dark: #1b711b;
-  --ntg-central-colour-secondary---green-700: #155b15;
-  --ntg-central-colour-secondary---green-800: #104410;
-  --ntg-central-colour-secondary---green-900: #0b2d0b;
-  --ntg-central-colour-secondary---orange-pale: #fce4d8;
-  --ntg-central-colour-secondary---orange-200: #f1a383;
-  --ntg-central-colour-secondary---orange-300: #ed855a;
-  --ntg-central-colour-secondary---orange-mid: #e47024;
-  --ntg-central-colour-secondary---orange-default: #e44808;
-  --ntg-central-colour-secondary---orange-600: #c43004;
-  --ntg-central-colour-secondary---orange-700: #983005;
-  --ntg-central-colour-secondary---orange-800: #722404;
-  --ntg-central-colour-secondary---orange-900: #4c1803;
+  --ntg-central-colour-primary--blue-100: #afb5bf;
+  --ntg-central-colour-primary--blue-200: #878f9f;
+  --ntg-central-colour-primary--blue-light: #606a80;
+  --ntg-central-colour-primary--blue-mid: #384560;
+  --ntg-central-colour-primary--blue-default: #102040;
+  --ntg-central-colour-primary--blue-600: #0d1b35;
+  --ntg-central-colour-primary--blue-700: #0b152b;
+  --ntg-central-colour-primary--blue-800: #081020;
+  --ntg-central-colour-primary--blue-900: #050b15;
+  --ntg-central-colour-secondary--green-pale: #d2e7d2;
+  --ntg-central-colour-secondary--green-200: #8fc38f;
+  --ntg-central-colour-secondary--green-300: #6ab06a;
+  --ntg-central-colour-secondary--green-light: #20a030;
+  --ntg-central-colour-secondary--green-default: #208820;
+  --ntg-central-colour-secondary--green-dark: #1b711b;
+  --ntg-central-colour-secondary--green-700: #155b15;
+  --ntg-central-colour-secondary--green-800: #104410;
+  --ntg-central-colour-secondary--green-900: #0b2d0b;
+  --ntg-central-colour-secondary--orange-pale: #fce4d8;
+  --ntg-central-colour-secondary--orange-200: #f1a383;
+  --ntg-central-colour-secondary--orange-300: #ed855a;
+  --ntg-central-colour-secondary--orange-mid: #e47024;
+  --ntg-central-colour-secondary--orange-default: #e44808;
+  --ntg-central-colour-secondary--orange-600: #c43004;
+  --ntg-central-colour-secondary--orange-700: #983005;
+  --ntg-central-colour-secondary--orange-800: #722404;
+  --ntg-central-colour-secondary--orange-900: #4c1803;
   --ntg-central-colour-neutrals-50: #eeeff0;
   --ntg-central-colour-neutrals-100: #ecf0f0;
   --ntg-central-colour-neutrals-200: #dce0e4;
@@ -188,7 +248,7 @@
   --ntg-central-colour-neutrals-900: #393b3c;
   --ntg-central-colour-neutrals-white: #ffffff;
   --ntg-central-colour-neutrals-black: #000000;
-  --ntg-central-colour-primary---blue-pale: #d0e0e0;
+  --ntg-central-colour-primary--blue-pale: #d0e0e0;
   --ntg-central-colour-status-info-blue-50: #e4f0f8;
   --ntg-central-colour-status-info-blue-100: #afd3ea;
   --ntg-central-colour-status-info-blue-200: #9dc9e5;
@@ -240,13 +300,19 @@
   --ntg-colour-new-brand-regional-colours-big-rivers: #fcb414;
   --ntg-colour-new-brand-regional-colours-barkly: #f05a24;
   --ntg-colour-new-brand-regional-colours-central-australia: #ed164e;
+  --ntg-colour-new-brand-regional-colours-darwin-ac: #398600;
+  --ntg-colour-new-brand-regional-colours-top-end-ac: #00819e;
+  --ntg-colour-new-brand-regional-colours-barkly-ac: #d2430f;
+  --ntg-colour-new-brand-regional-colours-central-australia-ac: #e8114b;
   --ntg-colour-new-brand-primary-territory: #f4551a;
   --ntg-colour-new-brand-primary-charcoal: #343741;
+  --ntg-colour-new-brand-primary-territory-ac: #d6410a;
   --ntg-colour-new-brand-secondary-sand: #d9ded4;
   --ntg-colour-new-brand-secondary-monsoon: #003251;
   --ntg-colour-new-brand-secondary-coastline: #2e979c;
   --ntg-colour-new-brand-secondary-savannah: #566c30;
   --ntg-colour-new-brand-secondary-ranges: #552855;
+  --ntg-colour-new-brand-secondary-coastline-ac: #288186;
   --ntg-type-size-1: 12px;
   --ntg-type-size-2: 14px;
   --ntg-type-size-3: 16px;
@@ -266,188 +332,613 @@
   --ntg-type-letter-spacing-0: 0px;
   --ntg-type-letter-spacing-1: 2px;
 }
-/* Collection name: Themes */
-/* Mode: Central */
+/* Import shared semantic base - references --theme-* tokens */
+:root:not(#\#) {
+    /* ======================
+       Spacing Tokens
+       ====================== */
+    --sp-xxs: var(--global-spacing-spacing-4);
+    --sp-xs: var(--global-spacing-spacing-8);
+    --sp-sm: var(--global-spacing-spacing-12);
+    --sp-md: var(--global-spacing-spacing-16);
+    --sp-lg: var(--global-spacing-spacing-20);
+    --sp-xl: var(--global-spacing-spacing-24);
+    --sp-xxl: var(--global-spacing-spacing-32);
+    --sp-xxxl: var(--global-spacing-spacing-48);
+
+    /* ======================
+       Border Width Tokens
+       ====================== */
+    --border-width-sm: var(--global-spacing-spacing-half);
+    --border-width-default: var(--global-spacing-spacing-1);
+    --border-width-lg: var(--global-spacing-spacing-2);
+    --border-width-focus: var(--global-spacing-spacing-4);
+    --border-width-xxl: var(--global-spacing-spacing-8);
+
+    /* ======================
+       Background Colors
+       ====================== */
+    --clr-bg-primary: var(--theme-colour-neutrals-white);
+    --clr-bg-secondary: var(--theme-colour-neutrals-100);
+    --clr-bg-dark: var(--theme-colour-primary-blue-default);
+
+    /* ======================
+       Surface Colors
+       ====================== */
+    --clr-surface-default: var(--theme-colour-neutrals-white);
+    --clr-surface-hover: var(--theme-surface-hover);
+    --clr-surface-selected: var(--theme-surface-selected);
+
+    /* ======================
+       Action Colors
+       ====================== */
+    --clr-action-default: var(--theme-colour-primary-blue-default);
+    --clr-action-secondary: var(--theme-colour-neutrals-white);
+    --clr-action-hover: var(--theme-action-hover);
+    --clr-action-pressed: var(--theme-action-pressed);
+    --clr-action-disabled: var(--theme-colour-neutrals-200);
+
+    /* ======================
+       Field Colors
+       ====================== */
+    --clr-field-default: var(--theme-field-default);
+    --clr-field-hover: var(--theme-colour-neutrals-200);
+    --clr-field-active: var(--theme-field-active);
+    --clr-field-disabled: var(--theme-colour-neutrals-300);
+
+    /* ======================
+       Stroke Colors
+       ====================== */
+    --clr-stroke-strong: var(--theme-colour-primary-blue-default);
+    --clr-stroke-secondary-strong: var(--theme-stroke-secondary-strong);
+    --clr-stroke-subtle: var(--theme-stroke-subtle);
+    --clr-stroke-hover: var(--theme-stroke-hover);
+    --clr-stroke-inverted: var(--theme-colour-neutrals-white);
+    --clr-stroke-disabled: var(--theme-colour-neutrals-300);
+
+    /* ======================
+       Text Colors
+       ====================== */
+    --clr-text-default: var(--theme-text-default);
+    --clr-text-body: var(--theme-text-body);
+    --clr-text-secondary: var(--theme-text-secondary);
+    --clr-text-helper: var(--theme-text-helper);
+    --clr-text-inverse: var(--theme-colour-neutrals-white);
+    --clr-text-disabled: var(--theme-text-disabled);
+
+    /* ======================
+       Link Colors
+       ====================== */
+    --clr-link-default: var(--theme-colour-primary-blue-default);
+    --clr-link-hover: var(--theme-link-hover);
+    --clr-link-pressed: var(--theme-link-pressed);
+    --clr-link-visited: var(--theme-link-visited);
+    --clr-link-inverse: var(--theme-colour-neutrals-white);
+    --clr-link-inverse-hover: var(--theme-link-inverse-hover);
+    --clr-link-inverse-visited: var(--theme-link-inverse-visited);
+
+    /* ======================
+       Icon Colors
+       ====================== */
+    --clr-icon-primary: var(--theme-colour-primary-blue-default);
+    --clr-icon-secondary: var(--theme-icon-secondary);
+    --clr-icon-tertiary: var(--theme-icon-tertiary);
+    --clr-icon-inverse: var(--theme-colour-neutrals-white);
+    --clr-icon-visited: var(--theme-icon-visited);
+    --clr-icon-disabled: var(--theme-icon-disabled);
+
+    /* ======================
+       Scrollbar Tokens
+       ======================
+       Tokens for styling native scrollbars where supported. These are
+       intentionally lightweight — the implementation uses a utility
+       class (e.g. `.ntgds-scrollable`) to apply visual styles.
+
+       NOTE: This file defines semantic tokens only. The visual rules
+       that consume these tokens live in a separate scrollbar stylesheet
+       (not added in this tokens-only scope).
+    */
+    --scrollbar-width: 4px;
+    --scrollbar-track-bg: var(--clr-stroke-strong, #949391);
+    --scrollbar-track-hover-bg: var(--clr-stroke-hover, #3b3b3a);
+    --scrollbar-thumb-bg: var(--clr-stroke-subtle, #949391);
+    --scrollbar-thumb-hover-bg: var(--clr-stroke-hover, #3b3b3a);
+    --scrollbar-endcap-bg: var(--clr-icon-disabled, #949391);
+    --scrollbar-gutter-hitbox: 12px;
+    --scrollbar-radius: 0;
+
+    /* ======================
+       Status Colors
+       ====================== */
+    /* Info */
+    --clr-status-info-surface: var(--theme-status-info-blue-50);
+    --clr-status-info: var(--theme-status-info-blue-default);
+
+    /* Success */
+    --clr-status-success-surface: var(--theme-status-success-green-50);
+    --clr-status-success: var(--theme-status-success-green-default);
+
+    /* Warning */
+    --clr-status-warning-surface: var(--theme-status-warning-orange-50);
+    --clr-status-warning: var(--theme-status-warning-orange-default);
+
+    /* Danger */
+    --clr-status-danger-surface: var(--theme-status-danger-red-50);
+    --clr-status-danger: var(--theme-status-danger-red-default);
+
+    /* ======================
+       Focus State
+       ====================== */
+    --clr-focus-focus: var(--theme-focus-focus);
+  }
+/**
+ * Theme Base - Shared Semantic Tokens
+ * =====================================
+ * This file contains semantic tokens that are shared across all themes.
+ * These tokens reference theme-primitive tokens (--theme-*) which are defined
+ * in individual theme files before this base is imported.
+ * 
+ * IMPORTANT: This file expects theme-primitive tokens to be defined:
+ * - --theme-colour-neutrals-* (white, black, 100-900)
+ * - --theme-colour-primary-* (blue variants, secondary colors)
+ * - --theme-status-* (info, success, warning, danger surfaces and defaults)
+ * 
+ * DO NOT import this file directly. It should be imported by theme files only,
+ * after theme-primitive mappings are defined.
+ */
+/* Import shared typography base */
+:root:not(#\#):not(#\#):not(#\#) {
+    /* ======================
+       Desktop Typography
+       ====================== */
+
+    /* Desktop - Headings */
+    --type-desktop-h1-size: var(--ntg-type-size-8);
+    --type-desktop-h1-lh: var(--ntg-type-line-height-6);
+    --type-desktop-h1-weight: var(--ntg-type-weight-2);
+    --type-desktop-h1-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h2-size: var(--ntg-type-size-7);
+    --type-desktop-h2-lh: var(--ntg-type-line-height-5);
+    --type-desktop-h2-weight: var(--ntg-type-weight-2);
+    --type-desktop-h2-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h3-size: var(--ntg-type-size-6);
+    --type-desktop-h3-weight: var(--ntg-type-weight-2);
+    --type-desktop-h3-lh: var(--ntg-type-line-height-4);
+    --type-desktop-h3-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h4-size: var(--ntg-type-size-5);
+    --type-desktop-h4-weight: var(--ntg-type-weight-2);
+    --type-desktop-h4-lh: var(--ntg-type-line-height-3);
+    --type-desktop-h4-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h5-size: var(--ntg-type-size-4);
+    --type-desktop-h5-weight: var(--ntg-type-weight-2);
+    --type-desktop-h5-lh: var(--ntg-type-line-height-2);
+    --type-desktop-h5-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-h6-size: var(--ntg-type-size-3);
+    --type-desktop-h6-weight: var(--ntg-type-weight-2);
+    --type-desktop-h6-lh: var(--ntg-type-line-height-3);
+    --type-desktop-h6-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Desktop - Body Text */
+    --type-desktop-body-default-size: var(--ntg-type-size-3);
+    --type-desktop-body-default-weight: var(--ntg-type-weight-1);
+    --type-desktop-body-default-lh: var(--ntg-type-line-height-3);
+    --type-desktop-body-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-body-default-bold-size: var(--ntg-type-size-3);
+    --type-desktop-body-default-bold-weight: var(--ntg-type-weight-2);
+    --type-desktop-body-default-bold-lh: var(--ntg-type-line-height-3);
+    --type-desktop-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-body-sm-size: var(--ntg-type-size-2);
+    --type-desktop-body-sm-weight: var(--ntg-type-weight-1);
+    --type-desktop-body-sm-lh: var(--ntg-type-line-height-2);
+    --type-desktop-body-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-body-sm-bold-size: var(--ntg-type-size-2);
+    --type-desktop-body-sm-bold-weight: var(--ntg-type-weight-2);
+    --type-desktop-body-sm-bold-lh: var(--ntg-type-line-height-2);
+    --type-desktop-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Desktop - Buttons */
+    --type-desktop-button-default-size: var(--ntg-type-size-3);
+    --type-desktop-button-default-weight: var(--ntg-type-weight-2);
+    --type-desktop-button-default-lh: var(--ntg-type-line-height-1);
+    --type-desktop-button-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-desktop-button-sm-size: var(--ntg-type-size-2);
+    --type-desktop-button-sm-weight: var(--ntg-type-weight-2);
+    --type-desktop-button-sm-lh: var(--ntg-type-line-height-1);
+    --type-desktop-button-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Desktop - Tags */
+    --type-desktop-tag-size: var(--ntg-type-size-1);
+    --type-desktop-tag-weight: var(--ntg-type-weight-2);
+    --type-desktop-tag-lh: var(--ntg-type-line-height-1);
+    --type-desktop-tag-ls: var(--ntg-type-letter-spacing-1);
+
+    /* ======================
+       Mobile Typography
+       ====================== */
+
+    /* Mobile - Headings */
+    --type-mobile-h1-size: var(--ntg-type-size-7);
+    --type-mobile-h1-weight: var(--ntg-type-weight-2);
+    --type-mobile-h1-lh: var(--ntg-type-line-height-5);
+    --type-mobile-h1-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h2-size: var(--ntg-type-size-7);
+    --type-mobile-h2-weight: var(--ntg-type-weight-2);
+    --type-mobile-h2-lh: var(--ntg-type-line-height-5);
+    --type-mobile-h2-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h3-size: var(--ntg-type-size-6);
+    --type-mobile-h3-weight: var(--ntg-type-weight-2);
+    --type-mobile-h3-lh: var(--ntg-type-line-height-4);
+    --type-mobile-h3-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h4-size: var(--ntg-type-size-5);
+    --type-mobile-h4-weight: var(--ntg-type-weight-2);
+    --type-mobile-h4-lh: var(--ntg-type-line-height-3);
+    --type-mobile-h4-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h5-size: var(--ntg-type-size-4);
+    --type-mobile-h5-weight: var(--ntg-type-weight-2);
+    --type-mobile-h5-lh: var(--ntg-type-line-height-2);
+    --type-mobile-h5-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-h6-size: var(--ntg-type-size-3);
+    --type-mobile-h6-weight: var(--ntg-type-weight-2);
+    --type-mobile-h6-lh: var(--ntg-type-line-height-3);
+    --type-mobile-h6-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Mobile - Body Text */
+    --type-mobile-body-default-size: var(--ntg-type-size-3);
+    --type-mobile-body-default-weight: var(--ntg-type-weight-1);
+    --type-mobile-body-default-lh: var(--ntg-type-line-height-3);
+    --type-mobile-body-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-body-default-bold-size: var(--ntg-type-size-3);
+    --type-mobile-body-default-bold-weight: var(--ntg-type-weight-2);
+    --type-mobile-body-default-bold-lh: var(--ntg-type-line-height-3);
+    --type-mobile-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-body-sm-size: var(--ntg-type-size-2);
+    --type-mobile-body-sm-weight: var(--ntg-type-weight-1);
+    --type-mobile-body-sm-lh: var(--ntg-type-line-height-2);
+    --type-mobile-body-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-body-sm-bold-size: var(--ntg-type-size-2);
+    --type-mobile-body-sm-bold-weight: var(--ntg-type-weight-2);
+    --type-mobile-body-sm-bold-lh: var(--ntg-type-line-height-2);
+    --type-mobile-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Mobile - Buttons */
+    --type-mobile-button-default-size: var(--ntg-type-size-3);
+    --type-mobile-button-default-weight: var(--ntg-type-weight-2);
+    --type-mobile-button-default-lh: var(--ntg-type-line-height-1);
+    --type-mobile-button-default-ls: var(--ntg-type-letter-spacing-0);
+
+    --type-mobile-button-default-sm-size: var(--ntg-type-size-2);
+    --type-mobile-button-default-sm-weight: var(--ntg-type-weight-2);
+    --type-mobile-button-default-sm-lh: var(--ntg-type-line-height-1);
+    --type-mobile-button-default-sm-ls: var(--ntg-type-letter-spacing-0);
+
+    /* Mobile - Tags */
+    --type-mobile-tag-size: var(--ntg-type-size-1);
+    --type-mobile-tag-weight: var(--ntg-type-weight-2);
+    --type-mobile-tag-lh: var(--ntg-type-line-height-1);
+    --type-mobile-tag-ls: var(--ntg-type-letter-spacing-1);
+  }
+/**
+ * Typography Base
+ * =================
+ * Shared typography tokens for all themes.
+ * This layer is imported by individual theme files and defines the typography system
+ * independently from theme-specific colors, spacing, and radii.
+ * 
+ * All typography tokens reference primitive type tokens from ntg-design-system-tokens.css
+ * 
+ * DO NOT import this file directly. It should be imported by theme files only.
+ */
+/* =============================================================================
+   THEME-PRIMITIVE MAPPINGS
+   Maps NTG Central-specific primitives to generic --theme-* tokens that shared
+   semantic layers can reference. This allows the same semantic structure
+   to work across multiple themes.
+   ============================================================================= */
 :root {
-  --clr-bg-primary: var(--ntg-central-colour-neutrals-white);
-  --clr-bg-secondary: var(--ntg-central-colour-neutrals-100);
-  --clr-bg-dark: var(--ntg-central-colour-primary---blue-default);
-  --clr-surface-default: var(--ntg-central-colour-neutrals-white);
-  --clr-surface-hover: var(--ntg-central-colour-neutrals-50);
-  --clr-surface-selected: var(--ntg-central-colour-neutrals-50);
-  --clr-action-default: var(--ntg-central-colour-primary---blue-default);
-  --clr-action-hover: var(--ntg-central-colour-primary---blue-mid);
-  --clr-action-pressed: var(--ntg-central-colour-primary---blue-default);
-  --clr-action-disabled: var(--ntg-central-colour-neutrals-200);
-  --clr-field-default: var(--ntg-central-colour-neutrals-50);
-  --clr-field-hover: var(--ntg-central-colour-neutrals-200);
-  --clr-field-active: var(--ntg-central-colour-neutrals-50);
-  --clr-field-disabled: var(--ntg-central-colour-neutrals-300);
-  --clr-stroke-strong: var(--ntg-central-colour-primary---blue-default);
-  --clr-stroke-subtle: var(--ntg-central-colour-primary---blue-pale);
-  --clr-stroke-hover: var(--ntg-central-colour-neutrals-400-neutral);
-  --clr-stroke-inverted: var(--ntg-central-colour-neutrals-white);
-  --clr-stroke-disabled: var(--ntg-central-colour-neutrals-300);
-  --clr-text-default: var(--ntg-central-colour-primary---blue-default);
-  --clr-text-body: var(--ntg-central-colour-primary---blue-default);
-  --clr-text-helper: var(--ntg-central-colour-primary---blue-light);
-  --clr-text-inverse: var(--ntg-central-colour-neutrals-white);
-  --clr-text-disabled: var(--ntg-colour-neutrals-800);
-  --clr-link-default: var(--ntg-central-colour-primary---blue-default);
-  --clr-link-hover: var(--ntg-central-colour-secondary---green-default);
-  --clr-link-visited: #6220be;
-  --clr-link-inverse: var(--ntg-central-colour-neutrals-white);
-  --clr-link-inverse-hover: var(--ntg-central-colour-primary---blue-pale);
-  --clr-link-inverse-visited: var(--ntg-central-colour-secondary---orange-pale);
-  --clr-icon-primary: var(--ntg-central-colour-primary---blue-default);
-  --clr-icon-secondary: var(--ntg-central-colour-secondary---green-default);
-  --clr-icon-inverse: var(--ntg-central-colour-neutrals-white);
-  --clr-icon-disabled: var(--ntg-central-colour-neutrals-400-neutral);
-  --clr-status-info-surface: var(--ntg-central-colour-status-info-blue-50);
-  --clr-status-info: var(--ntg-central-colour-status-info-blue-default);
-  --clr-status-success-surface: var(--ntg-central-colour-status-success-green-50);
-  --clr-status-success: var(--ntg-central-colour-status-success-green-default);
-  --clr-status-warning-surface: var(--ntg-central-colour-status-warning-orange-50);
-  --clr-status-warning: var(--ntg-central-colour-status-warning-orange-default);
-  --clr-status-danger-surface: var(--ntg-central-colour-status-danger-red-50);
-  --clr-status-danger: var(--ntg-central-colour-status-danger-red-default);
-  --clr-focus-focus: var(--ntg-central-colour-secondary---green-200);
-  --type-font-default: Roboto;
-  --type-font-alt: Arial;
-  --radii-none: var(--global-spacing-spacing-0);
-  --radii-button: var(--global-spacing-spacing-full);
-  --radii-sm: var(--global-spacing-spacing-4);
-  --radii-md: var(--global-spacing-spacing-16);
-  --radii-lg: var(--global-spacing-spacing-full);
-  --sp-xs: var(--global-spacing-spacing-8);
-  --sp-xxs: var(--global-spacing-spacing-4);
-  --sp-sm: var(--global-spacing-spacing-12);
-  --sp-md: var(--global-spacing-spacing-16);
-  --sp-xl: var(--global-spacing-spacing-24);
-  --sp-xxl: var(--global-spacing-spacing-32);
-  --sp-xxxl: var(--global-spacing-spacing-48);
-  --border-width-sm: var(--global-spacing-spacing-half);
-  --border-width-default: var(--global-spacing-spacing-1);
-  --border-width-lg: var(--global-spacing-spacing-2);
-  --border-width-focus: var(--global-spacing-spacing-4);
-  --clr-action-secondary: var(--ntg-central-colour-neutrals-white);
-  --clr-link-pressed: var(--ntg-central-colour-primary---blue-mid);
-  --clr-icon-visited: #6220be;
-  --sp-lg: var(--global-spacing-spacing-20);
-  --clr-stroke-secondary-strong: var(--ntg-central-colour-neutrals-500);
-  --clr-text-secondary: var(--ntg-central-colour-secondary---green-default);
-  --border-width-xxl: var(--global-spacing-spacing-8);
-  --clr-tag-tag-default: var(--ntg-colour-primary---blue-default);
-  --clr-tag-tag-subtle: var(--ntg-central-colour-neutrals-white);
-  --clr-tag-tag-3: var(--ntg-central-colour-secondary---green-pale);
-  --clr-tag-tag-4: var(--ntg-central-colour-secondary---orange-default);
-  --clr-tag-tag-5: var(--ntg-colour-secondary---coral-default);
-  --clr-tag-tag-6: var(--ntg-colour-secondary---teal-default);
-  --clr-tag-tag-7: var(--ntg-colour-secondary---rubine-red-default);
-  --clr-tag-tag-8: var(--ntg-colour-secondary---ochre-default);
-  --type-desktop-h1-size: var(--ntg-type-size-8);
-  --type-desktop-h1-lh: var(--ntg-type-line-height-6);
-  --type-desktop-h1-weight: var(--ntg-type-weight-2);
-  --type-desktop-h1-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h2-size: var(--ntg-type-size-7);
-  --type-desktop-h2-lh: var(--ntg-type-line-height-5);
-  --type-desktop-h2-weight: var(--ntg-type-weight-2);
-  --type-desktop-h2-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h3-size: var(--ntg-type-size-6);
-  --type-desktop-h3-weight: var(--ntg-type-weight-2);
-  --type-desktop-h3-lh: var(--ntg-type-line-height-4);
-  --type-desktop-h3-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h4-size: var(--ntg-type-size-5);
-  --type-desktop-h4-weight: var(--ntg-type-weight-2);
-  --type-desktop-h4-lh: var(--ntg-type-line-height-3);
-  --type-desktop-h4-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h5-size: var(--ntg-type-size-4);
-  --type-desktop-h5-weight: var(--ntg-type-weight-2);
-  --type-desktop-h5-lh: var(--ntg-type-line-height-2);
-  --type-desktop-h5-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-h6-size: var(--ntg-type-size-3);
-  --type-desktop-h6-weight: var(--ntg-type-weight-2);
-  --type-desktop-h6-lh: var(--ntg-type-line-height-3);
-  --type-desktop-h6-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-default-size: var(--ntg-type-size-3);
-  --type-desktop-body-default-weight: var(--ntg-type-weight-1);
-  --type-desktop-body-default-lh: var(--ntg-type-line-height-3);
-  --type-desktop-body-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-default-bold-size: var(--ntg-type-size-3);
-  --type-desktop-body-default-bold-weight: var(--ntg-type-weight-2);
-  --type-desktop-body-default-bold-lh: var(--ntg-type-line-height-3);
-  --type-desktop-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-sm-size: var(--ntg-type-size-2);
-  --type-desktop-body-sm-weight: var(--ntg-type-weight-1);
-  --type-desktop-body-sm-lh: var(--ntg-type-line-height-2);
-  --type-desktop-body-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-body-sm-bold-size: var(--ntg-type-size-2);
-  --type-desktop-body-sm-bold-weight: var(--ntg-type-weight-2);
-  --type-desktop-body-sm-bold-lh: var(--ntg-type-line-height-2);
-  --type-desktop-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-button-default-size: var(--ntg-type-size-3);
-  --type-desktop-button-default-weight: var(--ntg-type-weight-2);
-  --type-desktop-button-default-lh: var(--ntg-type-line-height-1);
-  --type-desktop-button-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-button-sm-size: var(--ntg-type-size-2);
-  --type-desktop-button-sm-weight: var(--ntg-type-weight-2);
-  --type-desktop-button-sm-lh: var(--ntg-type-line-height-1);
-  --type-desktop-button-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-desktop-tag-size: var(--ntg-type-size-1);
-  --type-desktop-tag-weight: var(--ntg-type-weight-2);
-  --type-desktop-tag-lh: var(--ntg-type-line-height-1);
-  --type-desktop-tag-ls: var(--ntg-type-letter-spacing-1);
-  --type-mobile-h1-size: var(--ntg-type-size-7);
-  --type-mobile-h1-weight: var(--ntg-type-weight-2);
-  --type-mobile-h1-lh: var(--ntg-type-line-height-5);
-  --type-mobile-h1-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h2-size: var(--ntg-type-size-7);
-  --type-mobile-h2-weight: var(--ntg-type-weight-2);
-  --type-mobile-h2-lh: var(--ntg-type-line-height-5);
-  --type-mobile-h2-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h3-size: var(--ntg-type-size-6);
-  --type-mobile-h3-weight: var(--ntg-type-weight-2);
-  --type-mobile-h3-lh: var(--ntg-type-line-height-4);
-  --type-mobile-h3-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h4-size: var(--ntg-type-size-5);
-  --type-mobile-h5-size: var(--ntg-type-size-4);
-  --type-mobile-h5-weight: var(--ntg-type-weight-2);
-  --type-mobile-h5-lh: var(--ntg-type-line-height-2);
-  --type-mobile-h5-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h4-weight: var(--ntg-type-weight-2);
-  --type-mobile-h4-lh: var(--ntg-type-line-height-3);
-  --type-mobile-h4-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-h6-size: var(--ntg-type-size-3);
-  --type-mobile-h6-weight: var(--ntg-type-weight-2);
-  --type-mobile-h6-lh: var(--ntg-type-line-height-3);
-  --type-mobile-h6-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-default-size: var(--ntg-type-size-3);
-  --type-mobile-body-default-bold-size: var(--ntg-type-size-3);
-  --type-mobile-body-sm-size: var(--ntg-type-size-2);
-  --type-mobile-body-sm-bold-size: var(--ntg-type-size-2);
-  --type-mobile-button-default-size: var(--ntg-type-size-3);
-  --type-mobile-button-default-sm-size: var(--ntg-type-size-2);
-  --type-mobile-button-default-sm-weight: var(--ntg-type-weight-2);
-  --type-mobile-button-default-sm-lh: var(--ntg-type-line-height-1);
-  --type-mobile-button-default-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-button-default-weight: var(--ntg-type-weight-2);
-  --type-mobile-button-default-lh: var(--ntg-type-line-height-1);
-  --type-mobile-button-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-sm-bold-weight: var(--ntg-type-weight-2);
-  --type-mobile-body-sm-bold-lh: var(--ntg-type-line-height-2);
-  --type-mobile-body-sm-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-sm-weight: var(--ntg-type-weight-1);
-  --type-mobile-body-sm-lh: var(--ntg-type-line-height-2);
-  --type-mobile-body-sm-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-default-bold-weight: var(--ntg-type-weight-2);
-  --type-mobile-body-default-bold-lh: var(--ntg-type-line-height-3);
-  --type-mobile-body-default-bold-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-body-default-weight: var(--ntg-type-weight-1);
-  --type-mobile-body-default-lh: var(--ntg-type-line-height-3);
-  --type-mobile-body-default-ls: var(--ntg-type-letter-spacing-0);
-  --type-mobile-tag-size: var(--ntg-type-size-1);
-  --type-mobile-tag-weight: var(--ntg-type-weight-2);
-  --type-mobile-tag-lh: var(--ntg-type-line-height-1);
-  --type-mobile-tag-ls: var(--ntg-type-letter-spacing-1);
-  --clr-icon-tertiary: var(--ntg-central-colour-neutrals-500);
-}
+    /* Neutrals - Grayscale palette */
+    --theme-colour-neutrals-white: var(--ntg-central-colour-neutrals-white);
+    --theme-colour-neutrals-black: var(--ntg-colour-neutrals-black);
+    --theme-colour-neutrals-100: var(--ntg-central-colour-neutrals-100);
+    --theme-colour-neutrals-200: var(--ntg-central-colour-neutrals-200);
+    --theme-colour-neutrals-300: var(--ntg-central-colour-neutrals-300);
+    --theme-colour-neutrals-400: var(--ntg-central-colour-neutrals-400-neutral);
+    --theme-colour-neutrals-500: var(--ntg-central-colour-neutrals-500);
+    --theme-colour-neutrals-600: var(--ntg-colour-neutrals-600);
+    --theme-colour-neutrals-700: var(--ntg-colour-neutrals-700);
+    --theme-colour-neutrals-800: var(--ntg-colour-neutrals-800);
+    --theme-colour-neutrals-900: var(--ntg-colour-neutrals-900);
+
+    /* Primary Colors - Blue for NTG Central */
+    --theme-colour-primary-blue-100: var(
+      --ntg-central-colour-primary--blue-pale
+    );
+    --theme-colour-primary-blue-200: var(
+      --ntg-central-colour-primary--blue-light
+    );
+    --theme-colour-primary-blue-300: var(
+      --ntg-central-colour-primary--blue-light
+    );
+    --theme-colour-primary-blue-400: var(
+      --ntg-central-colour-primary--blue-mid
+    );
+    --theme-colour-primary-blue-default: var(
+      --ntg-central-colour-primary--blue-default
+    );
+    --theme-colour-primary-blue-600: var(
+      --ntg-central-colour-primary--blue-default
+    );
+    --theme-colour-primary-blue-700: var(
+      --ntg-central-colour-primary--blue-default
+    );
+    --theme-colour-primary-blue-800: var(
+      --ntg-central-colour-primary--blue-default
+    );
+    --theme-colour-primary-blue-900: var(
+      --ntg-central-colour-primary--blue-default
+    );
+
+    --theme-colour-primary-orange-100: var(
+      --ntg-central-colour-secondary--orange-pale
+    );
+    --theme-colour-primary-orange-200: var(
+      --ntg-central-colour-secondary--orange-pale
+    );
+    --theme-colour-primary-orange-300: var(
+      --ntg-central-colour-secondary--orange-pale
+    );
+    --theme-colour-primary-orange-400: var(
+      --ntg-central-colour-secondary--orange-default
+    );
+    --theme-colour-primary-orange-default: var(
+      --ntg-central-colour-secondary--orange-default
+    );
+    --theme-colour-primary-orange-600: var(
+      --ntg-central-colour-secondary--orange-default
+    );
+    --theme-colour-primary-orange-700: var(
+      --ntg-central-colour-secondary--orange-default
+    );
+    --theme-colour-primary-orange-800: var(
+      --ntg-central-colour-secondary--orange-default
+    );
+    --theme-colour-primary-orange-900: var(
+      --ntg-central-colour-secondary--orange-default
+    );
+
+    /* Secondary Colors - Green (primary secondary for NTG Central) */
+    --theme-colour-secondary-ochre-100: var(
+      --ntg-central-colour-secondary--green-pale
+    );
+    --theme-colour-secondary-ochre-200: var(
+      --ntg-central-colour-secondary--green-200
+    );
+    --theme-colour-secondary-ochre-300: var(
+      --ntg-central-colour-secondary--green-200
+    );
+    --theme-colour-secondary-ochre-400: var(
+      --ntg-central-colour-secondary--green-default
+    );
+    --theme-colour-secondary-ochre-default: var(
+      --ntg-central-colour-secondary--green-default
+    );
+    --theme-colour-secondary-ochre-600: var(
+      --ntg-central-colour-secondary--green-default
+    );
+    --theme-colour-secondary-ochre-700: var(
+      --ntg-central-colour-secondary--green-default
+    );
+    --theme-colour-secondary-ochre-800: var(
+      --ntg-central-colour-secondary--green-default
+    );
+    --theme-colour-secondary-ochre-900: var(
+      --ntg-central-colour-secondary--green-default
+    );
+
+    /* Status Colors - Info (Blue) */
+    --theme-status-info-blue-50: var(--ntg-central-colour-status--info-blue-50);
+    --theme-status-info-blue-100: var(
+      --ntg-central-colour-status--info-blue-50
+    );
+    --theme-status-info-blue-200: var(
+      --ntg-central-colour-status--info-blue-50
+    );
+    --theme-status-info-blue-300: var(
+      --ntg-central-colour-status--info-blue-default
+    );
+    --theme-status-info-blue-400: var(
+      --ntg-central-colour-status--info-blue-default
+    );
+    --theme-status-info-blue-default: var(
+      --ntg-central-colour-status--info-blue-default
+    );
+    --theme-status-info-blue-600: var(
+      --ntg-central-colour-status--info-blue-default
+    );
+    --theme-status-info-blue-700: var(
+      --ntg-central-colour-status--info-blue-default
+    );
+    --theme-status-info-blue-800: var(
+      --ntg-central-colour-status--info-blue-default
+    );
+    --theme-status-info-blue-900: var(
+      --ntg-central-colour-status--info-blue-default
+    );
+
+    /* Status Colors - Success (Green) */
+    --theme-status-success-green-50: var(
+      --ntg-central-colour-status--success-green-50
+    );
+    --theme-status-success-green-100: var(
+      --ntg-central-colour-status--success-green-50
+    );
+    --theme-status-success-green-200: var(
+      --ntg-central-colour-status--success-green-50
+    );
+    --theme-status-success-green-300: var(
+      --ntg-central-colour-status--success-green-default
+    );
+    --theme-status-success-green-400: var(
+      --ntg-central-colour-status--success-green-default
+    );
+    --theme-status-success-green-default: var(
+      --ntg-central-colour-status--success-green-default
+    );
+    --theme-status-success-green-600: var(
+      --ntg-central-colour-status--success-green-default
+    );
+    --theme-status-success-green-700: var(
+      --ntg-central-colour-status--success-green-default
+    );
+    --theme-status-success-green-800: var(
+      --ntg-central-colour-status--success-green-default
+    );
+    --theme-status-success-green-900: var(
+      --ntg-central-colour-status--success-green-default
+    );
+
+    /* Status Colors - Warning (Orange) */
+    --theme-status-warning-orange-50: var(
+      --ntg-central-colour-status--warning-orange-50
+    );
+    --theme-status-warning-orange-100: var(
+      --ntg-central-colour-status--warning-orange-50
+    );
+    --theme-status-warning-orange-200: var(
+      --ntg-central-colour-status--warning-orange-50
+    );
+    --theme-status-warning-orange-300: var(
+      --ntg-central-colour-status--warning-orange-default
+    );
+    --theme-status-warning-orange-400: var(
+      --ntg-central-colour-status--warning-orange-default
+    );
+    --theme-status-warning-orange-default: var(
+      --ntg-central-colour-status--warning-orange-default
+    );
+    --theme-status-warning-orange-600: var(
+      --ntg-central-colour-status--warning-orange-default
+    );
+    --theme-status-warning-orange-700: var(
+      --ntg-central-colour-status--warning-orange-default
+    );
+    --theme-status-warning-orange-800: var(
+      --ntg-central-colour-status--warning-orange-default
+    );
+    --theme-status-warning-orange-900: var(
+      --ntg-central-colour-status--warning-orange-default
+    );
+
+    /* Status Colors - Danger (Red) */
+    --theme-status-danger-red-50: var(
+      --ntg-central-colour-status--danger-red-50
+    );
+    --theme-status-danger-red-100: var(
+      --ntg-central-colour-status--danger-red-50
+    );
+    --theme-status-danger-red-200: var(
+      --ntg-central-colour-status--danger-red-50
+    );
+    --theme-status-danger-red-300: var(
+      --ntg-central-colour-status--danger-red-default
+    );
+    --theme-status-danger-red-400: var(
+      --ntg-central-colour-status--danger-red-default
+    );
+    --theme-status-danger-red-default: var(
+      --ntg-central-colour-status--danger-red-default
+    );
+    --theme-status-danger-red-600: var(
+      --ntg-central-colour-status--danger-red-default
+    );
+    --theme-status-danger-red-700: var(
+      --ntg-central-colour-status--danger-red-default
+    );
+    --theme-status-danger-red-800: var(
+      --ntg-central-colour-status--danger-red-default
+    );
+    --theme-status-danger-red-900: var(
+      --ntg-central-colour-status--danger-red-default
+    );
+
+    /* Component-specific mappings */
+    --theme-surface-hover: var(--ntg-central-colour-neutrals-50);
+    --theme-surface-selected: var(--ntg-central-colour-neutrals-50);
+    --theme-action-hover: var(--ntg-central-colour-primary--blue-mid);
+    --theme-action-pressed: var(--ntg-central-colour-primary--blue-default);
+    --theme-field-default: var(--ntg-central-colour-neutrals-50);
+    --theme-field-active: var(--ntg-central-colour-neutrals-50);
+    --theme-stroke-secondary-strong: var(--ntg-central-colour-neutrals-500);
+    --theme-stroke-subtle: var(--ntg-central-colour-primary--blue-pale);
+    --theme-stroke-hover: var(--ntg-central-colour-neutrals-400-neutral);
+    --theme-text-default: var(--ntg-central-colour-primary--blue-default);
+    --theme-text-body: var(--ntg-central-colour-primary--blue-default);
+    --theme-text-secondary: var(--ntg-central-colour-secondary--green-default);
+    --theme-text-helper: var(--ntg-central-colour-primary--blue-light);
+    --theme-text-disabled: var(--ntg-colour-neutrals-800);
+    --theme-link-hover: var(--ntg-central-colour-secondary--green-default);
+    --theme-link-pressed: var(--ntg-central-colour-primary--blue-mid);
+    --theme-link-visited: #6220be;
+    --theme-link-inverse-hover: var(--ntg-central-colour-primary--blue-pale);
+    --theme-link-inverse-visited: var(
+      --ntg-central-colour-secondary--orange-pale
+    );
+    --theme-icon-secondary: var(--ntg-central-colour-secondary--green-default);
+    --theme-icon-tertiary: var(--ntg-central-colour-neutrals-500);
+    --theme-icon-visited: #6220be;
+    --theme-icon-disabled: var(--ntg-central-colour-neutrals-400-neutral);
+    --theme-focus-focus: var(--ntg-central-colour-secondary--green-200);
+  }
+/* =============================================================================
+   NTG CENTRAL-SPECIFIC OVERRIDES
+   Theme-specific customizations that differ from other themes
+   ============================================================================= */
+:root:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    /* Fonts - NTG Central uses Roboto */
+    --type-font-default: Roboto;
+    --type-font-alt: Arial;
+
+    /* Radii - NTG Central uses rounded corners for buttons */
+    --radii-none: var(--global-spacing-spacing-0);
+    --radii-button: var(--global-spacing-spacing-full);
+    --radii-sm: var(--global-spacing-spacing-4);
+    --radii-md: var(--global-spacing-spacing-16);
+    --radii-lg: var(--global-spacing-spacing-full);
+
+    /* Tag Colors - NTG Central uses green/orange palette */
+    --clr-tag-tag-default: var(--ntg-colour-primary-blue-default);
+    --clr-tag-tag-subtle: var(--ntg-central-colour-neutrals-white);
+    --clr-tag-tag-3: var(--ntg-central-colour-secondary--green-pale);
+    --clr-tag-tag-4: var(--ntg-central-colour-secondary--orange-default);
+    --clr-tag-tag-5: var(--ntg-colour-secondary-coral-default);
+    --clr-tag-tag-6: var(--ntg-colour-secondary-teal-default);
+    --clr-tag-tag-7: var(--ntg-colour-secondary-rubine-red-default);
+    --clr-tag-tag-8: var(--ntg-colour-secondary-ochre-default);
+
+    /* Pill border radius - NTG Central uses rounded corners */
+    --clr-pill-border-radius: 100px;
+
+    /* Icon color - NTG Central uses green */
+    --clr-icon-default: #208820;
+
+    /* Pill hover state overrides */
+    --clr-link-default: #102040;
+    --clr-surface-primary-hover: #ecf0f0;
+    --clr-stroke-subtle: #d0e0e0;
+  }
