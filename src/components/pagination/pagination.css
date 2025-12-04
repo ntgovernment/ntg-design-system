@@ -4,55 +4,48 @@
     gap: var(--sp-xs, 8px);
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
-  /* Navigation links (Previous/Next) */
+  /* Navigation buttons (Previous/Next) - tertiary variant */
   .ntgds-pagination__nav {
     display: inline-flex;
     align-items: center;
     gap: var(--sp-xs, 8px);
-    padding: 4px 16px;
-    color: var(--clr-link-default, #1f1f5f);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: var(--type-desktop-body-default-size, 16px);
-    font-family: var(--type-font-default, "Lato");
-    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  /* Previous/Next hover state */
-  .ntgds-pagination__nav:hover {
-    background: var(--clr-action-hover, #c33826);
-    color: var(--clr-link-inverse, #ffffff);
-  }
-
-  /* Previous/Next focus state - orange underline (Link component inherited) */
-  .ntgds-pagination__nav:focus-visible {
-    outline: none;
-    border-bottom: 4px solid var(--clr-focus-focus, #ec8c58);
-  }
+  /* Previous/Next inherit tertiary button styles from Button component */
 
   /* Pages container */
   .ntgds-pagination__pages {
     display: flex;
     gap: var(--sp-xs, 8px);
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
-  /* Page buttons */
-  .ntgds-pagination__page {
+  /* Page buttons - tertiary buttons inherit their styles from Button component */
+
+  /* Active page - styled as primary button (not clickable, not focusable) */
+  .ntgds-pagination__page--active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-width: 40px;
     padding: 4px 16px;
-  }
-
-  /* Active page - primary button (disabled) */
-  .ntgds-pagination__page--active {
     background: var(--clr-action-default, #1f1f5f);
     color: var(--clr-link-inverse, #ffffff);
+    font-weight: 700;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    font-family: var(--type-font-default, "Lato");
+    cursor: default;
     pointer-events: none;
-    opacity: 0.6;
+    border: none;
+  }
+
+  .ntgds-pagination__page--active:hover {
+    background: var(--clr-action-default, #1f1f5f);
+    color: var(--clr-link-inverse, #ffffff);
   }
 
   /* Ellipsis */

@@ -2,16 +2,16 @@
 
 **Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=TBD&m=dev)
 
-The Pagination component provides intuitive navigation through pages of content. It combines semantic Link elements for Previous/Next navigation with Button elements for page selection, offering clear visual hierarchy and excellent accessibility.
+The Pagination component provides intuitive navigation through pages of content. It uses Button elements with tertiary and primary variants for navigation and page selection, offering clear visual hierarchy and excellent accessibility.
 
 ## Features
 
 - **Smart Ellipsis** - Shows all pages when ≤7 total; uses ellipsis (...) for larger page counts
-- **Sliding Window** - Displays current page ±2 with first and last pages always visible
+- **Sliding Window** - Displays current page ±1 with first and last pages always visible
 - **Responsive Design** - Adapts page display count on tablets (5 pages) and mobile (3 pages)
-- **Clear Active State** - Current page displayed as disabled primary button for non-clickability
-- **Navigation Links** - Previous/Next use semantic Link components with chevron icons
-- **Auto-Hide** - Previous link hidden on first page; Next link hidden on last page
+- **Clear Active State** - Current page styled as primary button (not clickable, not focusable)
+- **Navigation Buttons** - Previous/Next use tertiary Button components with chevron icons
+- **Auto-Hide** - Previous button hidden on first page; Next button hidden on last page
 - **Full Accessibility** - ARIA labels, semantic HTML, keyboard support, focus management
 - **Token-Based Styling** - Uses design system tokens for colors, spacing, and typography
 
@@ -44,8 +44,8 @@ export default function BlogPosts() {
 |------|------|---------|-------------|
 | `currentPage` | `number` | required | Current active page (1-indexed). Must be between 1 and totalPages. |
 | `totalPages` | `number` | required | Total number of pages available. |
-| `onPageChange` | `(page: number) => void` | required | Callback fired when user clicks a page number or Previous/Next link. |
-| `showPrevNext` | `boolean` | `true` | Show/hide Previous and Next navigation links. |
+| `onPageChange` | `(page: number) => void` | required | Callback fired when user clicks a page number or Previous/Next button. |
+| `showPrevNext` | `boolean` | `true` | Show/hide Previous and Next navigation buttons. |
 | `maxVisiblePages` | `number` | `7` | Maximum page numbers to display before using ellipsis (...). Ellipsis threshold. |
 | `className` | `string` | `""` | Additional CSS class applied to the container. |
 | `ariaLabel` | `string` | `"Pagination"` | ARIA label for the navigation element. |
@@ -57,17 +57,17 @@ export default function BlogPosts() {
 | State | Appearance | Behavior |
 |-------|-----------|----------|
 | Default | Navy text on transparent background (tertiary button) | Clickable, hover shows ochre background with white text |
-| Current | Navy text on navy background (primary button) | Disabled, not clickable, opacity 0.6 |
+| Current | Navy text on navy background (primary button style) | Not clickable, not focusable, hover style does not change |
 | Focus | Inherits Button focus styling (outline box-shadow) | Keyboard navigable |
 | Hover | Ochre background with white text | Indicates interactivity |
 
-### Navigation Links (Previous/Next)
+### Navigation Buttons (Previous/Next)
 
 | State | Appearance | Behavior |
 |-------|-----------|----------|
-| Visible | Navy text with chevron icon | Clickable, hover shows ochre background with white text |
+| Visible | Navy text with chevron icon (tertiary button) | Clickable, hover shows ochre background with white text |
 | Hidden | Not rendered | Hidden when at first/last page or when `showPrevNext={false}` |
-| Focus | Orange underline (Link component default) | Keyboard navigable, inherited from Link component |
+| Focus | Inherits Button focus styling (outline box-shadow) | Keyboard navigable, inherited from Button component |
 
 ### Ellipsis
 
@@ -100,7 +100,7 @@ When total pages > 7, sliding window pattern with ellipsis:
   totalPages={21}
   onPageChange={setCurrentPage}
 />
-// Renders: Previous 1 ... 8 9 10* 11 12 ... 21 Next
+// Renders: Previous 1 ... 9 10* 11 ... 21 Next
 ```
 
 ### Without Previous/Next
@@ -128,7 +128,7 @@ Reduce ellipsis threshold to show fewer pages:
   onPageChange={setCurrentPage}
   maxVisiblePages={5}
 />
-// Renders: Previous 1 ... 3 4 5* 6 7 ... 10 Next
+// Renders: Previous 1 ... 4 5* 6 ... 10 Next
 ```
 
 ## Ellipsis Algorithm
@@ -144,16 +144,16 @@ Result: [1, 2, 3, 4, 5, 6, 7]
 **Rule 2: Sliding window if total > maxVisiblePages**
 ```
 totalPages: 21, currentPage: 10
-Pattern: [1, ..., current±2, ..., last]
-Result: [1, "...", 8, 9, 10, 11, 12, "...", 21]
+Pattern: [1, ..., current±1, ..., last]
+Result: [1, "...", 9, 10, 11, "...", 21]
 
 totalPages: 21, currentPage: 3
-Pattern: [1, 2, 3, 4, 5, ..., 21]
-Result: [1, 2, 3, 4, 5, "...", 21]
+Pattern: [1, 2, 3, 4, ..., 21]
+Result: [1, 2, 3, 4, "...", 21]
 
 totalPages: 21, currentPage: 19
-Pattern: [1, ..., 17, 18, 19, 20, 21]
-Result: [1, "...", 17, 18, 19, 20, 21]
+Pattern: [1, ..., 18, 19, 20, 21]
+Result: [1, "...", 18, 19, 20, 21]
 ```
 
 ## Styling and Tokens
@@ -251,8 +251,8 @@ The Pagination component works in all modern browsers:
 
 The Pagination component internally uses:
 
-- **Link component** - For Previous/Next navigation with semantic `<a>` elements
-- **Button component** - For page numbers (tertiary variant) and current page (primary variant disabled)
+- **Button component** - For Previous/Next navigation (tertiary variant) and page numbers (tertiary variant)
+- **Span element** - For current page (styled to look like primary button, not interactive)
 - **Icon component** - For chevron-left and chevron-right icons with size "sm"
 
 This composition ensures consistency with the design system's established patterns.

@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { Link } from "../link/Link";
 import { Button } from "../button/Button";
 import { Icon } from "../icon/Icon";
 import "./pagination.css";
@@ -11,7 +10,7 @@ export interface PaginationProps {
   totalPages: number;
   /** Callback when page changes */
   onPageChange: (page: number) => void;
-  /** Show/hide Previous and Next navigation links */
+  /** Show/hide Previous and Next navigation buttons */
   showPrevNext?: boolean;
   /** Maximum number of pages to show before using ellipsis (default: 7) */
   maxVisiblePages?: number;
@@ -27,9 +26,10 @@ export interface PaginationProps {
  * Features:
  * - Shows all pages when total <= maxVisiblePages (default 7)
  * - Uses ellipsis (...) to replace skipped pages when total > maxVisiblePages
- * - Sliding window pattern: [1, ..., current±2, ..., last]
- * - Previous/Next links only visible when not at boundaries
- * - Current page shown as disabled primary button
+ * - Sliding window pattern: [1, ..., current±1, ..., last]
+ * - Previous/Next buttons only visible when not at boundaries
+ * - Current page styled as primary button (not clickable, not focusable)
+ * - Previous/Next shown as tertiary buttons with chevron icons
  * - Responsive: reduces visible pages on smaller screens
  */
 export const Pagination: React.FC<PaginationProps> = ({
@@ -54,20 +54,20 @@ export const Pagination: React.FC<PaginationProps> = ({
     pages.push(1);
 
     // Add left ellipsis if there's a gap
-    if (currentPage - 2 > 2) {
+    if (currentPage - 1 > 2) {
       pages.push("...");
     }
 
-    // Add pages around current (±2)
-    const rangeStart = Math.max(2, currentPage - 2);
-    const rangeEnd = Math.min(totalPages - 1, currentPage + 2);
+    // Add pages around current (±1)
+    const rangeStart = Math.max(2, currentPage - 1);
+    const rangeEnd = Math.min(totalPages - 1, currentPage + 1);
 
     for (let i = rangeStart; i <= rangeEnd; i++) {
       pages.push(i);
     }
 
     // Add right ellipsis if there's a gap
-    if (currentPage + 2 < totalPages - 1) {
+    if (currentPage + 1 < totalPages - 1) {
       pages.push("...");
     }
 
@@ -92,20 +92,17 @@ export const Pagination: React.FC<PaginationProps> = ({
       aria-label={ariaLabel}
       role="navigation"
     >
-      {/* Previous Link */}
+      {/* Previous Button */}
       {showPrevNext && currentPage > 1 && (
-        <Link
-          href="#"
-          onClick={(e: React.MouseEvent) => {
-            e.preventDefault();
-            handlePageChange(currentPage - 1);
-          }}
+        <Button
+          variant="tertiary"
+          onClick={() => handlePageChange(currentPage - 1)}
           className={`${baseClass}__nav ${baseClass}__nav--prev`}
           aria-label="Previous page"
         >
           <Icon name="chevron-left" size="sm" />
           Previous
-        </Link>
+        </Button>
       )}
 
       {/* Page buttons and ellipsis */}
@@ -128,20 +125,17 @@ export const Pagination: React.FC<PaginationProps> = ({
 
           const pageNum = page as number;
 
-          // Current page: primary button (disabled)
+          // Current page: styled as primary button (not clickable, not focusable)
           if (isCurrentPage) {
             return (
-              <Button
+              <span
                 key={`page-${pageNum}`}
-                variant="primary"
-                disabled
-                onClick={() => handlePageChange(pageNum)}
                 aria-current="page"
                 aria-label={`Current page, page ${pageNum}`}
                 className={`${baseClass}__page ${baseClass}__page--active`}
               >
                 {pageNum}
-              </Button>
+              </span>
             );
           }
 
@@ -160,20 +154,17 @@ export const Pagination: React.FC<PaginationProps> = ({
         })}
       </div>
 
-      {/* Next Link */}
+      {/* Next Button */}
       {showPrevNext && currentPage < totalPages && (
-        <Link
-          href="#"
-          onClick={(e: React.MouseEvent) => {
-            e.preventDefault();
-            handlePageChange(currentPage + 1);
-          }}
+        <Button
+          variant="tertiary"
+          onClick={() => handlePageChange(currentPage + 1)}
           className={`${baseClass}__nav ${baseClass}__nav--next`}
           aria-label="Next page"
         >
           Next
           <Icon name="chevron-right" size="sm" />
-        </Link>
+        </Button>
       )}
     </nav>
   );
