@@ -10,6 +10,7 @@ export { Icon } from "../components/icon/Icon";
 export { Image } from "../components/image/Image";
 export { Link } from "../components/link/Link";
 export { Notification } from "../components/notification/Notification";
+export { Pagination } from "../components/pagination/Pagination";
 export { Pill } from "../components/pill/Pill";
 export { SearchBar } from "../components/search-bar/SearchBar";
 export { Tag } from "../components/tag/Tag";

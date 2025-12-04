@@ -442,6 +442,7 @@ ntg-design-system/
 │   │   ├── image/          # Image component
 │   │   ├── link/           # Link component
 │   │   ├── notification/   # Notification component
+│   │   ├── pagination/     # Pagination component with ellipsis logic
 │   │   ├── pill/           # Pill component
 │   │   ├── radio-button/   # RadioButton component
 │   │   ├── radio-group/    # RadioGroup component

@@ -1,0 +1,135 @@
+@layer components {
+  .ntgds-pagination {
+    display: flex;
+    gap: var(--sp-xs, 8px);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Navigation links (Previous/Next) */
+  .ntgds-pagination__nav {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-xs, 8px);
+    padding: 4px 16px;
+    color: var(--clr-link-default, #1f1f5f);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    font-family: var(--type-font-default, "Lato");
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Previous/Next hover state */
+  .ntgds-pagination__nav:hover {
+    background: var(--clr-action-hover, #c33826);
+    color: var(--clr-link-inverse, #ffffff);
+  }
+
+  /* Previous/Next focus state - orange underline (Link component inherited) */
+  .ntgds-pagination__nav:focus-visible {
+    outline: none;
+    border-bottom: 4px solid var(--clr-focus-focus, #ec8c58);
+  }
+
+  /* Pages container */
+  .ntgds-pagination__pages {
+    display: flex;
+    gap: var(--sp-xs, 8px);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Page buttons */
+  .ntgds-pagination__page {
+    min-width: 40px;
+    padding: 4px 16px;
+  }
+
+  /* Active page - primary button (disabled) */
+  .ntgds-pagination__page--active {
+    background: var(--clr-action-default, #1f1f5f);
+    color: var(--clr-link-inverse, #ffffff);
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Ellipsis */
+  .ntgds-pagination__ellipsis {
+    padding: 4px 8px;
+    color: var(--clr-text-primary, #1f1f5f);
+    font-weight: 700;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    font-family: var(--type-font-default, "Lato");
+    user-select: none;
+  }
+
+  /* Responsive: Tablet screens */
+  @media (max-width: 768px) {
+    .ntgds-pagination {
+      --max-visible-pages: 5;
+    }
+
+    /* Reduce nav text on smaller screens */
+    .ntgds-pagination__nav {
+      padding: 4px 12px;
+      font-size: 14px;
+    }
+
+    .ntgds-pagination__page {
+      padding: 4px 12px;
+      font-size: 14px;
+    }
+  }
+
+  /* Responsive: Mobile screens */
+  @media (max-width: 480px) {
+    .ntgds-pagination {
+      --max-visible-pages: 3;
+    }
+
+    /* Hide Previous/Next text on mobile, show icons only */
+    .ntgds-pagination__nav {
+      padding: 4px 8px;
+      font-size: 0;
+    }
+
+    .ntgds-pagination__nav i,
+    .ntgds-pagination__nav svg {
+      margin: 0;
+    }
+
+    .ntgds-pagination__page {
+      min-width: 36px;
+      padding: 4px 8px;
+      font-size: 13px;
+    }
+
+    .ntgds-pagination__ellipsis {
+      padding: 4px 4px;
+      font-size: 13px;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (forced-colors: active) {
+    .ntgds-pagination__nav:focus-visible {
+      outline: 2px solid currentColor;
+      border-bottom: none;
+    }
+
+    .ntgds-pagination__page--active {
+      outline: 2px solid currentColor;
+      opacity: 1;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .ntgds-pagination__nav,
+    .ntgds-pagination__page {
+      transition: none;
+    }
+  }
+}
