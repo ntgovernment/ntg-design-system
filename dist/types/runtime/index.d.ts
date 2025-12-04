@@ -1,5 +1,6 @@
 import { enhanceButtons } from '../components/button/button.runtime';
 export { Accordion, AccordionItem } from '../components/accordion/Accordion';
+export { BackToTopButton } from '../components/back-to-top-button/BackToTopButton';
 export { Button } from '../components/button/Button';
 export { Card } from '../components/card/Card';
 export { Callout } from '../components/callout/Callout';

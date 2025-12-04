@@ -1,5 +1,7 @@
 
 /* Base styles read variables defined by the active theme + tokens */
+/* Mobile responsive */
+/* Reduce motion support */
 /* Base card styles */
 /* Responsive width constraints for grid layouts */
 /* Mobile: 12 columns (100% width) - default above */
@@ -36,12 +38,11 @@
 /* Primary Variant */
 /* Secondary Variant */
 /* Disabled State */
-/* Navigation links (Previous/Next) */
-/* Previous/Next hover state */
-/* Previous/Next focus state - orange underline (Link component inherited) */
+/* Navigation buttons (Previous/Next) - tertiary variant */
+/* Previous/Next inherit tertiary button styles from Button component */
 /* Pages container */
-/* Page buttons */
-/* Active page - primary button (disabled) */
+/* Page buttons - tertiary buttons inherit their styles from Button component */
+/* Active page - styled as primary button (not clickable, not focusable) */
 /* Ellipsis */
 /* Responsive: Tablet screens */
 @media (max-width: 768px) {
@@ -174,6 +175,152 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
   color: var(--clr-link-hover, color-mix(in oklab, currentColor, black 12%));
 }
 }
+.ntgds-back-to-top:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    gap: 4px;
+    border-radius: 0;
+    border-radius: var(--radii-button, 0);
+    border: 1px solid
+      #1f1f5f;
+    border: var(--border-width-default, 1px) solid
+      var(--clr-stroke-strong, #1f1f5f);
+    background: #f6f6f6;
+    background: var(--clr-action-secondary, #f6f6f6);
+    color: #1f1f5f;
+    color: var(--clr-link-default, #1f1f5f);
+    font-family: "Lato";
+    font-family: var(--type-font-default, "Lato");
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 32px;
+    bottom: var(--sp-lg, 32px);
+    right: 32px;
+    right: var(--sp-lg, 32px);
+    z-index: 1000;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+  }
+.ntgds-back-to-top__text:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: #1f1f5f;
+    color: var(--clr-link-default, #1f1f5f);
+    font-family: "Lato";
+    font-family: var(--type-font-default, "Lato");
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    white-space: nowrap;
+  }
+.ntgds-back-to-top__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #1f1f5f;
+    color: var(--clr-link-default, #1f1f5f);
+  }
+.ntgds-back-to-top:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    background: #1f1f5f;
+    background: var(--clr-bg-dark, #1f1f5f);
+    color: #ffffff;
+    color: var(--clr-link-inverse, #ffffff);
+    border-color: #1f1f5f;
+    border-color: var(--clr-bg-dark, #1f1f5f);
+  }
+.ntgds-back-to-top:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__text {
+    color: #ffffff;
+    color: var(--clr-link-inverse, #ffffff);
+  }
+.ntgds-back-to-top:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__icon {
+    color: #ffffff;
+    color: var(--clr-link-inverse, #ffffff);
+  }
+.ntgds-back-to-top:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    outline-color: var(--clr-focus-focus);
+    background: #f6f6f6;
+    background: var(--clr-action-secondary, #f6f6f6);
+    box-shadow: 0 0 0 4px inherit;
+    box-shadow: 0 0 0 4px var(--clr-focus-focus, inherit);
+    color: #1f1f5f;
+    color: var(--clr-link-default, #1f1f5f);
+  }
+.ntgds-back-to-top:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__text {
+    color: #1f1f5f;
+    color: var(--clr-link-default, #1f1f5f);
+  }
+.ntgds-back-to-top:focus:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__icon {
+    color: #1f1f5f;
+    color: var(--clr-link-default, #1f1f5f);
+  }
+.ntgds-back-to-top:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    background: inherit;
+    background: var(--clr-action-pressed, inherit);
+    box-shadow: none;
+    color: inherit;
+    color: var(--clr-link-inverse, inherit);
+  }
+.ntgds-back-to-top:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__text {
+    color: inherit;
+    color: var(--clr-link-inverse, inherit);
+  }
+.ntgds-back-to-top:active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__icon {
+    color: inherit;
+    color: var(--clr-link-inverse, inherit);
+  }
+.ntgds-back-to-top[disabled]:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#),
+  .ntgds-back-to-top:disabled:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border-color: inherit;
+    border-color: var(--clr-stroke-disabled, inherit);
+    background: inherit;
+    background: var(--clr-action-disabled, inherit);
+    color: inherit;
+    color: var(--clr-text-disabled, inherit);
+  }
+.ntgds-back-to-top:disabled:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__text {
+    color: inherit;
+    color: var(--clr-text-disabled, inherit);
+  }
+.ntgds-back-to-top:disabled:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-back-to-top__icon {
+    color: inherit;
+    color: var(--clr-text-disabled, inherit);
+  }
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .ntgds-back-to-top:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      padding: 6px;
+      gap: 3px;
+      bottom: 16px;
+      bottom: var(--sp-md, 16px);
+      right: 16px;
+      right: var(--sp-md, 16px);
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    .ntgds-back-to-top__text:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    .ntgds-back-to-top__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+    .ntgds-back-to-top:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+      transition: none;
+    }
+  }
 .ntgds-btn:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
   display: inline-flex;
   padding: 1rem 1.5rem;
@@ -1494,60 +1641,50 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
     gap: var(--sp-xs, 8px);
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
-/* Navigation links (Previous/Next) */
+/* Navigation buttons (Previous/Next) - tertiary variant */
 .ntgds-pagination__nav:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     gap: var(--sp-xs, 8px);
-    padding: 4px 16px;
-    color: #1f1f5f;
-    color: var(--clr-link-default, #1f1f5f);
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    font-size: var(--type-desktop-body-default-size, 16px);
-    font-family: "Lato";
-    font-family: var(--type-font-default, "Lato");
-    transition: background-color 0.2s ease, color 0.2s ease;
   }
-/* Previous/Next hover state */
-.ntgds-pagination__nav:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    background: #c33826;
-    background: var(--clr-action-hover, #c33826);
-    color: #ffffff;
-    color: var(--clr-link-inverse, #ffffff);
-  }
-/* Previous/Next focus state - orange underline (Link component inherited) */
-.ntgds-pagination__nav:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    outline: none;
-    border-bottom: 4px solid #ec8c58;
-    border-bottom: 4px solid var(--clr-focus-focus, #ec8c58);
-  }
+/* Previous/Next inherit tertiary button styles from Button component */
 /* Pages container */
 .ntgds-pagination__pages:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
     display: flex;
     gap: 8px;
     gap: var(--sp-xs, 8px);
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
-/* Page buttons */
-.ntgds-pagination__page:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+/* Page buttons - tertiary buttons inherit their styles from Button component */
+/* Active page - styled as primary button (not clickable, not focusable) */
+.ntgds-pagination__page--active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-width: 40px;
     padding: 4px 16px;
-  }
-/* Active page - primary button (disabled) */
-.ntgds-pagination__page--active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
     background: #1f1f5f;
     background: var(--clr-action-default, #1f1f5f);
     color: #ffffff;
     color: var(--clr-link-inverse, #ffffff);
+    font-weight: 700;
+    font-size: 16px;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    font-family: "Lato";
+    font-family: var(--type-font-default, "Lato");
+    cursor: default;
     pointer-events: none;
-    opacity: 0.6;
+    border: none;
+  }
+.ntgds-pagination__page--active:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    background: #1f1f5f;
+    background: var(--clr-action-default, #1f1f5f);
+    color: #ffffff;
+    color: var(--clr-link-inverse, #ffffff);
   }
 /* Ellipsis */
 .ntgds-pagination__ellipsis:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
