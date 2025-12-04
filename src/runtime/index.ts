@@ -2,6 +2,7 @@ import { enhanceButtons } from "../components/button/button.runtime";
 
 // React components
 export { Accordion, AccordionItem } from "../components/accordion/Accordion";
+export { BackToTopButton } from "../components/back-to-top-button/BackToTopButton";
 export { Button } from "../components/button/Button";
 export { Card } from "../components/card/Card";
 export { Callout } from "../components/callout/Callout";
@@ -10,6 +11,7 @@ export { Icon } from "../components/icon/Icon";
 export { Image } from "../components/image/Image";
 export { Link } from "../components/link/Link";
 export { Notification } from "../components/notification/Notification";
+export { Pagination } from "../components/pagination/Pagination";
 export { Pill } from "../components/pill/Pill";
 export { SearchBar } from "../components/search-bar/SearchBar";
 export { Tag } from "../components/tag/Tag";

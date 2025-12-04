@@ -422,13 +422,14 @@ See `Accordion.stories.tsx` for interactive demos including:
 ntg-design-system/
 ├── src/
 │   ├── components/          # Reusable UI components
+│   │   ├── accordion/      # Accordion component
+│   │   ├── back-to-top-button/ # BackToTopButton fixed position component
 │   │   ├── button/         # Button component
 │   │   │   ├── button.css
 │   │   │   ├── Button.tsx
 │   │   │   ├── Button.stories.tsx
 │   │   │   ├── button.runtime.ts
 │   │   │   └── BUTTON.md  # Component documentation
-│   │   ├── accordion/      # Accordion component
 │   │   ├── breadcrumbs/    # Breadcrumbs component with collapsed dropdown
 │   │   ├── callout/        # Callout component
 │   │   ├── card/           # Card component
@@ -442,6 +443,7 @@ ntg-design-system/
 │   │   ├── image/          # Image component
 │   │   ├── link/           # Link component
 │   │   ├── notification/   # Notification component
+│   │   ├── pagination/     # Pagination component with ellipsis logic
 │   │   ├── pill/           # Pill component
 │   │   ├── radio-button/   # RadioButton component
 │   │   ├── radio-group/    # RadioGroup component
