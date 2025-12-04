@@ -11,6 +11,7 @@ export { Image } from "../components/image/Image";
 export { Link } from "../components/link/Link";
 export { Notification } from "../components/notification/Notification";
 export { Pill } from "../components/pill/Pill";
+export { SearchBar } from "../components/search-bar/SearchBar";
 export { Tag } from "../components/tag/Tag";
 
 function initAll(root: ParentNode = document) {
