@@ -14,5 +14,7 @@
 @import "./components/icon/icon.css" layer(components);
 @import "./components/scrollbar/scrollbar.css" layer(components);
 @import "./components/accordion/accordion.css" layer(components);
+@import "./components/dropdown/dropdown.css" layer(components);
+@import "./components/search-bar/search-bar.css" layer(components);
 /* add more components the same way */
 @import "./components/table/table.css" layer(components);
