@@ -429,20 +429,24 @@ ntg-design-system/
 │   │   │   ├── button.runtime.ts
 │   │   │   └── BUTTON.md  # Component documentation
 │   │   ├── accordion/      # Accordion component
+│   │   ├── breadcrumbs/    # Breadcrumbs component with collapsed dropdown
 │   │   ├── callout/        # Callout component
 │   │   ├── card/           # Card component
 │   │   ├── checkbox/       # Checkbox component
 │   │   ├── checkbox-group/ # CheckboxGroup component
 │   │   ├── date-input/     # DateInput component
 │   │   ├── date-picker/    # DatePicker component with custom calendar
+│   │   ├── dropdown/       # Dropdown component
 │   │   ├── file-upload/    # FileUpload component with drag-and-drop
 │   │   ├── icon/           # Icon component (Font Awesome wrapper)
+│   │   ├── image/          # Image component
 │   │   ├── link/           # Link component
 │   │   ├── notification/   # Notification component
 │   │   ├── pill/           # Pill component
 │   │   ├── radio-button/   # RadioButton component
 │   │   ├── radio-group/    # RadioGroup component
 │   │   ├── scrollbar/      # Scrollbar utility styles
+│   │   ├── search-bar/     # SearchBar component
 │   │   ├── table/          # Table component
 │   │   ├── tag/            # Tag component
 │   │   ├── text-input/     # TextInput component
