@@ -44,10 +44,11 @@ export const Button = ({
   iconLeft,
   iconRight,
   loadingIcon,
-  iconColor = "default",
+  iconColor,
   ...props
 }: ButtonProps) => {
   const baseClass = "ntgds-btn";
+  const resolvedIconColor = iconColor ?? (variant === "primary" ? "inverse" : "default");
 
   const classes = [
     baseClass,
@@ -74,7 +75,7 @@ export const Button = ({
     const resolveIcon = (icon: React.ReactNode) => {
       if (!icon) return null;
       if (typeof icon === "string") {
-        return <Icon name={icon} size={iconSize} color={iconColor} />;
+        return <Icon name={icon} size={iconSize} color={resolvedIconColor} />;
       }
       // If already an Icon element, normalize size
       if (React.isValidElement(icon) && (icon.type as any) === Icon) {
@@ -83,7 +84,7 @@ export const Button = ({
       }
       // Fallback: wrap arbitrary node inside Icon for consistent sizing
       return (
-        <Icon size={iconSize} color={iconColor}>
+        <Icon size={iconSize} color={resolvedIconColor}>
           {icon}
         </Icon>
       );

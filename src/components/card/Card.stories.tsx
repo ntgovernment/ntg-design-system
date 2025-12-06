@@ -62,14 +62,14 @@ export const WithImage: Story = {
   args: {
     image: (
       <Image
-        src="https://picsum.photos/400/200"
-        alt="Placeholder image"
+        src="/demo-images/card-1.webp"
+        alt="Scenic landscape with gradient sky"
         width="400"
         height="200"
       />
     ),
     title: "Card with Image",
-    description: "This card includes an image component passed as ReactNode.",
+    description: "This card includes a lightweight WEBP demo image.",
   },
 };
 
@@ -139,8 +139,8 @@ export const WithFooter: Story = {
   args: {
     title: "Card with Footer",
     description: "This card includes a footer with a tertiary button.",
-        footer: (
-          <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
+    footer: (
+      <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
         Read more
       </Button>
     ),
@@ -152,7 +152,7 @@ export const FullCardFigma: Story = {
   args: {
     image: (
       <Image
-        src="https://picsum.photos/400/200"
+        src="/demo-images/card-1.webp"
         alt="Northern Territory landscape"
         width="400"
         height="200"
@@ -187,7 +187,7 @@ export const NewsCard: Story = {
   args: {
     image: (
       <Image
-        src="https://picsum.photos/seed/news/400/200"
+        src="/demo-images/card-2.webp"
         alt="News article thumbnail"
         width="400"
         height="200"
@@ -202,8 +202,8 @@ export const NewsCard: Story = {
     title: "Community Consultation Opens for Major Project",
     description:
       "Residents invited to provide feedback on proposed infrastructure improvements in the greater Darwin area.",
-        footer: (
-          <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
+    footer: (
+      <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
         Learn more
       </Button>
     ),
@@ -214,7 +214,7 @@ export const EventCard: Story = {
   args: {
     image: (
       <Image
-        src="https://picsum.photos/seed/event/400/200"
+        src="/demo-images/card-3.webp"
         alt="Event venue"
         width="400"
         height="200"
@@ -229,8 +229,8 @@ export const EventCard: Story = {
     title: "Annual Territory Day Celebrations",
     description:
       "Join us for fireworks, live music, and family activities at Mindil Beach to celebrate Territory Day.",
-        footer: (
-          <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
+    footer: (
+      <Button variant="tertiary" iconRight="arrow-right" padLeft={false}>
         View details
       </Button>
     ),
@@ -249,7 +249,7 @@ export const ClickableCard: Story = {
   args: {
     image: (
       <Image
-        src="https://picsum.photos/seed/click/400/200"
+        src="/demo-images/card-4.webp"
         alt="Article preview"
         width="400"
         height="200"
@@ -281,7 +281,7 @@ export const FooterHoverSync: Story = {
   args: {
     image: (
       <Image
-        src="https://picsum.photos/seed/sync/400/200"
+        src="/demo-images/card-1.webp"
         alt="Sync hover demo"
         width="400"
         height="200"
@@ -316,7 +316,7 @@ export const DisabledCard: Story = {
   args: {
     image: (
       <Image
-        src="https://picsum.photos/seed/disabled/400/200"
+        src="/demo-images/card-2.webp"
         alt="Disabled card"
         width="400"
         height="200"
@@ -347,8 +347,8 @@ export const GridDemo = {
       <Card
         image={
           <Image
-            src="https://picsum.photos/seed/grid1/400/200"
-            alt="Card 1"
+            src="/demo-images/card-1.webp"
+            alt="Card 1 landscape"
             width="400"
             height="200"
           />
@@ -370,8 +370,8 @@ export const GridDemo = {
       <Card
         image={
           <Image
-            src="https://picsum.photos/seed/grid2/400/200"
-            alt="Card 2"
+            src="/demo-images/card-2.webp"
+            alt="Card 2 urban"
             width="400"
             height="200"
           />
@@ -393,8 +393,8 @@ export const GridDemo = {
       <Card
         image={
           <Image
-            src="https://picsum.photos/seed/grid3/400/200"
-            alt="Card 3"
+            src="/demo-images/card-3.webp"
+            alt="Card 3 nature"
             width="400"
             height="200"
           />
@@ -416,8 +416,8 @@ export const GridDemo = {
       <Card
         image={
           <Image
-            src="https://picsum.photos/seed/grid4/400/200"
-            alt="Card 4"
+            src="/demo-images/card-4.webp"
+            alt="Card 4 ocean"
             width="400"
             height="200"
           />

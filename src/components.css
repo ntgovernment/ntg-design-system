@@ -6,11 +6,14 @@
 @import "./foundations/base.css" layer(foundations);
 
 @import "./components/back-to-top-button/back-to-top-button.css" layer(components);
+@import "./components/floating-button/floating-button.css" layer(components);
+@import "./components/quick-exit/quick-exit.css" layer(components);
 @import "./components/button/button.css" layer(components);
 @import "./components/callout/callout.css" layer(components);
 @import "./components/card/card.css" layer(components);
 @import "./components/link/link.css" layer(components);
 @import "./components/image/image.css" layer(components);
+@import "./components/image-gallery/image-gallery.css" layer(components);
 @import "./components/notification/notification.css" layer(components);
 @import "./components/icon/icon.css" layer(components);
 @import "./components/scrollbar/scrollbar.css" layer(components);
