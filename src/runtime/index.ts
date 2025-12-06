@@ -10,6 +10,8 @@ export { Dropdown } from "../components/dropdown/Dropdown";
 export { FloatingButton } from "../components/floating-button/FloatingButton";
 export { Icon } from "../components/icon/Icon";
 export { Image } from "../components/image/Image";
+export { ImageGallery } from "../components/image-gallery/ImageGallery";
+export type { GalleryImage, ImageGalleryProps } from "../components/image-gallery/ImageGallery";
 export { Link } from "../components/link/Link";
 export { Notification } from "../components/notification/Notification";
 export { Pagination } from "../components/pagination/Pagination";

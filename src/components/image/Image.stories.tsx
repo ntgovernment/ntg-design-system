@@ -46,16 +46,16 @@ type Story = StoryObj<typeof Image>;
 
 export const Default: Story = {
   args: {
-    src: "https://placehold.co/650x488",
-    alt: "Placeholder image",
+    src: "/demo-images/detail-1.webp",
+    alt: "Scenic landscape with gradient sky and green fields",
   },
 };
 
 export const WithCaption: Story = {
   args: {
-    src: "https://placehold.co/650x488",
-    alt: "Placeholder image with caption",
+    src: "/demo-images/detail-2.webp",
+    alt: "Beautiful sunset with warm color gradient",
     caption:
-      "Caption lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "Lightweight WEBP demo image optimized for web performance. Images are under 50KB to ensure fast loading across all devices and network conditions.",
   },
 };

@@ -104,336 +104,32 @@ The NTG Design System is a comprehensive library of reusable UI components, desi
 
 Comprehensive documentation and interactive examples are available through the [Component Library](https://ntgovernment.github.io/ntg-design-system), where you can browse and interact with all available components.
 
-## Icon System Overview
+## Available Components
 
-The design system provides a single `Icon` React component that standardises Font Awesome usage:
+The design system provides a comprehensive component library with full TypeScript support and Storybook documentation. Each component has dedicated documentation in its respective folder.
 
-- Pass a plain name (e.g. `"floppy-disk"`, `"arrow-right"`) instead of full FA class strings.
-- Components like `Button`, `Notification`, and `Pill` internally render `<Icon />` for consistent sizing and theming.
-- Color variants (`default`, `primary`, `secondary`, `tertiary`, `inverse`) map to semantic tokens; Notification icons use variant-driven CSS rather than a prop.
-- Include Font Awesome 6 globally (CDN or bundled) for glyphs to display; without it, fallback square placeholders appear only when a name is not provided.
+### Core Components
 
-**Note:** Not all components use icons. `Callout` is a text-only informational component that does not support icons.
+- **Form Elements**: Button, TextInput, TextArea, Checkbox, CheckboxGroup, RadioButton, RadioGroup, Dropdown, DateInput, DatePicker, FileUpload, SearchBar
+- **Navigation**: Breadcrumbs, Link, Pagination, BackToTopButton
+- **Display**: Card, Image, ImageGallery, Table, Tag, Pill, Icon
+- **Feedback**: Notification, Callout
+- **Layout**: Accordion, QuickExit (safety banner)
+- **Utilities**: Scrollbar (custom scrollbar styling)
 
-CDN example:
+**Icon System**: All components using icons leverage the `Icon` component which wraps Font Awesome 6. Requires Font Awesome CDN or bundle. See [src/components/icon/ICON.md](src/components/icon/ICON.md).
 
-```html
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-```
+**For detailed component documentation, props, and usage examples**, refer to individual component folders in `src/components/` or view the [Storybook documentation](https://ntgovernment.github.io/ntg-design-system).
 
-Sample Button with icons:
 
-```tsx
-<Button iconLeft="download" iconRight="arrow-right" iconColor="inverse">
-  Export Data
-</Button>
-```
+## Demo Images
 
-## QuickExit Safety Banner
+The design system includes optimized demo images for development and testing:
 
-A fixed, full-width safety banner for rapid exits from sensitive pages. Use only one per page and position it near the top of the DOM.
-
-- **Behavior:** Fixed to the top with safe-area padding; background darkens on hover; main region is a button; optional “What is this?” link or handler.
-- **Props:** `label`, `message`, `onClick` (required for escape), `whatIsThisHref` or `onWhatIsThis`, `ariaLabel`, `className`.
-- **Usage:**
-  ```tsx
-  import { QuickExit } from "ntg-design-system";
-
-  <QuickExit
-    onClick={() => window.location.assign("https://www.google.com")}
-    whatIsThisHref="https://example.com/safety"
-  />
-  ```
-- **Accessibility:** Provides `role="region"` with `aria-label`; button-based main action; visible hover/focus states.
-
-For full guidance see [src/components/quick-exit/QUICK-EXIT.md](src/components/quick-exit/QUICK-EXIT.md).
-
-## Scrollbar Component & Design System Integration
-
-**Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=2630-34&m=dev)
-
-The NTG Design System provides a comprehensive, theme-aware scrollbar solution for scrollable panels, textareas, dropdowns, and lists. Scrollbars are styled using semantic tokens and a utility class, ensuring visual consistency and accessibility across supported browsers.
-
-### Usage
-
-- Apply `.ntgds-scrollable` to any scrollable element (e.g. `<textarea>`, `<div>`, `<ul>`).
-- For larger hit area, add `.ntgds-scrollable--accessible`.
-- Example:
-  ```html
-  <textarea class="ntgds-scrollable" rows="8"></textarea>
-  <div class="ntgds-scrollable" style="max-height:240px">
-    <ul>
-      ...
-    </ul>
-  </div>
-  <div class="ntgds-scrollable ntgds-scrollable--accessible">...</div>
-  ```
-
-### Tokens
-
-Tokens are defined in `src/themes/theme-base.css` and are theme-aware:
-
-- `--scrollbar-width`: visual thumb/track width (`4px`)
-- `--scrollbar-track-bg`: track background (`#949391` fallback)
-- `--scrollbar-track-hover-bg`: track hover (`#3B3B3A` fallback)
-- `--scrollbar-thumb-bg`: thumb color (`#949391` fallback)
-- `--scrollbar-thumb-hover-bg`: thumb hover (`#3B3B3A` fallback)
-- `--scrollbar-endcap-bg`: optional endcap color (`#949391` fallback)
-- `--scrollbar-gutter-hitbox`: accessible hitbox width (`12px`)
-- `--scrollbar-radius`: thumb border radius (`0` for square corners)
-
-### Accessibility
-
-- Always associate scrollable form fields (e.g. `<textarea>`) with a `<label>` using `htmlFor` and `id`.
-- Accessible variant (`--accessible`) increases the interactive area for users with motor impairments.
-- High Contrast mode is supported via `forced-colors` media query.
-
-### Limitations
-
-- Native `<select>` dropdowns cannot be styled; use custom panels for full control.
-- Mobile/iOS and overlay scrollbars may ignore styling.
-- Decorative endcaps (per Figma) are not implemented via CSS pseudo-elements; use absolute elements if pixel-perfect fidelity is required.
-
-### Storybook Examples
-
-See `Scrollbars.stories.tsx` for live demos of textarea, long list, and dropdown panel scrollbars.
-
-### Changelog
-
-- v1.0.0: Initial implementation with semantic tokens, utility classes, accessible variant, and Storybook demos.
-
-## Accordion Component
-
-**Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=2064-805&m=dev)
-
-The Accordion component provides collapsible content sections with accessible keyboard navigation and customizable expansion behavior. It's ideal for FAQs, grouped content, settings panels, and any interface requiring progressive disclosure.
-
-### Features
-
-- **Single or Multiple Expansion** - Control whether one or multiple items can be open simultaneously
-- **Toggle All Control** - Optional "Open all" / "Close all" button for batch operations
-- **Default Open State** - Configure which items are expanded on initial render
-- **Accessible** - Full ARIA support with proper roles, states, and keyboard navigation
-- **Smooth Animations** - Chevron rotation and focus transitions with reduced-motion support
-- **Token-Based Styling** - Consistent with design system color, spacing, and typography tokens
-
-### Basic Usage
-
-```tsx
-import { Accordion, AccordionItem } from "@ntg/design-system";
-
-<Accordion>
-  <AccordionItem title="What is the NTG Design System?">
-    <p>
-      The NTG Design System is a comprehensive collection of reusable
-      components...
-    </p>
-  </AccordionItem>
-  <AccordionItem title="How do I get started?">
-    <p>
-      To get started, install the design system package using npm or yarn...
-    </p>
-  </AccordionItem>
-  <AccordionItem title="Is it accessible?">
-    <p>Yes! All components follow WCAG 2.1 AA guidelines...</p>
-  </AccordionItem>
-</Accordion>;
-```
-
-### Props
-
-#### Accordion Props
-
-| Prop                 | Type                     | Default      | Description                                                                                               |
-| -------------------- | ------------------------ | ------------ | --------------------------------------------------------------------------------------------------------- |
-| `mode`               | `'single' \| 'multiple'` | `'multiple'` | Controls expansion behavior. `'single'` allows only one item open at a time, `'multiple'` allows several. |
-| `defaultOpenIndices` | `number[]`               | `[]`         | Array of item indices (0-based) that should be expanded on mount.                                         |
-| `showToggleAll`      | `boolean`                | `false`      | Shows "Open all" / "Close all" button. Label changes dynamically based on state.                          |
-| `className`          | `string`                 | `''`         | Additional CSS class for the accordion container.                                                         |
-| `children`           | `ReactNode`              | required     | One or more `<AccordionItem>` components.                                                                 |
-
-#### AccordionItem Props
-
-| Prop        | Type        | Default  | Description                                              |
-| ----------- | ----------- | -------- | -------------------------------------------------------- |
-| `title`     | `string`    | required | The heading text displayed in the trigger button.        |
-| `children`  | `ReactNode` | required | The collapsible content shown when the item is expanded. |
-| `className` | `string`    | `''`     | Additional CSS class for the accordion item.             |
-
-### Advanced Examples
-
-#### Single Expansion Mode
-
-Only one item can be open at a time. Opening a new item automatically closes the previous one.
-
-```tsx
-<Accordion mode="single">
-  <AccordionItem title="First Item">
-    <p>When mode is "single", only one item can be open at a time.</p>
-  </AccordionItem>
-  <AccordionItem title="Second Item">
-    <p>Opening this will automatically close the first item.</p>
-  </AccordionItem>
-  <AccordionItem title="Third Item">
-    <p>And this is the third item's content.</p>
-  </AccordionItem>
-</Accordion>
-```
-
-#### With Toggle All Button
-
-Display a tertiary button that opens or closes all items with a single click. The button label automatically changes between "Open all" and "Close all" based on the current state.
-
-```tsx
-<Accordion showToggleAll mode="multiple">
-  <AccordionItem title="Design Principles">
-    <p>
-      Our design principles emphasize clarity, consistency, and accessibility.
-    </p>
-  </AccordionItem>
-  <AccordionItem title="Component Library">
-    <p>The component library includes buttons, forms, navigation, and more.</p>
-  </AccordionItem>
-  <AccordionItem title="Design Tokens">
-    <p>
-      Design tokens define the visual characteristics of your design system.
-    </p>
-  </AccordionItem>
-  <AccordionItem title="Documentation">
-    <p>Comprehensive documentation is available for each component.</p>
-  </AccordionItem>
-</Accordion>
-```
-
-#### Default Open Items
-
-Specify which items should be expanded when the component first renders.
-
-```tsx
-<Accordion defaultOpenIndices={[0, 2]}>
-  <AccordionItem title="Installation">
-    <p>Install using: npm install @ntg/design-system</p>
-  </AccordionItem>
-  <AccordionItem title="Configuration">
-    <p>Import the CSS and components in your entry point.</p>
-  </AccordionItem>
-  <AccordionItem title="Usage">
-    <p>Start using: import {`{ Button }`} from '@ntg/design-system'</p>
-  </AccordionItem>
-</Accordion>
-```
-
-#### Rich Content
-
-Accordion items can contain any valid React content, including headings, lists, tables, and other components.
-
-```tsx
-<Accordion showToggleAll>
-  <AccordionItem title="Product Features">
-    <h4>Key Features:</h4>
-    <ul>
-      <li>Responsive design out of the box</li>
-      <li>Themeable with design tokens</li>
-      <li>TypeScript support included</li>
-      <li>Comprehensive documentation</li>
-    </ul>
-  </AccordionItem>
-  <AccordionItem title="Technical Specifications">
-    <div>
-      <p>
-        <strong>Framework:</strong> React 19+
-      </p>
-      <p>
-        <strong>Styling:</strong> CSS Custom Properties
-      </p>
-      <p>
-        <strong>Build:</strong> Vite + PostCSS
-      </p>
-    </div>
-  </AccordionItem>
-</Accordion>
-```
-
-### Styling and Tokens
-
-The Accordion component uses semantic design tokens for consistent theming:
-
-| Token                     | Purpose                                 | Fallback Value |
-| ------------------------- | --------------------------------------- | -------------- |
-| `--clr-stroke-subtle`     | Border color                            | `#e6e5e3`      |
-| `--clr-surface-secondary` | Hover/focus background                  | `#f5f4f2`      |
-| `--clr-text-primary`      | Title and content text                  | `#3b3b3a`      |
-| `--clr-icon-default`      | Chevron icon color                      | `#3b3b3a`      |
-| `--clr-focus-focus`       | Focus outline color                     | `#107cc0`      |
-| `--spacing-md`            | Spacing between toggle button and items | `16px`         |
-| `--font-size-base`        | Text size                               | `1rem`         |
-
-### Accessibility
-
-The Accordion component is fully accessible and follows WCAG 2.1 AA guidelines:
-
-- **ARIA Attributes** - Uses `aria-expanded`, `aria-controls`, and `role="region"` for proper screen reader support
-- **Keyboard Navigation** - Full keyboard support (Tab, Enter, Space)
-- **Focus Management** - Visible focus indicators with proper outline styles
-- **Semantic HTML** - Uses native `<button>` elements for triggers
-- **Reduced Motion** - Respects `prefers-reduced-motion` to disable animations
-- **High Contrast Mode** - Supports `forced-colors` for Windows High Contrast
-
-#### Keyboard Controls
-
-| Key                | Action                                                          |
-| ------------------ | --------------------------------------------------------------- |
-| `Tab`              | Move focus between accordion triggers and the toggle all button |
-| `Enter` or `Space` | Toggle the focused accordion item                               |
-| `Shift + Tab`      | Move focus backwards                                            |
-
-### Browser Support
-
-The Accordion component works in all modern browsers:
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-### Implementation Details
-
-The Accordion uses React Context to manage state across compound components:
-
-- **Context Provider** - Tracks which items are open using a `Set<string>` for efficient lookups
-- **Single Mode** - Clears all open items before adding the newly selected one
-- **Multiple Mode** - Toggles items in/out of the open set independently
-- **Toggle All Logic** - Compares open items count to total items to determine button label
-
-The chevron icon rotates 180° when an item is expanded, with smooth CSS transitions (disabled for users with `prefers-reduced-motion`).
-
-### Storybook Examples
-
-See `Accordion.stories.tsx` for interactive demos including:
-
-- **Basic** - Simple three-item accordion with multiple expansion
-- **SingleMode** - One item open at a time
-- **WithToggleAll** - "Open all" / "Close all" button demonstration
-- **DefaultOpen** - Items pre-expanded on mount
-- **RichContent** - Complex nested content (lists, tables, formatted text)
-
-### Best Practices
-
-1. **Use Descriptive Titles** - Keep trigger button text clear and concise (3-10 words)
-2. **Group Related Content** - Accordion works best for related, scannable sections
-3. **Avoid Nesting** - Don't nest accordions inside accordion items (creates confusion)
-4. **Consider Defaults** - Open important items by default to guide user attention
-5. **Content Length** - Keep individual items focused; if content is very long, consider alternative layouts
-6. **Mobile Experience** - Accordions work well on mobile; test touch targets meet 44x44px minimum
-
-### Changelog
-
-- v1.0.0: Initial implementation with single/multiple modes, toggle all functionality, ARIA support, and Storybook stories.
+- **Location**: `public/demo-images/` - 12 WEBP images at 2x resolution (~141KB total)
+- **Sizes**: Gallery (640×480), Cards (800×400), Details (1300×976)
+- **Generation**: Run `python generate-demo-images.py` to regenerate
+- **Documentation**: See [public/demo-images/README.md](public/demo-images/README.md)
 
 ## Project Structure
 
@@ -462,6 +158,7 @@ ntg-design-system/
 │   │   ├── file-upload/    # FileUpload component with drag-and-drop
 │   │   ├── icon/           # Icon component (Font Awesome wrapper)
 │   │   ├── image/          # Image component
+│   │   ├── image-gallery/  # ImageGallery component with lightbox
 │   │   ├── link/           # Link component
 │   │   ├── notification/   # Notification component
 │   │   ├── pagination/     # Pagination component with ellipsis logic
