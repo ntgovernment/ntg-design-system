@@ -10,6 +10,12 @@ export { Footer, NTGovAULogoMono, FooterLink } from '../components/footer/Footer
 export type { FooterProps, FooterSection, SocialLink } from '../components/footer/Footer';
 export { Header } from '../components/header/Header';
 export type { HeaderProps } from '../components/header/Header';
+export { HeroBanner } from '../components/hero-banner/HeroBanner';
+export type { HeroBannerProps, HeroBannerPopularLink } from '../components/hero-banner/HeroBanner';
+export { HeroBannerGraphic } from '../components/hero-banner/HeroBannerGraphic';
+export type { HeroBannerGraphicProps } from '../components/hero-banner/HeroBannerGraphic';
+export { HeroBannerLink } from '../components/hero-banner/HeroBannerLink';
+export type { HeroBannerLinkProps } from '../components/hero-banner/HeroBannerLink';
 export { Icon } from '../components/icon/Icon';
 export { Image } from '../components/image/Image';
 export { ImageGallery } from '../components/image-gallery/ImageGallery';
