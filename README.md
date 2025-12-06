@@ -111,7 +111,7 @@ The design system provides a comprehensive component library with full TypeScrip
 ### Core Components
 
 - **Form Elements**: Button, TextInput, TextArea, Checkbox, CheckboxGroup, RadioButton, RadioGroup, Dropdown, DateInput, DatePicker, FileUpload, SearchBar
-- **Navigation**: Header, Footer, Breadcrumbs, Link, Pagination, BackToTopButton, HeroBanner
+- **Navigation**: Header, Footer, Breadcrumbs, Link, Pagination, BackToTopButton, HeroBanner, InPageNavigation
 - **Display**: Card, Image, ImageGallery, Document, Table, Tag, Pill, Icon
 - **Feedback**: Notification, Callout
 - **Layout**: Accordion, QuickExit (safety banner)
@@ -123,6 +123,7 @@ The design system provides a comprehensive component library with full TypeScrip
 - Footer: [src/components/footer/FOOTER.md](src/components/footer/FOOTER.md)
 - Document: [src/components/document/DOCUMENT.md](src/components/document/DOCUMENT.md)
 - HeroBanner: [src/components/hero-banner/HEROBANNER.md](src/components/hero-banner/HEROBANNER.md)
+- InPageNavigation: [src/components/in-page-navigation/INPAGENAVIGATION.md](src/components/in-page-navigation/INPAGENAVIGATION.md)
 
 
 ## Demo Images
@@ -162,6 +163,7 @@ ntg-design-system/
 │   │   ├── icon/           # Icon component (Font Awesome wrapper)
 │   │   ├── image/          # Image component
 │   │   ├── image-gallery/  # ImageGallery component with lightbox
+│   │   ├── in-page-navigation/ # InPageNavigation component for in-page section jumping
 │   │   ├── link/           # Link component
 │   │   ├── notification/   # Notification component
 │   │   ├── pagination/     # Pagination component with ellipsis logic

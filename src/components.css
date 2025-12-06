@@ -24,5 +24,6 @@
 @import "./components/footer/footer.css" layer(components);
 @import "./components/hero-banner/hero-banner.css" layer(components);
 @import "./components/document/document.css" layer(components);
+@import "./components/in-page-navigation/in-page-navigation.css" layer(components);
 /* add more components the same way */
 @import "./components/table/table.css" layer(components);

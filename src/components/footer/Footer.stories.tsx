@@ -3,7 +3,7 @@ import React from "react";
 import { Footer, FooterProps, FooterSection, SocialLink } from "./Footer";
 
 const meta: Meta<typeof Footer> = {
-  title: "Navigation/Footer",
+  title: "Components/Footer",
   component: Footer,
   parameters: {
     layout: "fullscreen",
