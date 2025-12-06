@@ -22,6 +22,8 @@ export { Icon } from "../components/icon/Icon";
 export { Image } from "../components/image/Image";
 export { ImageGallery } from "../components/image-gallery/ImageGallery";
 export type { GalleryImage, ImageGalleryProps } from "../components/image-gallery/ImageGallery";
+export { InPageNavigation } from "../components/in-page-navigation/InPageNavigation";
+export type { InPageNavigationProps, InPageNavigationLink } from "../components/in-page-navigation/InPageNavigation";
 export { Link } from "../components/link/Link";
 export { Document } from "../components/document/Document";
 export type { DocumentProps, FileFormat } from "../components/document/Document";
