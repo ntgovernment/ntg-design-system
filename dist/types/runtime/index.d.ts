@@ -15,6 +15,8 @@ export { Image } from '../components/image/Image';
 export { ImageGallery } from '../components/image-gallery/ImageGallery';
 export type { GalleryImage, ImageGalleryProps } from '../components/image-gallery/ImageGallery';
 export { Link } from '../components/link/Link';
+export { Document } from '../components/document/Document';
+export type { DocumentProps, FileFormat } from '../components/document/Document';
 export { Notification } from '../components/notification/Notification';
 export { Pagination } from '../components/pagination/Pagination';
 export { Pill } from '../components/pill/Pill';
