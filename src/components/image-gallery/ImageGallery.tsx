@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Image } from "../image/Image";
+import { ImageGalleryLightbox } from "./ImageGalleryLightbox";
 import "./image-gallery.css";
 
 export interface GalleryImage {

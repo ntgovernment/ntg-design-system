@@ -111,7 +111,7 @@ The design system provides a comprehensive component library with full TypeScrip
 ### Core Components
 
 - **Form Elements**: Button, TextInput, TextArea, Checkbox, CheckboxGroup, RadioButton, RadioGroup, Dropdown, DateInput, DatePicker, FileUpload, SearchBar
-- **Navigation**: Header, Breadcrumbs, Link, Pagination, BackToTopButton
+- **Navigation**: Header, Footer, Breadcrumbs, Link, Pagination, BackToTopButton
 - **Display**: Card, Image, ImageGallery, Table, Tag, Pill, Icon
 - **Feedback**: Notification, Callout
 - **Layout**: Accordion, QuickExit (safety banner)
@@ -119,7 +119,7 @@ The design system provides a comprehensive component library with full TypeScrip
 
 **Icon System**: All components using icons leverage the `Icon` component which wraps Font Awesome 6. Requires Font Awesome CDN or bundle. See [src/components/icon/ICON.md](src/components/icon/ICON.md).
 
-**For detailed component documentation, props, and usage examples**, refer to individual component folders in `src/components/` or view the [Storybook documentation](https://ntgovernment.github.io/ntg-design-system).
+**For detailed component documentation, props, and usage examples**, refer to individual component folders in `src/components/` or view the [Storybook documentation](https://ntgovernment.github.io/ntg-design-system). The Footer documentation is consolidated in [src/components/footer/FOOTER.md](src/components/footer/FOOTER.md).
 
 
 ## Demo Images
