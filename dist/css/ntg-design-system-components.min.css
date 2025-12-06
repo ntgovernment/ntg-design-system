@@ -2541,6 +2541,94 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
     color: var(--clr-text-inverse);
     opacity: 0.8;
   }
+.ntgds-document:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    gap: var(--sp-xs, 8px);
+    color: #3b3b3a;
+    color: var(--clr-text-default, #3b3b3a);
+    width: 100%;
+  }
+.ntgds-document__header:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 12px;
+    gap: var(--sp-sm, 12px);
+    width: 100%;
+  }
+.ntgds-document__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    padding: var(--sp-xs, 8px);
+    min-width: calc(32px + (8px * 2));
+    min-width: calc(var(--sp-xl, 32px) + (var(--sp-xs, 8px) * 2));
+    min-height: calc(32px + (8px * 2));
+    min-height: calc(var(--sp-xl, 32px) + (var(--sp-xs, 8px) * 2));
+    background: #f6f6f6;
+    background: var(--clr-surface-secondary, #f6f6f6);
+    border-radius: 0;
+    color: currentColor;
+    color: var(--clr-icon-default, currentColor);
+    flex-shrink: 0;
+  }
+.ntgds-document__icon:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-icon {
+    font-size: 32px;
+    font-size: var(--sp-xl, 32px);
+    width: 32px;
+    height: 32px;
+  }
+.ntgds-document__content:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    gap: var(--sp-xxs, 4px);
+    min-width: 0;
+  }
+.ntgds-document__title:not(#\#):not(#\#) {
+    -webkit-text-decoration: underline !important;
+    text-decoration: underline !important;
+  }
+.ntgds-document__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    font-size: 16px;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    font-weight: 700;
+    line-height: 24px;
+    line-height: var(--type-desktop-body-default-line-height, 24px);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    color: #1f1f5f;
+    color: var(--clr-link-default, #1f1f5f);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    gap: var(--sp-xxs, 4px);
+  }
+.ntgds-document__title:hover:not(#\#):not(#\#) {
+    -webkit-text-decoration: underline !important;
+    text-decoration: underline !important;
+  }
+.ntgds-document__title:focus:not(#\#):not(#\#),
+  .ntgds-document__title:focus-visible:not(#\#):not(#\#) {
+    -webkit-text-decoration: none !important;
+    text-decoration: none !important;
+  }
+.ntgds-document__meta:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: #777674;
+    color: var(--clr-text-helper, #777674);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+.ntgds-document__description:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: #3b3b3a;
+    color: var(--clr-text-default, #3b3b3a);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
 /* add more components the same way */
 /* NTG Design System Table Styles */
 .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
