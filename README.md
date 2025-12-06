@@ -424,6 +424,7 @@ ntg-design-system/
 │   ├── components/          # Reusable UI components
 │   │   ├── accordion/      # Accordion component
 │   │   ├── back-to-top-button/ # BackToTopButton fixed position component
+│   │   ├── floating-button/ # FloatingButton fixed duplicate action component
 │   │   ├── button/         # Button component
 │   │   │   ├── button.css
 │   │   │   ├── Button.tsx
