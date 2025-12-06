@@ -14,6 +14,7 @@ export { Link } from "../components/link/Link";
 export { Notification } from "../components/notification/Notification";
 export { Pagination } from "../components/pagination/Pagination";
 export { Pill } from "../components/pill/Pill";
+export { QuickExit } from "../components/quick-exit/QuickExit";
 export { SearchBar } from "../components/search-bar/SearchBar";
 export { Tag } from "../components/tag/Tag";
 

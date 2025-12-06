@@ -134,6 +134,25 @@ Sample Button with icons:
 </Button>
 ```
 
+## QuickExit Safety Banner
+
+A fixed, full-width safety banner for rapid exits from sensitive pages. Use only one per page and position it near the top of the DOM.
+
+- **Behavior:** Fixed to the top with safe-area padding; background darkens on hover; main region is a button; optional “What is this?” link or handler.
+- **Props:** `label`, `message`, `onClick` (required for escape), `whatIsThisHref` or `onWhatIsThis`, `ariaLabel`, `className`.
+- **Usage:**
+  ```tsx
+  import { QuickExit } from "ntg-design-system";
+
+  <QuickExit
+    onClick={() => window.location.assign("https://www.google.com")}
+    whatIsThisHref="https://example.com/safety"
+  />
+  ```
+- **Accessibility:** Provides `role="region"` with `aria-label`; button-based main action; visible hover/focus states.
+
+For full guidance see [src/components/quick-exit/QUICK-EXIT.md](src/components/quick-exit/QUICK-EXIT.md).
+
 ## Scrollbar Component & Design System Integration
 
 **Design Reference:** [View in Figma](https://www.figma.com/design/pztoZYJOfhXlFLRtU47qNd/NTG-Design-System?node-id=2630-34&m=dev)
@@ -425,6 +444,7 @@ ntg-design-system/
 │   │   ├── accordion/      # Accordion component
 │   │   ├── back-to-top-button/ # BackToTopButton fixed position component
 │   │   ├── floating-button/ # FloatingButton fixed duplicate action component
+│   │   ├── quick-exit/      # QuickExit safety banner component
 │   │   ├── button/         # Button component
 │   │   │   ├── button.css
 │   │   │   ├── Button.tsx
