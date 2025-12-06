@@ -8,6 +8,8 @@ export { Card } from "../components/card/Card";
 export { Callout } from "../components/callout/Callout";
 export { Dropdown } from "../components/dropdown/Dropdown";
 export { FloatingButton } from "../components/floating-button/FloatingButton";
+export { Footer, NTGovAULogoMono, FooterLink } from "../components/footer/Footer";
+export type { FooterProps, FooterSection, SocialLink } from "../components/footer/Footer";
 export { Header } from "../components/header/Header";
 export type { HeaderProps } from "../components/header/Header";
 export { Icon } from "../components/icon/Icon";
