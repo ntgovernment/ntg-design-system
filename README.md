@@ -111,15 +111,18 @@ The design system provides a comprehensive component library with full TypeScrip
 ### Core Components
 
 - **Form Elements**: Button, TextInput, TextArea, Checkbox, CheckboxGroup, RadioButton, RadioGroup, Dropdown, DateInput, DatePicker, FileUpload, SearchBar
-- **Navigation**: Header, Footer, Breadcrumbs, Link, Pagination, BackToTopButton
-  - **Display**: Card, Image, ImageGallery, Document, Table, Tag, Pill, Icon
+- **Navigation**: Header, Footer, Breadcrumbs, Link, Pagination, BackToTopButton, HeroBanner
+- **Display**: Card, Image, ImageGallery, Document, Table, Tag, Pill, Icon
 - **Feedback**: Notification, Callout
 - **Layout**: Accordion, QuickExit (safety banner)
 - **Utilities**: Scrollbar (custom scrollbar styling)
 
 **Icon System**: All components using icons leverage the `Icon` component which wraps Font Awesome 6. Requires Font Awesome CDN or bundle. See [src/components/icon/ICON.md](src/components/icon/ICON.md).
 
-**For detailed component documentation, props, and usage examples**, refer to individual component folders in `src/components/` or view the [Storybook documentation](https://ntgovernment.github.io/ntg-design-system). The Footer documentation is consolidated in [src/components/footer/FOOTER.md](src/components/footer/FOOTER.md). Document component details are in [src/components/document/DOCUMENT.md](src/components/document/DOCUMENT.md).
+**For detailed component documentation, props, and usage examples**, refer to individual component folders in `src/components/` or view the [Storybook documentation](https://ntgovernment.github.io/ntg-design-system). Component-specific documentation:
+- Footer: [src/components/footer/FOOTER.md](src/components/footer/FOOTER.md)
+- Document: [src/components/document/DOCUMENT.md](src/components/document/DOCUMENT.md)
+- HeroBanner: [src/components/hero-banner/HEROBANNER.md](src/components/hero-banner/HEROBANNER.md)
 
 
 ## Demo Images
@@ -378,19 +381,19 @@ Follow these steps to create a custom theme for your organization.
 The theme system uses a 4-layer token architecture:
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│ Layer 1: Primitives (ntg-design-system-tokens.css)          │
-│   └─ Raw values: --ntg-colour-primary-blue-default: #003f87│
-├─────────────────────────────────────────────────────────────┤
-│ Layer 2: Theme-Primitives (@layer theme-primitives)         │
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Layer 1: Primitives (ntg-design-system-tokens.css)                       │
+│   └─ Raw values: --ntg-colour-primary-blue-default: #003f87            │
+├──────────────────────────────────────────────────────────────────────────┤
+│ Layer 2: Theme-Primitives (@layer theme-primitives)                      │
 │   └─ Mappings: --theme-colour-primary-blue-default: var(--ntg-colour-...)│
-├─────────────────────────────────────────────────────────────┤
-│ Layer 3: Semantics (theme-base.css + typography-base.css)   │
-│   └─ Semantics: --clr-action-default: var(--theme-colour-...)│
-├─────────────────────────────────────────────────────────────┤
-│ Layer 4: Overrides (@layer overrides)                       │
-│   └─ Customizations: --type-font-default, --radii-button    │
-└─────────────────────────────────────────────────────────────┘
+├──────────────────────────────────────────────────────────────────────────┤
+│ Layer 3: Semantics (theme-base.css + typography-base.css)                │
+│   └─ Semantics: --clr-action-default: var(--theme-colour-...)            │
+├──────────────────────────────────────────────────────────────────────────┤
+│ Layer 4: Overrides (@layer overrides)                                    │
+│   └─ Customizations: --type-font-default, --radii-button                 │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
 
 This architecture allows shared semantic tokens to work across all themes while maintaining brand-specific customizations.
@@ -911,6 +914,94 @@ Builds static Storybook site to [`docs/`](docs/) folder. This is used for GitHub
 2. Builds Storybook with production config
 3. Copies built assets to `docs/` folder
 4. Includes Font Awesome CDN in output
+
+#### Publishing to GitHub Pages
+
+The design system uses a git worktree for GitHub Pages deployment, keeping the `gh-pages` branch separate from your working directory.
+
+**One-Time Setup:**
+
+```bash
+# Create gh-pages worktree (only needed once)
+git worktree add /d/Projects/ntg-design-system-gh-pages gh-pages
+```
+
+This creates a separate directory at `/d/Projects/ntg-design-system-gh-pages` that tracks the `gh-pages` branch.
+
+**Publishing Updates:**
+
+After making changes to components and building Storybook:
+
+```bash
+# 1. Build Storybook documentation
+npm run build-storybook
+
+# 2. Navigate to gh-pages worktree
+cd /d/Projects/ntg-design-system-gh-pages
+
+# 3. Clear old files (preserving .git)
+find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+
+# 4. Copy new build from main project
+cp -r /d/Projects/ntg-design-system/docs/. .
+
+# 5. Stage all changes
+git add -A
+
+# 6. Commit with descriptive message
+git commit -m "Update Storybook documentation"
+
+# 7. Push to GitHub Pages
+git push origin gh-pages
+
+# 8. Return to main project
+cd /d/Projects/ntg-design-system
+```
+
+**Simplified One-Liner (after building):**
+
+```bash
+cd /d/Projects/ntg-design-system-gh-pages && \
+  find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + && \
+  cp -r /d/Projects/ntg-design-system/docs/. . && \
+  git add -A && \
+  git commit -m "Update Storybook documentation" && \
+  git push origin gh-pages && \
+  cd /d/Projects/ntg-design-system
+```
+
+**What This Does:**
+
+1. **Worktree Benefits**: Keeps `gh-pages` branch isolated, no need to switch branches in your main working directory
+2. **Clean Sync**: Removes old files (except `.git`) to ensure a clean deployment
+3. **Preserves History**: Git worktree maintains full commit history on `gh-pages` branch
+4. **Live Updates**: Changes appear at `https://ntgovernment.github.io/ntg-design-system` within minutes
+
+**Checking Worktree Status:**
+
+```bash
+# List all worktrees
+git worktree list
+
+# View gh-pages branch status
+cd /d/Projects/ntg-design-system-gh-pages
+git status
+git log --oneline -5
+```
+
+**Removing Worktree (if needed):**
+
+```bash
+# Remove worktree and delete the directory
+git worktree remove /d/Projects/ntg-design-system-gh-pages
+```
+
+**Troubleshooting:**
+
+- **"Worktree already exists"**: The worktree was previously created. Navigate to the directory: `cd /d/Projects/ntg-design-system-gh-pages`
+- **"No such directory"**: Worktree was removed. Recreate with: `git worktree add /d/Projects/ntg-design-system-gh-pages gh-pages`
+- **Push rejected**: Pull latest changes first: `cd /d/Projects/ntg-design-system-gh-pages && git pull && git push origin gh-pages`
+- **Changes not appearing**: GitHub Pages can take 1-2 minutes to rebuild. Check repository Settings → Pages for build status
 
 ### File Watching
 
