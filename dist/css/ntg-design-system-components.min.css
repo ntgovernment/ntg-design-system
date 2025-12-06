@@ -32,6 +32,7 @@
 /* Non-clickable card container hover elevation */
 /* Non-clickable card: sync tertiary footer button label on container hover */
 /* High contrast mode support */
+/* Inverse variant for use on dark backgrounds */
 /* Status - Error */
 /* Status - Success */
 /* Messages */
@@ -997,13 +998,16 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
     font-size: var(--type-desktop-body-default-size);
     font-weight: var(--type-desktop-body-default-weight);
     line-height: var(--type-desktop-body-default-lh);
-    -webkit-text-decoration: underline;
-    text-decoration: underline;
+    -webkit-text-decoration: none;
+    text-decoration: none;
     cursor: pointer;
     word-wrap: break-word;
-    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
     border-bottom: 4px solid transparent;
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    gap: var(--sp-sm, 8px);
   }
 .ntgds-link:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
     color: var(--clr-link-hover);
@@ -1043,6 +1047,38 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
     cursor: not-allowed;
     pointer-events: none;
     border-bottom-color: transparent;
+  }
+/* Inverse variant for use on dark backgrounds */
+.ntgds-link--inverse:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: #ffffff;
+    color: var(--clr-text-inverse, #ffffff);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+.ntgds-link--inverse:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: #ffffff;
+    color: var(--clr-text-inverse, #ffffff);
+    opacity: 0.8;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+.ntgds-link--inverse:visited:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: #ffffff;
+    color: var(--clr-text-inverse, #ffffff);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+.ntgds-link--inverse:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    outline: 2px solid #ec8c58;
+    outline: 2px solid var(--clr-focus-focus, #ec8c58);
+    outline-offset: 2px;
+    background: transparent;
+    border-bottom-color: transparent;
+    color: #ffffff;
+    color: var(--clr-text-inverse, #ffffff);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    border-radius: 2px;
   }
 /* Link Component Styles */
 /* Image Component - Theme-agnostic image with optional caption */

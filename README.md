@@ -111,7 +111,7 @@ The design system provides a comprehensive component library with full TypeScrip
 ### Core Components
 
 - **Form Elements**: Button, TextInput, TextArea, Checkbox, CheckboxGroup, RadioButton, RadioGroup, Dropdown, DateInput, DatePicker, FileUpload, SearchBar
-- **Navigation**: Breadcrumbs, Link, Pagination, BackToTopButton
+- **Navigation**: Header, Breadcrumbs, Link, Pagination, BackToTopButton
 - **Display**: Card, Image, ImageGallery, Table, Tag, Pill, Icon
 - **Feedback**: Notification, Callout
 - **Layout**: Accordion, QuickExit (safety banner)
@@ -236,28 +236,28 @@ The design system uses CSS `@layer` to ensure predictable cascade order:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ PRIMITIVES (src/tokens/ntg-design-system-tokens.css)           │
-│ --ntg-colour-primary-blue-default: #003f87;                    │
+│ PRIMITIVES (src/tokens/ntg-design-system-tokens.css)            │
+│ --ntg-colour-primary-blue-default: #003f87;                   │
 │ --global-spacing-spacing-16: 1rem;                              │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ THEME-PRIMITIVES (@layer theme-primitives in theme files)      │
-│ --theme-colour-primary-blue-default: var(--ntg-colour-...);    │
-│ --theme-spacing-md: var(--global-spacing-spacing-16);          │
+│ THEME-PRIMITIVES (@layer theme-primitives in theme files)       │
+│ --theme-colour-primary-blue-default: var(--ntg-colour-...);     │
+│ --theme-spacing-md: var(--global-spacing-spacing-16);           │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ SEMANTICS (@layer semantics in theme-base.css)                 │
-│ --clr-action-default: var(--theme-colour-primary-blue-default);│
+│ SEMANTICS (@layer semantics in theme-base.css)                  │
+│ --clr-action-default: var(--theme-colour-primary-blue-default); │
 │ --sp-md: var(--theme-spacing-md);                               │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ COMPONENTS (@layer components in component CSS files)          │
+│ COMPONENTS (@layer components in component CSS files)           │
 │ .ntgds-btn {                                                    │
 │   background: var(--clr-action-default);                        │
 │   padding: var(--sp-md);                                        │
@@ -379,17 +379,17 @@ The theme system uses a 4-layer token architecture:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ Layer 1: Primitives (ntg-design-system-tokens.css)         │
+│ Layer 1: Primitives (ntg-design-system-tokens.css)          │
 │   └─ Raw values: --ntg-colour-primary-blue-default: #003f87│
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 2: Theme-Primitives (@layer theme-primitives)        │
+│ Layer 2: Theme-Primitives (@layer theme-primitives)         │
 │   └─ Mappings: --theme-colour-primary-blue-default: var(--ntg-colour-...)│
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 3: Semantics (theme-base.css + typography-base.css)  │
+│ Layer 3: Semantics (theme-base.css + typography-base.css)   │
 │   └─ Semantics: --clr-action-default: var(--theme-colour-...)│
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 4: Overrides (@layer overrides)                      │
-│   └─ Customizations: --type-font-default, --radii-button   │
+│ Layer 4: Overrides (@layer overrides)                       │
+│   └─ Customizations: --type-font-default, --radii-button    │
 └─────────────────────────────────────────────────────────────┘
 ```
 

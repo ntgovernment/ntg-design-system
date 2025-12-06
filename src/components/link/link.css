@@ -7,13 +7,15 @@
     font-size: var(--type-desktop-body-default-size);
     font-weight: var(--type-desktop-body-default-weight);
     line-height: var(--type-desktop-body-default-lh);
-    text-decoration: underline;
+    text-decoration: none;
     cursor: pointer;
     word-wrap: break-word;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
-      border-color 0.2s ease-in-out;
+      border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
     border-bottom: 4px solid transparent;
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-sm, 8px);
   }
 
   .ntgds-link:hover {
@@ -55,5 +57,32 @@
     cursor: not-allowed;
     pointer-events: none;
     border-bottom-color: transparent;
+  }
+
+  /* Inverse variant for use on dark backgrounds */
+  .ntgds-link--inverse {
+    color: var(--clr-text-inverse, #ffffff);
+    text-decoration: none;
+  }
+
+  .ntgds-link--inverse:hover {
+    color: var(--clr-text-inverse, #ffffff);
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  .ntgds-link--inverse:visited {
+    color: var(--clr-text-inverse, #ffffff);
+    text-decoration: none;
+  }
+
+  .ntgds-link--inverse:focus-visible {
+    outline: 2px solid var(--clr-focus-focus, #ec8c58);
+    outline-offset: 2px;
+    background: transparent;
+    border-bottom-color: transparent;
+    color: var(--clr-text-inverse, #ffffff);
+    text-decoration: none;
+    border-radius: 2px;
   }
 }
