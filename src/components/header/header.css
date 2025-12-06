@@ -1,0 +1,338 @@
+@layer components {
+  /* Logo SVG fill color */
+  .st0 {
+    fill: var(--clr-text-inverse, #ffffff);
+  }
+
+  /* Base Header */
+  .ntgds-header {
+    background: var(--clr-primary-600, #1f1f5f);
+    color: var(--clr-text-inverse, #ffffff);
+    width: 100%;
+    position: relative;
+  }
+
+  .ntgds-header__container {
+    width: 100%;
+    padding: 0 var(--sp-md, 16px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-lg, 20px);
+    height: 72px;
+    transition: height 0.2s ease;
+  }
+
+  /* Logo */
+  .ntgds-header__logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  .ntgds-header__logo:focus-visible {
+    outline: 2px solid var(--clr-focus-focus, #ec8c58);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Desktop Navigation */
+  .ntgds-header__nav {
+    display: none;
+    align-items: center;
+    gap: var(--sp-md, 16px);
+    margin-left: auto;
+  }
+
+  .ntgds-header__nav-link {
+    color: var(--clr-text-inverse, #ffffff);
+    text-decoration: none;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    line-height: 24px;
+    font-family: var(--type-font-default, "Lato", sans-serif);
+    padding: var(--sp-md, 16px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s ease;
+  }
+
+  .ntgds-header__nav-link:hover {
+    opacity: 0.8;
+  }
+
+  .ntgds-header__nav-link:focus-visible {
+    outline: 2px solid var(--clr-focus-focus, #ec8c58);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Desktop Search */
+  .ntgds-header__search {
+    display: none;
+  }
+
+  /* Search Toggle Button */
+  .ntgds-header__search-toggle {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .ntgds-header__search-toggle--active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Hamburger Button */
+  .ntgds-header__hamburger {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .ntgds-header__hamburger--active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Expanded Search Section */
+  .ntgds-header__search-expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--clr-primary-600, #1f1f5f);
+    padding: var(--sp-md, 16px);
+    width: 100%;
+    z-index: 1050;
+    animation: slideDown 300ms ease-out;
+    overflow: hidden;
+    height: 72px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ntgds-header__search-expanded-container {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm, 8px);
+    width: 100%;
+  }
+
+  .ntgds-header__search-expanded-input {
+    flex: 1;
+  }
+
+  .ntgds-header__search-close {
+    flex-shrink: 0;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Drawer Backdrop */
+  .ntgds-header-drawer__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background: rgba(59, 59, 58, 0.2);
+    animation: fadeIn 300ms ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Drawer Panel */
+  .ntgds-header-drawer__panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    background: var(--clr-primary-600, #1f1f5f);
+    z-index: 1100;
+    box-shadow: 34px 0px 24px rgba(59, 59, 58, 0.2);
+    animation: slideInFromLeft 300ms ease-out;
+    display: flex;
+    flex-direction: column;
+    padding: var(--sp-xs, 10px) var(--sp-md, 16px);
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Drawer Close Button */
+  .ntgds-header-drawer__close {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ntgds-header-drawer__close-button {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Drawer Navigation */
+  .ntgds-header-drawer__nav {
+    flex: 1;
+  }
+
+  .ntgds-header-drawer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ntgds-header-drawer__item {
+    margin: 0;
+  }
+
+  .ntgds-header-drawer__link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--sp-md, 16px) 0;
+    height: 48px;
+    color: var(--clr-text-inverse, #ffffff);
+    text-decoration: none;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    line-height: 24px;
+    font-family: var(--type-font-default, "Lato", sans-serif);
+    transition: opacity 0.2s ease;
+  }
+
+  .ntgds-header-drawer__link:hover {
+    opacity: 0.8;
+  }
+
+  .ntgds-header-drawer__link:focus-visible {
+    outline: 2px solid var(--clr-focus-focus, #ec8c58);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Tablet Breakpoint (≥768px) */
+  @media (min-width: 768px) {
+    .ntgds-header__container {
+      height: 94px;
+    }
+
+    /* Show desktop navigation at tablet+ */
+    .ntgds-header__nav--desktop {
+      display: flex;
+    }
+
+    /* Hide hamburger at tablet+ */
+    .ntgds-header__hamburger {
+      display: none;
+    }
+
+    /* Show search toggle on tablet, positioned to the right */
+    .ntgds-header__search-toggle {
+      display: flex;
+      flex-shrink: 0;
+    }
+
+    /* Adjust expanded search height for tablet */
+    .ntgds-header__search-expanded {
+      height: 94px;
+    }
+  }
+
+  /* Desktop Breakpoint (≥992px) */
+  @media (min-width: 992px) {
+    /* Show desktop search, hide search toggle */
+    .ntgds-header__search--desktop {
+      display: block;
+      width: auto;
+      max-width: none;
+    }
+
+    .ntgds-header__search--desktop form {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .ntgds-header__search-toggle {
+      display: none;
+    }
+
+    /* Reduce gap between navigation and search */
+    .ntgds-header__nav {
+      gap: var(--sp-sm, 8px);
+    }
+
+    /* Hide expanded search section on desktop */
+    .ntgds-header__search-expanded {
+      display: none;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .ntgds-header__search-expanded {
+      animation: none;
+    }
+
+    .ntgds-header-drawer__backdrop {
+      animation: none;
+    }
+
+    .ntgds-header-drawer__panel {
+      animation: none;
+    }
+
+    .ntgds-header__container {
+      transition: none;
+    }
+  }
+
+  /* Performance optimizations */
+  .ntgds-header-drawer__panel {
+    will-change: transform;
+  }
+
+  .ntgds-header-drawer__backdrop {
+    pointer-events: auto;
+  }
+
+  /* High contrast mode support */
+  @media (forced-colors: active) {
+    .ntgds-header {
+      border-bottom: 1px solid;
+    }
+
+    .ntgds-header__nav-link:focus-visible,
+    .ntgds-header__logo:focus-visible,
+    .ntgds-header-drawer__link:focus-visible {
+      outline: 2px solid;
+    }
+  }
+}
