@@ -20,6 +20,8 @@ export { Icon } from '../components/icon/Icon';
 export { Image } from '../components/image/Image';
 export { ImageGallery } from '../components/image-gallery/ImageGallery';
 export type { GalleryImage, ImageGalleryProps } from '../components/image-gallery/ImageGallery';
+export { InPageNavigation } from '../components/in-page-navigation/InPageNavigation';
+export type { InPageNavigationProps, InPageNavigationLink } from '../components/in-page-navigation/InPageNavigation';
 export { Link } from '../components/link/Link';
 export { Document } from '../components/document/Document';
 export type { DocumentProps, FileFormat } from '../components/document/Document';
@@ -28,6 +30,8 @@ export { Pagination } from '../components/pagination/Pagination';
 export { Pill } from '../components/pill/Pill';
 export { QuickExit } from '../components/quick-exit/QuickExit';
 export { SearchBar } from '../components/search-bar/SearchBar';
+export { SideNavigation } from '../components/side-navigation/SideNavigation';
+export type { SideNavigationProps, SideNavigationItem } from '../components/side-navigation/SideNavigation';
 export { Tag } from '../components/tag/Tag';
 declare function initAll(root?: ParentNode): void;
 export declare const components: {
