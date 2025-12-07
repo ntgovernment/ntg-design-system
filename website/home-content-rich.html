@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NT.gov.au Design System</title>
+  <link rel="stylesheet" href="../dist/css/theme-ntg.min.css" />
+  <link rel="stylesheet" href="../dist/css/ntg-design-system-components.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--type-font-default, "Inter", system-ui, sans-serif); background: #fafafa; }
+    .header { background: #1f1f5f; color: #fff; padding: 2.5rem 2rem 3.5rem; }
+    .header-inner { max-width: 1200px; margin: 0 auto; }
+    .header h1 { margin: 0 0 0.75rem; font-size: 3rem; font-weight: 700; }
+    .header p { margin: 0; font-size: 1.2rem; opacity: 0.9; }
+    .intro { max-width: 1200px; margin: -3rem auto 3rem; background: #fff; border-radius: 10px; padding: 3rem; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+    .intro h2 { margin: 0 0 1rem; color: #1f1f5f; font-size: 2rem; }
+    .intro p { margin: 0 0 1.25rem; color: #4a4a4a; line-height: 1.7; font-size: 1.0625rem; }
+    .intro ul { margin: 1rem 0 0 1.2rem; color: #4a4a4a; line-height: 1.7; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .section { margin: 4rem 0; }
+    .section h2 { margin: 0 0 1.5rem; font-size: 2.25rem; color: #1f1f5f; }
+    .section p { margin: 0 0 1.5rem; color: #4a4a4a; line-height: 1.7; font-size: 1.0625rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+    .box { background: #fff; border-left: 4px solid #ec8c58; padding: 1.5rem; border-radius: 6px; }
+    .box h3 { margin: 0 0 0.75rem; font-size: 1.3rem; color: #1f1f5f; }
+    .box p { margin: 0; color: #4a4a4a; line-height: 1.6; }
+    .cta { background: linear-gradient(135deg, #1f1f5f 0%, #003f87 100%); color: #fff; border-radius: 10px; padding: 3rem; text-align: center; }
+    .cta h2 { margin: 0 0 1rem; font-size: 2.4rem; }
+    .cta p { margin: 0 0 2rem; font-size: 1.2rem; opacity: 0.95; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    footer { background: #fff; border-top: 1px solid #e6e5e3; padding: 3rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .footer h4 { margin: 0 0 0.75rem; color: #1f1f5f; font-size: 1rem; }
+    .footer ul { list-style: none; padding: 0; margin: 0; color: #4a4a4a; }
+    .footer li { margin-bottom: 0.5rem; }
+    .footer-bottom { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e6e5e3; color: #4a4a4a; font-size: 0.95rem; line-height: 1.6; }
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2.2rem; }
+      .intro { margin: -2.5rem 1rem 2rem; padding: 2rem; }
+      .grid-2, .grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1>NT.gov.au Design System</h1>
+      <p>Design and build consistent, user-focused experiences across NT Government.</p>
+    </div>
+  </header>
+
+  <div class="intro">
+    <h2>Introduction</h2>
+    <p>We have developed a design system for whole-of-government to provide a consistent look and feel across NT Government's digital properties. It is a solid framework that can be tailored to suit the diverse range of sites and applications within the Northern Territory.</p>
+    <p>The tools help designers and developers build consistent, user-focused experiences for our audiences.</p>
+    <ul>
+      <li>Comprehensive component library with WCAG AA coverage</li>
+      <li>Design tokens for color, spacing, typography, and radii</li>
+      <li>React + TypeScript and vanilla JS runtime for CMS</li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <section class="section">
+      <h2>Who is it for?</h2>
+      <p>Built for NT Government teams to reduce time and cost while keeping quality and accessibility high.</p>
+      <div class="grid-4" style="margin-top: 1rem;">
+        <div class="box"><h3>Designers</h3><p>Quickly create wireframes and high-fidelity designs with ready patterns.</p></div>
+        <div class="box"><h3>Developers</h3><p>Implement pixel-perfect UIs with React components and strong docs.</p></div>
+        <div class="box"><h3>Content creators</h3><p>Compose pages confidently knowing layouts align to production UI.</p></div>
+        <div class="box"><h3>Product owners</h3><p>Review consistent experiences and give feedback faster.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Explore the design system</h2>
+      <div class="grid-2">
+        <div class="box"><h3>Getting started</h3><p>Installation, theming, and setup.</p><a class="ntgds-link" href="get-started.html">Learn more →</a></div>
+        <div class="box"><h3>Core styles</h3><p>Color, typography, spacing, and grid.</p><a class="ntgds-link" href="design.html">View styles →</a></div>
+        <div class="box"><h3>Components</h3><p>Interactive building blocks for UI.</p><a class="ntgds-link" href="components.html">Browse components →</a></div>
+        <div class="box"><h3>Development</h3><p>Architecture, tokens, and workflow.</p><a class="ntgds-link" href="development.html">Read docs →</a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta">
+        <h2>Ready to get started?</h2>
+        <p>Explore our components and start building better digital services.</p>
+        <div class="cta-actions">
+          <a class="ntgds-btn ntgds-btn--primary ntgds-btn--lg" href="get-started.html">Get started</a>
+          <a class="ntgds-btn ntgds-btn--secondary ntgds-btn--lg" style="background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.3); color: #fff;" href="components.html">Browse components</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h4>NT.gov.au Design System</h4>
+          <p style="color: #4a4a4a;">Building consistent, accessible digital services for the Northern Territory.</p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a class="ntgds-link" href="get-started.html">Get started</a></li>
+            <li><a class="ntgds-link" href="components.html">Components</a></li>
+            <li><a class="ntgds-link" href="design.html">Design</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a class="ntgds-link" href="https://ntgovernment.github.io/ntg-design-system" target="_blank" rel="noreferrer">Storybook</a></li>
+            <li><a class="ntgds-link" href="https://github.com/ntgovernment/ntg-design-system" target="_blank" rel="noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>We acknowledge the Traditional Owners and Custodians of the land and pay respect to Elders past, present and future.</p>
+        <p>© Northern Territory Government 2025</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

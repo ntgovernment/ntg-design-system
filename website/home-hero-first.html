@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NT.gov.au Design System</title>
+  <link rel="stylesheet" href="../dist/css/theme-ntg.min.css" />
+  <link rel="stylesheet" href="../dist/css/ntg-design-system-components.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--type-font-default, "Inter", system-ui, sans-serif); }
+    .hero { background: linear-gradient(135deg, #1f1f5f 0%, #003f87 100%); color: #fff; padding: 6rem 2rem 5rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 110px; background: #ec8c58; clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%); }
+    .hero-content { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero h1 { font-size: 3.75rem; margin: 0 0 1.25rem; line-height: 1.1; }
+    .hero p { font-size: 1.5rem; margin: 0 0 2.5rem; opacity: 0.95; }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card { background: #fff; border: 1px solid #e6e5e3; border-radius: 8px; padding: 2rem; transition: all 0.3s ease; }
+    .card:hover { border-color: #ec8c58; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); transform: translateY(-4px); }
+    .card i { font-size: 2.5rem; color: #ec8c58; margin-bottom: 1rem; display: block; }
+    .card h3 { margin: 0 0 0.75rem; font-size: 1.5rem; color: #1f1f5f; }
+    .card p { margin: 0; color: #4a4a4a; line-height: 1.6; }
+    .stats { background: #f5f4f2; padding: 4rem 2rem; }
+    .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center; }
+    .stat-number { font-size: 3rem; font-weight: 700; color: #ec8c58; margin: 0; }
+    .stat-label { margin: 0.5rem 0 0; color: #4a4a4a; font-size: 1.0625rem; }
+    .footer { background: #1f1f5f; color: #fff; padding: 3rem 2rem; text-align: center; }
+    .footer p { margin: 0.35rem 0; opacity: 0.9; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .hero p { font-size: 1.25rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions a { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>NT.gov.au Design System</h1>
+      <p>Build consistent, accessible government services quickly and efficiently.</p>
+      <div class="hero-actions">
+        <a class="ntgds-btn ntgds-btn--primary ntgds-btn--lg" href="get-started.html">Get started<i class="fa-solid fa-arrow-right ntgds-btn__icon ntgds-btn__icon--right"></i></a>
+        <a class="ntgds-btn ntgds-btn--secondary ntgds-btn--lg" href="components.html">Browse components</a>
+        <a class="ntgds-btn ntgds-btn--tertiary ntgds-btn--lg" href="https://ntgovernment.github.io/ntg-design-system" target="_blank" rel="noreferrer">View Storybook<i class="fa-solid fa-up-right-from-square ntgds-btn__icon ntgds-btn__icon--right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Consistent design</h3>
+        <p>Unified visual language across all NT Government digital properties.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-universal-access"></i>
+        <h3>Accessible</h3>
+        <p>WCAG 2.1 AA compliant components for inclusive digital services.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-code"></i>
+        <h3>Developer ready</h3>
+        <p>React components with TypeScript support and a vanilla JS runtime.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stats-grid">
+      <div>
+        <p class="stat-number">35+</p>
+        <p class="stat-label">Components</p>
+      </div>
+      <div>
+        <p class="stat-number">200+</p>
+        <p class="stat-label">Design tokens</p>
+      </div>
+      <div>
+        <p class="stat-number">100%</p>
+        <p class="stat-label">WCAG AA</p>
+      </div>
+      <div>
+        <p class="stat-number">2</p>
+        <p class="stat-label">Official themes</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-pencil-ruler"></i>
+        <h3>Designers</h3>
+        <p>Create wireframes and high-fidelity designs fast with pre-built patterns.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-code-branch"></i>
+        <h3>Developers</h3>
+        <p>Build pixel-perfect implementations with robust docs and TS types.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <h3>Content creators</h3>
+        <p>Assemble pages with confidence using proven layout components.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>We acknowledge the Traditional Owners and Custodians of the land and pay respect to Elders past, present and future.</p>
+    <p>© Northern Territory Government 2025</p>
+  </footer>
+</body>
+</html>

@@ -161,6 +161,7 @@
 /* Accordion content padding */
 /* Reduced motion support */
 /* High contrast mode support */
+/* In-Page Navigation Component Styles */
 /* NTG Design System Table Styles */
 /* Responsive/mobile styles *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
@@ -2899,6 +2900,48 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
     line-height: 1.4;
     font-weight: 400;
   }
+.ntgds-in-page-navigation:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    width: 100%;
+    padding-left: 16px;
+    padding-left: var(--sp-md, 16px);
+    border-left: 4px solid #d4d4d2;
+    border-left: 4px solid var(--clr-stroke-subtle, #d4d4d2);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    gap: var(--sp-md, 16px);
+  }
+.ntgds-in-page-navigation__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    color: #3b3b3a;
+    color: var(--clr-text-default, #3b3b3a);
+    font-size: 18px;
+    font-family: var(--type-font-default);
+    font-weight: 700;
+    line-height: 20px;
+    margin: 0;
+    word-wrap: break-word;
+  }
+.ntgds-in-page-navigation__links:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+.ntgds-in-page-navigation__links:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) li {
+    margin: 0;
+    padding: 0;
+  }
+.ntgds-in-page-navigation__links:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-link {
+    font-size: 16px;
+    font-size: var(--type-desktop-body-default-size, 16px);
+    font-weight: 400;
+    font-weight: var(--type-desktop-body-default-weight, 400);
+    line-height: 24px;
+    line-height: var(--type-desktop-body-default-lh, 24px);
+  }
+/* In-Page Navigation Component Styles */
 /* add more components the same way */
 /* NTG Design System Table Styles */
 .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {

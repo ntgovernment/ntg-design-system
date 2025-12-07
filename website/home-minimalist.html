@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NT.gov.au Design System</title>
+  <link rel="stylesheet" href="../dist/css/theme-ntg.min.css" />
+  <link rel="stylesheet" href="../dist/css/ntg-design-system-components.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--type-font-default, "Inter", system-ui, sans-serif); background: #fafafa; }
+    .nav { background: #fff; border-bottom: 1px solid #e6e5e3; padding: 1.25rem 2rem; position: sticky; top: 0; z-index: 10; }
+    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-weight: 700; font-size: 1.4rem; color: #1f1f5f; text-decoration: none; }
+    .links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+    .links a { color: #4a4a4a; text-decoration: none; font-weight: 500; }
+    .hero { max-width: 1000px; margin: 0 auto; padding: 7rem 2rem; text-align: center; }
+    .hero h1 { font-size: 4.2rem; margin: 0 0 1.5rem; color: #1f1f5f; line-height: 1.08; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.4rem; margin: 0 0 2.5rem; color: #4a4a4a; line-height: 1.6; }
+    .hero-actions { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .section { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { margin: 0 0 0.75rem; font-size: 2.75rem; color: #1f1f5f; letter-spacing: -0.01em; }
+    .section-header p { margin: 0; color: #4a4a4a; font-size: 1.15rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .card { background: #fff; border-radius: 12px; padding: 2.75rem 2.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: all 0.3s; }
+    .card:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.12); transform: translateY(-4px); }
+    .card-icon { width: 56px; height: 56px; border-radius: 12px; background: #ec8c58; color: #fff; display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .card h3 { margin: 0 0 0.75rem; font-size: 1.45rem; color: #1f1f5f; }
+    .card p { margin: 0; color: #4a4a4a; line-height: 1.7; font-size: 1.05rem; }
+    .divider { max-width: 1200px; margin: 5rem auto; height: 1px; background: #e6e5e3; }
+    .cta { background: linear-gradient(135deg, #1f1f5f 0%, #003f87 100%); color: #fff; text-align: center; padding: 5rem 2rem; }
+    .cta h2 { margin: 0 0 1rem; font-size: 2.6rem; }
+    .cta p { margin: 0 0 2.5rem; font-size: 1.2rem; opacity: 0.95; }
+    footer { background: #fff; border-top: 1px solid #e6e5e3; padding: 3.5rem 2rem; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; }
+    footer h3 { margin: 0 0 0.75rem; font-size: 1rem; color: #1f1f5f; letter-spacing: 0.04em; text-transform: uppercase; }
+    footer p { margin: 0; color: #4a4a4a; line-height: 1.6; }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer li { margin-bottom: 0.6rem; }
+    .footer-bottom { max-width: 1200px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid #e6e5e3; color: #4a4a4a; font-size: 0.95rem; }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .links { display: none; } .hero h1 { font-size: 3rem; } .cards { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .cta h2 { font-size: 2.1rem; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="home-minimalist.html">NT Design System</a>
+      <ul class="links">
+        <li><a href="components.html">Components</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="development.html">Development</a></li>
+        <li><a href="get-started.html">Get started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Build better government services</h1>
+    <p>A comprehensive design system for creating consistent, accessible digital experiences across Northern Territory Government.</p>
+    <div class="hero-actions">
+      <a class="ntgds-btn ntgds-btn--primary ntgds-btn--lg" href="get-started.html">Get started<i class="fa-solid fa-arrow-right ntgds-btn__icon ntgds-btn__icon--right"></i></a>
+      <a class="ntgds-btn ntgds-btn--secondary ntgds-btn--lg" href="components.html">Browse components</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Everything you need</h2>
+      <p>For designers, developers, and content creators building NT Government services</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-swatchbook"></i></div>
+        <h3>Components</h3>
+        <p>35+ production-ready components built with accessibility and performance.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+        <h3>Design tokens</h3>
+        <p>200+ tokens for color, spacing, typography, and theming across brands.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-universal-access"></i></div>
+        <h3>Accessible</h3>
+        <p>WCAG 2.1 AA compliant defaults with strong focus and contrast states.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>For everyone</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-pencil-ruler"></i></div>
+        <h3>Designers</h3>
+        <p>Create high-fidelity designs and prototypes quickly with proven patterns.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-code-branch"></i></div>
+        <h3>Developers</h3>
+        <p>React components with TypeScript support and vanilla JS runtime.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <h3>Content creators</h3>
+        <p>Assemble pages confidently using layout and navigation patterns.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to start building?</h2>
+    <p>Get up and running in minutes with our documentation.</p>
+    <a class="ntgds-btn ntgds-btn--primary ntgds-btn--lg" style="background:#ec8c58; border-color:#ec8c58;" href="get-started.html">View documentation<i class="fa-solid fa-arrow-right ntgds-btn__icon ntgds-btn__icon--right"></i></a>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>NT.gov.au Design System</h3>
+        <p>Building consistent, accessible digital services for the Northern Territory.</p>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul>
+          <li><a class="ntgds-link" href="components.html">Components</a></li>
+          <li><a class="ntgds-link" href="design.html">Design</a></li>
+          <li><a class="ntgds-link" href="development.html">Development</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a class="ntgds-link" href="https://ntgovernment.github.io/ntg-design-system" target="_blank" rel="noreferrer">Storybook</a></li>
+          <li><a class="ntgds-link" href="https://github.com/ntgovernment/ntg-design-system" target="_blank" rel="noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>We acknowledge the Traditional Owners and Custodians of the land and pay respect to Elders past, present and future.</p>
+      <p style="margin-top:0.6rem;">© Northern Territory Government 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
