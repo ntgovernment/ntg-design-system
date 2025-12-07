@@ -30,8 +30,6 @@ export { Pagination } from '../components/pagination/Pagination';
 export { Pill } from '../components/pill/Pill';
 export { QuickExit } from '../components/quick-exit/QuickExit';
 export { SearchBar } from '../components/search-bar/SearchBar';
-export { SideNavigation } from '../components/side-navigation/SideNavigation';
-export type { SideNavigationProps, SideNavigationItem } from '../components/side-navigation/SideNavigation';
 export { Tag } from '../components/tag/Tag';
 declare function initAll(root?: ParentNode): void;
 export declare const components: {

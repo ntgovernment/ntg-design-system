@@ -79,10 +79,6 @@
 /* Desert Rose Watermark */
 /* Tablet and Desktop Layout */
 /* Mobile adjustments */
-/* Active state - only on the list item (left border) */
-/* Focus state only applies to Link component (inherits from ntgds-link) */
-/* Desktop layout - sidebar fixed width */
-/* Mobile layout - full width */
 /* Primary button variant */
 /* Secondary button variant */
 /* Tertiary button variant */
@@ -166,7 +162,6 @@
 /* Reduced motion support */
 /* High contrast mode support */
 /* In-Page Navigation Component Styles */
-/* Side Navigation Component Styles */
 /* NTG Design System Table Styles */
 /* Responsive/mobile styles *//* src/components.css */
 /* Put files into their cascade layers using the import’s layer() option */
@@ -2947,127 +2942,6 @@ a:hover:not(#\#):not(#\#):not(#\#):not(#\#) {
     line-height: var(--type-desktop-body-default-lh, 24px);
   }
 /* In-Page Navigation Component Styles */
-.ntgds-side-navigation:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-.ntgds-side-navigation__header-wrapper:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    padding: 16px 0;
-    border-bottom: 1px solid #1f1f5f;
-    border-bottom: 1px solid var(--clr-stroke-strong-01, #1f1f5f);
-    display: flex;
-  }
-.ntgds-side-navigation__header:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 18px;
-    color: #1f1f5f;
-    color: var(--clr-link-default, #1f1f5f);
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    border-bottom: 4px solid transparent;
-  }
-.ntgds-side-navigation__header:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    color: var(--clr-link-hover);
-    -webkit-text-decoration: none;
-    text-decoration: none;
-  }
-.ntgds-side-navigation__header:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-side-navigation__title {
-    color: var(--clr-link-hover);
-  }
-.ntgds-side-navigation__header:hover:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-icon {
-    color: var(--clr-link-hover);
-  }
-.ntgds-side-navigation__header:visited:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    color: var(--clr-link-visited);
-    -webkit-text-decoration: none;
-    text-decoration: none;
-  }
-.ntgds-side-navigation__header:visited:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-side-navigation__title {
-    color: var(--clr-link-visited);
-  }
-.ntgds-side-navigation__header:focus-visible:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    outline: none;
-    background: var(--clr-focus-focus);
-    border-bottom-color: var(--clr-stroke-strong);
-    color: var(--clr-link-default);
-    -webkit-text-decoration: none;
-    text-decoration: none;
-  }
-.ntgds-side-navigation__title:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    color: #1f1f5f;
-    color: var(--clr-link-default, #1f1f5f);
-    font-size: 18px;
-    font-family: var(--type-font-default);
-    font-weight: 700;
-    line-height: 20px;
-    margin: 0;
-    word-wrap: break-word;
-  }
-.ntgds-side-navigation__items:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-.ntgds-side-navigation__item:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid #d4d4d2;
-    border-bottom: 1px solid var(--clr-stroke-subtle, #d4d4d2);
-    display: flex;
-    align-items: center;
-  }
-.ntgds-side-navigation__link-wrapper:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 16px;
-    padding-left: 16px;
-    padding-left: var(--sp-md, 16px);
-    padding-top: 18px;
-    flex: 1;
-  }
-.ntgds-side-navigation__link:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    font-size: 16px;
-    font-size: var(--type-desktop-body-default-size, 16px);
-    font-weight: 400;
-    font-weight: var(--type-desktop-body-default-weight, 400);
-    line-height: 24px;
-    line-height: var(--type-desktop-body-default-lh, 24px);
-  }
-/* Active state - only on the list item (left border) */
-.ntgds-side-navigation__item--active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    border-left: 4px solid #1f1f5f;
-    border-left: 4px solid var(--clr-stroke-strong-01, #1f1f5f);
-  }
-.ntgds-side-navigation__item--active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .ntgds-side-navigation__link-wrapper {
-    padding-left: calc(16px - 4px);
-    padding-left: calc(var(--sp-md, 16px) - 4px);
-  }
-.ntgds-side-navigation__link--active:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-    font-weight: 700;
-  }
-/* Focus state only applies to Link component (inherits from ntgds-link) */
-/* Desktop layout - sidebar fixed width */
-@media (min-width: 768px) {
-    .ntgds-side-navigation:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-      width: 298px;
-      flex-shrink: 0;
-    }
-  }
-/* Mobile layout - full width */
-@media (max-width: 767px) {
-    .ntgds-side-navigation:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
-      width: 100%;
-    }
-  }
-/* Side Navigation Component Styles */
 /* add more components the same way */
 /* NTG Design System Table Styles */
 .ntgds-table:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) {
