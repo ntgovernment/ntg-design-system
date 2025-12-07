@@ -104,6 +104,35 @@ The NTG Design System is a comprehensive library of reusable UI components, desi
 
 Comprehensive documentation and interactive examples are available through the [Component Library](https://ntgovernment.github.io/ntg-design-system), where you can browse and interact with all available components.
 
+### DXP Component Development
+
+The design system includes integration with **Squiz DXP** (Digital Experience Platform) for content management. A dedicated Component Viewer allows design system components to be previewed and embedded within Squiz DXP.
+
+**For local DXP component development**, see the comprehensive guide:
+
+📘 **[Previewing DXP Components Locally](PREVIEWING-DXP-COMPONENTS-LOCALLY.md)**
+
+This guide covers:
+
+- Setting up the dxp-next CLI
+- Starting the local development server
+- Component architecture and file structure
+- Creating custom preview data
+- Troubleshooting common errors
+- Deployment to Squiz DXP environments
+
+**Quick Start:**
+
+```bash
+# Navigate to DXP component directory
+cd src/components/component-viewer/dxp
+
+# Start development server
+dxp-next cmp dev-ui .
+
+# Open http://localhost:3000 in browser
+```
+
 ## Available Components
 
 The design system provides a comprehensive component library with full TypeScript support and Storybook documentation. Each component has dedicated documentation in its respective folder.
@@ -120,11 +149,11 @@ The design system provides a comprehensive component library with full TypeScrip
 **Icon System**: All components using icons leverage the `Icon` component which wraps Font Awesome 6. Requires Font Awesome CDN or bundle. See [src/components/icon/ICON.md](src/components/icon/ICON.md).
 
 **For detailed component documentation, props, and usage examples**, refer to individual component folders in `src/components/` or view the [Storybook documentation](https://ntgovernment.github.io/ntg-design-system). Component-specific documentation:
+
 - Footer: [src/components/footer/FOOTER.md](src/components/footer/FOOTER.md)
 - Document: [src/components/document/DOCUMENT.md](src/components/document/DOCUMENT.md)
 - HeroBanner: [src/components/hero-banner/HEROBANNER.md](src/components/hero-banner/HEROBANNER.md)
 - InPageNavigation: [src/components/in-page-navigation/INPAGENAVIGATION.md](src/components/in-page-navigation/INPAGENAVIGATION.md)
-
 
 ## Demo Images
 
@@ -226,10 +255,11 @@ The design system uses CSS `@layer` to ensure predictable cascade order:
        typography,
        overrides,
        foundations,
-       components;         /* Highest priority */
+       components; /* Highest priority */
 ```
 
 **Layer Purposes:**
+
 - `theme-primitives`: Maps brand-specific primitives to generic `--theme-*` tokens
 - `semantics`: Shared semantic tokens (colors, spacing, etc.)
 - `typography`: Shared typography tokens
@@ -271,12 +301,14 @@ The design system uses CSS `@layer` to ensure predictable cascade order:
 ```
 
 **Flow:**
+
 1. **Primitives** define raw values with brand prefixes (e.g., `--ntg-`, `--ntg-central-`)
 2. **Theme-Primitives** map these to generic `--theme-*` tokens (abstraction layer)
 3. **Semantics** map `--theme-*` to meaningful `--clr-*`, `--sp-*`, `--type-*` tokens
 4. **Components** use only semantic tokens for styling
 
 This architecture allows:
+
 - Shared semantic layer across all themes (no duplication)
 - Easy theme switching without component changes
 - Clear separation of concerns
@@ -288,24 +320,26 @@ The design system includes **accessible color variants** with an `-ac` suffix to
 
 **Available Accessible Variants:**
 
-| Token | Hex Value | Purpose |
-|-------|-----------|---------|
-| `--ntg-colour-new-brand-regional-colours-darwin-ac` | `#398600` | Accessible Darwin region color |
-| `--ntg-colour-new-brand-regional-colours-top-end-ac` | `#00819e` | Accessible Top End region color |
-| `--ntg-colour-new-brand-regional-colours-barkly-ac` | `#d2430f` | Accessible Barkly region color |
+| Token                                                          | Hex Value | Purpose                                   |
+| -------------------------------------------------------------- | --------- | ----------------------------------------- |
+| `--ntg-colour-new-brand-regional-colours-darwin-ac`            | `#398600` | Accessible Darwin region color            |
+| `--ntg-colour-new-brand-regional-colours-top-end-ac`           | `#00819e` | Accessible Top End region color           |
+| `--ntg-colour-new-brand-regional-colours-barkly-ac`            | `#d2430f` | Accessible Barkly region color            |
 | `--ntg-colour-new-brand-regional-colours-central-australia-ac` | `#e8114b` | Accessible Central Australia region color |
-| `--ntg-colour-new-brand-primary-territory-ac` | `#d6410a` | Accessible Territory primary color |
-| `--ntg-colour-new-brand-secondary-coastline-ac` | `#288186` | Accessible Coastline secondary color |
+| `--ntg-colour-new-brand-primary-territory-ac`                  | `#d6410a` | Accessible Territory primary color        |
+| `--ntg-colour-new-brand-secondary-coastline-ac`                | `#288186` | Accessible Coastline secondary color      |
 
 **When to Use Accessible Variants:**
 
 ✅ **Use `-ac` variants when:**
+
 - Applying color to text with light backgrounds
 - Creating colored backgrounds with white/light text
 - Meeting WCAG AA (4.5:1 contrast) or AAA (7:1 contrast) requirements
 - Building components where accessibility is critical (e.g., tags, badges, notifications)
 
 ❌ **Use standard variants when:**
+
 - Color is decorative only (not conveying information)
 - Sufficient contrast is already guaranteed by semantic tokens
 - Component design has been tested for accessibility with standard colors
@@ -316,8 +350,12 @@ The design system includes **accessible color variants** with an `-ac` suffix to
 /* In theme files (e.g., theme-ntg.css) */
 @layer theme-primitives {
   /* Map accessible variants to theme tokens */
-  --theme-colour-regional-darwin: var(--ntg-colour-new-brand-regional-colours-darwin-ac);
-  --theme-colour-regional-top-end: var(--ntg-colour-new-brand-regional-colours-top-end-ac);
+  --theme-colour-regional-darwin: var(
+    --ntg-colour-new-brand-regional-colours-darwin-ac
+  );
+  --theme-colour-regional-top-end: var(
+    --ntg-colour-new-brand-regional-colours-top-end-ac
+  );
 }
 
 @layer semantics {
@@ -329,6 +367,7 @@ The design system includes **accessible color variants** with an `-ac` suffix to
 **Components Using Accessible Variants:**
 
 The following components are configured to use accessible color variants by default:
+
 - **Tag component**: Regional color variants (tag-3, tag-4, tag-7, tag-8)
 - **Future components**: As the design system expands, more components may adopt accessible variants
 
@@ -361,6 +400,7 @@ dist/
 ```
 
 **Build Configuration:**
+
 - **CSS**: PostCSS with autoprefixer and preset-env (via [`postcss.config.cjs`](postcss.config.cjs))
 - **JS/TS**: Vite with IIFE format for global `NTG` namespace (via [`vite.config.ts`](vite.config.ts))
 - **Types**: Generated via `vite-plugin-dts` for TypeScript consumers
@@ -420,12 +460,12 @@ First, add your organization's color primitives to [`src/tokens/ntg-design-syste
   --yourorg-colour-neutrals-black: #000000;
   --yourorg-colour-neutrals-100: #f5f5f5;
   /* ... continue for 200-900 */
-  
+
   /* Primary colors */
   --yourorg-colour-primary-blue-default: #0066cc;
   --yourorg-colour-primary-blue-100: #e6f0ff;
   /* ... continue for 200-900 */
-  
+
   /* Add orange, secondary, and status colors following the pattern */
 }
 ```
@@ -440,13 +480,16 @@ In your [`theme-yourorg.css`](src/themes/theme-yourorg.css), replace all `--YOUR
     /* Map your primitives to generic --theme-* tokens */
     --theme-colour-neutrals-white: var(--yourorg-colour-neutrals-white);
     --theme-colour-neutrals-black: var(--yourorg-colour-neutrals-black);
-    --theme-colour-primary-blue-default: var(--yourorg-colour-primary-blue-default);
+    --theme-colour-primary-blue-default: var(
+      --yourorg-colour-primary-blue-default
+    );
     /* ... complete all required mappings (see template) */
   }
 }
 ```
 
 **Required Mappings:**
+
 - 11 neutral shades (white, black, 100-900)
 - 9 primary blue shades (100-900 + default)
 - 9 primary orange shades
@@ -464,10 +507,10 @@ Add theme-specific customizations in the overrides layer:
     /* Typography */
     --type-font-default: "Your Font", system-ui, sans-serif;
     --type-font-alt: "Your Alt Font", Georgia, serif;
-    
+
     /* Border radii */
     --radii-button: 8px; /* or 0 for square, or "full" for rounded */
-    
+
     /* Custom tag colors */
     --clr-tag-region1-bg: var(--yourorg-colour-secondary-green-100);
     --clr-tag-region1-text: var(--yourorg-colour-secondary-green-700);
@@ -602,7 +645,7 @@ export const YourComponent: React.FC<YourComponentProps> = ({
   ...props
 }) => {
   const baseClass = "ntgds-your-component";
-  
+
   const classes = [
     baseClass,
     `${baseClass}--${variant}`,
@@ -621,6 +664,7 @@ export const YourComponent: React.FC<YourComponentProps> = ({
 ```
 
 **Key Patterns:**
+
 - Use `ntgds-` prefix for all CSS classes
 - Export TypeScript interface for props
 - Provide sensible defaults
@@ -673,6 +717,7 @@ Create [`your-component.css`](src/components/your-component/your-component.css) 
 ```
 
 **Token Categories:**
+
 - `--sp-*`: Spacing (xs, sm, md, lg, xl, xxl, xxxl)
 - `--clr-*`: Colors (action, surface, text, stroke, status, etc.)
 - `--type-*`: Typography (font families, sizes, weights)
@@ -773,10 +818,12 @@ If your component needs JavaScript interactivity beyond React, create [`your-com
 
 ```typescript
 export function enhanceYourComponents(root: ParentNode = document) {
-  for (const el of root.querySelectorAll<HTMLElement>(".ntgds-your-component")) {
+  for (const el of root.querySelectorAll<HTMLElement>(
+    ".ntgds-your-component"
+  )) {
     if ((el as any)._dsEnhanced) continue;
     (el as any)._dsEnhanced = true;
-    
+
     // Add event listeners or initialize behavior
     el.addEventListener("click", () => {
       console.log("Component clicked");
@@ -820,6 +867,7 @@ export const components = {
 ### Reference Implementation
 
 See the [`Button`](src/components/button/Button.tsx) component as a reference implementation:
+
 - [`Button.tsx`](src/components/button/Button.tsx) - Component implementation
 - [`button.css`](src/components/button/button.css) - Styles with design tokens
 - [`Button.stories.tsx`](src/components/button/Button.stories.tsx) - Storybook documentation
@@ -851,6 +899,7 @@ npm run storybook
 Starts Storybook development server at [http://localhost:6006](http://localhost:6006).
 
 **Features:**
+
 - Live component preview with interactive controls
 - Hot module replacement (HMR) via [`src/components.hmr.ts`](src/components.hmr.ts)
 - Theme switcher toolbar
@@ -874,6 +923,7 @@ npm run build:js
 ```
 
 Builds TypeScript to IIFE bundle:
+
 - Input: [`src/runtime/index.ts`](src/runtime/index.ts)
 - Output: `dist/ntg-design-system.min.js`
 - Format: IIFE (Immediately Invoked Function Expression)
@@ -896,6 +946,7 @@ npm run build:css:components       # Component styles
 ```
 
 Each command:
+
 1. Processes CSS with [`postcss.config.cjs`](postcss.config.cjs)
 2. Applies autoprefixer for browser compatibility
 3. Minifies output
@@ -912,6 +963,7 @@ npm run build-storybook
 Builds static Storybook site to [`docs/`](docs/) folder. This is used for GitHub Pages deployment.
 
 **Process:**
+
 1. Runs `npm run build` to generate CSS/JS
 2. Builds Storybook with production config
 3. Copies built assets to `docs/` folder
@@ -1008,6 +1060,7 @@ git worktree remove /d/Projects/ntg-design-system-gh-pages
 ### File Watching
 
 Vite automatically watches files when running `npm run storybook`:
+
 - TypeScript files: [`src/**/*.ts`](src/), [`src/**/*.tsx`](src/)
 - CSS files: [`src/**/*.css`](src/)
 - Story files: [`src/**/*.stories.tsx`](src/)
@@ -1033,6 +1086,7 @@ dist/
 ### Environment Variables
 
 No environment variables required. All configuration is in:
+
 - [`vite.config.ts`](vite.config.ts) - Vite build settings
 - [`tsconfig.json`](tsconfig.json) - TypeScript compiler options
 - [`postcss.config.cjs`](postcss.config.cjs) - CSS processing
@@ -1041,25 +1095,30 @@ No environment variables required. All configuration is in:
 ### Troubleshooting
 
 **Issue: Icons not appearing in Storybook**
+
 - Ensure [`.storybook/preview-head.html`](.storybook/preview-head.html) includes Font Awesome CDN link
 - Check browser console for Font Awesome loading errors
 
 **Issue: Theme not applying in Storybook**
+
 - Verify theme is built: `npm run build:css:theme:yourorg`
 - Check theme is added to `THEME_MAP` in [`.storybook/preview.ts`](.storybook/preview.ts)
 - Use Storybook toolbar to select theme
 
 **Issue: TypeScript errors in components**
+
 - Run `npm install` to ensure all type definitions are installed
 - Check [`tsconfig.json`](tsconfig.json) includes your source files
 - Restart TypeScript server in VS Code: Cmd/Ctrl+Shift+P → "TypeScript: Restart TS Server"
 
 **Issue: CSS changes not reflecting**
+
 - Ensure CSS is imported in [`src/components.css`](src/components.css) with `layer(components)`
 - Check file is being watched by Vite (should see in terminal output)
 - Hard refresh browser: Cmd/Ctrl+Shift+R
 
 **Issue: Build fails with PostCSS errors**
+
 - Verify all `@import` paths are correct
 - Check for CSS syntax errors
 - Ensure [`postcss.config.cjs`](postcss.config.cjs) has all required plugins installed
